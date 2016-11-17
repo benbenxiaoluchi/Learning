@@ -1,0 +1,279 @@
+﻿<!-- The title of the ion-view will be shown on the navbar -->
+<ion-modal-view class="forSkillsDetails" view-title="Skill" acc-modal-priority="10">
+
+
+    <ion-header-bar class="bar navPrimary" align-title="center">
+        <div class="buttons">
+            <button menu-toggle="left" class="button button-icon icon acc-angle-left" ng-click="closeModal('skills')"></button>
+        </div>
+        <h3 class="title">Details</h3>
+    </ion-header-bar>
+
+    <ion-content class="white has-acc-header" has-bouncing="false" delegate-handle="skillDetail">
+        <div class="list acc-thing noborders">
+            <ion-item class="item-body item-icon-left with-identifier">
+                <div class="identifier rounded icon">
+                    <!--<span class="identifier-badge accepted">
+                        <i class="acc-check"></i>
+                    </span>-->
+                    <i class="identifier-icon acc-skill"></i>
+                </div>
+                <h2 class="title">{{skillSelected.SkillName}}</h2>
+                <!--For rating-->
+                <p class="rating no-picture">
+                    <i class="acc-star p0" ng-class="{'user': (skillSelected.UserProficiency>=1), 'required': (skillSelected.ProficiencyRole>=1 && skillSelected.UserProficiency<1)}"></i>
+                    <i class="acc-star p1" ng-class="{'user': (skillSelected.UserProficiency>=2), 'required': (skillSelected.ProficiencyRole>=2 && skillSelected.UserProficiency<2)}"></i>
+                    <i class="acc-star p2" ng-class="{'user': (skillSelected.UserProficiency>=3), 'required': (skillSelected.ProficiencyRole>=3 && skillSelected.UserProficiency<3)}"></i>
+                    <i class="acc-star p3" ng-class="{'user': (skillSelected.UserProficiency>=4), 'required': (skillSelected.ProficiencyRole>=4 && skillSelected.UserProficiency<4)}"></i>
+                    <i class="acc-star p4" ng-class="{'user': (skillSelected.UserProficiency>=5), 'required': (skillSelected.ProficiencyRole>=5 && skillSelected.UserProficiency<5)}"></i>
+                </p>
+            </ion-item>
+
+            <ion-item class="item-body noborders" ng-class="{'long-animated fadeOutLeft': animateProficiencyDescription}" ng-show="showDescription">
+                <p ng-show="skillSelected.SkillDescription == '' || skillSelected.SkillDescription == null">No Description available.</p>
+                <p ng-show="skillSelected.SkillDescription != ''" ng-bind-html="skillSelected.SkillDescription"></p>
+            </ion-item>
+
+        </div>
+        <ion-list>
+
+            <ion-list class="content light-bgr">
+                <ion-item class="item item-divider list-divider noborders">
+                    <h3>Learning Activities for Skill </h3>
+                </ion-item>
+                <!--For no learning activitites found.-->
+                <ion-item class="noborders" ng-show="noResultsLearningActivities">
+                    <p class="text-center">No learning activities found.</p>
+                </ion-item>
+
+                <!--TRAININGS-->
+                <div class="list card acc-thing summary-card" summary-card="skillLearnings.list.length" data-is-card="true">
+                    <ion-item class="item-body item-icon-left noborders with-identifier summary-card-header">
+                        <div class="identifier rounded icon">
+                            <i class="identifier-icon acc-book"></i>
+                        </div>
+                        <!--Start Fix Bug#351685: Bug - [UI] - Skill Details - The header is "Trainings" but should be "MyLearning Courses" as in the home-->                        
+                        <h2>MyLearning Courses</h2>
+                        <!--End Fix Bug#351685: Bug - [UI] - Skill Details - The header is "Trainings" but should be "MyLearning Courses" as in the home-->
+
+                    </ion-item>
+
+                    <div class="list summary-card-collapsable">
+                        <!--Repeat from here-->
+                        <div id="skill_item_{{training.ID}}" class="list card acc-thing summary-card-element" ng-repeat="training in skillLearnings.list | limitTo:constants.recommendations.size" on-touch="selectItem(training)">
+                            <ion-item class="summary-card-item item-body">
+                                <h2 class=" title">
+                                    {{training.Title}}
+                                </h2>
+                                <p class="ellipsis">{{training.CourseType}} | {{training.CourseDuration}}h</p>
+                            </ion-item>
+                            <io-item class="item-skills" ng-show="training.MatchingSkillsNames.length > 0">
+                                <p>Skills You Will Improve</p>
+                                <div class="fortags">
+                                    <span class="tags" ng-repeat="skill in training.MatchingSkillsNames | limitTo : 3">{{skill}}</span>
+                                </div>
+                            </io-item>
+
+                            <ion-item class="bottom-actions button-bar item-divider">
+                                <a class="button" ng-show="training.InActionPlan"><i class="acc-check"></i> ADDED TO PLAN</a>
+                                <a class="button" ng-show="!training.InActionPlan" add-action-plan="{{training}}" data-type="{{constants.actionPlan.type.learning}}" data-is-detail="true">ADD TO PLAN</a>
+                                <a class="button" ng-show="!training.InActionPlan" ng-click="openLAWindow(training,constants.recommendations.type.learning)" add-action-plan="{{training}}" data-type="{{constants.actionPlan.type.learning}}" data-is-detail="true">REGISTER</a>
+                            </ion-item>
+                        </div>
+                        <!--Show more button-->
+                        <ion-item class="item-body withGray noborders" ng-show="!skillLearnings.endPaging">
+                            <h4 class="text-center noMarginTop" ng-click="showMoreLearningActivities('trainings')">SHOW MORE</h4>
+                        </ion-item>
+                    </div>
+
+                </div>
+
+                <!--LEARNING BOARDS-->
+                <div class="list card acc-thing summary-card" summary-card="skillLearningBoards.list.length" data-is-card="true">
+                    <ion-item class="item-body item-icon-left noborders with-identifier summary-card-header">
+                        <div class="identifier rounded icon">
+                            <i class="identifier-icon acc-book"></i>
+                        </div>
+                        <h2>Learning Boards</h2>
+
+                    </ion-item>
+
+                    <div class="list summary-card-collapsable">
+                        <div id="skill_item_{{board.ID}}" class="list card acc-thing summary-card summary-card-element" ng-repeat="board in skillLearningBoards.list | limitTo:constants.recommendations.size" on-touch="selectItem(board)">
+                            <ion-item class="item-body">
+                                <h2 class="title">{{board.Title}}</h2>
+                            </ion-item>
+                            <ion-item class="item-body" ng-bind-html="board.Description">
+                            </ion-item>
+                            <ion-item class="bottom-actions button-bar item-divider">
+                                <a class="button" ng-show="board.InActionPlan"><i class="acc-check"></i> ADDED TO PLAN</a>
+                                <a class="button" ng-show="!board.InActionPlan" add-action-plan="{{board}}" data-type="{{constants.actionPlan.type.board}}" data-is-detail="true">ADD TO PLAN</a>
+                                <a class="button" ng-show="!board.InActionPlan" ng-click="openLAWindow(board,constants.recommendations.type.board)" add-action-plan="{{board}}" data-type="{{constants.actionPlan.type.board}}" data-is-detail="true">FOLLOW</a>
+                            </ion-item>
+                        </div>
+                        <ion-item class="item-body withGray noborders" ng-show="!skillLearningBoards.endPaging">
+                            <h4 class="text-center noMarginTop" ng-click="showMoreLearningActivities('boards')">SHOW MORE</h4>
+                        </ion-item>
+                    </div>
+                </div>
+
+                <!--COMMUNITIES-->
+                <div class="list card acc-thing summary-card" summary-card="skillCommunities.list.length" data-is-card="true">
+                    <ion-item class="item-body item-icon-left noborders with-identifier summary-card-header">
+                        <div class="identifier rounded icon">
+                            <i class="identifier-icon acc-group-o"></i>
+                        </div>
+                        <h2>Communities</h2>
+
+                    </ion-item>
+
+                    <div class="list summary-card-collapsable">
+                        <!--Repeat from here-->
+                        <div id="skill_item_{{community.ID}}" class="list card acc-thing summary-card-element" ng-repeat="community in skillCommunities.list | limitTo:constants.recommendations.size" on-touch="selectItem(community)">
+                            <ion-item class="item-body item-icon-left noborders">
+
+                                <h2>{{community.Title}}</h2>
+                            </ion-item>
+
+                            <ion-item class="bottom-actions button-bar item-divider">
+                                <a class="button" ng-show="community.InActionPlan"><i class="acc-check"></i> ADDED TO PLAN</a>
+                                <a class="button" ng-show="!community.InActionPlan" add-action-plan="{{community}}" data-type="{{constants.actionPlan.type.community}}" data-is-detail="true">ADD TO PLAN</a>
+                                <a class="button" ng-show="!community.InActionPlan" ng-click="openLAWindow(community,constants.recommendations.type.community)" add-action-plan="{{community}}" data-type="{{constants.actionPlan.type.community}}" data-is-detail="true">JOIN</a>
+                            </ion-item>
+
+                        </div>
+                        <ion-item class="item-body withGray noborders" ng-show="!skillCommunities.endPaging">
+                            <h4 class="text-center noMarginTop" ng-click="showMoreLearningActivities('communities')">SHOW MORE</h4>
+                        </ion-item>
+                    </div>
+
+                </div>
+
+                <!--PYMK-->
+                <div class="list card acc-thing summary-card" summary-card="skillPYMK.list.length" data-is-card="true">
+                    <ion-item class="item-body item-icon-left noborders with-identifier summary-card-header">
+                        <div class="identifier rounded icon">
+                            <i class="identifier-icon acc-user2-o"></i>
+                        </div>
+                        <h2>People specializing in skills you're following</h2>
+
+                    </ion-item>
+
+                    <div class="list summary-card-collapsable">
+                        <!--Repeat from here-->
+                        <div id="skill_item_{{people.PeopleKey}}" class="list card acc-thing summary-card-element" ng-repeat="people in skillPYMK.list | limitTo:constants.recommendations.size" on-touch="selectItem(people)">
+                            <ion-item class="item-body item-icon-left noborders with-identifier">
+
+                                <div class="identifier rounded icon">
+                                    <img acn-image-display data-ref="{{people.PeopleKey}}" class="identifier-img" />
+
+                                </div>
+                                <h2>{{people.FirstName}} specializes in skills you're following</h2>
+                                <p ng-show="people.MatchingSkillList != null && people.MatchingSkillList.length > 0" class="ellipsis">{{people.MatchingSkillList[0]}} <span ng-show="people.MatchingSkillList.length > 1">and {{people.MatchingSkillList.length - 1}} more</span></p>
+                            </ion-item>
+                            <ion-item class="bottom-actions button-bar item-divider">
+                                <a class="button" ng-show="people.InActionPlan"><i class="acc-check"></i> ADDED TO PLAN</a>
+                                <a class="button" ng-show="!people.InActionPlan" add-action-plan="{{people}}" data-type="{{constants.actionPlan.type.pymk}}" data-is-detail="true">ADD TO PLAN</a>
+                                <a class="button" ng-show="!people.InActionPlan" ng-click="openLAWindow(people,constants.recommendations.type.pymk)" add-action-plan="{{people}}" data-type="{{constants.actionPlan.type.pymk}}" data-is-detail="true">CONTACT</a>
+                            </ion-item>
+
+                        </div>
+                        <ion-item class="item-body withGray noborders" ng-show="!skillPYMK.endPaging">
+                            <h4 class="text-center noMarginTop" ng-click="showMoreLearningActivities('pymk')">SHOW MORE</h4>
+                        </ion-item>
+                    </div>
+
+                </div>
+
+                <!--Opportunities-->
+                <div class="list card acc-thing summary-card" summary-card="skillPositions.list.length" data-is-card="true">
+                    <ion-item class="item-body item-icon-left noborders with-identifier summary-card-header">
+                        <div class="identifier rounded icon">
+                            <i class="identifier-icon acc-job"></i>
+                        </div>
+                        <h2>Open Positions</h2>
+                    </ion-item>
+                    <div class="list summary-card-collapsable">
+                        <!--Repeat from here-->
+                        <div id="skill_item_{{position.PositionId}}" class="list card acc-thing summary-card-element" ng-repeat="position in skillPositions.list | limitTo:constants.recommendations.size">
+                            <ion-item class="summary-card-item item-body">
+                                <h2 class=" title">
+                                    {{position.PositionTitle}}
+                                </h2>
+                                <p>{{position.RoleDesc}}</p>
+                            </ion-item>
+                            <ion-item class="summary-card-item item-body withIcons">
+                                <p><i class="acc-star"></i>{{position.TalentSegment}}</p>
+                                <p><i class="acc-building"></i>{{position.Workforce}}</p>
+                                <p>
+                                    <i class="acc-map-marker2"></i>{{position.Locations.join(', ')}}
+                                </p>
+                            </ion-item>
+                            <ion-item class="bottom-actions button-bar item-divider">
+                                <a class="button" ng-show="position.InActionPlan"><i class="acc-check"></i> ADDED TO PLAN</a>
+                                <a class="button" ng-show="!position.InActionPlan" add-action-plan="{{position}}" data-type="{{constants.actionPlan.type.position}}" data-is-detail="true">ADD TO PLAN</a>
+                                <a class="button" ng-show="!position.InActionPlan" ng-click="applyLAItem(position,'position')" add-action-plan="{{position}}" data-type="{{constants.actionPlan.type.position}}" data-is-detail="true">APPLY</a>
+                            </ion-item>
+                        </div>
+                        <ion-item class="item-body withGray noborders" ng-show="!skillPositions.endPaging">
+                            <h4 class="text-center noMarginTop" ng-click="showMoreLearningActivities('positions')">SHOW MORE</h4>
+                        </ion-item>
+                    </div>
+                </div>
+
+                <!--Assignments-->
+                <div class="card acc-thing summary-card" summary-card="skillAssignments.list.length" data-is-card="true">
+                    <ion-item class="item-body item-icon-left noborders with-identifier summary-card-header">
+                        <div class="identifier rounded icon">
+                            <i class="identifier-icon acc-job"></i>
+                        </div>
+                        <h2>Open Scheduling Assignments</h2>
+                    </ion-item>
+                    <div class="summary-card-collapsable">
+                        <!--Repeat from here-->
+                        <div id="skill_item_{{assignment.Id}}" class="list card acc-thing summary-card-element" ng-repeat="assignment in skillAssignments.list | limitTo:constants.recommendations.size">
+                            <ion-item class="summary-card-item item-body">
+                                <h2 class=" title">
+                                    {{assignment.AssignmentTitle}}
+                                </h2>
+                                <p>{{assignment.TalentSegment}}</p>
+                            </ion-item>
+                            <ion-item class="summary-card-item item-body withIcons">
+                                <p><i class="acc-star"></i>{{assignment.Specialty}}</p>
+                                <p><i class="acc-hierarchy"></i>{{assignment.ResourcePool}}</p>
+                                <p><i class="acc-map-marker2"></i>{{assignment.Location}}</p>
+                            </ion-item>
+
+                            <ion-item class="bottom-actions button-bar item-divider">
+                                <a class="button" ng-show="assignment.InActionPlan"><i class="acc-check"></i> ADDED TO PLAN</a>
+                                <a class="button" ng-show="!assignment.InActionPlan" add-action-plan="{{assignment}}" data-type="{{constants.actionPlan.type.assignment}}" data-is-detail="true">ADD TO PLAN</a>
+                                <a class="button" ng-show="!assignment.InActionPlan" ng-click="applyLAItem(assignment,'assignment')" add-action-plan="{{assignment}}" data-type="{{constants.actionPlan.type.assignment}}" data-is-detail="true">APPLY</a>
+                            </ion-item>
+                        </div>
+                        <ion-item class="item-body withGray noborders" ng-show="!skillAssignments.endPaging">
+                            <h4 class="text-center noMarginTop" ng-click="showMoreLearningActivities('assignments')">SHOW MORE</h4>
+                        </ion-item>
+                    </div>
+                </div>
+
+            </ion-list>
+        </ion-list>
+
+    </ion-content>
+    <ion-footer-bar align-title="center" >
+        <button class="button button-dark button-block" ng-if="!skillSelected.IsFollow && !isTemp" ng-click="toggleFollow(true)">
+            FOLLOW
+        </button>
+        <button class="button button-dark button-block static" ng-if="skillSelected.IsFollow && !isTemp" ng-click="toggleFollow(false)">
+            UNFOLLOW
+        </button>
+
+        <button class="button button-dark button-block" ng-if="isTemp && !isFollowTemp()" ng-click="toggleTempFollow(skillSelected,true)">
+            FOLLOW
+        </button>
+        <button class="button button-dark button-block static" ng-if="isTemp && isFollowTemp()" ng-click="toggleTempFollow(skillSelected,false)">
+            UNFOLLOW
+        </button>
+    </ion-footer-bar>
+
+</ion-modal-view>

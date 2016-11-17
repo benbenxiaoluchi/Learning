@@ -1,0 +1,51 @@
+﻿<ion-modal-view view-title="FacilityVenueWeather" class="sendToList-wrap">
+    <div class="sendToList-head-title">
+        WEATHER
+        <i class=" icon acc-angle-right" ng-click="hideVenueOptions()">
+        </i>
+    </div>
+    <ion-content class="" has-bouncing="true" has-header="false">
+        <ion-item class="acc-thing card item-body weather" ng-show="weatherCard">
+            <div class="row">
+                <div class="col w_bigtext_current_temp">{{weather[0].results.channel.item.condition.temp}}</div>
+                <div class="col w_small_for_degreeF" style="{{ fontSizeF }}" ng-click="getFahrenheit()">Fº</div>
+                <div class="col w_small_for_degree"> | </div>
+                <div class="col w_small_for_degreeC" style="{{ fontSizeC }}" ng-click="getCentigrade()">Cº</div>
+                <div class="col"><img src="img/weather/{{weather[0].results.channel.item.condition.code}}.png" /></div>
+            </div>
+            <div class="row">
+                <div class="col w_small">
+                    <b>Today</b>
+                    <br />{{weather[0].results.channel.item.forecast[0].high}}º {{weather[0].results.channel.item.forecast[0].low}}º<br />
+                    <img class="w_img_small" src="img/weather/{{weather[0].results.channel.item.forecast[0].code}}.png" />
+                </div>
+                <div class="col w_small">
+                    <b>{{weather[0].results.channel.item.forecast[1].day}}</b>
+                    <br />{{weather[0].results.channel.item.forecast[1].high}}º {{weather[0].results.channel.item.forecast[1].low}}º<br />
+                    <img class="w_img_small" src="img/weather/{{weather[0].results.channel.item.forecast[1].code}}.png" />
+                </div>
+                <div class="col w_small">
+                    <b>{{weather[0].results.channel.item.forecast[2].day}}</b>
+                    <br />{{weather[0].results.channel.item.forecast[2].high}}º {{weather[0].results.channel.item.forecast[2].low}}º<br />
+                    <img class="w_img_small" src="img/weather/{{weather[0].results.channel.item.forecast[2].code}}.png" />
+                </div>
+                <div class="col w_small">
+                    <b>{{weather[0].results.channel.item.forecast[3].day}}</b>
+                    <br />{{weather[0].results.channel.item.forecast[3].high}}º {{weather[0].results.channel.item.forecast[3].low}}º<br />
+                    <img class="w_img_small" src="img/weather/{{weather[0].results.channel.item.forecast[3].code}}.png" />
+                </div>
+                <div class="col w_small">
+                    <b>{{weather[0].results.channel.item.forecast[4].day}}</b>
+                    <br />{{weather[0].results.channel.item.forecast[4].high}}º {{weather[0].results.channel.item.forecast[4].low}}º<br />
+                    <img class="w_img_small" src="img/weather/{{weather[0].results.channel.item.forecast[4].code}}.png" />
+                </div>
+            </div>
+            <ion-item class="item item-text-wrap">
+                <a>
+                    <h2>Weather in {{singleFacility[0].city}}</h2>
+                </a>
+                <p> {{weather[0].results.channel.item.condition.text}} </p>
+            </ion-item>
+        </ion-item>
+    </ion-content>
+</ion-modal-view>

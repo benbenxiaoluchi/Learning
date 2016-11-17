@@ -1,0 +1,39 @@
+<ion-view view-title="IMPERSONATION" ng-controller="impersonateController" class="impersonatesearch-warp">
+    <ion-nav-bar class="bar-positive background-isBlack" align-title="center">
+        <ion-nav-buttons side="left">
+            <button menu-toggle="left" class="button button-icon learn-Icon-HamburgerMenu"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <ion-content class="white has-acc-header" has-bouncing="false" has-subheader="true">
+        <div class="impersonatesearch-search-item">
+            <input type="search" class="impersonatesearch-search-input" placeholder="Enter activity ID"
+                   ng-model="$parent.searchText"
+                   ng-trim="true" auto-focus>
+            <i class="icon ion-ios-search-strong  placeholder-icon" ng-click="performSearch()"></i>
+        </div>
+        <div ng-show="noDataShow">
+            <p class="noDataShowText">There are no people to impersonate for based on '{{noDataText}}'.</p>
+        </div>
+
+        <ion-list>
+            <div class="acc-thing list noborder nopaddings nomargins nominheight" ng-repeat="item in Venue">
+                <ion-item class="item item-text-wrap participants-list-item"
+                          ng-click="impersonate(item.EnterpriseID,item.PeopleKey,searchText)">
+                    <div class="participants-wrapper">
+                        <img  class="participants-list-img"  ng-src="data:image/jpeg;base64,{{item.imgUrl}}">
+                        <h2 class="participants-list-item-title">{{item.fullName}}</h2>
+                        <span>{{item.standardjobdescr}}</span>
+                        <span>{{item.type}}</span>
+                    </div>
+                </ion-item>
+            </div>
+        </ion-list>
+
+        <ion-infinite-scroll on-infinite="loadMoreSearch()" icon="ion-loading-c"
+                             ng-if="moreSearchCanBeLoaded()"
+                             distance="1%">
+        </ion-infinite-scroll>
+
+    </ion-content>
+</ion-view>

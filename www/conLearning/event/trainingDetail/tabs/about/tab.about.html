@@ -1,0 +1,31 @@
+﻿<ion-item class="item-body" ng-show="!isPastSession||sendAllParVisible">
+    <p ng-bind-html="description"></p>
+</ion-item>
+
+<div class="" ng-show="isPastSession&&!sendAllParVisible">
+
+    <div class="item item-divider">
+        <h2 class="title" style="font-weight: 900">Please rate this session</h2>
+    </div>
+
+    <ion-item ng-show="sessionSurveyReady">
+        <i  style="font-size:17px ; font-family: 'RotisSansSerif55'; color: black;" ng-click="openSurvey(sessionSurvey)">{{currentTrainingTitle}}</i>
+    </ion-item>
+
+
+
+    <div class="item item-divider">
+        <h2 class="title" style="font-weight: 900">Please rate the presenters</h2>
+    </div>
+
+
+    <div class="acc-thing list noborder nopaddings nomargins nominheight" ng-repeat="people in faculty">
+        <ion-item class="item-avatar item-icon-right" ng-click="openSurvey(facultySurvey + people.EnterpriseID)">
+            <img ng-src="data:image/jpeg;base64,{{ people.imgUrl }}" />
+            <h2>{{people.fullName}}</h2>
+            <p>{{people.CareerLevel}}</p>
+        </ion-item>
+    </div>
+
+</div>
+

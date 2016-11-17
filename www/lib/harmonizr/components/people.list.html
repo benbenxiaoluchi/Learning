@@ -1,0 +1,13 @@
+﻿<!--<div class="user animated fadeInLeft" ng-repeat="item in splittedList[0] track by $index">
+    <img ng-src="{{item.pictureUrl}}" />
+</div>
+<div class="user total" ng-if="list.length > size">
+    <p>+{{list.length - size}}</p>
+</div>-->
+
+<div class="user animated fadeInLeft" ng-repeat="item in splittedList[0] track by $index">
+    <div class="fake-img" acn-image-display-div data-ref="{{item.EnterpriseId}}"></div>
+</div>
+<div class="user total" ng-if="list.length > size">
+    <p>+{{list.length - size}}</p>
+</div>

@@ -1,0 +1,241 @@
+﻿<ion-view view-title="ILC SESSIONS" class="events-page-style">
+    <ion-nav-bar class="bar-positive background-isBlack" align-title="center">
+        <ion-nav-buttons side="left">
+            <button menu-toggle="left" class="button button-icon learn-Icon-HamburgerMenu"></button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+            <button menu-toggle="left" class="ion-ios-arrow-down side-top-right"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <div class="bar schedule-wrapper">
+        <div class="schedule-tabs">
+            <div class="schedule-tab" ng-class="scheduleTabCss[0]" ng-click="chooseScheduleTab(0)">
+                CURRENT
+            </div>
+            <div class="schedule-tab" ng-class="scheduleTabCss[1]" ng-click="chooseScheduleTab(1)">
+                UPCOMING
+            </div>
+            <div class="schedule-tab" ng-class="scheduleTabCss[2]" ng-click="chooseScheduleTab(2)">
+                COMPLETED
+            </div>
+        </div>
+    </div>
+
+    <div ng-if="tabContentSelected[0]">
+        <ion-content class="calm-bg content-box">
+            <ion-refresher pulling-text="Pull to refresh..." pulling-icon="acc-angle-down" on-refresh="doRefresh()">
+            </ion-refresher>
+            <ion-list class="light-bgr-formainpage content background-isWhite">
+                <!--<div class="list-top-banner" ng-click="showCurrentTraining();">-->
+                    <!--<span class="list-top-banner-inner">THIS WEEK</span>-->
+                    <!--<i ng-class="currentTrainingIcon" style="cursor:pointer;"></i>-->
+                <!--</div>-->
+                <div class="list acc-thing no-margin-bottom" ng-repeat="list in CurrentTrainingList">
+                     <!--ng-show="currentTrainingShow"-->
+                    <ion-item class="item item-text-wrap no-border-top schedules-current-list-item"
+                              ng-click="navigateTraining(list)">
+                        <h2 class="training-title">
+                            {{ list.ActivityName }}
+                            <i class="icon learn-Icon-Faculty training-icon" ng-if="list.isFaculty==1"></i>
+                        </h2>
+                        <p>{{ list.startDate }} </p>
+                    </ion-item>
+                </div>
+                <ion-item ng-show="currentTrainingShow" style="border-bottom: 0">
+                    {{NoCurr}}
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </div>
+    <div ng-if="tabContentSelected[1]">
+        <ion-content class="calm-bg content-box">
+            <ion-refresher pulling-text="Pull to refresh..." pulling-icon="acc-angle-down" on-refresh="doRefresh()">
+            </ion-refresher>
+            <ion-list class="light-bgr-formainpage content background-isWhite">
+                <div ng-click="showUpcomingTraining()" class="list-top-banner" ng-show="!showUpcomingSelect">
+                    <span class="list-top-banner-inner">{{filterUpcoming}}</span>
+                    <i ng-class="upcomingTrainingIcon" style="cursor:pointer;"></i>
+                </div>
+                <div class="activity-head-list-wrap" ng-if="showUpcomingSelect">
+                    <ul class="events-page-dropdown-wrap">
+                        <li ng-class="{'events-page-dropdown-active': filterUpcoming == 'THIS WEEK'}"
+                            ng-click="getTrainingList('F','THIS WEEK')">
+                            THIS WEEK
+                        </li>
+                        <li ng-class="{'events-page-dropdown-active': filterUpcoming == 'NEXT WEEK'}"
+                            ng-click="getTrainingList('F','NEXT WEEK')">
+                            NEXT WEEK
+                        </li>
+                        <li ng-class="{'events-page-dropdown-active': filterUpcoming == 'THIS MONTH'}"
+                            ng-click="getTrainingList('F','THIS MONTH')">
+                            THIS MONTH
+                        </li>
+                        <li>
+                            <p ng-class="{'events-page-dropdown-active': upcomingCalendarViewSelect == 'CALENDAR VIEW'}">CALENDAR VIEW</p>
+                            <div class="events-page-dropdown-datepicker-wrap">
+                                <label class="events-page-dropdown-datepicker" ng-click="openUpcomingDatePicker('S')">
+                                    <input type="text" placeholder="DD MMM YYYY"
+                                           ng-model="upcomingDisplayStartDt"
+                                           readonly="readonly">
+                                </label>
+                                <span class="events-page-dropdown-datepicker-to">To</span>
+                                <label class="events-page-dropdown-datepicker" ng-click="openUpcomingDatePicker('E')">
+                                    <input type="text" placeholder="DD MMM YYYY"
+                                           ng-model="upcomingDisplayEndDt"
+                                           readonly="readonly">
+                                </label>
+                            </div>
+                            <span class="events-page-dropdown-datepicker-subtitle">{{UpcomingCalendarSelectMessage}}</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="list acc-thing no-margin-bottom" ng-repeat="list in UpcomingTrainingList">
+                    <ion-item class="item item-text-wrap no-border-top schedules-current-list-item"
+                              ng-click="navigateTraining(list)">
+                        <h2 class="training-title">
+                            {{ list.ActivityName }}
+                            <i class="icon learn-Icon-Faculty training-icon" ng-if="list.isFaculty==1"></i>
+                        </h2>
+                        <p>{{ list.startDate }} </p>
+                    </ion-item>
+                </div>
+
+                <ion-item ng-show="upcomingTrainingShow" style="border-bottom: 0;">
+                    {{NoUpcoming}}
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </div>
+    <div ng-if="tabContentSelected[2]">
+        <ion-content class="calm-bg content-box">
+            <ion-refresher pulling-text="Pull to refresh..." pulling-icon="acc-angle-down" on-refresh="doRefresh()">
+            </ion-refresher>
+            <ion-list class="light-bgr-formainpage content">
+                <div ng-click="showPastTraining()" class="list-top-banner" ng-show="!showPastSelect">
+                    <span class="list-top-banner-inner">{{filterPast}}</span>
+                    <i ng-class="pastTrainingIcon" style="cursor:pointer;"></i>
+                </div>
+                <div class="activity-head-list-wrap" ng-if="showPastSelect">
+                    <ul class="events-page-dropdown-wrap">
+                        <li ng-class="{'events-page-dropdown-active': filterPast == 'THIS WEEK'}"
+                            ng-click="getTrainingList('P','THIS WEEK')">
+                            THIS WEEK
+                        </li>
+                        <li ng-class="{'events-page-dropdown-active': filterPast == 'LAST WEEK'}"
+                            ng-click="getTrainingList('P','LAST WEEK')">
+                            LAST WEEK
+                        </li>
+                        <li ng-class="{'events-page-dropdown-active': filterPast == 'THIS MONTH'}"
+                            ng-click="getTrainingList('P','THIS MONTH')">
+                            THIS MONTH
+                        </li>
+                        <li>
+                            <p ng-class="{'events-page-dropdown-active': pastCalendarViewSelect == 'CALENDAR VIEW'}">CALENDAR VIEW</p>
+                            <div class="events-page-dropdown-datepicker-wrap">
+                                <label class="events-page-dropdown-datepicker" ng-click="openPastDatePicker('S')">
+                                    <input type="text" placeholder="DD MMM YYYY"
+                                           ng-model="pastDisplayStartDt"
+                                           readonly="readonly">
+                                </label>
+                                <span class="events-page-dropdown-datepicker-to">To</span>
+                                <label class="events-page-dropdown-datepicker" ng-click="openPastDatePicker('E')">
+                                    <input type="text" placeholder="DD MMM YYYY"
+                                           ng-model="pastDisplayEndDt"
+                                           readonly="readonly">
+                                </label>
+                            </div>
+                            <span class="events-page-dropdown-datepicker-subtitle">{{PastCalendarSelectMessage}}</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="list acc-thing no-margin-bottom" ng-repeat="list in PastTrainingList" ng-show="true">
+                    <ion-item class="item item-text-wrap no-border-top schedules-current-list-item"
+                              ng-click="navigateTraining(list)">
+                        <h2 class="training-title">
+                            {{ list.ActivityName }}
+                            <i class="icon learn-Icon-Faculty training-icon" ng-if="list.isFaculty==1"></i>
+                        </h2>
+                        <p>{{ list.startDate }}</p>
+                    </ion-item>
+                </div>
+                <ion-item ng-show="pastTrainingShow" style="border-bottom: 0">
+                    {{NoPast}}
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </div>
+
+
+    <!--use ion-tabs-->
+    <!--<ion-tabs class="tabs-stable tabs-top tabs-icon-middle" style="border:2px solid red;">-->
+    <!--<ion-tab title="CURRENT">-->
+    <!--<ion-view>-->
+    <!--<ion-content class="calm-bg" style="background-color:#fff;">-->
+    <!--<ion-list class="light-bgr-formainpage content" style="background-color:#fff;">-->
+    <!--<div style="height:40px;border-bottom:2px solid #ccc;">-->
+    <!--<span style="line-height: 40px;margin-left:20px;">THIS WEEK</span>-->
+    <!--</div>-->
+    <!--<div class="list acc-thing" style="margin-bottom:0;" ng-repeat="list in CurrentTrainingList" ng-show="true">-->
+    <!--<ion-item class="item item-text-wrap" ng-click="navigateTraining({{list}})">-->
+    <!--<h2>-->
+    <!--<i ng-class="list.userType"></i>-->
+    <!--{{ list.activityName }}-->
+    <!--</h2>-->
+    <!--<p>{{ list.startDate }} </p>-->
+    <!--</ion-item>-->
+    <!--</div>-->
+    <!--<ion-item class="noborders" ng-show="currentTrainingShow">-->
+    <!--{{NoCurr}}-->
+    <!--</ion-item>-->
+    <!--</ion-list>-->
+    <!--</ion-content>-->
+    <!--</ion-view>-->
+    <!--</ion-tab>-->
+    <!--<ion-tab title="UPCOMING">-->
+    <!--<ion-view>-->
+    <!--<ion-content>-->
+    <!--<ion-list class="light-bgr-formainpage content" style="background-color:#fff;">-->
+    <!--<div ng-click="showUpcomingTraining()" style="height:40px;border-bottom:1px solid #ccc;">-->
+    <!--<span style="line-height: 40px;margin-left:20px;">NEXT WEEK</span>-->
+    <!--<i class="ion-chevron-down" style="cursor:pointer;"></i>-->
+    <!--</div>-->
+    <!--<div class="list acc-thing" ng-repeat="list in UpcomingTrainingList" ng-show="upcomingTrainingShow" style="margin-bottom:0;">-->
+    <!--<ion-item class="item item-text-wrap" ng-click="navigateTraining({{list}})">-->
+    <!--<h2>-->
+    <!--<i ng-class="list.userType"></i>-->
+    <!--{{ list.activityName }}-->
+    <!--</h2>-->
+    <!--<p>{{ list.startDate }} </p>-->
+    <!--</ion-item>-->
+    <!--</div>-->
+    <!--<ion-item class="noborders" ng-show="upcomingTrainingShow">-->
+    <!--{{NoUpcoming}}-->
+    <!--</ion-item>-->
+    <!--</ion-list>-->
+    <!--</ion-content>-->
+    <!--</ion-view>-->
+    <!--</ion-tab>-->
+    <!--<ion-tab title="COMPLETED">-->
+    <!--<ion-view>-->
+    <!--<ion-content>-->
+    <!--<ion-list class="light-bgr-formainpage content">-->
+    <!--<div class="list acc-thing" ng-repeat="list in PastTrainingList" ng-show="true" style="margin-bottom:0;">-->
+    <!--<ion-item class="item item-text-wrap" ng-click="navigateTraining({{list}})">-->
+    <!--<h2>-->
+    <!--<i ng-class="list.userType"></i>-->
+    <!--{{ list.activityName }}-->
+    <!--</h2>-->
+    <!--<p>{{ list.startDate }}</p>-->
+    <!--</ion-item>-->
+    <!--</div>-->
+    <!--<ion-item class="noborders" ng-show="pastTrainingShow">-->
+    <!--{{NoPast}}-->
+    <!--</ion-item>-->
+    <!--</ion-list>-->
+    <!--</ion-content>-->
+    <!--</ion-view>-->
+    <!--</ion-tab>-->
+    <!--</ion-tabs>-->
+
+</ion-view>

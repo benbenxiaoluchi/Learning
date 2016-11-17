@@ -1,0 +1,184 @@
+.app-header{
+    min-height:220px;
+    margin:0 -10px;
+    display:block;
+    text-align:center;
+    padding:70px 0 7px;
+
+    &.gradient{
+      background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.19) 15%, rgba(0,0,0,0.41) 55%, rgba(0,0,0,0.41) 100%); /* FF3.6+ */
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(15%,rgba(0,0,0,0.19)), color-stop(55%,rgba(0,0,0,0.41)), color-stop(100%,rgba(0,0,0,0.41))); /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.19) 15%,rgba(0,0,0,0.41) 55%,rgba(0,0,0,0.41) 100%); /* Chrome10+,Safari5.1+ */
+      background: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.19) 15%,rgba(0,0,0,0.41) 55%,rgba(0,0,0,0.41) 100%); /* Opera 11.10+ */
+      background: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.19) 15%,rgba(0,0,0,0.41) 55%,rgba(0,0,0,0.41) 100%); /* IE10+ */
+      background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.19) 15%,rgba(0,0,0,0.41) 55%,rgba(0,0,0,0.41) 100%); /* W3C */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#69000000',GradientType=0 ); /* IE6-9 */
+    }
+
+
+    /* IE6-9 */ 
+    color:#fff;
+
+    img{
+        width:110px;
+        height:110px;
+        border-radius:110px;
+        border:none;        
+    }
+
+    .badge{
+          position: relative;
+          width: 20px;
+          margin: 0 auto;
+          line-height: 20px;
+          text-align: center;
+          padding: 0;
+          margin-bottom: -30px;
+          left: 25px;
+          -webkit-animation-delay: 1s !important;
+          animation-delay: 1s !important;
+          display: block;
+    }
+    a{
+        text-decoration:none;
+        padding:0;
+        margin:0;
+    }
+
+    i.app-icon{
+        width:$acc-thing-identifier-width;
+        height:$acc-thing-identifier-width;
+        line-height:$acc-thing-identifier-width;
+        font-size:30px;
+        border-radius:60px;
+        display:block;
+        margin:15px auto;
+        border:none;
+        background:rgba(0,0,0,0.5);
+
+        img{
+            width:30px;
+            margin-top:15px;
+        }
+
+        &.app-icon-name{
+            font-family:$font-family-sans-serif; 
+        }
+    }
+
+    .title{
+        color:#fff;
+        text-shadow:0px 0px 10px #000;
+        font-size: 20px; //Picked from our harmonize site
+        margin-bottom:20px;
+    }
+
+    p{
+        text-shadow:0px 0px 10px #000;
+        i{
+            margin-right:5px;
+        }
+
+        &.actual-location{
+            margin-top:-15px;
+            margin-bottom:25px;
+        }
+    }
+
+    .actions{
+        
+        width:80%;
+        margin:20px auto 20px;
+        
+        .button{
+            line-height:40px;
+            height:40px;
+            padding:0;
+            min-height:40px;
+            font-size:$font-size-base;
+            min-width:0;
+            color:$light-gray;
+            background:rgba(0,0,0,0.7);
+            font-size:$font-size-base + 8px;
+            border-top: 1px solid rgba(255,255,255,.3);
+
+
+            &:nth-child(2){
+                border-left:1px solid $dark;
+                border-right:1px solid $dark;
+            }
+
+            &.activated{
+                background:$primary-color;
+                box-shadow:inset 0px 0px 5px rgba(0,0,0,0.5);
+                opacity:1;
+                color: #fff;
+            }
+
+            &:first-child{
+                border-radius:40px 0 0 40px;
+            }
+
+            &:last-child{
+                border-radius:0 40px 40px 0;
+            }
+            
+
+        }
+    }
+
+    &.weather{
+        * {
+            text-shadow: 0px 0px 20px #000;
+            font-family: $font-family-sans-serif;
+        }
+        p {
+            margin: 0;
+            color: #fff;
+        }
+        .city {
+            font-size: $font-size-base * 2;
+        }
+        .temperature {
+            font-size: $font-size-base * 7;
+            padding-top: 40px;
+        }
+    }
+}
+
+
+.fake-search{
+
+        display: block;
+        margin: 20px 20px 10px 20px;
+        background: #fff;
+        height: 45px;
+        line-height: 45px;
+        border-radius: 0px;
+        text-align: left;
+        border: 1px solid #ccc;
+        position: absolute;
+        width: calc(100% - 20px);
+        z-index: 9;
+
+
+        i, span{
+            line-height:40px;
+            color:$dark;
+            display:inline-block;
+            margin-left:10px;
+            height:40px;
+            margin-bottom:0;
+            float:left;
+            font-size:$font-size-base;
+            padding:0;
+            background:none;
+        }
+
+        i.app-icon{
+            height:$font-size-base * 1.5;
+            width:$font-size-base * 1.5;
+            font-size:$font-size-base * 1.5
+        }
+}
+

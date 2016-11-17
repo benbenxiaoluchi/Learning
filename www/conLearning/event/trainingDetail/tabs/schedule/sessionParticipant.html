@@ -1,0 +1,76 @@
+﻿<ion-modal-view view-title="sessionParticipant" class="sessionParticipant-wrap">
+    <ion-header-bar class="bar bar-header item-input-inset participant-bar">
+        <i class="icon ion-close" ng-click="closeSessionParticipant()"></i>
+        <div class="bar-dark sessionParticipant-tab-wrap">
+            <div class="sessionParticipant-tabs">
+                <div class="sessionParticipant-tab" ng-class="materialsTabCss[0]">
+                    OVERVIEW
+                </div>
+                <div class="sessionParticipant-tab" ng-class="materialsTabCss[1]" ng-click="changeToMaterials(1)">
+                    MATERIALS
+                </div>
+                <div class="sessionParticipant-tab" ng-class="materialsTabCss[2]" ng-click="chooseScheduleTab(2)">
+                    CHECK-IN/OUT
+                </div>
+            </div>
+        </div>
+        <div class="sessionParticipant-header-info-item">
+            <i class="learn-Icon-ParticipantsAll btn-active" ng-class="sessionParticipantTabCss[3]" ng-click="getSessionLearners(3)">{{sumOfLearners}} All</i>
+            <i class="learn-Icon-ParticipantsInRoom" ng-class="sessionParticipantTabCss[1]" ng-click="getSessionLearners(1)">{{sumOfInRoom}} In Room</i>
+            <i class="learn-Icon-ParticipantsOutofRoom" ng-class="sessionParticipantTabCss[2]" ng-click="getSessionLearners(2)">{{sumOfOutRoom}} Out Of Room</i>
+            <span class="learn-Icon-Message" ng-click="navigateToPersonalisedMessage(null, '1')"></span>
+        </div>
+    </ion-header-bar>
+    <ion-content class="white has-acc-header participant-has-header" has-bouncing="false" has-subheader="true">
+        <ion-list>
+            <div class="acc-thing list noborder nopaddings nomargins nominheight" ng-repeat="item in FilterLearners">
+                <ion-item class="item-body item-icon-left item-icon-right with-identifier sessionParticipant-list-item"
+                          ng-click="showDetailPage(item.EnterpriseID, item.fullName, item.attendanceStatus)">
+
+                    <div class="identifier rounded icon">
+                        <div class="fake-img" acn-image-display-div data-ref="{{item.EnterpriseID}}"></div>
+                    </div>
+                    <!--<img ng-src="data:image/jpeg;base64,{{item.imgUrl}}">-->
+                    <h2>
+                        {{item.fullName}}
+                    </h2>
+                    <div class="sessionParticipant-list-info">
+                        <span ng-show="item.checkInTime != ''">
+                            <i class="learn-Icon-ParticipantsInRoom"></i>
+                            <span>{{item.checkInTime}}</span>
+                        </span>
+                        <span ng-show="item.checkOutTime != ''">
+                            <i class="learn-Icon-ParticipantsOutofRoom"></i>
+                            <span>{{item.checkOutTime}}</span>
+                        </span>
+                        <span ng-show="item.isNoAction">
+                            <i class="learn-Icon-ParticipantsNoAction"></i>
+                            <span>Yet to Check In</span>
+                        </span>
+                    </div>
+                    <ion-option-button class="button sessionParticipant-btn-bg2" ng-hide="ImpersonateStatus"
+                                       ng-click="showCheckInPopup(item.EnterpriseID, item.fullName, $index);$event.stopPropagation()"
+                                       ng-if="item.attendanceStatus==0||item.attendanceStatus==-1">
+                        <i class="icon learn-Icon-ParticipantsInRoom icon-checkin"></i>
+                        <p class="sessionParticipant-right-btn-title">
+                            CHECK-IN
+                        </p>
+                    </ion-option-button>
+                    <ion-option-button class="button sessionParticipant-btn-bg1" ng-click="showAttendancePopup(item.EnterpriseID, item.attendanceStatus)">
+                        <i class="ion-android-options"></i>
+                        <p class="sessionParticipant-right-btn-title">
+                            ATTENDANCE
+                        </p>
+                    </ion-option-button>
+                    <ion-option-button class="button sessionParticipant-btn-bg1" ng-click="navigateToPersonalisedMessage(item,'0')">
+                        <i class="acc-writing2-o icon-checkin"></i>
+                        <p class="sessionParticipant-right-btn-title">
+                            MESSAGE
+                        </p>
+                    </ion-option-button>
+                    <i class="icon ion-chevron-right"></i>
+                </ion-item>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-modal-view>

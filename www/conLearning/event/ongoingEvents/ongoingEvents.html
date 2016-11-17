@@ -1,0 +1,92 @@
+<ion-view view-title="ILC SCHEDULES" hide-nav-bar="true" class="participants-list-page-wrap">
+    <!--
+    <ion-nav-bar class="bar-positive background-isBlack" align-title="center">
+        <ion-nav-buttons side="left">
+            <button menu-toggle="left" class="button button-icon learn-Icon-HamburgerMenu"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    -->
+    <ion-header-bar no-tap-scroll="true" class="tab-attendance-head"
+                    ng-class="{true: 'bgc000', false: 'bgcb90b62'}[adminFlage]"
+                    align-title="center">
+        <i ng-click="$ionicGoBack()" class="acc-angle-left"></i>
+        <h1>
+            All COURSES AT THIS FACILITY
+        </h1>
+    </ion-header-bar>
+
+    <ion-content class="calm-bg contentPosition" scroll="true" has-bouncing="false">
+        <!--<ion-refresher pulling-text="Pull to refresh..." pulling-icon="acc-angle-down" on-refresh="doRefresh()">-->
+        <!--</ion-refresher>-->
+
+        <ion-list class="light-bgr-formainpage content background-isWhite">
+            <div ng-repeat="session in SessionsList track by $index">
+                <div class="list-top-banner">
+                <!--<div class="list-top-banner" ng-click="showDetails($index)">-->
+                    <span class="list-top-banner-inner">{{session[0].FacilityCity}}</span>
+                    <!--<i ng-class="allSessionsIcon[$index]" style=" cursor:pointer;"></i>-->
+                </div>
+                <!--<div class="list acc-thing no-margin-bottom" ng-repeat="list in session track by $index" ng-show="allSessionsShow[$parent.$index]">-->
+                <div class="list acc-thing no-margin-bottom" ng-repeat="list in session track by $index">
+                    <ion-item class="item item-text-wrap no-border-top schedules-current-list-item">
+                        <h2 class="training-title">
+                            {{ list.ActivityName }}
+                        </h2>
+                        <p>{{ list.startDate }} </p>
+                    </ion-item>
+                </div>
+            </div>
+
+            <ion-item ng-show="noSessionsList" style="border-bottom: 0">
+                {{NoData}}
+            </ion-item>
+        </ion-list>
+    </ion-content>
+
+</ion-view>
+
+
+
+
+<!--2ndEdition-->
+<!--<ion-view view-title="ILC SCHEDULES" class="events-page-style">-->
+    <!--<ion-nav-bar class="bar-positive background-isBlack" align-title="center">-->
+        <!--<ion-nav-buttons side="left">-->
+            <!--<button menu-toggle="left" class="button button-icon learn-Icon-HamburgerMenu"></button>-->
+        <!--</ion-nav-buttons>-->
+    <!--</ion-nav-bar>-->
+
+    <!--<ion-content class="calm-bg contentPosition" scroll="true" has-bouncing="false">-->
+        <!--&lt;!&ndash;<ion-refresher pulling-text="Pull to refresh..." pulling-icon="acc-angle-down" on-refresh="doRefresh()">&ndash;&gt;-->
+        <!--&lt;!&ndash;</ion-refresher>&ndash;&gt;-->
+
+        <!--<ion-list class="light-bgr-formainpage content background-isWhite positionRelative">-->
+            <!--<div class="list-top-banner" ng-click="toggleDropDownList()">-->
+                <!--<span class="list-top-banner-inner">{{FacilityCityCurrent}}</span>-->
+                <!--<i class="ion-chevron-down" style="cursor:pointer;"></i>-->
+            <!--</div>-->
+            <!--<div class="choose-city" ng-show="showDropdownSelections">-->
+                <!--<ul ng-repeat="city in FacilityCityList">-->
+                    <!--<li class="city-item" ng-click="chooseFacilityCity($index)">-->
+                        <!--{{city}}-->
+                        <!--<i ng-class="{'events-page-dropdown-active': selectionIndex == $index}" style="float:right;"></i>-->
+                    <!--</li>-->
+                <!--</ul>-->
+                <!--&lt;!&ndash;<div class="mock-temp" ng-click="toggleDropDownList()"></div>&ndash;&gt;-->
+            <!--</div>-->
+            <!--<div class="list acc-thing no-margin-bottom" ng-repeat="list in currentPresentedList">-->
+                <!--<ion-item class="item item-text-wrap no-border-top schedules-current-list-item">-->
+                    <!--<h2 class="training-title">-->
+                        <!--{{ list.ActivityName }}-->
+                    <!--</h2>-->
+                    <!--<p>{{ list.startDate }} </p>-->
+                <!--</ion-item>-->
+            <!--</div>-->
+
+            <!--<ion-item ng-show="noSessionsList" style="border-bottom: 0">-->
+                <!--{{NoData}}-->
+            <!--</ion-item>-->
+        <!--</ion-list>-->
+    <!--</ion-content>-->
+
+<!--</ion-view>-->

@@ -1,0 +1,175 @@
+﻿<!--<ion-view view-title="" hide-nav-bar="true" class="forTutorial" data-header-shrink="false" data-header-shrink-status-bar="1">
+    <ion-nav-buttons side="left">
+    </ion-nav-buttons>
+
+    <ion-content>
+
+        <h3 class="title text-center noMarginTop">Personalize your learning experience</h3>
+        <p class="text-center margin">
+            <b>Follow</b> skills you need to improve through ‘Skills I’m following’ to get recommended learning activities
+
+        </p>
+        <div class="card acc-thing cardTutorial">
+            <ion-item class="item-body  ">
+
+                <h2>Content Writing</h2>
+                <p class="rating no-picture">
+                    <i class="acc-star p0 user"></i>
+                    <i class="acc-star p1 user"></i>
+                    <i class="acc-star p2 required"></i>
+                    <i class="acc-star p3 "></i>
+                    <i class="acc-star p4"></i>
+
+                </p>
+                <button class="action button-clear item-divider">
+                    <a>FOLLOW</a>
+
+                </button>
+            </ion-item>
+        </div>
+        
+        <p class="text-center margin">
+            Create your personalized learning list via the <b>Action Plan
+        </p>
+
+    </ion-content>
+    <ion-footer-bar align-title="center" class="bar-positive bar-tut tutorial">
+        <button class="button button-full button-large button-dark noMarginTop noMarginBottom" ng-click="setHaveSeenTutorial()">GET STARTED</button>
+    </ion-footer-bar>
+
+
+
+</ion-view>-->
+
+<ion-view view-title="" class="forTutorial" hide-nav-bar="{{hideNavBar}}">
+    <ion-nav-bar class="bar navPrimary" align-title="center">
+        <ion-nav-title><h3 class="title"></h3></ion-nav-title>
+        <ion-nav-buttons side="left">
+            <button menu-toggle="left" class="button button-icon button-clear acc-menu"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <!-- START BLACK PAGE -->
+    <div class="forBlackTutorialPage" hide-tutorial-black-page>
+        <ion-content class="animated fadeIn">
+            <h2 class="title text-center animated fadeInUp">How to use the Learn App?<br />Tap here to start</h2>
+        </ion-content>
+    </div>
+
+
+    <ion-content has-bouncing="false" scroll="false" class="">
+        <ion-list class="content">
+            <section class="tutorial">
+
+                <ion-slide-box auto-play="false" show-pager="true" on-slide-changed="tutorialSlideChanged()" delegate-handle="tutorialSlide">
+
+                    <ion-slide>
+                        <div class="box one">
+                            <div class="ForTitle">
+                                <h3 class="title text-center">Personalize your learning experience</h3>
+                            </div>
+                            <div class="forImg">
+
+                            </div>
+                            <!--<div class="content">
+                    <p class="margin"> Follow skills you need to improve to get recommended learning activities</p>
+                    <div class="card acc-thing cardTutorial nomargins">
+                        <ion-item class="item-body  ">
+
+                            <h2 class="title text-left">Content Writing</h2>
+                            <p class="rating no-picture">
+                                <i class="acc-star p0 user"></i>
+                                <i class="acc-star p1 user"></i>
+                                <i class="acc-star p2 required"></i>
+                                <i class="acc-star p3 "></i>
+                                <i class="acc-star p4"></i>
+
+                            </p>
+                            <span class="">
+                                FOLLOW
+
+                            </span>
+
+                        </ion-item>
+                    </div>
+                    <p class=" margin">
+                        Create your personalized learning list via the Action Plan
+                    </p>
+
+
+                </div>-->
+                        </div>
+                    </ion-slide>
+                    <ion-slide>
+                        <div class="box two">
+                            <div class="ForTitle">
+                                <h3 class="title text-center">Add learning items to your personalized Action Plan to learn at your own pace</h3>
+                            </div>
+                            <div class="forImg">
+
+                            </div>
+                        </div>
+                    </ion-slide>
+                    <ion-slide>
+                        <div class="box three">
+                            <div class="ForTitle">
+                                <h3 class="title text-center">Add learning items to your personalized Action Plan to learn at your own pace</h3>
+                            </div>
+                            <div class="forImg">
+
+                            </div>
+                        </div>
+                    </ion-slide>
+                    <ion-slide>
+                        <div class="box four">
+                            <div class="ForTitle">
+                                <h3 class="title text-center">Use the hamburger menu to navigate through the Learn app functionalities</h3>
+                            </div>
+                            <div class="forImg">
+
+                            </div>
+                        </div>
+                    </ion-slide>
+                    <ion-slide>
+                        <div class="box five">
+                            <div class="ForTitle">
+                                <h3 class="title text-center">Use the hamburger menu to navigate through the Learn app functionalities</h3>
+                            </div>
+                            <div class="forImg">
+
+                            </div>
+                        </div>
+                    </ion-slide>
+                    <ion-slide>
+                        <div class="box six">
+                            <div class="ForTitle">
+                                <h3 class="title text-center">Provide your comments using the Feedback functionality of the app</h3>
+                            </div>
+                            <div class="forImg">
+
+                            </div>
+                            <!--<div class="forFooter">
+                    <button class="button-dark noMarginTop noMarginBottom" ng-click="setHaveSeenTutorial()">GET STARTED</button>
+                </div>-->
+
+                        </div>
+                    </ion-slide>
+
+                </ion-slide-box>
+
+            </section>
+            <div class="bar bar-footer">
+                <button class="button button-clear tutoPageCounter">{{getTutorialCurrentIndex()}}/6</button>
+                <!--<div class="title">Title</div>-->
+                <div class="start button button-clear tutoGetStarted" ng-click="setHaveSeenTutorial()">
+                    <p>Get Started </p>    <i class="ion-play"></i>
+
+                </div>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>
+
+
+
+

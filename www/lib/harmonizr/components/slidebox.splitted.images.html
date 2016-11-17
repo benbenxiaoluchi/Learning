@@ -1,0 +1,11 @@
+﻿<ion-slide-box on-slide-changed="slideHasChanged($index)" auto-play="true" does-continue="true" ng-attr-show-pager="{{showPager}}" ng-attr-slide-interval="{{slideInterval}}" height="{{height}}">
+    <ion-slide ng-repeat="row in splittedList track by $index">
+        <div class="box">
+            <div class="row">
+                <div ng-attr-class="{{colSize}}" ng-repeat="img in row track by $index">
+                    <img ng-src="{{img}}" class="full-image" height="{{height}}" />
+                </div>
+            </div>
+        </div>
+    </ion-slide>
+</ion-slide-box>

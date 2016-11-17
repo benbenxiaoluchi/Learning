@@ -1,0 +1,187 @@
+.tabbed-slidebox .slider {
+    height: 100%;
+}
+.tabbed-slidebox.btm .slider {
+    margin-bottom: -50px;
+}
+.tabbed-slidebox .slider-slides {
+    width: 100%;
+}
+
+.tabbed-slidebox .slider-slide {
+    padding-top: 10px;
+    color: #000;
+    text-align: center;
+    font-weight: 300;
+    //background-color: $lighter-gray;
+    min-height:350px;
+
+    
+
+    //border-bottom:2px solid red;
+    .scroll{
+        margin:0 -20px;
+    }
+    
+}
+
+.tabbed-slidebox .tsb-icons {
+    text-align: center;
+    margin:0 -10px;
+    position: relative;
+	padding:10px 0;
+}
+
+.tabbed-slidebox .tsb-ic-wrp {
+    display: flex;
+    position: relative;
+	-webkit-transition: -webkit-transform 0.3s; /* For Safari 3.1 to 6.0 */
+	
+}
+
+.tabbed-slidebox .tsb-icons a {
+    display: inline-block;
+    width: 60px;
+    font-size: 2.5em;
+    color: rgba(255, 255, 255, 0.3);
+	margin-bottom:-5px;
+    text-decoration:none;
+    text-transform:capitalize;
+    
+
+    span{
+        display:block;
+        font-size:25px;
+        margin-bottom:15px;
+    }
+
+    .badge{
+        font-size:$font-size-base - 2;
+        padding:0 5px;
+        text-align:center;
+        top:0;
+        //border:1px solid #fff;
+        border:1px solid $dark;
+    }
+
+    p{
+        font-size:$font-size-base - 3px;
+        white-space:nowrap;
+    }
+    
+}
+
+.tabbed-slidebox .tsb-icons a.active {
+    color: #fff;
+
+    
+}
+
+.tabbed-slidebox .tabbed-slidebox {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+
+.tabbed-slidebox .tsb-icons:after {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 1.4em 1.4em 1.4em;
+    border-color: transparent transparent #fff transparent;
+    position: absolute;
+    content: "";
+    display: block;
+    bottom: -12px;
+    left: 50%;
+    margin-left: -14px;
+}
+.tsb-hscroll.scroll-view{
+  	white-space: nowrap;
+	margin:0 auto;
+}
+.tsb-hscroll.scroll-view .scroll-bar{
+	visibility:hidden;
+}
+.tsb-hscroll.scroll-view .scroll.onscroll{
+	-webkit-transition: -webkit-transform 0.3s; /* For Safari 3.1 to 6.0 */
+}
+
+.tabbed-slidebox .tsb-icons .scroll a{
+	width:auto;
+	font-size: 1.5em;
+	line-height: 1.5em;
+	text-decoration: none;
+    margin:0;
+	//margin: 0 5px;
+	border-bottom: 3px solid transparent;
+}
+.tabbed-slidebox .tsb-icons .scroll a.active {
+	font-size: 1.8em;
+	border-bottom: 3px solid #ccc;
+}
+
+
+
+// Custom css added
+
+.tabbed-slidebox{
+    margin-top:-10px;
+    
+    .tsb-icons{
+        background-color:$dark-gray !important;
+        margin: 0 !important;
+        padding:0 !important;
+        // The shape between content and tabs
+            &:after{
+                display:none !important;
+                border-color:transparent transparent #fff transparent !important;
+            }
+
+        .scroll{
+            a{
+                -webkit-transform: translate3d(0,0,0) !important;
+                line-height:1em !important;
+                color: $light-gray !important;
+                padding:10px;
+                min-width:100px;
+                
+                &.active{
+                    color: #fff !important;
+                    border-bottom:none !important;
+                    background: #000;
+                    
+                    transition: 0.5s background ease-in-out;
+                    -webkit-transition: 0.5s background ease-in-out;
+
+                    &:after{
+                        width: 0;
+                        height: 0;
+                        border-style: solid;
+                        border-width: 0 1.4em 1.4em 1.4em;
+                        border-color: transparent transparent #fff transparent;
+                        position: absolute;
+                        content: "";
+                        display: block;
+                        bottom: -25px;
+                        left: 50%;
+                        margin-left: -30px;
+                    }
+                }   
+                span{
+                    font-size:$font-size-base !important;
+                    margin-bottom:0 !important;
+
+                }
+            }
+        }   
+    }   
+    .slider{
+        .slider-slide{
+            text-align:left !important;
+            padding-top:0;
+            -webkit-transform:none;
+            background:$lighter-gray !important;
+        }
+    }
+} 

@@ -1,0 +1,118 @@
+
+// datepicker
+
+.pickadate-header {
+  position: relative;
+  padding-bottom:20px;
+}
+
+.pickadate {
+  font-family: $font-family-light-sans-serif;
+}
+
+.pickadate-main {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+  font-size: $font-size-base;
+}
+
+.pickadate a:visited, .pickadate a {
+  color: $gray;
+}
+
+.pickadate-cell {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.pickadate-cell li {
+  display: block;
+  float: left;
+  //border: 1px solid $light-gray;
+  border-width: 0 1px 1px 0;
+  width: 14.285%;
+  padding: 3% 0 3% 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  //border-radius:100%;
+}
+
+.pickadate-cell li:nth-child(7n+0) {
+  //background:$lighter-gray;
+}
+
+.pickadate-cell li:nth-child(1),
+.pickadate-cell li:nth-child(8),
+.pickadate-cell li:nth-child(15),
+.pickadate-cell li:nth-child(22),
+.pickadate-cell li:nth-child(29),
+.pickadate-cell li:nth-child(36) {
+  //border-left: 1px solid $light-gray;
+}
+
+.pickadate-cell .pickadate-disabled,
+.pickadate-cell .pickadate-disabled a {
+  color: $light-gray;
+  background:$lighter-gray;
+  opacity:0.8;
+}
+
+.pickadate-cell .pickadate-enabled {
+  cursor: pointer;
+  font-size: $font-size-base;
+  color: #666666;
+}
+
+.pickadate-cell .pickadate-today {
+  background-color: lighten($primary-color, 50%);
+  color:$dark;
+}
+
+.pickadate-cell .pickadate-active {
+  background-color: $primary-color;
+}
+
+.pickadate-cell .pickadate-active {
+  color: white;
+}
+
+.pickadate-cell .pickadate-head {
+  //border-top: 1px solid $light-gray;
+  //border-bottom:1px solid $gray;
+  margin-bottom:5px;
+  //background:$lighter-gray;
+  font-weight:bold;
+  color:$dark;
+}
+
+.pickadate-cell .pickadate-head:nth-child(1),
+.pickadate-cell .pickadate-head:nth-child(7) {
+  //background: $lighter-gray;
+}
+
+.pickadate-centered-heading {
+  font-weight: normal;
+  text-align: center;
+  font-size: $font-size-base * 2;
+  margin: 13px 0 13px 0;
+  font-family:$font-family-sans-serif;
+}
+
+.pickadate-controls {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+}
+
+.pickadate-controls .pickadate-next {
+  float: right;
+}
+
+.pickadate-controls a {
+  text-decoration: none;
+  font-size: 0.9em;
+}

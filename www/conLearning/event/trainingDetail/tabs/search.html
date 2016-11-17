@@ -1,0 +1,50 @@
+<ion-modal-view view-title="Search">
+    <ion-header-bar id="search-box" class="bar bar-header item-input-inset">
+        <div ng-click="closeSearch()">
+            <i class="icon ion-chevron-down placeholder-icon"></i>
+        </div>
+        <label class="item-input-wrapper">
+            <i class="icon ion-ios-search-strong  placeholder-icon" ng-click="clearSearch()"></i>
+            <input type="search" placeholder="Who are you looking for?" ng-model="searchText" auto-focus>
+        </label>
+
+        <button class="button button-clear" ng-disabled="searchText.length<3" ng-click="performSearch(searchText)">
+            Search
+        </button>
+    </ion-header-bar>
+    <ion-content class="white has-acc-header" has-bouncing="false" has-subheader="true">
+        <div ng-show="noDataShow">
+            <P class="noDataShowText">We could not find who you were looking for based on '{{noDataText}}'.</P>
+        </div>
+        <ion-list>
+
+            <!--<ion-item class="item-divider">
+              Result
+            </ion-item>-->
+
+            <div class="acc-thing list noborder nopaddings nomargins nominheight" ng-click="closeSearch();" ng-repeat="item in Venue">
+                <ion-item class="item item-text-wrap participants-list-item" ng-click="navigateProfile(item.PeopleKey, item.EnterpriseID, 0)">
+                    <!--<img ng-src="data:image/jpeg;base64,{{item.imgUrl}}">
+                    <h2>{{item.fullName}}</h2>
+                    <p>{{item.standardjobdescr}}</p>-->
+
+                    <div class="participants-wrapper">
+                        <img class="participants-list-img" ng-src="data:image/jpeg;base64,{{item.imgUrl}}">
+                        <h2 class="participants-list-item-title">{{item.fullName}}</h2>
+                        <span>{{item.standardjobdescr}}</span>
+                    </div>
+                </ion-item>
+
+
+
+            </div>
+
+        </ion-list>
+
+        <ion-infinite-scroll on-infinite="loadMoreSearch()" icon="ion-loading-c"
+                             ng-if="moreSearchCanBeLoaded()"
+                             distance="1%">
+        </ion-infinite-scroll>
+
+    </ion-content>
+</ion-modal-view>

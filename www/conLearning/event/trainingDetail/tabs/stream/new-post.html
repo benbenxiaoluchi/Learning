@@ -1,0 +1,50 @@
+<ion-modal-view view-title="New" class="forNewArticle" ng-controller="newPostController"
+        default-status-bar="black"
+        shrink-status-bar="black">
+    <ion-header-bar class="bar bar-header bar-dark">
+        <button class="right button button-dark button-clear" ng-click="closeNewPost()">
+            <i class="acc-angle-down"></i>
+        </button>
+        <h1 class="title">
+            Post Article
+        </h1>
+        <!-- <button class="right button button-dark button-clear button-icon acc-camera" show-camera-actions>
+        </button> -->
+    </ion-header-bar>
+    <ion-content class="has-acc-header" has-bouncing="false" has-subheader="true">
+        <ion-list class="content">
+            <ion-item class="item-textarea item-stacked-label">
+                <span class="input-label">Your comment below</span>
+                <textarea focus-me="new-post" ng-model="article.comment" 
+                placeholder="What's on your mind?..."></textarea>
+            </ion-item>
+            <ion-item class="item-icon-right forDisplayUsers" ng-click="openPeoplePicker()">
+                <span class="input-label">                
+                Add People to notify</span>
+                <people-list class="peopleList" ng-if="article.people.length > 0" size="5" list="article.people"></people-list>
+             
+                <i class="icon acc-angle-right"></i>
+            </ion-item>
+            <ion-item class="item-stacked-label">
+                <span class="input-label"># Add hashtag</span>
+                <input type="text" ng-model="article.hashtag" placeholder=""/>
+            </ion-item>
+            <ion-item class="item-divider list-divider noborders" ng-if="article.image!='' && article.image!=null">
+                Image
+            </ion-item>
+             <div class="card acc-thing" ng-if="article.image!='' && article.image!=null">
+                <ion-item class="item-image">
+                    <img  ng-src="{{article.image}}" />
+                </ion-item>
+            </div>
+            <ion-item class="noborders">
+                <button class="right button button-dark button-block" ng-click="postArticle()">
+                    Publish
+                </button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+    <button class="button float-btn nomargins noborders button-dark animated fadeInUp hide-on-keyboard-open" show-camera-actions>
+   <i class="acc-camera"></i></button>
+   
+</ion-modal-view>

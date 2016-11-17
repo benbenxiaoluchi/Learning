@@ -1,0 +1,128 @@
+// For cards 
+.card {
+    
+    box-shadow: 0px 1px 1px rgba(0,0,0,0.25);
+    border-radius: 0;
+
+    & .item:first-child{
+        border-radius:0;
+    }
+
+
+    &.acc-thing{
+    	// for animation repeat
+        padding-top:0;
+        padding-bottom:0;
+        margin-top:10px;
+        margin-bottom:10px;
+        filter: blur(0);
+	    /*&.ng-enter-stagger {
+	        transition-delay: 0.1s;
+	        transition-duration: 0;
+	    }*/
+
+	    &.ng-enter {
+	         animation: fadeInUp 1s ease-in-out both;
+                -webkit-animation: fadeInUp 1s ease-in-out both;
+                transform-origin: top;
+                -webkit-transform-origin: top;
+
+	        &.ng-enter-active {
+	         
+	        }
+	    }
+	   
+
+        // when is a summary-card
+        &.summary-card{
+            background:$light-gray;
+            > .item:first-child{
+                background:$dark;
+                h1, h2, h3, .title, p{
+                    color:#fff !important;
+                }
+            }
+            .list-inset{
+                .card{
+                    &:first-child{
+                        margin-top:5px;
+                    }
+                    &:last-child{
+                        margin-bottom:0px;
+                    }
+                }
+            }
+        }
+
+    }
+
+    .bottom-actions{
+    	padding:0;
+    	.button{
+            margin:-1px;
+            border:1px solid $light-gray;
+            color:$dark;
+            text-transform:uppercase;
+            line-height:40px;
+            font-family:$font-family-light-sans-serif;
+            font-size:$font-size-base;
+            font-weight:normal;
+            i{
+                font-size:$font-size-base + 6; 
+                position: absolute;
+                margin-left: -25px;
+                margin-top: 0;
+                line-height: $font-size-base * 3 + 5;
+          
+                &.ion-ios-checkmark-empty{
+                    color: green;
+                }
+                &.ion-ios-close-empty{
+                    color:red;
+                }
+            }
+        } 
+    }
+
+
+   
+
+
+   
+}
+
+
+
+
+// ******* ANIMATIONS ***********//
+@-webkit-keyframes fly-in-from-left {
+    from {
+        transform: translateY(200px) rotate(15deg);
+        opacity: 0;
+        filter:blur(30px);
+    }
+}
+
+@keyframes fly-in-from-left {
+    from {
+        transform: translateY(200px) rotate(15deg);
+        opacity: 0;
+        filter:blur(30px);
+    }
+}
+
+@-webkit-keyframes fly-in-from-right {
+    from {
+        transform: translateY(200px) rotate(-15deg);
+        opacity: 0;
+        filter:blur(30px);
+    }
+}
+
+@keyframes fly-in-from-right {
+    from {
+        transform: translateY(200px) rotate(-15deg);
+        opacity: 0;
+        filter:blur(30px);
+    }
+}

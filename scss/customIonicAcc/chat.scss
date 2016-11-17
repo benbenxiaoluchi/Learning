@@ -1,0 +1,103 @@
+.forChat{
+	ion-content{
+		background:$light-gray;
+	}
+}
+.chat-bubble 
+{	
+	background:transparent;
+	border:none;
+	padding-bottom:0;
+	padding-top:15px;
+	padding-bottom:5px;
+
+	.date{
+		line-height:20px;
+	}
+	.bubble{
+		position: relative;
+		padding: 0px;
+		min-height:54px;
+		
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+		padding:10px;
+		width:80%;
+		
+			&:after 
+			{
+				content: '';
+				position: absolute;
+				border-style: solid;
+				display: block;
+				width: 0;
+				z-index: 1;
+				top: 15px;
+			}
+
+		// Contain an image
+		img.userPicture{
+			width:25px;
+			height:25px;
+			border-radius:25px;
+			position:absolute;
+			top:15px;
+
+		}
+
+		*{
+			margin-top:0;
+			margin-bottom:0;
+		}
+
+		.userName{
+			margin-bottom:5px;
+		}
+
+	}
+
+// There is two ways to write a comment so... let's do that
+	&.left{
+		.bubble{
+			padding-left:50px;
+			background:rgba(255,255,255,0.8);
+
+			&:after{
+				left: -9px;
+				border-width: 10px 9px 10px 0;
+				border-color: transparent #FFFFFF;
+			}
+
+			img.userPicture{
+				left:10px;
+			}
+		}
+	}
+
+	&.right{
+		text-align:right;
+		.bubble{
+			padding-right:50px;
+			margin-left:20%;
+			background:rgba(102,170,68,0.8);
+
+			*{color:#fff;}
+
+			&:after{
+				border-width: 10px 0 10px 9px;
+				border-color: transparent rgba(102,170,68,0.8);
+				right: -9px;
+				top: 21px;
+			}
+			.userName{
+				display:none;
+			}
+			img.userPicture{
+				right:10px;
+			}
+
+
+		}
+	}
+}

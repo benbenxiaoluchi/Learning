@@ -1,0 +1,135 @@
+.acc-thing{
+	.identifier{
+		.identifier-badge{
+
+			-webkit-animation-duration: 4s;
+			          animation-duration: 4s; 
+		    -webkit-animation-fill-mode: both;
+			          animation-fill-mode: both;
+		
+    //	-webkit-animation-iteration-count: infinite;
+		//		  animation-iteration-count: infinite;
+			&.pending{
+                 -webkit-animation-name: flashPending;
+      			 animation-name: flashPending;
+      			 -webkit-animation-duration: 4s;
+			     animation-duration: 4s; 
+			     -webkit-animation-iteration-count: 3;
+					  animation-iteration-count: 3;
+            }
+
+            &.accepted {
+                -webkit-animation-name: rotateAccepted;
+      			 animation-name: rotateAccepted;
+      			 -webkit-animation-duration: 4s;
+			     animation-duration: 4s; 
+  			     -webkit-animation-iteration-count: 3;
+  				   animation-iteration-count: 3;
+
+            }
+
+            &.rejected{
+               
+            }
+
+            &.progress {
+               
+            }
+
+            .text-badge{
+               
+            }
+
+            i {
+               
+            }
+
+		}
+	}
+	
+}
+
+
+@-webkit-keyframes flashPending {
+  0%, 50%, 100% {
+    opacity: 1;
+    
+     -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+
+  25%, 75% {
+    opacity: 0.5;
+     -webkit-transform: scale3d(.7, .7, .7);
+            transform: scale3d(.7, .7, .7);
+  }
+}
+
+@keyframes flashPending {
+  0%, 50%, 100% {
+    opacity: 1;
+    
+     -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+
+  25%, 75% {
+    opacity: 0.5;
+     -webkit-transform: scale3d(.7, .7, .7);
+            transform: scale3d(.7, .7, .7);
+  }
+}
+
+
+/*****  Rotate for Accepted *****/
+
+/**@-webkit-keyframes rotateAccepted {
+ 
+}**/
+
+@-webkit-keyframes rotateAccepted {
+  0%{
+  	opacity: 1;
+  	-webkit-transform: rotate3d(0, 0, 1, -360deg);
+            transform: rotate3d(0, 0, 1, -360deg);
+    -webkit-transform: scale3d(1, 1, 1);
+    	    transform: scale3d(1, 1, 1);
+  }
+  25%{
+  	opacity: 1;
+
+  	-webkit-transform: rotate3d(0, 0, 1, -360deg);
+            transform: rotate3d(0, 0, 1, -360deg);
+    -webkit-transform: scale3d(.7, .7, .7);
+    	    transform: scale3d(.7, .7, .7);
+  }
+  50%{
+  	opacity: 1;
+
+  	-webkit-transform: rotate3d(0, 0, 1, -360deg);
+            transform: rotate3d(0, 0, 1, -360deg);
+	-webkit-transform: scale3d(1.2, 1.2, 1.2);
+    	    transform: scale3d(1.2, 1.2, 1.2);
+  }
+  80%{
+  	opacity: 1;
+  	-webkit-transform: rotate3d(0, 0, 1, 360deg);
+            transform: rotate3d(0, 0, 1, 360deg);
+    -webkit-transform: scale3d(1.2, 1.2, 1.2);
+    transform: scale3d(1.2, 1.2, 1.2);
+   
+  }
+  100%{
+  	opacity: 0;
+  	
+  	-webkit-transform: rotate3d(0, 0, 1, 360deg);
+            transform: rotate3d(0, 0, 1, 360deg);
+    -webkit-transform: scale3d(.6, .6, .6);
+    	    transform: scale3d(.6, .6, .6);
+  }
+
+}
+/***** / Rotate for Accepted *****/
+
+
+

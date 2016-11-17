@@ -1,0 +1,160 @@
+/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
+
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale3d(0.8, 0.8, 0.8) ;
+    transform: scale3d(0.8, 0.8, 0.8);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.2, 1.2, 1.2);
+    transform: scale3d(1.2, 1.2, 1.2);
+  }
+  
+  
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes pulse {
+  
+  0% {
+    -webkit-transform: scale3d(0.8, 0.8, 0.8);
+    transform: scale3d(0.8, 0.8, 0.8);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.2, 1.2, 1.2);
+    transform: scale3d(1.2, 1.2, 1.2);
+  }
+  
+  
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+}
+
+/*********/ 
+@-webkit-keyframes pulse_halo {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale3d(0.5, 0.5, 1);
+    transform: scale3d(0.5, 0.5, 1);
+    
+  }
+  50%, 100% {
+    opacity: 0;
+    -webkit-transform: scale3d(2.5, 2.5, 1);
+    transform: scale3d(2.5, 2.5, 1);
+
+
+  }
+}
+
+@keyframes pulse_halo {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale3d(0.5, 0.5, 1);
+    transform: scale3d(0.5, 0.5, 1);
+  }
+  50%, 100% {
+    opacity: 0;
+    -webkit-transform: scale3d(2.5, 2.5, 1);
+    transform: scale3d(2.5, 2.5, 1);
+  }
+}
+
+
+.pulse {
+  -webkit-animation-name: pulse;
+          animation-name: pulse;
+          animation-duration: 1s;
+          -webkit-animation-duration: 1s;
+          
+          &:after{
+              content:"\e75b";
+              font-family: "acc-icons";
+              position:absolute;
+              display:block;
+              color:rgba(255,0,0,0.9);
+              top:0px;
+              transition:0.5s ease-in-out all;
+              -webkit-transition:0.5s ease-in-out all;
+              -moz-transition:0.5s ease-in-out all;
+
+              -webkit-animation-name: pulse_halo;
+              animation-name: pulse_halo;
+              -webkit-animation-duration: 1.5s;
+              animation-duration: 1.5s;
+
+              -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+
+
+
+          }
+}
+
+
+
+// for radar animation
+@-webkit-keyframes radarAnimation {
+    0%,100% {
+        width:4px;
+        height:4px;
+        border-radius:4px;
+        opacity:0;
+    }
+    1% { opacity:1; }
+    70% {
+        opacity:0.5;
+    }
+    99.999% {
+        width:200px;
+        height:200px;
+        border-radius:200px;
+        opacity:0;
+    }
+}
+@keyframes radarAnimation {
+    0%,100% {
+        width:4px;
+        height:4px;
+        border-radius:4px;
+        opacity:0;
+    }
+    1% { opacity:1; }
+    70% {
+        opacity:0.5;
+    }
+    99.999% {
+        width:200px;
+        height:200px;
+        border-radius:200px;
+        opacity:0;
+    }
+}
+
+
+
+// For modal specific animation
+
+.slide-in-right {
+  -webkit-transform: translateX(100%);
+    transform: translateX(100%); }
+
+.slide-in-right.ng-enter, .slide-in-right > .ng-enter {
+  -webkit-transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms;
+  transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms; }
+
+.slide-in-right.ng-enter-active, .slide-in-right > .ng-enter-active {
+  -webkit-transform: translateX(0);
+    transform: translateX(0); }
+
+.slide-in-right.ng-leave, .slide-in-right > .ng-leave {
+  -webkit-transition: all ease-in-out 250ms;
+  transition: all ease-in-out 250ms; }

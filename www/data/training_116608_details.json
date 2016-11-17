@@ -1,0 +1,40 @@
+[
+    {
+        "activityLabelName": null,
+        "activityLabelFk": 0,
+        "activityID": 116608,
+        "courseCd": null,
+        "title": "Consultant/Specialist Milestone",
+        "description": "This training is the next training in a series of courses that are intended to enable new career counselors to be effective. The first course, The Case for Career Counseling?helps career counselors understand the importance and impact of their role as a career counselor. The objective of this next course effective Career Counseling -The Basics?training is to:1 Provide an overview and introduction to the role and responsibilities of a career counselor 2 Provide a tactical overview of the core expectations and skills needed to be successful as a career counselor3 Ensure career counselors are aware of the tools and resources available to help them4 Emphasize the importance of building counselee relationshipsThis course is open to all career counselors but the target audience is new career counselors.Please Note: This course is also offered as live training session in some GUs.To register for GU Live Sessions,click here.Important Note Regarding Course Videos:If you to click on any open window while playing a video in this course, the video will drop behind the course player window. You will still be able to hear the video playing, but you may not be able to see the video. If you click on the original image that you launched the video from while the video is playing the video stops and moves to a blank / white screen. It is suggested that you close all other windows while taking this course to reduce the potential to lose the video.You will be given credit for completion of the course if you take the online version or attend a live session.",
+        "type": null,
+        "rating": 0.0,
+        "hours": 0.0,
+        "tuition": 0.0,
+        "vendorName": null,
+        "vendorURL": null,
+        "registrationID": 0,
+        "startDt": "2015-6-5",
+        "endDt": "2015-6-6",
+        "location": "St. Charles, USA" ,
+        "status": null,
+        "wbsElement": null,
+        "lstActivityAction": [
+            
+        ],
+        "lstActivitySource": [
+            
+        ],
+        "languages": null,
+        "wbsHelpText": null,
+        "PlayabilityValue": 0,
+        "PlayableDeviceTypes": 0,
+        "endLocalDt": null,
+        "facCity": null,
+        "instrNotes": null,
+        "lstUsers": null,
+        "materialsURL": null,
+        "startLocalDt": null,
+		"venueTitle": "Madrid High Performance Center",
+		"venueBody": "Lorem lorem ipsum sit amet. Madrid High Performance Center. For the fourth consecutive year we celebrate lorem ipsum sit amet: lorem ipsum sit amet: the lorem ipsum reference event in Spain, which will integrate all companies, design studio, consultants and professionals who work in the intersection of design, technology and people."
+    }
+]

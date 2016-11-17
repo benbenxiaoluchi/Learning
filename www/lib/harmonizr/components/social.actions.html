@@ -1,0 +1,27 @@
+﻿<ion-item class="socialActions">
+    <div class="row">
+        <div class="col-25" ng-if="likeIsVisible">
+            <button class="button button-full" ng-click="actionLike()">
+                <i ng-class="{true:'acc-heart social-icon animated pulse',false:'acc-heart-o social-icon'}[isLikeActive]"></i>
+                <span>{{likeNumber}}</span>
+            </button>
+        </div>
+        <div class="col-25" ng-if="commentIsVisible">
+            <button class="button button-full" ng-click="actionComment()">
+                <i class="acc-writing-o"></i>
+                <span>{{commentNumber}}</span>
+            </button>
+        </div>
+        <div class="col-25" ng-if="shareIsVisible">
+            <button class="button button-full" ng-click="actionShare()">
+                <i ng-class="{true:'ion-ios-redo',false:'ion-ios-redo-outline'}[isShareActive]" style="font-size:30px; top:35%"></i>
+                <span>{{shareNumber}}</span>
+            </button>
+        </div>
+        <div ng-attr-class="{{classOptions}}" ng-if="optionsIsVisible">
+            <button class="button button-full text-right" ng-click="actionOptions()">
+                <i class="acc-menu-circle-vertical"></i>
+            </button>
+        </div>
+    </div>
+</ion-item>

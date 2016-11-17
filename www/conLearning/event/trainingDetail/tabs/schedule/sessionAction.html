@@ -1,0 +1,49 @@
+﻿﻿<ion-modal-view view-title="SessionAction">
+    <ion-header-bar id="sesstion-action" class="bar bar-header item-input-inset" style="display: block">
+        <div ng-click="closeSessionAction(sessionid)" style="float: right">
+            <i class="icon ion-close" style="font-size: 20px; color: #aaa"></i>
+        </div>
+    </ion-header-bar>
+    <ion-content class="white has-acc-header sessionAction-content">
+        <div>
+            <i class="ion-clipboard" style="font-size:35px"></i>
+        </div>
+        <div style="color:#aaa">
+            <p><span style="width:100%">{{starttime}} - {{endtime}}</span></p>
+        </div>
+        <div style="font-size:20px;line-height:25px" ng-click="toggleToMaterials('','',starttime, endtime, sessionActionName, location, sessionStates,'', false)">
+            <span>{{sessionActionName}}</span>
+        </div>
+        <div style="text-align: center;">
+            <div style="display: inline-block; width: 33%; line-height: 0.5" ng-click="getLearners(1)">
+                <p>{{sumOfInRoom}}</p>
+                <div class="learn-Icon-ParticipantsInRoom" style="color:green;font-size:50px"></div>
+                <p>IN</p>
+                <p>ROOM</p>
+            </div>
+            <div style="display: inline-block; width: 33%; line-height: 0.5" ng-click="getLearners(2)">
+                <p>{{sumOfOutRoom}}</p>
+                <div class="learn-Icon-ParticipantsOutofRoom" style="color:#ff9900;font-size:50px"></div>
+                <p>OUT OF</p>
+                <p>ROOM</p>
+            </div>
+            <div style="display: inline-block; width: 32%; line-height: 0.5" ng-click="getLearners(3)">
+                <p>{{sumOfLearners}}</p>
+                <div class="ion-person" style="font-size:50px"></div>
+                <p>ALL</p>
+                <p>LEARNERS</p>
+            </div>
+        </div>
+
+        <!--<div style="color:#aaa">How long did the session actually run?</div>
+
+        <!--<div>
+            <rzslider rz-slider-model="slider.minValue" rz-slider-high="slider.maxValue" rz-slider-options="slider.options"></rzslider>
+        </div>-->
+
+        <div style="color:#aaa">Session Comments (for Delivery Team)</div>
+        <div style="padding-top:0">
+            <textarea rows="5" style="border:1px solid #aaa;resize:none;width:100%" placeholder="Optional comments..." ng-model="$parent.$parent.$parent.sessionComments" ng-model-options="{ debounce: 2000 }" ng-change="sessionCommentsChanged()"></textarea>
+        </div>
+    </ion-content>
+</ion-modal-view>

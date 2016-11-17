@@ -1,0 +1,73 @@
+﻿{
+    "DomainSpecialty": "MSFT Collaborative Tech",
+    "IndustrySpecialty": "No Industry Specialty",
+    "FirstSecondarySpecialty": "",
+    "SecondSecondarySpecialty": "",
+    "MiddleInitial": "",
+    "DisplayName": "Divya Ramachandran",
+    "LastName": "Ramachandran",
+    "PreferredName": "Ramachandran, Divya X.",
+    "FirstName": "Divya",
+    "OrgLevel1": "Accenture People Hierarchy",
+    "OrgLevel2": "Accenture Technology",
+    "OrgLevel3": "Technology Global Delivery",
+    "OrgLevel4": "Delivery Centers",
+    "EnterpriseId": "vivek.a.arora",
+    "PeopleKey": "672502",
+    "ProfessionalBio": "",
+    "MyCVSkills": [
+        {
+            "Name": "Microsoft-Office SharePoint Server",
+            "Proficiency": "P3 - Proficient",
+            "Experience": "3 Years"
+        },
+        {
+            "Name": "Microsoft-SQL Server",
+            "Proficiency": "P2 - Proficient",
+            "Experience": "2 Years"
+        },
+        {
+            "Name": "ASP.NET",
+            "Proficiency": "P2 - Proficient",
+            "Experience": "3 Years"
+        }
+    ],
+    "MyCvSkillsOnly": [
+        "Microsoft-Office SharePoint Server",
+        "Microsoft-SQL Server",
+        "ASP.NET"
+    ],
+    "FirstSecondaryCapability": "",
+    "SecondSecondaryCapability": "",
+    "CountryHome": "India",
+    "CareerTrack": "Client Delivery & Operations",
+    "JobTitle": "10",
+    "JobCd": "10000080",
+    "HomeOffice": "Mumbai 2 - Godrej",
+    "DirectDial": "",
+    "MyTeam": "",
+    "WorkEmail": "divya.x.ramachandran@accenture.com",
+    "Manager": "manu.dharmapalan",
+    "Mobile": "+919869228855",
+    "WorkPhone": "",
+    "CurrentProjects": "",
+    "CurrentLocation": "Mumbai",
+    "MyCvCertifications": [
+        "MS-MCTS .NET 2.0 Dist Apps",
+        "MS-MCTS .NET 2.0 Win Apps",
+        "Prof Dev: Enterprise Applications Developer",
+        "MS-MCTS .NET Framework 2.0",
+        "MS-MCTS .NET 2.0 Web Apps",
+        "MS-MCTS SharePoint 2010, App Dev"
+    ],
+    "HrRepresentativeName": "n.bisht",
+    "HomeCity": "Mumbai",
+    "TalentSegment": "Software Engineering",
+    "Timezone": "(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi",
+    "StandardJobCode": "40002015",
+    "StandardJobDescription": "Software Engineering Sr. Analyst",
+    "CareerCounselorId": "10446299",
+    "CareerCounselorName": "maria.alarcon.elipe",
+    "GeographicUnitCode": "SPP",
+    "GeographicUnitDescription": "Iberia"
+}

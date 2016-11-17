@@ -1,0 +1,40 @@
+﻿
+    <ion-item class="item-body noborders ">
+        <h2>{{item.qualifier}}</h2>
+        <p>{{item.contextual}}</p>
+    </ion-item>
+
+    <ion-item class="item-image">
+        <img ng-src="{{item.feature.image}}" />
+    </ion-item>
+   
+    <ion-item class="item-body noborders">
+        <div ng-bind-html="item.bodySafe"></div>
+    </ion-item>
+    <ion-item class="socialActions">
+        <div class="row">
+            <div class="col-25">
+                <button class="button button-full" ng-click="addLikes()">
+                    <i class="ion-ios-heart social-icon animated pulse" ng-if="isLikeActive"></i>
+                    <i class="ion-ios-heart-outline social-icon" ng-if="!isLikeActive"></i>
+                    <span>{{item.social.like.length}}</span>
+                </button>
+            </div>
+            <div class="col-25">
+                <button class="button button-full" ng-click="showComments()">
+                    <i class="acc-writing-o"></i>
+                    <span>{{item.social.comments.length}}</span>
+                </button>
+            </div>
+            <div class="col-25">
+                <button class="button button-full">
+                    <i class="acc-arrow-right3"></i>
+                </button>
+            </div>
+            <div class="col-25">
+               <!-- <button class="button button-full text-right">
+                    <i class="acc-menu-circle-vertical"></i>
+                </button>-->
+            </div>
+        </div>
+    </ion-item>

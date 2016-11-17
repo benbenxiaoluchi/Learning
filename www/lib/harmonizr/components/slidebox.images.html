@@ -1,0 +1,7 @@
+﻿<ion-slide-box on-slide-changed="slideHasChanged($index)" auto-play="true" does-continue="true" show-pager="{{showPager}}" height="{{height}}" ng-attr-slide-interval="{{slideInterval}}">
+    <ion-slide ng-repeat="src in list">
+        <div class="box">
+            <img ng-src="{{src}}" height="{{height}}" />
+        </div>
+    </ion-slide>
+</ion-slide-box>

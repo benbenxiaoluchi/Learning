@@ -1,0 +1,48 @@
+﻿
+<ion-item>
+    <p>Role</p>
+    <p>{{userData.StandardJobDescription}}</p>
+</ion-item>
+<ion-item>
+    <p>Talent Segment</p>
+    <p>{{userData.TalentSegment}}</p>
+</ion-item>
+<ion-item>
+    <p>Career Track</p>
+    <p>{{userData.CareerTrack}}</p>
+</ion-item>
+<ion-item>
+    <p>Career Level</p>
+    <p>{{userData.JobTitle}}</p>
+</ion-item>
+<ion-item>
+    <p>Career Counselor</p>
+    <p>{{userData.Manager}}</p>
+</ion-item>
+<ion-item>
+    <p>HR Rep</p>
+    <p>{{userData.HrRepresentativeName}}</p>
+</ion-item>
+<ion-item class="item-divider list-divider">
+    Certifications
+</ion-item>
+<div class="acc-thing">
+    <ion-item class="item-body" ng-repeat="item in profile.MyCvCertifications">
+        <p>{{item}}</p>
+    </ion-item>
+</div>
+<!--<ion-item class="item-divider list-divider">
+    Specialties
+</ion-item>
+<div class="acc-thing">
+    <ion-item class="forRating item-body" ng-repeat="skill in profile.MyCVSkills">
+        <h2 class="title">{{skill.Name}}</h2>
+        <p class="rating specialty no-picture">
+            <i class="acc-star p0" ng-class="{'user': (getProficiency(skill.Proficiency)>=1)}"></i>
+            <i class="acc-star p1" ng-class="{'user': (getProficiency(skill.Proficiency)>=2)}"></i>
+            <i class="acc-star p2" ng-class="{'user': (getProficiency(skill.Proficiency)>=3)}"></i>
+            <i class="acc-star p3" ng-class="{'user': (getProficiency(skill.Proficiency)>=4)}"></i>
+            <i class="acc-star p4" ng-class="{'user': (getProficiency(skill.Proficiency)>=5)}"></i>
+        </p>
+    </ion-item>
+</div>-->

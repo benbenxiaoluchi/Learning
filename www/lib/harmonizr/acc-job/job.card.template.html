@@ -1,0 +1,45 @@
+﻿<!-- Image Card -->
+<ion-item class="item-image" ng-if="showVideo">
+    <video webkit-playsinline muted width="100%" height="" preload="auto" ng-attr-poster="{{item.video.poster}}">
+        <source ng-src="{{item.video.source}}" type="video/mp4">
+    </video>
+</ion-item>
+<ion-item class="item-image" ng-if="showImage">
+    <img ng-src="{{item.image}}" />
+</ion-item>
+<ion-item ng-if="showImage || showVideo">
+    <h2>{{item.title}}</h2>
+    <p><i class="ion-ios7-location"></i> {{item.city}}, {{item.country}} | {{item.match}}% match</p>
+</ion-item>
+<!-- Identifier Card -->
+<ion-item class="item-icon-left item-body noborders" ng-if="showCard" ng-class="{'with-identifier':showIdentifier}">
+    <div class="identifier rounded icon" ng-if="showIdentifier">
+        <span class="identifier-badge accepted">
+            <i class="text-badge" ng-show="item.communicator=='Pending'">?</i>
+            <i class="acc-check" ng-show="item.communicator=='Accepted'"></i>
+            <i class="acc-close" ng-show="item.communicator=='Rejected'"></i>
+            <i class="acc-circle-left-right-o" ng-show="item.communicator=='InProgress'"></i>
+            <i class="text-badge" ng-show="item.communicator=='Badge'">{{item.communicatorCounter}}</i>
+        </span>
+        <i class="identifier-icon acc-job"></i>
+    </div>
+    <div>
+        <h2>{{item.title}}</h2>
+        <p><i class="ion-ios7-location"></i> {{item.city}}, {{item.country}} | {{item.match}}% match</p>
+    </div>
+</ion-item>
+<!-- Social -->
+<social-actions show-like="true" action-like="addLikes()" ng-attr-like-number="{{item.social.like.length}}" ng-attr-is-like-active="{{isLikeActive}}"
+                show-comment="true" action-comment="showComments()" ng-attr-comment-number="{{item.social.comments.length}}"
+                show-share="true"
+                show-options="true">
+</social-actions>
+<!-- Actions -->
+<ion-item class="bottom-actions button-bar item-divider" ng-if="showActions">
+    <a class="button" ng-if="item.canApply">Apply</a>
+</ion-item>
+<ion-item class="item-body" ng-if="item.isApplied">
+    <p class="">
+        <i class="acc-check"></i> Applied
+    </p>
+</ion-item>

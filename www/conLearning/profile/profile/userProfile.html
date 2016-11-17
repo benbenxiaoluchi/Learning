@@ -1,0 +1,109 @@
+<!--<ion-view view-title="" ng-init="getUserProfileInfo()" class="forProfile" header-shrink="-44" header-shrink-classes="bar-transparent,bar-profile" header-shrink-title-template="<img src='img/img_{{userData.peopleKey}}.jpg' />">-->
+
+<ion-view ng-init="getUserProfileInfo()"
+          acc-header-shrink
+          default-class="bar-transparent"
+          shrink-class="bar-dark"
+          title-template-html="profile.header.html"
+          offset="200" hide-nav-bar="true">
+
+    <ion-header-bar no-tap-scroll="true" class="tab-attendance-head" ng-class="{true: 'bgc000', false: 'bgcb90b62'}[adminFlage]" align-title="center">
+        <i ng-click="$ionicGoBack()" class="acc-angle-left"></i>
+        <h1>
+            USER PROFILE
+        </h1>
+    </ion-header-bar>
+
+    <ion-content scroll="true" delegate-handle="myScroll" has-header="true" has-bouncing="true" class="image-bgr no-header" >
+        <ion-list>
+    
+        <ion-item-divider class="profile-picture">
+                <img ng-src="data:image/jpeg;base64,{{ profilebase64 }}" />
+                <h3 class="title" ng-show="profileInfo.lastname.length>0">
+                    {{ profileInfo.lastname }},&nbsp;{{ profileInfo.firstname }}
+                </h3>
+                <p>{{ profileInfo.standardjobdescr }}</p>
+
+                <div class="actions">
+                    <div class="button-bar">
+                        <a class="button button-clear button-dark text-left" ng-disabled="ImpersonateStatus" ng-click="showAlert()">
+                            <i class="acc-chat"></i>
+                        </a>
+                        <a class="button button-clear button-dark text-left" ng-disabled="ImpersonateStatus" href="mailto:{{workemail}}?subject={{title}}">
+                            <i class="acc-envelope"></i>
+                        </a>                        
+                        <!--<a class="button button-clear button-dark text-left" ng-disabled="ImpersonateStatus" ng-click="addToContact()">-->
+                            <!--<i class="ion-person-add"></i>-->
+                        <!--</a>-->
+                        <a class="button button-clear button-dark text-left" ng-disabled="ImpersonateStatus" ng-click="followPeople(eidUseToFollow)">
+                            <i class="ion-eye" style="font-size: 24px" ng-style="FollowIcon"></i>
+                        </a>
+                    </div>
+                </div>
+
+        </ion-item-divider>
+
+
+
+        </ion-list>
+        <ion-list class="light-bgr">
+
+            <div class="acc-thing list noborder nopaddings nomargins nominheight">
+                <ion-item>
+                    <p>Name</p>
+                    <h2 ng-show="profileInfo.lastname.length>0">{{ profileInfo.lastname }},&nbsp;{{ profileInfo.firstname }}</h2>
+                </ion-item>
+            </div>
+
+            <div class="acc-thing list noborder nopaddings nomargins nominheight">
+                <ion-item>
+                    <p>Deployed To Entity</p>
+                    <h2>{{ profileInfo.orglevel2desc }}</h2>
+                </ion-item>
+            </div>
+
+            <div class="acc-thing list noborder nopaddings nomargins nominheight">
+                <ion-item>
+                    <p>Talent Segment</p>
+                    <h2>{{ profileInfo.talentsegmentdescr }}</h2>
+                </ion-item>
+            </div>
+
+            <div class="acc-thing list noborder nopaddings nomargins nominheight">
+                <ion-item class="item-text-wrap">
+                    <p>Career Track</p>
+                    <h2>{{ profileInfo.careertrackdesc }}</h2>
+                </ion-item>
+            </div>
+
+            <div class="acc-thing list noborder nopaddings nomargins nominheight">
+                <ion-item>
+                    <p>Career Level</p>
+                    <h2>{{ profileInfo.spsjobtitle }}</h2>
+                </ion-item>
+            </div>
+
+            <div class="acc-thing list noborder nopaddings nomargins nominheight" ng-show="title != 'empty' && date != 'empty' && location != 'empty'">
+                <ion-item>
+                    <p>Learning Events</p>
+                    <h2>{{ title }}</h2>
+                    <p>{{ secondTitle }}</p>
+                </ion-item>
+            </div>
+
+            <div class="acc-thing list noborder nopaddings nomargins nominheight">
+                <ion-item class="item-text-wrap">
+                    <p>Biography</p>
+                    <h2 ng-bind-html="deliberatelyTrustDangerousSnippet()"></h2>
+                </ion-item>
+            </div>
+        </ion-list>
+
+
+    </ion-content>
+
+</ion-view>
+
+<script type="text/ng-template" id="profile.header.html">
+    <h1 class='title'>{{ profileInfo.lastname }},&nbsp;{{ profileInfo.firstname }}</h1>
+</script>

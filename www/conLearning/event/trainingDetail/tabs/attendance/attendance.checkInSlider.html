@@ -1,0 +1,11 @@
+﻿<ion-modal-view view-title="CheckInSlider" class="checkIn-popup-wrap attendance-checkinslider-wrap">
+    <ion-content style="padding-top: 30px">
+        <div class="learn-Icon-Close attendance-checkinslider-close" ng-click="closeCheckInSlider()"></div>
+        <i class="learn-Icon-ParticipantsInRoom cfff"></i>
+        <h6>Checking-in</h6>
+        <p class="attendance-checkinslider-info">{{fullName}} <span>at</span> {{checkinPopTime}}...</p>
+        <button class="button button-dark button-block attendance-checkinslider-btn"
+                ng-click="checkInPopupAction(participantActionEid, checkinIndex)">CONFIRM CHECK IN
+        </button>
+    </ion-content>
+</ion-modal-view>

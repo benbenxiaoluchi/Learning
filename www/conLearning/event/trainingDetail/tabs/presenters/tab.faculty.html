@@ -1,0 +1,49 @@
+
+<!--<div ng-show="noFacultyDataShow">
+    <ion-item></ion-item>
+    <ion-item></ion-item>
+    <ion-item></ion-item>
+</div>-->
+<!--<ion-content scroll="false" ng-show="noFacultyDataShow" class="white" has-bouncing="false" has-subheader="true">
+    <p class="noDataShowText">No presenters found.</p>
+</ion-content>-->
+<ion-view view-title="PRESENTERS" hide-nav-bar="true">
+    <ion-header-bar no-tap-scroll="true" class="tab-attendance-head"
+                    ng-class="{true: 'bgc000', false: 'bgcb90b62'}[adminFlage]"
+                    align-title="center">
+        <i ng-click="$ionicGoBack()" class="acc-angle-left"></i>
+        <h1>
+            presenters
+        </h1>
+    </ion-header-bar>
+
+    <!--<ion-nav-bar class="bar-positive background-isBlack" align-title="left">
+        <ion-nav-buttons side="left" >
+            <i class="acc-angle-left" ng-click="$ionicGoBack()"></i>
+        </ion-nav-buttons>
+    </ion-nav-bar>-->
+
+    <ion-content has-header="false" class="">
+        <ion-item class="item item-no-data" ng-show="noFacultyDataShow">
+            <p class="noDataShowText">No presenters found.</p>
+        </ion-item>
+        <div class="acc-thing list noborder nopaddings nomargins nominheight" ng-repeat="people in faculty">
+            <ion-item class="item-avatar item-icon-right posr" ng-click="navigateProfile(people.PeopleKey, people.EnterpriseID, 0)">
+                <!--<a href="#/sideMenu/userProfile/{{people.EnterpriseID}}">-->
+                <img ng-src="data:image/jpeg;base64,{{ people.imgUrl }}" />
+                <h2>{{people.fullName}}</h2>
+                <p>{{people.standardjobdescr}}</p>
+                <i class="acc-write-document posa t10-r10"></i>
+                <!--<i class="acc-write-document" disable-Feedback ng-hide="$parent.$parent.$parent.fromAdmin || $parent.$parent.$parent.pickRule==1 || !$parent.$parent.$parent.isPastSession" ng-click = "navigateFeedback(people.EnterpriseID, $event);"></i>-->
+                <!--
+                <ion-option-button class="button-dark" ng-hide="ImpersonateStatus"  ng-click="sendChatMsg($index, 1)">
+                    <i class="icon acc-chat-o"></i>
+                </ion-option-button>
+                <ion-option-button class="button-dark" ng-hide="ImpersonateStatus"  ng-click="sendEmail($index,1)">
+                    <i class="icon acc-envelope-o"></i>
+                </ion-option-button>
+                -->
+            </ion-item>
+        </div>
+    </ion-content>
+</ion-view>

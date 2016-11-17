@@ -1,0 +1,52 @@
+﻿<ion-modal-view view-title="ParticipantAction" id="participantAction">
+    <ion-content class="white participantAction-content">
+        <div ng-click="closeParticipantAction(participantActionEid)" class="action-row close-button">
+            <i class="icon ion-close close-icon"></i>
+        </div>
+        <div class="action-row title-row">
+            <div class="edit-content">
+                <i class="ion-edit edit-icon"></i>
+            </div>
+            <div class="editing-content-div">
+                <span class="editing-content">Editing attendance information for </span>
+                <span>{{participantActionFullName}}</span>
+            </div>
+        </div>
+        <hr />
+        <div>
+            <span class="activity-title">Attendance Activity</span>
+            <button class="button icon-left learn-Icon-ParticipantsInRoom checkin-button" ng-if="showCheckInButton&&!showActivityContent" ng-click="CheckIn(participantActionEid,participantActionComment,-1)">
+                Check In
+            </button>
+            <span ng-if="showCheckInTime&&!showActivityContent" class="activity-title-time">
+                <i class="learn-Icon-ParticipantsInRoom activity-checkin-icon"></i>
+                {{checkInTime|date:'shortTime'}}
+            </span>
+            <i ng-class="toggleActivityIcon" ng-click="toggleActivityContent()" class="toggle-icon"></i>
+        </div>
+        <div ng-if="showActivityContent">
+            <div ng-repeat="item in activityList.slice().reverse()" class="activity-detail">
+                <i ng-class="item.ActivityIcon" ng-style="item.ActivityIconColor" class="activity-detail-icon"></i>
+                <span class="activity-detail-content">{{item.ActivityDetail}}</span>
+                <span>{{item.ActivityTime}}</span>
+            </div>
+        </div>
+        <hr />
+        <div>
+            <span class="activity-title">Faculty / Admin Adjustments</span>
+            <i ng-class="toggleAdjustmentsIcon" ng-click="toggleAdjustmentsContent()" class="toggle-icon"></i>
+        </div>
+        <div ng-if="showAdjustmentsContent" class="action-row checkout-slider">
+            <div class="approximate-title">Approximate time learner was in the room:</div>
+            <div>
+                <div class="percent">{{percent.value}}%</div>
+                <rzslider rz-slider-model="percent.value" rz-slider-options="percent.options" class="percent-slider"></rzslider>
+            </div>
+        </div>
+        <div ng-if="showAdjustmentsContent" class="comment-title">Comments for Delivery Team</div>
+        <div ng-if="showAdjustmentsContent" class="comment-div">
+            <textarea class="comment-textarea" style="width:100%" rows="5" placeholder="Optional comments..." ng-model="$parent.$parent.$parent.$parent.participantActionComment" ng-model-options="{ debounce: 2000 }" ng-change="participantActionCommentChanged()"></textarea>
+        </div>
+        <hr />
+    </ion-content>
+</ion-modal-view>

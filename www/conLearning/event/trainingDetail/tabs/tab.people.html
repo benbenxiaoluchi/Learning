@@ -1,0 +1,78 @@
+<ion-list class="light-bgr content forParticipants">
+    <!-- For search in people on site -->
+    <div class="fake-input" id="search-box">
+        <div class="input-comment" ng-click="openSearch()">
+            <span ng-model="searchPartNM">Who are you looking for?</span>
+            <div class="icons">
+                <i class="icon ion-ios-search-strong  placeholder-icon"></i>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- For Demographic Type -->
+    <div class="acc-thing list noborder nopaddings nomargins nominheight">
+        <ion-item class="item-icon-right" ng-show="boolDemographicShow" ng-click="isShowDemographicType('')">
+            <h2>{{DemographicTitle}}</h2>
+            <i class="{{DemographicIcon}}">
+            </i>
+        </ion-item>
+    </div>
+    <div ng-repeat="item in demographicType">
+        <ion-item class="item-icon-right" ng-show="boolOpenDemographic" ng-click="selectDemographicType(item.label, 2)">
+            <h2>{{item.label}}</h2>
+            <i class="icon ion-chevron-right placeholder-icon"></i>
+        </ion-item>
+    </div>
+
+    <!-- For Demographics-->
+    <div class="acc-thing list noborder nopaddings nomargins nominheight">
+        <ion-item class="item-icon-right" ng-show="boolDemographicsShow" ng-click="isShowDemographics('')">
+            <h2>{{DemographicsTitle}}</h2>
+            <i class="{{DemographicsIcon}}">
+            </i>
+        </ion-item>
+    </div>
+    <div ng-repeat="item in demographics">
+        <ion-item class="item-icon-right" ng-show="boolOpenDemographics" ng-click="selectDemographics(item.text, item.pplLikeMeDemogCat,item.pplLikeMeDemogFK,2)">
+            <h2>{{item.text}}</h2>
+            <i class="icon ion-chevron-right placeholder-icon"></i>
+        </ion-item>
+    </div>
+
+
+    <!-- For people like me -->
+    <div class="acc-thing list noborder nopaddings nomargins nominheight">
+        <ion-item class="item-icon-right" ng-show="boolPeopleLikeMeShow" ng-click="isShowPeopleLikeMe('')">
+            <h2>{{PeopleLikeMeTitle}}</h2>
+            <i class="{{PeopleLikeMeIcon}}">
+            </i>
+        </ion-item>
+    </div>
+    <div id="peoplelikeme" ng-repeat="item in peopleLikeMe">
+        <ion-item class="item-icon-right" ng-show="boolOpenPeopleLikeMe" ng-click="selectPeopleLikeMe(item.text, item.pplLikeMeDemogCat,item.pplLikeMeDemogFK,2)">
+            <h2>{{item.text}}</h2>
+            <i class="icon ion-chevron-right placeholder-icon"></i>
+        </ion-item>
+    </div>
+
+    <ion-content scroll="false" ng-show="noPeopleonsiteDataShow" class="white has-acc-header" has-bouncing="false" has-subheader="true">
+        <p class="noDataShowText">No people on site found.</p>
+    </ion-content>
+
+    <!-- For people on site -->
+    <div class="acc-thing list noborder nopaddings nomargins nominheight" ng-repeat="people in peopleOnSite">
+        <ion-item class="item-avatar item-icon-right" href="#/sideMenu/userProfile?eid={{people.enterpriseID}}&title={{people.sessionName}}&date={{people.currentTrainingDate}}&location={{currentLocation}}">
+            <img ng-src="data:image/jpeg;base64,{{ people.imgUrl }}" />
+            <h2>{{people.fullName}}</h2>
+            <p>{{people.standardjobdescr}}</p>
+
+            <ion-option-button class="button-dark" ng-hide="ImpersonateStatus" ng-click="sendChatMsg($index,2)">
+                <i class="icon acc-chat-o"></i>
+            </ion-option-button>
+            <ion-option-button class="button-dark" ng-hide="ImpersonateStatus" ng-click="sendEmail($index,2)">
+                <i class="icon acc-envelope-o"></i>
+            </ion-option-button>
+        </ion-item>
+    </div>
+</ion-list>

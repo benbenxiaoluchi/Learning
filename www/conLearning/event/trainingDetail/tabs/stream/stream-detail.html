@@ -1,0 +1,30 @@
+﻿<ion-view view-title="" hide-nav-bar="true" class="stream-detail">
+    <ion-header-bar class="bar bar-header bar-dark">
+    <!-- We can't use bar-light due technical issue regarding ion-nav-back-buttton -->
+        <!--<ion-nav-bar class="bar-transparent" align-title="center">-->
+        <!--<ion-nav-back-button class="button-dark button-clear acc-angle-left">-->
+            <!--<i class=""></i>-->
+        <!--</ion-nav-back-button>-->
+        <button class="right button button-clear back-button" ng-click="closeDetail()">
+            <i class="icon ion-arrow-left-c"></i>
+        </button>
+        <h1 class="title">Details</h1>
+        <!--</ion-nav-bar>-->
+    </ion-header-bar>
+
+    <ion-content locking="true" scroll-event-interval="5" has-header="true" has-bouncing="true" has-footer="true" class="has-acc-header forArticleDetail">
+        <div class="acc-thing list">
+            <acc-social item="article" ng-if="article!=null" show-comments="true"></acc-social>
+        </div>
+    </ion-content>
+    <ion-footer-bar 
+        class="item-input-inset" 
+        keyboard-attach data-send-comment="">
+        <label class="item-input-wrapper">
+            <input type="text" ng-model="newComment" placeholder="Comment here" focus-me="stream-detail">
+        </label>
+        <button class="button button-clear button-positive" ng-click="createComment(newComment);newComment=''">
+            Post
+        </button>
+    </ion-footer-bar>
+</ion-view>

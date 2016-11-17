@@ -1,0 +1,64 @@
+﻿<ion-view view-title="VENUE" class="participants-list-page-wrap" ng-init="initVenue()" hide-nav-bar="{{fromAdmin}}">
+    <ion-nav-bar class="bar-positive background-isBlack" align-title="left" ng-show="!fromAdmin">
+        <ion-nav-buttons side="left">
+            <button menu-toggle="left" class="button button-icon learn-Icon-HamburgerMenu"></button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+            <i ng-click="viewNotifications()" ng-class="{true: 'ion-ios-bell activeity-head-bell-style', false: 'ion-ios-bell activeity-head-bell-NoUnRead-style'}[unReadIcon]" title="{{unreadCount}}"></i>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-header-bar no-tap-scroll="true" class="tab-attendance-head"
+                    ng-class="{true: 'bgc000', false: 'bgcb90b62'}[adminFlage]"
+                    align-title="center" ng-if="fromAdmin">
+        <i ng-click="$ionicGoBack()" class="acc-angle-left"></i>
+        <h1>
+            VENUE
+        </h1>
+    </ion-header-bar>
+    <ion-content class="has-header">
+        <div class="venue-banner" ng-style="centerImg">
+            <div class="venue-center">
+                <p style="white-space: nowrap;">{{whichFacility.country}} Learning Center</p>
+                <p>{{whichFacility.add1 || "1405 North Fifth Avenue"}}</p>
+                <p>{{whichFacility.city}},{{whichFacility.state}} {{whichFacility.zip}}</p>
+            </div>
+        </div>
+        <!--<ion-item class="item" ng-repeat="option in venueOptions" ng-click="">
+            <div style="font-size:15px;">
+                {{option}}
+                <i class="ion ion-ios-arrow-forward" style="float:right;"></i>
+            </div>
+        </ion-item>-->
+
+        <ion-item class="item"  ng-click="venueMap()">
+            <div class="tab-venue-list-item">
+                LOCATION MAP
+                <i class="ion ion-ios-arrow-forward"></i>
+            </div>
+        </ion-item>
+        <ion-item class="item"  ng-click="navigateToState('app.venue.floorMap')">
+            <div class="tab-venue-list-item">
+                FLOOR MAPS
+                <i class="ion ion-ios-arrow-forward"></i>
+            </div>
+        </ion-item>
+        <ion-item class="item"  ng-click="venueWeather()">
+            <div class="tab-venue-list-item">
+                WEATHER
+                <i class="ion ion-ios-arrow-forward"></i>
+            </div>
+        </ion-item>
+        <ion-item class="item" ng-click="navigateToPeopleOnSite()" >
+            <div class="tab-venue-list-item">
+                ALL PEOPLE AT THIS FACILITY
+                <i class="ion ion-ios-arrow-forward"></i>
+            </div>
+        </ion-item>
+        <ion-item class="item"  ng-click="navigateToOnGoingEvent()">
+            <div class="tab-venue-list-item">
+                ALL COURSES AT THIS FACILITY
+                <i class="ion ion-ios-arrow-forward"></i>
+            </div>
+        </ion-item>
+    </ion-content>
+</ion-view>

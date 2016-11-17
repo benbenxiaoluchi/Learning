@@ -1,0 +1,27 @@
+.venue-banner{
+  position: relative;
+  height: 220px;
+  padding-top: 0;
+  background-repeat: no-repeat;
+
+  .venue-center {
+    padding-top: 120px;
+    margin-left: 22px;
+    color: #fff;
+    text-align: left;
+    text-shadow: 1px 3px 6px #000;
+
+    p:nth-child(1){
+      font-size:24px;
+    }
+    p:nth-child(2){
+      font-size:18px;
+      margin-top:22px;
+    }
+    p:nth-child(3){
+      font-size:16px;
+      margin-top:-4px;
+    }
+
+  }
+}

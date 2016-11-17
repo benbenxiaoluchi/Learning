@@ -1,0 +1,46 @@
+﻿<ion-list class="stream-tab">
+    <div ng-if="circleId!=''">
+        <ion-list class="light-bgr content">
+            <!-- For comment something -->
+            <div class="fake-input">
+                <div class="input-comment" ng-click="openNewArticle()">
+                    <span>What's on your mind?...</span>
+                    <div class="icons">
+                        <i class="ion-ios-compose-outline"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="acc-thing list noborder nopaddings nomargins nominheight" style="top: 5px;">
+                <ion-item class="item-icon-right" ng-if="chooseCircleShow" ng-click="isShowCircles()">
+                    <h2 ng-bind="circleTitle"></h2>
+                    <i class="{{chooseCircleIcon}}"></i>
+                </ion-item>
+            </div>
+            <div ng-repeat="item in Circles">
+                <ion-item class="item-icon-right" ng-if="openCircles" ng-click="selectCircle(item)">
+                    <h2>{{item.circleName}}</h2>
+                    <i class="icon ion-chevron-right placeholder-icon"></i>
+                </ion-item>
+            </div>
+
+            <div class="list acc-thing stream-item" ng-repeat="item in stream" style="border-radius: 3px;margin: 20px 10px;background-color:#fff">
+                <acc-social item="item" can-navigate="true" class="animated fadeIn"></acc-social>
+            </div>
+        </ion-list>
+        <ion-item class="item-body item-divider noborders">
+            <button class="button button-block button-dark" ng-if="!isLoading && existMoreData" ng-click="loadStream()">Load More...</button>
+        </ion-item>
+        <div class="partial-spinner" ng-if="isLoading">
+            <ion-spinner></ion-spinner>
+        </div>
+    </div>
+    <!--<ion-content scroll="false" ng-if="!circleId" class="white" has-bouncing="false" has-subheader="true">
+        <p class="noDataShowText">A Circle has not been enabled for this Event</p>
+    </ion-content>-->
+
+    <ion-item class="item item-no-data" ng-if="!circleId">
+        <p class="noDataShowText">A Circle has not been enabled for this Event.</p>
+    </ion-item>
+</ion-list>
+

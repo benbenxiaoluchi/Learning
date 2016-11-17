@@ -1,0 +1,135 @@
+﻿<ion-side-menus enable-menu-with-back-views="false" class="forMenu forMenu-wrap">
+    <ion-side-menu-content edge-drag-threshold="true" drag-content="true">
+        <ion-nav-bar class="bar-light">
+            <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear acc-menu" menu-toggle="left"></button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+        <ion-nav-view name="menuContent"></ion-nav-view>
+    </ion-side-menu-content>
+    <ion-side-menu side="left" class="dark-bg menu">
+        <ion-content class="no-header dark-bg" style="margin-top:-46px;">
+            <!--<a style="float: right;" menu-close ng-click="navigateProfile(profile.PeopleKey,profile.EnterpriseId)">-->
+                <!--<img acn-image-display data-ref="{{profile.PeopleKey}}" />-->
+                <!--<h1 class="title">{{profile.FirstName}} {{profile.LastName}}</h1>-->
+            <!--</a>-->
+            
+            <ion-list>
+                <ion-item nav-clear class="menu-list-item" menu-close
+                          ng-click="navigateToState('app.trainingDetailTabs.activityTab', {selectedTraining: null,fromMyTraining: null,fromEventUpdate:true}, false, true)">
+                    Event Updates
+                </ion-item>
+                <ion-item nav-clear class="menu-list-item" menu-close
+                          ng-click="navigateToState('app.myTraining', null, true)">My Training
+                </ion-item>
+                <!--<ion-item nav-clear class=menu-list-item menu-close ng-click="navigateToState('app.ongoingEventsThisVenue', null, true)">All Ongoing Events</ion-item>-->
+                <ion-item nav-clear class="menu-list-item bdbn">
+                    <div ng-click="collapseCenters()">
+                        Regional Learning Centers
+                        <i ng-class="showCentersInMenu?'ion-ios-arrow-up':'ion-ios-arrow-down'"
+                           class="menu-list-item-arr"></i>
+                    </div>
+                </ion-item>
+                <ion-item nav-clear menu-close ng-show="showCentersInMenu" class="menu-list-item-sub"
+                          href="#/app/learningCenter?city=St. Charles">St.Charles Learning Center
+                </ion-item>
+                <ion-item nav-clear menu-close ng-show="showCentersInMenu" class="menu-list-item-sub"
+                          href="#/app/learningCenter?city=Bengaluru">India Learning Center
+                </ion-item>
+                <ion-item nav-clear menu-close ng-show="showCentersInMenu" class="menu-list-item-sub"
+                          href="#/app/learningCenter?city=Kuala Lumpur">Malaysia Learning Center
+                </ion-item>
+                <ion-item nav-clear menu-close ng-show="showCentersInMenu" class="menu-list-item-sub"
+                          href="#/app/learningCenter?city=Madrid">Spain Learning Center
+                </ion-item>
+                <ion-item nav-clear menu-close ng-show="showCentersInMenu" class="menu-list-item-sub"
+                          href="#/app/learningCenter?city=London">UK Learning Center
+                </ion-item>
+                <ion-item nav-clear class="menu-list-item bdt bdbn" ng-if="adminFlage">
+                    <div ng-click="collapseAdministration()">
+                        Administration
+                        <i ng-class="showAdminContent?'ion-ios-arrow-up':'ion-ios-arrow-down'"
+                           class="menu-list-item-arr"></i>
+                    </div>
+                </ion-item>
+                <ion-item nav-clear menu-close ng-show="showAdminContent"
+                          class="menu-list-item-sub2"
+                          ng-click="navigateToState('app.events', null, true)">ILC Sessions
+                </ion-item>
+                <ion-item nav-clear menu-close ng-show="showAdminContent"
+                          class="menu-list-item-sub2"
+                          ng-click="clickImpersonation()">
+                    {{ImpersonateStatus== true ? "End Impersonation" : "Impersonate a Learner"}}
+                </ion-item>
+                <ion-item nav-clear menu-close ng-show="showAdminContent"
+                          class="menu-list-item-sub2 bdb"
+                          ng-click="downReport()">Reports
+                </ion-item>
+                <ion-item nav-clear class="menu-list-item bdt" menu-close>Settings/ Preferences</ion-item>
+                <ion-item nav-clear class="menu-list-item" menu-close>Support/ Help/ FAQS</ion-item>
+                <ion-item nav-clear class="menu-list-item" menu-close
+                          ng-click="navigateToState('app.feedbackSurvey', null, true)">Give us your feedback
+                </ion-item>
+                <ion-item nav-clear class="menu-list-item" menu-close ng-click="showAbout()">About</ion-item>
+
+                <!--<ion-item nav-clear menu-close ng-click="navigateToState('app.home', null, true)">RECOMMENDATIONS</ion-item>-->
+                <!--<ion-item nav-clear menu-close ng-click="navigateToState('app.skills', null, true)">SKILLS I'M FOLLOWING</ion-item>-->
+                <!--<ion-item nav-clear menu-close ng-click="navigateToState('app.plan', null, true)">ACTION PLAN</ion-item>-->
+                <!--<ion-item nav-clear menu-close ng-click="navigateToState('app.events', null, true)">LEARNING EVENTS</ion-item>-->
+                <!--&lt;!&ndash;<ion-item nav-clear menu-close ng-click="navigateToState('app.upcomingSessions', null, true)" ng-if="adminFlage">UPCOMING SESSIONS</ion-item>&ndash;&gt;-->
+                <!--&lt;!&ndash;<ion-item nav-clear menu-close href="#/app/upcomingSessionsNew">UPCOMING SESSIONS New</ion-item>&ndash;&gt;-->
+                <!--&lt;!&ndash;<ion-item nav-clear menu-close ng-click="navigateToState('app.feedback', null, true)">FEEDBACK</ion-item>&ndash;&gt;-->
+                <!--<ion-item nav-clear menu-close ng-click="navigateToState('app.tutorial', null, true)">TUTORIAL</ion-item>-->
+                <!--<ion-item nav-clear menu-close ng-click="navigateToState('app.about', null, true)">ABOUT</ion-item>-->
+                <!--<ion-item nav-clear menu-close ng-show="showLogout()" ng-click="logout()">LOGOUT (DEV ONLY!)</ion-item>-->
+
+                <!-- merge from LearningEvents by Booker(0912)-->
+                    <!-- // ImpersonateStatus disable by Booker 09/19 -->
+                    <!--<ion-item nav-clear menu-close ng-show="adminFlage" ng-click="clickImpersonation()">-->
+                        <!--{{ImpersonateStatus== true ? "End Impersonation" : "Impersonate"}}-->
+                    <!--</ion-item>-->
+                <!--<ion-item nav-clear menu-close href="#/sideMenu/feedback">-->
+                    <!--Feedback-->
+                <!--</ion-item>-->
+                <!-- merge for feedback by Booker(0912) -->
+                <!--<ion-item>-->
+                    <!--<a>FEEDBACK</a>-->
+                    <!--<ion-item nav-clear menu-close href="#app/feedbackSurvey">-->
+                        <!--SURVEY-->
+                    <!--</ion-item>-->
+                    <!--<ion-item nav-clear menu-close ng-click="navigateToState('app.feedback', null, true)">EMAIL FEEDBACK</ion-item>-->
+                <!--</ion-item>-->
+
+
+                <!--<ion-item>-->
+                    <!--<a>FACILITIES</a>-->
+                    <!--<ion-item nav-clear menu-close href="#/app/venue?city=St. Charles">-->
+                        <!--<h>  St. Charles</h>-->
+                    <!--</ion-item>-->
+                    <!--<ion-item nav-clear menu-close href="#/app/venue?city=Kuala Lumpur">-->
+                        <!--<h>  Kuala Lumpur</h>-->
+                    <!--</ion-item>-->
+                    <!--<ion-item nav-clear menu-close href="#/app/venue?city=Madrid">-->
+                        <!--<h>  Madrid</h>-->
+                    <!--</ion-item>-->
+                    <!--<ion-item nav-clear menu-close href="#/app/venue?city=Bengaluru">-->
+                        <!--<h>  Bengaluru</h>-->
+                    <!--</ion-item>-->
+                    <!--<ion-item nav-clear menu-close href="#/app/venue?city=Reading">-->
+                        <!--<h>  Reading</h>-->
+                    <!--</ion-item>-->
+                <!--</ion-item>-->
+
+                <!--<ion-item nav-clear menu-close ng-click="showAbout()">-->
+                    <!--ABOUT-->
+                <!--</ion-item>-->
+            </ion-list>
+        --></ion-content>
+        <ion-footer-bar align-title="left" class="bar-clear"  style="z-index:9999">
+            <a menu-close ng-click="navigateProfile(peoplekey,loginUserID)">
+                <img acn-image-display data-ref="{{profileImage}}" />
+                <h1 class="title">{{fullName}}</h1>
+            </a>
+        </ion-footer-bar>
+    </ion-side-menu>
+</ion-side-menus>

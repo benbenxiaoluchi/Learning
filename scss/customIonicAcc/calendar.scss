@@ -1,0 +1,73 @@
+
+// calendar picker
+.pickadate {
+    padding-top:10px;
+    //box-shadow: 0 1px 1px rgba(0,0,0,0.25);
+  
+    .pickadate-centered-heading {
+        font: {
+            size:$font-size-base * 1.8;
+            family:$font-family-sans-serif;
+        }
+    }
+    .pickadate-controls {
+        padding:5px 10px;
+        a {
+            font-size:$font-size-base;
+        }
+    }
+    .pickadate-head {
+        margin-bottom:0;
+        background-color:$lighter-gray;
+    }
+    .pickadate-cell {
+        li {
+            padding:4% 0;
+            border:0;
+            border-bottom:1px solid $light-gray;
+            font-size:$font-size-base * 1.1;
+            position:relative;
+        }
+        .pickadate-head {
+            border-top:0;
+            text-transform:uppercase;
+            background-color:$lighter-gray;
+            font-size:$font-size-base * 0.9;
+        }
+        .pickadate-disabled {
+            background:$light;
+        }
+        .pickadate-active,
+        .pickadate-today {
+            background:transparent;
+        }
+        .pickadate-today {
+            background:$lighter-gray;
+        }
+        .pickadate-date-inside-range,
+        .pickadate-date-inside-range.pickadate-today,
+        .pickadate-active.pickadate-date-inside-range {
+            background-color:$primary-color;
+            color:$light;
+         }
+        .pickadate-today  {
+            background-color: $lighter-gray;
+            color:$gray;
+        }
+        .pickadate-disabled,
+        .pickadate-disabled a {
+            color:$light-gray;
+        }
+        li:nth-child(7n+0) {
+            border-right:0;
+        }
+        li:nth-child(1),
+        li:nth-child(8),
+        li:nth-child(15),
+        li:nth-child(22),
+        li:nth-child(29),
+        li:nth-child(36) {
+            border-left:0;
+        }
+    }
+}

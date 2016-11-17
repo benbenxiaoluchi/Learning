@@ -1,0 +1,222 @@
+﻿{
+    "TotalCount": 50,
+    "PeopleKey": 571643,
+    "Size": 50,
+    "PeopleList": [
+        {
+            "PeopleKey": 672502,
+            "EnterpriseID": "vivek.a.arora",
+            "ForeignName": null,
+            "FirstName": "Vivek",
+            "LastName": "Arora",
+            "MatchingSkillList": [ ".NET" ],
+            "Weight": 279,
+            "WeightDetail": [
+                {
+                    "Key": "YourFollowers",
+                    "Value": 90
+                },
+                {
+                    "Key": "Role",
+                    "Value": 20
+                },
+                {
+                    "Key": "OtherSpecialty",
+                    "Value": 20
+                },
+                {
+                    "Key": "Capability",
+                    "Value": 6
+                },
+                {
+                    "Key": "Country",
+                    "Value": 3
+                },
+                {
+                    "Key": "TalentSegment",
+                    "Value": 20
+                },
+                {
+                    "Key": "Entity",
+                    "Value": 20
+                },
+                {
+                    "Key": "Skill",
+                    "Value": 100
+                }
+            ]
+        },
+        {
+            "PeopleKey": 176219,
+            "EnterpriseID": "avegail.m.angeles",
+            "ForeignName": null,
+            "FirstName": "Avegail",
+            "LastName": "Angeles",
+            "MatchingSkillList": [ ".NET", "SQL Server" ],
+            "Weight": 279,
+            "WeightDetail": [
+                {
+                    "Key": "YourFollowers",
+                    "Value": 90
+                },
+                {
+                    "Key": "Role",
+                    "Value": 20
+                },
+                {
+                    "Key": "OtherSpecialty",
+                    "Value": 20
+                },
+                {
+                    "Key": "Capability",
+                    "Value": 6
+                },
+                {
+                    "Key": "Country",
+                    "Value": 3
+                },
+                {
+                    "Key": "TalentSegment",
+                    "Value": 20
+                },
+                {
+                    "Key": "Entity",
+                    "Value": 20
+                },
+                {
+                    "Key": "Skill",
+                    "Value": 100
+                }
+            ]
+        },
+        {
+            "PeopleKey": 176220,
+            "EnterpriseID": "avegail.m.angeles",
+            "ForeignName": null,
+            "FirstName": "Javier",
+            "LastName": "Lopez",
+            "MatchingSkillList": [  ],
+            "Weight": 279,
+            "WeightDetail": [
+                {
+                    "Key": "YourFollowers",
+                    "Value": 90
+                },
+                {
+                    "Key": "Role",
+                    "Value": 20
+                },
+                {
+                    "Key": "OtherSpecialty",
+                    "Value": 20
+                },
+                {
+                    "Key": "Capability",
+                    "Value": 6
+                },
+                {
+                    "Key": "Country",
+                    "Value": 3
+                },
+                {
+                    "Key": "TalentSegment",
+                    "Value": 20
+                },
+                {
+                    "Key": "Entity",
+                    "Value": 20
+                },
+                {
+                    "Key": "Skill",
+                    "Value": 100
+                }
+            ]
+        },
+        {
+            "PeopleKey": 176221,
+            "EnterpriseID": "avegail.m.angeles",
+            "ForeignName": null,
+            "FirstName": "Jesus",
+            "LastName": "Blanco",
+            "MatchingSkillList": [  ],
+            "Weight": 279,
+            "WeightDetail": [
+                {
+                    "Key": "YourFollowers",
+                    "Value": 90
+                },
+                {
+                    "Key": "Role",
+                    "Value": 20
+                },
+                {
+                    "Key": "OtherSpecialty",
+                    "Value": 20
+                },
+                {
+                    "Key": "Capability",
+                    "Value": 6
+                },
+                {
+                    "Key": "Country",
+                    "Value": 3
+                },
+                {
+                    "Key": "TalentSegment",
+                    "Value": 20
+                },
+                {
+                    "Key": "Entity",
+                    "Value": 20
+                },
+                {
+                    "Key": "Skill",
+                    "Value": 100
+                }
+            ]
+        },
+        {
+            "PeopleKey": 176222,
+            "EnterpriseID": "avegail.m.angeles",
+            "ForeignName": null,
+            "FirstName": "Natalia",
+            "LastName": "Gil",
+            "MatchingSkillList": [  ],
+            "Weight": 279,
+            "WeightDetail": [
+                {
+                    "Key": "YourFollowers",
+                    "Value": 90
+                },
+                {
+                    "Key": "Role",
+                    "Value": 20
+                },
+                {
+                    "Key": "OtherSpecialty",
+                    "Value": 20
+                },
+                {
+                    "Key": "Capability",
+                    "Value": 6
+                },
+                {
+                    "Key": "Country",
+                    "Value": 3
+                },
+                {
+                    "Key": "TalentSegment",
+                    "Value": 20
+                },
+                {
+                    "Key": "Entity",
+                    "Value": 20
+                },
+                {
+                    "Key": "Skill",
+                    "Value": 100
+                }
+            ]
+        }
+    ]
+}

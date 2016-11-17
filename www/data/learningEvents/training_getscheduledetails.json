@@ -1,0 +1,282 @@
+{
+  "?xml":{
+    "@version":"1.0",
+    "@encoding":"utf-8"
+  },
+  "activity":{
+    "day":[
+      {
+        "@count":"1",
+        "@eventDate":"2016-10-13T14:45:00",
+        "event":[
+          {
+            "@id":"1",
+            "name":"School Opening",
+            "starttime":"08:00",
+            "endtime":"12:00",
+            "location":"Plenary Room",
+            "description":""
+          },
+          {
+            "@id":"2",
+            "name":"Class",
+            "starttime":"13:00",
+            "endtime":"20:00",
+            "location":"location TBA",
+            "description":"Infrastructure Transformation Kickoff"
+          }
+        ]
+      },
+      {
+        "@count":"2",
+        "@eventDate":"2016-10-14T14:45:00",
+        "event":[
+          {
+            "@id":"1",
+            "name":"Class",
+            "starttime":"01:00",
+            "endtime":"12:00",
+            "location":"Plenary Room",
+            "description":"AE - Creating Value for Clients"
+          },
+          {
+            "@id":"2",
+            "name":"Class",
+            "starttime":"13:00",
+            "endtime":"20:00",
+            "location":"location TBA",
+            "description":""
+          }
+        ]
+      },
+      {
+        "@count":"3",
+        "@eventDate":"2016-10-15T14:45:00",
+        "event":[
+          {
+            "@id":"1",
+            "name":"Class",
+            "starttime":"08:00",
+            "endtime":"11:30",
+            "location":"Plenary Room",
+            "description":"AE - Effective Meetings and Interviews"
+          },
+          {
+            "@id":"2",
+            "name":"Break/Go to Sc. Rm./Energizer",
+            "starttime":"13:30",
+            "endtime":"20:00",
+            "location":"location TBA",
+            "description":""
+          }
+        ]
+      },
+      {
+        "@count":"4",
+        "@eventDate":"2016-10-16T14:45:00",
+        "event":[
+          {
+            "@id":"1",
+            "name":"Class",
+            "starttime":"08:00",
+            "endtime":"11:45",
+            "location":"location TBA",
+            "description":"RFP: 3_4 Pricing the Deal "
+          },
+          {
+            "@id":"2",
+            "name":"Class",
+            "starttime":"13:00",
+            "endtime":"20:00",
+            "location":"location TBA",
+            "description":""
+          }
+        ]
+      },
+      {
+        "@count":"5",
+        "@eventDate":"2016-10-17T14:45:00",
+        "event":[
+          {
+            "@id":"1",
+            "name":"Class",
+            "starttime":"8:00",
+            "endtime":"11:00",
+            "location":"location TBA",
+            "description":"Scoping an Engagement: 4_3 Assessment and Gap Analysis"
+          },
+          {
+            "@id":"2",
+            "name":"Class",
+            "starttime":"12:00",
+            "endtime":"22:15",
+            "location":"location TBA",
+            "description":""
+          }
+        ]
+      },
+      {
+        "@count":"6",
+        "@eventDate":"2016-10-18T14:45:00",
+        "event":[
+          {
+            "@id":"1",
+            "name":"Class",
+            "starttime":"08:00",
+            "endtime":"11:15",
+            "location":"Plenary Room",
+            "description":"Week 2 Open"
+          },
+          {
+            "@id":"2",
+            "name":"Class",
+            "starttime":"12:00",
+            "endtime":"22:15",
+            "location":"Plenary Room",
+            "description":"AE - Difficult Conversations"
+          }
+        ]
+      },
+      {
+        "@count":"7",
+        "@eventDate":"2016-10-19T14:45:00",
+        "event":[
+          {
+            "@id":"1",
+            "name":"Class",
+            "starttime":"08:00",
+            "endtime":"12:00",
+            "location":"Plenary Room",
+            "description":"Week 2 Open"
+          },
+          {
+            "@id":"2",
+            "name":"Class",
+            "starttime":"13:00",
+            "endtime":"22:00",
+            "location":"Plenary Room",
+            "description":"AE - Difficult Conversations"
+          }
+        ]
+      },
+      {
+        "@count":"8",
+        "@eventDate":"2016-10-20T14:45:00",
+        "event":[
+          {
+            "@id":"1",
+            "name":"Class",
+            "starttime":"08:00",
+            "endtime":"12:00",
+            "location":"Plenary Room",
+            "description":"Week 2 Open"
+          },
+          {
+            "@id":"2",
+            "name":"Class",
+            "starttime":"13:00",
+            "endtime":"22:00",
+            "location":"Plenary Room",
+            "description":"AE - Difficult Conversations"
+          }
+        ]
+      },
+      {
+        "@count":"9",
+        "@eventDate":"2016-10-21T14:45:00",
+        "event":[
+          {
+            "@id":"1",
+            "name":"Class",
+            "starttime":"00:00",
+            "endtime":"08:00",
+            "location":"Plenary Room",
+            "description":"Week 2 Open"
+          },
+          {
+            "@id":"2",
+            "name":"Class",
+            "starttime":"09:00",
+            "endtime":"13:00",
+            "location":"Plenary Room",
+            "description":"AE - Difficult Conversations"
+          },
+          {
+            "@id":"3",
+            "name":"Class",
+            "starttime":"13:00",
+            "endtime":"22:00",
+            "location":"Plenary Room",
+            "description":"AE - Difficult Conversations"
+          }
+        ]
+      },
+      {
+        "@count":"10",
+        "@eventDate":"2016-10-22T14:45:00",
+        "event":[
+          {
+            "@id":"1",
+            "name":"Class",
+            "starttime":"08:00",
+            "endtime":"12:00",
+            "location":"Plenary Room",
+            "description":"Week 2 Open"
+          },
+          {
+            "@id":"2",
+            "name":"Class",
+            "starttime":"13:00",
+            "endtime":"22:00",
+            "location":"Plenary Room",
+            "description":"AE - Difficult Conversations"
+          }
+        ]
+      },
+      {
+        "@count":"11",
+        "@eventDate":"2016-10-23T14:45:00",
+        "event":[
+          {
+            "@id":"1",
+            "name":"Class",
+            "starttime":"08:00",
+            "endtime":"12:00",
+            "location":"Plenary Room",
+            "description":"Week 2 Open"
+          },
+          {
+            "@id":"2",
+            "name":"Class",
+            "starttime":"13:00",
+            "endtime":"22:00",
+            "location":"Plenary Room",
+            "description":"AE - Difficult Conversations"
+          }
+        ]
+      },
+      {
+        "@count":"10",
+        "@eventDate":"2016-10-24T14:45:00",
+        "event":[
+          {
+            "@id":"1",
+            "name":"Class",
+            "starttime":"08:00",
+            "endtime":"12:00",
+            "location":"Plenary Room",
+            "description":"Week 2 Open"
+          },
+          {
+            "@id":"2",
+            "name":"Class",
+            "starttime":"13:00",
+            "endtime":"22:00",
+            "location":"Plenary Room",
+            "description":"AE - Difficult Conversations"
+          }
+        ]
+      }
+    ]
+  }
+}

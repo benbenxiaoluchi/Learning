@@ -1,0 +1,86 @@
+<ion-view 
+          view-title=""
+          acc-header-shrink
+          default-class="bar-transparent"
+          shrink-class="bar-dark"
+          title-template-html="training.detail.header.html"
+          offset="155">
+
+    <!--data-header-shrink="-65"
+    data-header-shrink-classes="bar-transparent,bar-dark"
+    header-shrink-title-template="<h1 class='title'>Accenture Events</h1>" data-header-shrink-status-bar="50"-->
+
+    <ion-nav-bar class="bar-transparent" align-title="center">
+        <ion-nav-buttons side="left">
+            <button menu-toggle="left" class="button button-icon icon acc-menu"></button>
+        </ion-nav-buttons>
+
+        <!--<ion-nav-buttons side="right">
+            <a class="button button-icon icon acc-write-document" animated-radar>
+                <i class="circle circle1"></i>
+                <i class="circle circle2"></i>
+            </a>
+        </ion-nav-buttons>-->
+    </ion-nav-bar>
+    <ion-content locking="true" scroll-event-interval="5" has-header="false" has-bouncing="true" class="no-header people-bgr">
+            <ion-refresher pulling-text="Pull to refresh..."
+                           pulling-icon="acc-angle-down"
+                           on-refresh="doRefresh()">
+            </ion-refresher>
+            <ion-list class="trainingDetail-header">
+                <ion-item-divider class="app-header gradient">
+                    <!--<div style="height:50px" ng-show="currentTrainingTitle.length == 0"></div>-->
+                    <h3 class="title">
+                        {{currentTrainingTitle}}
+                    </h3>
+                    <div>
+                        <p ng-show="currentTrainingTitle.length == 0"></p>
+                        <p ng-bind="currentTrainingDate" ng-show="currentTrainingTitle.length > 0"></p>
+                    </div>
+                    <div>
+                        <p ng-show="currentTrainingTitle.length == 0"></p>
+                        <p ng-bind="currentAttendanceStatus" ng-show="currentTrainingTitle.length > 0 && pickRule == '0'"></p>
+                    </div>
+                    <div class="actions" ng-if="sendEmailVisible">
+                        <div class="button-bar">
+                            <a class="button button-clear button-dark text-left" ng-disabled="ImpersonateStatus" ng-click="sendAllParEmail()">
+                                <i class="acc-envelope"></i> send email to all
+                            </a>
+                        </div>
+                    </div>
+                </ion-item-divider>
+            </ion-list>
+            <!-- <ion-list>
+                <ion-item-divider class="profile-picture">
+                    <div class="imgPlaceHolder"></div>
+                </ion-item-divider>
+            </ion-list> -->
+            <!--<tab-slide-box-header data-tab-slide-box-header="-44"
+                                  data-tab-slide-box-header-template="templates/event/tabs.html"
+                                  data-tab-slide-box-header-tabs="[
+                                  {'text':'About','icon':'acc-bubble-information-o'},
+                                  {'text':'Schedule','icon':'acc-calendar-o'},
+                                  {'text':'Participants','icon':'acc-people2'},
+                                  {'text':'Faculty','icon':'acc-user4-o'},
+                                  {'text':'Material','icon':'acc-layer-o'},
+                                  {'text':'Venue','icon':'acc-map-marker-o'}
+                ]">
+            </tab-slide-box-header>-->
+
+            <acc-tab-static id="trainingDetailTab" offset="155" top="83" tabs="trainingDetailTabs" onselect="onselect()"></acc-tab-static>
+
+
+            <ion-infinite-scroll on-infinite="loadMore()" icon="ion-loading-c"
+                                 ng-if="moreDataCanBeLoaded()"
+                                 distance="1%">
+            </ion-infinite-scroll>
+
+        </ion-content>
+
+
+
+</ion-view>
+
+<script type="text/ng-template" id="training.detail.header.html">
+    <h1 class='title'>{{currentTrainingTitle}}</h1>
+</script>

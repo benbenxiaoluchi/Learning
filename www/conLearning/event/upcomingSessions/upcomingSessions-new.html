@@ -1,0 +1,31 @@
+<ion-view style="width: 100%; min-height: 100%; background: #f0f0f0;">
+    <ion-nav-bar class="bar-dark">
+        <ion-nav-buttons side="left">
+            <button class="button button-icon icon acc-menu" menu-toggle="left"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="feedback-content">
+
+        <!-- For admin's upcoming sessions -->
+        <ion-list class="content" style="padding-top:20px;display:block;">
+            <!--<h1 style="text-align:center;">upcoming sessions({{upcomingCount}})</h1>-->
+            <div style="text-align:left; font-size:16px; margin-left:15px; margin-bottom:15px;">
+                <span>NEXT WEEK</span>
+                <i ng-class="toggleUpcomingSessionIcon" ng-click="toggleUpcomingSession()" class="toggle-icon" style="float:none"></i>
+            </div>
+            <div class="list" ng-if="showUpcomingSessionContent"
+                 ng-repeat="list in upcomingSessionsList">
+                <ion-item class="item item-text-wrap" ng-click="navigateTraining({{list}})">
+                    <h2>
+                        <!--<i ng-class="list.userType"></i>-->
+                        {{ list.activityName }}
+                    </h2>
+                    <!--<p> {{ list.PATH }} | {{ list.startDate }} </p>-->
+                    <p> {{ list.startDate }} </p>
+                </ion-item>
+            </div>
+        </ion-list>
+        <!-- For admin's upcoming sessions -->
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,32 @@
+.learnningcenter-wrap .venue-center {
+    position: absolute;
+    bottom: 15px;
+}
+
+.learnningcenter-wrap .venue-banner .venue-center p:nth-child(1) {
+    line-height: 20px;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.learnningcenter-wrap .venue-banner .venue-center p:nth-child(2) {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.learnningcenter-wrap .venue-banner .venue-center p:nth-child(3) {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.tab-venue-list-item {
+    position: relative;
+    font-size: 16px;
+}
+
+.tab-venue-list-item .ion-ios-arrow-forward {
+    position: absolute;
+    right: 20px;
+    color: #989ca3;
+}

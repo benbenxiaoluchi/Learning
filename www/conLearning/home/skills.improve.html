@@ -1,0 +1,21 @@
+﻿<ion-modal-view class="forLearningsDetails" view-title="Learning" acc-modal-priority="11">
+    <ion-header-bar class="bar bar-header navPrimary border-bottom" align-title="center">
+        <div class="buttons ">
+            <button class="button button-icon icon acc-angle-left" ng-click="closeModal('skillsImprove')"></button>
+        </div>
+        <h2 class="title">Skills you will improve</h2>
+    </ion-header-bar>
+
+    <ion-content class=" white has-acc-header" locking="true" has-subheader="true" has-bouncing="false" delegate-handle="skillsImprove">
+        <ion-item class="list acc-thing  noborders">
+
+            <!--for skills user'll improve-->
+            <ion-item class="item item-body improving">
+                <div class="fortags">
+                    <span class="tags" ng-repeat="skill in selectedItem.MatchingSkills">{{skill}}</span>
+                </div>
+            </ion-item>
+
+        </ion-item>
+    </ion-content>
+</ion-modal-view>

@@ -1,0 +1,153 @@
+﻿<ion-modal-view class="forMoreRecomm" view-title="Learn" acc-modal-priority="9">
+    <ion-header-bar class="bar bar-header navPrimary border-bottom" align-title="center">
+        <div class="buttons ">
+            <button class="button button-icon icon acc-angle-left" ng-click="closeModal('moreRecommendations')"></button>
+        </div>
+        <h2 class="title">{{moreRecommendationsTitle}}</h2>
+    </ion-header-bar>
+
+    <ion-content class="has-acc-header light-bgr" locking="true" has-subheader="true" has-bouncing="false" delegate-handle="moreRecommendations">
+        <!--OPEN POSITIONS-->
+        <ion-list ng-show="moreRecommendationsType === constants.recommendations.type.position">
+            <div id="show_more_item_{{position.PositionId}}" class="list card acc-thing " ng-repeat="position in itemsRecommendedModel.acmPositions.list" on-touch="selectPositionItem(position)" ng-click="openModal('position', $event)">
+                <ion-item class=" item-body item-icon-left noborders with-identifier">
+                    <div class="identifier rounded icon">
+                        <i class="identifier-icon acc-job"></i>
+                    </div>
+                    <h2>
+                        {{position.PositionTitle}}
+                    </h2>
+                    <p>{{position.RoleDesc}}</p>
+
+
+                </ion-item>
+                <ion-item class="summary-card-item item-body withIcons">
+                    <p><i class="acc-star"></i>{{position.TalentSegment}}</p>
+                    <p><i class="acc-building"></i>{{position.Workforce}}</p>
+                    <p><i class="acc-map-marker2"></i>{{position.Locations.join(', ')}}</p>
+                </ion-item>
+                <ion-item class="bottom-actions button-bar item-divider">
+                    <a class="button" ng-show="position.InActionPlan"><i class="acc-check"></i> ADDED TO PLAN</a>
+                    <a class="button" ng-show="!position.InActionPlan" add-action-plan="{{position}}" data-type="{{constants.actionPlan.type.position}}" data-is-detail="showMore">ADD TO PLAN</a>
+                    <a class="button" ng-show="!position.InActionPlan" ng-click="applyItem('position')" add-action-plan="{{position}}" data-type="{{constants.actionPlan.type.position}}" data-is-detail="showMore">APPLY</a>
+                </ion-item>
+            </div>
+        </ion-list>
+
+        <!--OPEN ASSIGNMENTS-->
+        <ion-list ng-show="moreRecommendationsType === constants.recommendations.type.assignment">
+            <div id="show_more_item_{{assignment.Id}}" class="list card  acc-thing " ng-repeat="assignment in itemsRecommendedModel.mySchedulingAssignments.list" on-touch="selectAssignmentItem(assignment)" ng-click="openModal('assignment',$event)">
+                <ion-item class="item-body item-icon-left noborders with-identifier">
+                    <div class="identifier rounded icon">
+                        <i class="identifier-icon acc-job"></i>
+                    </div>
+                    <h2>
+                        {{assignment.AssignmentTitle}}
+                    </h2>
+                    <p>{{assignment.TalentSegment}}</p>
+
+
+                </ion-item>
+                <ion-item class="summary-card-item item-body withIcons">
+                    <p><i class="acc-star"></i>{{assignment.Specialty}}</p>
+                    <p><i class="acc-hierarchy"></i>{{assignment.ResourcePool}}</p>
+                    <p><i class="acc-map-marker2"></i>{{assignment.Location}}</p>
+                </ion-item>
+                <ion-item class="bottom-actions button-bar item-divider">
+                    <a class="button" ng-show="assignment.InActionPlan"><i class="acc-check"></i> ADDED TO PLAN</a>
+                    <a class="button" ng-show="!assignment.InActionPlan" add-action-plan="{{assignment}}" data-type="{{constants.actionPlan.type.assignment}}" data-is-detail="showMore">ADD TO PLAN</a>
+                    <a class="button" ng-show="!assignment.InActionPlan" ng-click="applyItem('assignment')" add-action-plan="{{assignment}}" data-type="{{constants.actionPlan.type.assignment}}" data-is-detail="showMore">APPLY</a>
+                </ion-item>
+            </div>
+        </ion-list>
+
+        <!-- COMMUNITIES -->
+        <ion-list ng-show="moreRecommendationsType === constants.recommendations.type.community">
+            <div id="show_more_item_{{community.ID}}" class="list card acc-thing" ng-repeat="community in itemsRecommendedModel.communities.list" on-touch="selectItem(community)">
+                <ion-item class="item-body item-icon-left noborders with-identifier" ng-click="openModal('community')">
+                    <div class="identifier rounded icon">
+                        <i class="identifier-icon acc-group-o"></i>
+                    </div>
+                    <h2>{{community.Title}}</h2>
+                </ion-item>
+
+                <ion-item class="bottom-actions button-bar item-divider">
+                    <a class="button" ng-show="community.InActionPlan"><i class="acc-check"></i> ADDED TO PLAN</a>
+                    <a class="button" ng-show="!community.InActionPlan" add-action-plan="{{community}}" data-type="{{constants.actionPlan.type.community}}" data-is-detail="showMore">ADD TO PLAN</a>
+                    <a class="button" ng-show="!community.InActionPlan" ng-click="abreWindow(constants.recommendations.type.community)" add-action-plan="{{community}}" data-type="{{constants.actionPlan.type.community}}" data-is-detail="showMore">JOIN</a>
+                </ion-item>
+
+            </div>
+        </ion-list>
+
+        <!-- LEARNINGS -->
+        <ion-list ng-show="moreRecommendationsType === constants.recommendations.type.learning">
+            <div id="show_more_item_{{training.ID}}" class="list card acc-thing" ng-repeat="training in itemsRecommendedModel.learnings.list" on-touch="selectItem(training)">
+                <ion-item class="item-body item-icon-left noborders with-identifier" ng-click="openModal('learning')">
+                    <div class="identifier rounded icon">
+                        <i class="identifier-icon acc-book"></i>
+                    </div>
+                    <h2 class=" title">
+                        {{training.Title}}
+                    </h2>
+                    <p class="ellipsis">{{training.CourseType}} | {{training.CourseDuration}}h</p>
+                </ion-item>
+                <io-item class="item-skills" ng-show="training.MatchingSkillsNames.length > 0">
+                    <p>Skills You Will Improve</p>
+                    <div class="fortags">
+                        <span class="tags" ng-repeat="skill in training.MatchingSkillsNames | limitTo : 3">{{skill}}</span>
+                    </div>
+                </io-item>
+
+                <ion-item class="bottom-actions button-bar item-divider">
+                    <a class="button" ng-show="training.InActionPlan"><i class="acc-check"></i> ADDED TO PLAN</a>
+                    <a class="button" ng-show="!training.InActionPlan" add-action-plan="{{training}}" data-type="{{constants.actionPlan.type.learning}}" data-is-detail="showMore">ADD TO PLAN</a>
+                    <a class="button" ng-show="!training.InActionPlan" ng-click="abreWindow(constants.recommendations.type.learning)" add-action-plan="{{training}}" data-type="{{constants.actionPlan.type.learning}}" data-is-detail="showMore">REGISTER</a>
+
+                </ion-item>
+            </div>
+
+        </ion-list>
+
+        <!-- LEARNING BOARDS -->
+        <ion-list ng-show="moreRecommendationsType === constants.recommendations.type.board">
+            <!-- Learning boards -->
+            <div id="show_more_item_{{board.ID}}" class="list card acc-thing summary-card" ng-repeat="board in itemsRecommendedModel.learningBoards.list" on-touch="selectItem(board)">
+                <ion-item class="item-body">
+                    <h2 class="title">{{board.Title}}</h2>
+                </ion-item>
+                <ion-item class="item-body" ng-bind-html="board.Description">
+                </ion-item>
+                <ion-item class="bottom-actions button-bar item-divider">
+                    <a class="button" ng-show="board.InActionPlan"><i class="acc-check"></i> ADDED TO PLAN</a>
+                    <a class="button" ng-show="!board.InActionPlan" add-action-plan="{{board}}" data-type="{{constants.actionPlan.type.board}}" data-is-detail="showMore">ADD TO PLAN</a>
+                    <a class="button" ng-show="!board.InActionPlan" ng-click="abreWindow(constants.recommendations.type.board)" add-action-plan="{{board}}" data-type="{{constants.actionPlan.type.board}}" data-is-detail="showMore">FOLLOW</a>
+
+                </ion-item>
+            </div>
+        </ion-list>
+
+        <!-- PYMK -->
+        <ion-list ng-show="moreRecommendationsType === constants.recommendations.type.pymk">
+            <div id="show_more_item_{{people.PeopleKey}}" class="list card acc-thing" ng-repeat="people in itemsRecommendedModel.pymk.list" on-touch="selectItem(people)">
+                <ion-item class="item-body item-icon-left noborders with-identifier">
+
+                    <div class="identifier rounded icon">
+                        <img acn-image-display data-ref="{{people.PeopleKey}}" class="identifier-img" />
+
+                    </div>
+                    <h2>{{people.FirstName}} specializes in skills you're following</h2>
+                    <p ng-show="people.MatchingSkillList != null && people.MatchingSkillList.length > 0" class="ellipsis">{{people.MatchingSkillList[0]}} <span ng-show="people.MatchingSkillList.length > 1">and {{people.MatchingSkillList.length - 1}} more</span></p>
+                </ion-item>
+                <ion-item class="bottom-actions button-bar item-divider">
+                    <a class="button" ng-show="people.InActionPlan"><i class="acc-check"></i> ADDED TO PLAN</a>
+                    <a class="button" ng-show="!people.InActionPlan" add-action-plan="{{people}}" data-type="{{constants.actionPlan.type.pymk}}" data-is-detail="showMore">ADD TO PLAN</a>
+                    <a class="button" ng-show="!people.InActionPlan" ng-click="abreWindow(constants.recommendations.type.pymk)" add-action-plan="{{people}}" data-type="{{constants.actionPlan.type.pymk}}" data-is-detail="showMore">CONTACT</a>
+
+                </ion-item>
+
+            </div>
+        </ion-list>
+
+    </ion-content>
+</ion-modal-view>

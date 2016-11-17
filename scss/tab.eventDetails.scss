@@ -1,0 +1,36 @@
+.tab-eventDetails-head {
+    padding: 20px 15px;
+    max-height: 150px;
+    h3 {
+        font-family: "RotisSansSerif55";
+        font-size: 24px;
+        color: #333;
+        line-height: 26px;
+    }
+    p {
+        margin-top: 21px;
+        font-size: 16px;
+        color: #666;
+        line-height: 20px;
+    }
+}
+
+.tab-eventDetails-list-item {
+    font-size: 16px;
+}
+
+.mgt20 {
+    margin-top: 20px;
+}
+
+.tab-eventDetails-list-item {
+    position: relative;
+    
+    .ion-ios-arrow-right {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 26px;
+        color: #989ca3;
+    }
+}

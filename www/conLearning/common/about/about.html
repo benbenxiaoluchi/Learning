@@ -1,0 +1,39 @@
+﻿<ion-view view-title="" class="forCopyright">
+    <!--Title nav-bar with backbutton-->
+    <ion-nav-bar class="bar navPrimary" align-title="center">
+        <ion-nav-title><h3 class="title">About Learn</h3></ion-nav-title>
+        <ion-nav-buttons side="left">
+            <button menu-toggle="left" class="button button-icon button-clear acc-menu"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <ion-content locking="true" has-bouncing="true" class=" has-header has-acc-header borderBtmHeader">
+        <ion-item class="noborders first">
+
+            <p>
+                The Learn app, part of Accenture Connected Learning, is an enhanced version of previous learning apps and is designed to help the user view all the learning we have available in one place—pulling content from other tools such as Learning Boards, myLearning, Professional Communities and more. It also recommends new roles for you to consider and opportunities for developing skills to meet business priorities, through its integration with our Accenture Careers Marketplace, myScheduling and Career Planning tools.
+            </p>
+        </ion-item>
+        <ion-item class="noborders">
+            <p>
+
+                One of the highlights of this version of the Learn app is also a personalized Learning Action Plan section. The user can add learning items to their Action Plan and track their progress through the Action Plan section of the app.
+            </p>
+        </ion-item>
+        <ion-item class="noborders">
+            <p>
+
+
+                So what are you waiting for? Get started. Follow skills that you want to improve on through <a ng-click="navigateToState('app.skills', null, true)">‘Skills I’m following’</a> to get relevant and meaningful learning recommendations. View the app <a ng-click="navigateToState('app.tutorial', null, true)">‘Tutorial’</a> section at any point of time to understand how to use the app. Click on <a ng-click="openFaqLink()">'Learn app FAQ's'</a> to get answers to frequently asked questions. Please feel free to provide your feedback or ask questions through the <a ng-click="navigateToState('app.feedback', null, true)">‘Feedback’ </a> section of the app.
+</p>
+        </ion-item>
+        <ion-item class="noborders">
+            <p>
+                Happy Learning!
+            </p>
+        </ion-item>
+        <ion-item class="noborders">
+            <p class="text-center">© {{actualYear}} Accenture Inc. All rights reserved.</p>
+        </ion-item>
+    </ion-content>
+</ion-view>

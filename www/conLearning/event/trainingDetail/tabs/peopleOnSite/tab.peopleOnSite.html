@@ -1,0 +1,82 @@
+﻿<ion-view view-title="PEOPLE ON SITE" hide-nav-bar="true" class="participants-list-page-wrap" ng-init="initPeopleOnSite()">
+    <ion-header-bar no-tap-scroll="true" class="tab-attendance-head"
+                    ng-class="{true: 'bgc000', false: 'bgcb90b62'}[adminFlage]"
+                    align-title="center">
+        <i ng-click="$ionicGoBack()" class="acc-angle-left"></i>
+        <h1>
+            All PEOPLE AT THIS FACILITY
+        </h1>
+    </ion-header-bar>
+    <ion-content>
+        <ion-list class="light-bgr-formainpage content forParticipants background-isWhite">
+
+            <!-- For comment something -->
+            <div class="fake-input" id="search-box">
+                <div class="input-comment" ng-click="openSearch()">
+                    <span ng-model="searchPartNM">Who are you looking for?</span>
+                    <div class="icons">
+                        <i class="icon ion-ios-search-strong  placeholder-icon"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- For Demographic Type -->
+            <div class="acc-thing list noborder nopaddings nomargins nominheight">
+                <ion-item class="item-icon-right" ng-show="boolDemographicShow" ng-click="isShowDemographicType('')">
+                    <h2>{{DemographicTitle}}</h2>
+                    <i class="{{DemographicIcon}}">
+                    </i>
+                </ion-item>
+            </div>
+            <div ng-repeat="item in demographicType">
+                <ion-item class="item-icon-right" ng-show="boolOpenDemographic" ng-click="selectDemographicType(item.label, 2)">
+                    <h2>{{item.label}}</h2>
+                    <i class="icon ion-chevron-right placeholder-icon"></i>
+                </ion-item>
+            </div>
+
+            <!-- For Demographics-->
+            <div class="acc-thing list noborder nopaddings nomargins nominheight">
+                <ion-item class="item-icon-right" ng-show="boolDemographicsShow" ng-click="isShowDemographics('')">
+                    <h2>{{DemographicsTitle}}</h2>
+                    <i class="{{DemographicsIcon}}">
+                    </i>
+                </ion-item>
+            </div>
+            <div ng-repeat="item in demographics">
+                <ion-item class="item-icon-right" ng-show="boolOpenDemographics" ng-click="selectDemographics(item.text, item.pplLikeMeDemogCat,item.pplLikeMeDemogFK,2)">
+                    <h2>{{item.text}}</h2>
+                    <i class="icon ion-chevron-right placeholder-icon"></i>
+                </ion-item>
+            </div>
+
+
+            <!-- For people like me -->
+            <div class="acc-thing list noborder nopaddings nomargins nominheight">
+                <ion-item class="item-icon-right" ng-show="boolPeopleLikeMeShow" ng-click="isShowPeopleLikeMe('')">
+                    <h2>{{PeopleLikeMeTitle}}</h2>
+                    <i class="{{PeopleLikeMeIcon}}">
+                    </i>
+                </ion-item>
+            </div>
+            <div id="peoplelikeme" ng-repeat="item in peopleLikeMe">
+                <ion-item class="item-icon-right" ng-show="boolOpenPeopleLikeMe" ng-click="selectPeopleLikeMe(item.text, item.pplLikeMeDemogCat,item.pplLikeMeDemogFK,2)">
+                    <h2>{{item.text}}</h2>
+                    <i class="icon ion-chevron-right placeholder-icon"></i>
+                </ion-item>
+            </div>
+
+
+            <div class="list acc-thing no-margin-bottom" ng-repeat="item in peopleOnSite">
+                <ion-item class="item item-text-wrap participants-list-item" ng-click="navigateProfile(item.peopleKey,item.enterpriseID, 0)">
+                    <div class="participants-wrapper">
+                        <img class="participants-list-img" ng-src="data:image/jpeg;base64,{{item.imgUrl}}">
+                        <h2 class="participants-list-item-title">{{item.fullName}}</h2>
+                        <span>{{item.standardjobdescr}}</span>
+                        <i class="acc-angle-right"></i>
+                    </div>
+                </ion-item>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

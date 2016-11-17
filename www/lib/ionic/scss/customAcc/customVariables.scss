@@ -1,0 +1,89 @@
+﻿// Doesn't work with import so... I have added to the variables.scss coming from ionic.
+
+
+
+// Accenture Colors
+$acn-color-primary:#aa1133;  //acn-cranberry-red
+$acn-color-secondary:#799CC9;
+
+$accGreen: #337722; // Theme
+$accDeepGreen: #224433; // Theme
+$accInkBlue: #003344;
+$accVioletBlue: #002266;
+$accDeepViolet: #336699;
+$accRedViolet: #551155;
+$accOxbloodRed: #660000; // Theme
+$accExpresso: #333300;
+$accDarkGrey: #666666;
+$accSkyBlue: #0172a6;
+$accTangerine: #9c4d2c;
+$accDustyLavander: #776788;
+$accSage: #4c7a6a;
+$accAquamarine: #01856f;
+$accAzalia: #d50035;
+$accTaupe: #767659;
+$accCamel: #7d6d59;
+$accDarkOrange: #c13b0f;
+$accOrange: #ff9900;
+$accPeriwinkleBlue: #5278b1;
+
+$dark-gray: #333333;
+$light-gray: #cccccc;
+$lighter-gray: #f0f0f0;
+$light: #fff;
+
+
+// Colors 
+// -------------------------------
+
+$light:                           $light !default;
+$stable:                          $lighter-gray !default;
+$positive:                        $accDeepViolet !default;
+$calm:                            $lighter-gray !default;
+$balanced:                        $accAquamarine !default;
+$energized:                       $accOrange !default;
+$assertive:                       $accDarkOrange !default;
+$royal:                           $accDustyLavander !default;
+$dark:                            $dark-gray !default;
+
+
+// Base
+// -------------------------------
+
+$font-family-sans-serif:          'RotisSansSerif55' !default;
+$font-family-light-sans-serif:    "Helvetica Neue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !default;
+
+
+$font-size-base:                  12px !default;
+$font-size-large:                 14px !default;
+
+$base-color:                      $dark-gray !default;
+
+$tabs-text-font-size-side-icon:   12px !default;
+$tabs-text-font-size:             14px !default;
+
+// Items
+// -------------------------------
+$item-font-size:                  12px !default;
+$item-padding:                    15px !default;
+$item-avatar-border-radius:       40px !default;
+$item-divider-bg:                 $lighter-gray !default;
+$item-divider-color:              $dark-gray !default;
+
+// Checkboxes
+// -------------------------------
+$checkbox-check-width:            3px !default;
+
+// Loading
+// -------------------------------
+
+$loading-text-color:              #333 !default;
+//$loading-bg-color:                rgba(0,0,0,0.7) !default;
+//$loading-padding:                 20px !default;
+//$loading-border-radius:           5px !default;
+$loading-font-size:               40px !default;
+
+// Badges
+// -------------------------------
+
+$badge-font-size:                 12px !default;

@@ -1,0 +1,45 @@
+﻿<ion-item class="item-body item-icon-left noborders with-identifier" on-tap="tap()">
+   <!-- <div class="identifier rounded icon">
+        <img src="img/men.jpg" class="identifier-img"/>
+    </div>-->
+
+    <div class="identifier rounded icon" ng-click="profile($event, article.enterpriseID)">
+        <div class="fake-img" acn-image-display-div data-ref="{{article.enterpriseID}}"></div>
+    </div>
+
+    <h2>{{article.ownerTxt}}</h2>
+    <p>***Time ago |  {{article.leadinObjectTxt}}</p>
+</ion-item>
+<div class="forShareContent">
+    <ion-item class="shareContent" ng-if="article.bodyMarkupTrusted!=''">
+        <div ng-bind-html="article.bodyMarkupTrusted" compile-template></div>
+    </ion-item>
+    <ion-item class="shareContent item-image nopaddings" ng-if="article.mediaType == 2">
+        <img ng-src="{{article.mediaImage}}" />
+    </ion-item>
+    <ion-item class="shareContent" ng-if="article.mediaType == 3">
+        <div class="card list">
+            <ion-item class="item-body item-thumbnail-left">
+                <div class="forImage" style="background-image:url({{article.mediaImage}})">
+                </div>
+                <h2 ng-bind="article.mediaTitle"></h2>
+                <p ng-bind="article.mediaDescription"></p>
+            </ion-item>
+        </div>
+    </ion-item>
+    <ion-item class="shareContent" ng-if="article.mediaType == 1">
+        <div class="card list">
+            <ion-item class="item-body item-thumbnail-left">
+                <div class="forImage" style="background-image:url({{article.mediaImage}})">
+                </div>
+                <h2 ng-bind="article.mediaTitle"></h2>
+                <p ng-bind="article.mediaDescription"></p>
+            </ion-item>
+        </div>
+    </ion-item>
+</div>
+<social-actions show-like="true" action-like="addLikes()" ng-attr-like-number="{{article.likeCount}}" ng-attr-is-like-active="{{isLikeActive}}"
+                show-comment="true" action-comment="showComments()" ng-attr-comment-number="{{article.commentCount}}"
+                show-share="true"
+                show-options="false">
+</social-actions>

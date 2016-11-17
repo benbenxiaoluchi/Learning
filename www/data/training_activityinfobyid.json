@@ -1,0 +1,115 @@
+[
+    {
+        "activityID": 1131221,
+        "courseCd": null,
+        "title": "Corporate Function Manager Core School",
+        "description": null,
+        "type": null,
+        "rating": 0.0,
+        "hours": 0.0,
+        "tuition": 0.0,
+        "vendorName": null,
+        "vendorURL": null,
+        "registrationID": 0,
+        "startDt": "8/1/2015 1:00:00 PM",
+        "endDt": "8/3/2015 5:00:00 PM",
+        "location": "USA - Q Center",
+        "status": null,
+        "wbsElement": null,
+        "lstActivityAction": [
+            
+        ],
+        "lstActivitySource": [
+            
+        ],
+        "languages": null,
+        "wbsHelpText": null,
+        "PlayabilityValue": 0,
+        "PlayableDeviceTypes": 0,
+        "endLocalDt": "8/3/2015 12:00:00 PM",
+        "facCity": null,
+        "instrNotes": null,
+        "lstUsers": [
+            {
+                "PeopleKey": 396657,
+                "EnterpriseID": "ken.mccowan",
+                "CareerLevel": "",
+                "firstName": "Kenneth",
+                "lastName": "McCowan",
+                "isAdmin": 0,
+                "EmailAddress": "",
+                "LanguageID": "",
+                "Phone": null,
+                "eMail": "ken.mccowan@accenture.com",
+                "isInstructor": "0"
+            },
+            {
+                "PeopleKey": 350510,
+                "EnterpriseID": "abhishek.patni",
+                "CareerLevel": "",
+                "firstName": "Abhishek",
+                "lastName": "Patni",
+                "isAdmin": 0,
+                "EmailAddress": "",
+                "LanguageID": "",
+                "Phone": null,
+                "eMail": "abhishek.patni@accenture.com",
+                "isInstructor": "0"
+            },
+            {
+                "PeopleKey": 38423,
+                "EnterpriseID": "mary.s.pivek",
+                "CareerLevel": "",
+                "firstName": "Mary S.",
+                "lastName": "Pivek",
+                "isAdmin": 0,
+                "EmailAddress": "",
+                "LanguageID": "",
+                "Phone": null,
+                "eMail": "mary.s.pivek@accenture.com",
+                "isInstructor": "0"
+            },
+            {
+                "PeopleKey": 90105,
+                "EnterpriseID": "suzanne.m.snyder",
+                "CareerLevel": "",
+                "firstName": "Suzanne M",
+                "lastName": "Snyder",
+                "isAdmin": 0,
+                "EmailAddress": "",
+                "LanguageID": "",
+                "Phone": null,
+                "eMail": "suzanne.m.snyder@accenture.com",
+                "isInstructor": "0"
+            },
+            {
+                "PeopleKey": 74409,
+                "EnterpriseID": "jennifer.szarzynski",
+                "CareerLevel": "",
+                "firstName": "Jennifer M",
+                "lastName": "Szarzynski",
+                "isAdmin": 0,
+                "EmailAddress": "",
+                "LanguageID": "",
+                "Phone": null,
+                "eMail": "jennifer.szarzynski@accenture.com",
+                "isInstructor": "0"
+            },
+            {
+                "PeopleKey": 22702,
+                "EnterpriseID": "irek.szymelfenig",
+                "CareerLevel": "",
+                "firstName": "Ireneusz",
+                "lastName": "Szymelfenig",
+                "isAdmin": 0,
+                "EmailAddress": "",
+                "LanguageID": "",
+                "Phone": null,
+                "eMail": "irek.szymelfenig@accenture.com",
+                "isInstructor": "0"
+            }
+        ],
+        "materialsURL": null,
+        "startLocalDt": "8/1/2015 8:00:00 AM"
+    }
+]

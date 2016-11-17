@@ -1,0 +1,101 @@
+<ion-view view-title="ATTENDANCE" hide-nav-bar="true" ng-init="initSchedulesPage()" class="tab-attendance-wrap">
+
+    <ion-header-bar no-tap-scroll="true" class="tab-attendance-head"
+                    ng-class="{true: 'bgc000', false: 'bgcb90b62'}[adminFlage]"
+                    align-title="center">
+        <i ng-click="closePage()" class="acc-angle-left"></i>
+        <h1>
+            ATTENDANCE
+        </h1>
+    </ion-header-bar>
+
+    <ion-content has-bouncing="true" delegate-handle="scheduleScroll" class="scheduleDetail-wrapper">
+
+        <ion-refresher ng-disabled="!isCurrent"
+                       pulling-text=""
+                       pulling-icon=""
+                       on-refresh="loadingSchedule()">
+        </ion-refresher>
+
+        <div class="previous-activity-wrap" ng-show="!noScheduleDataShow" ng-if="showTitle">
+            <div class="previous-activity-btn">previous activity</div>
+        </div>
+
+        <ion-item class="item item-no-data" ng-show="noScheduleDataShow">
+            <p class="noDataShowText">Course schedule not defined.</p>
+        </ion-item>
+        <div ng-repeat="item in Schedule" ng-show="!noScheduleDataShow" ng-init=" daycount = $index"
+             ng-class="{ 'currentState': item.eventState.isCurrentState , 'pastState': item.eventState.isPastState}"
+             ng-if="!hideDay[$index]"
+        >
+            <div ng-if="Schedule.length > 0">
+                <ion-item class="item item-icon-right scheduleDetail-date-wrap">
+                    <div class="tab-attendance-day-wrap">
+                        <div class="scheduleDetail-date">
+                            <div>DAY</div>
+                            <div>{{$index+1}}</div>
+                        </div>
+                        <!--<button class="" ng-if="item.eventState.isCurrentState && sumOfInRoom == 0"
+                                ng-click="">
+                            CHECK-IN ALL PARTICIPANTS
+                        </button>
+                        <button class="" ng-if="!item.eventState.isCurrentState || sumOfInRoom > 0"
+                                ng-click="showAttendanceTracking(daycount + 1, item['@count'], false, item.eventState.isCurrentState)">
+                            VIEW ATTENDANCE DETAILS
+                        </button>-->
+                        <button ng-click="showAttendanceTracking(daycount + 1, item['@count'], false, item.eventState.isCurrentState)">
+                            VIEW ATTENDANCE DETAILS
+                        </button>
+                    </div>
+                    <div class="tab-attendance-date-info-wrap">
+                        <span>{{item['@count']}}</span>
+                    </div>
+                    <div class="tab-attendance-date-icon-warp">
+                        <p class="schedule-status">
+                            <span class="learn-Icon-ParticipantsAll allPeople"></span><span
+                                class="allPeople">{{sumOfLearners}} All</span>
+                            <span ng-if="item.eventState.isCurrentState">
+                                <span class="learn-Icon-ParticipantsInRoom log-in"></span><span>{{sumOfInRoom}} In Room</span>
+                                <span class="learn-Icon-ParticipantsOutofRoom log-out"></span><span>{{sumOfOutRoom}} Out Of Room</span>
+                            </span>
+                            <span ng-if="!item.eventState.isCurrentState">
+                                <span class="learn-Icon-ParticipantsInRoom log-in"></span><span>N/A</span>
+                                <span class="learn-Icon-ParticipantsOutofRoom log-out"></span><span>N/A</span>
+                            </span>
+                        </p>
+                    </div>
+
+                </ion-item>
+            </div>
+            <div ng-if="item.event.length > 0">
+                <ion-item ng-repeat="subitem in item.event"
+                          ng-class="{ 'currentState': subitem.isCurrentState , 'pastState': subitem.isPastState}"
+                          class="tab-attendance-state-list-wrap"
+                >
+                    <div class="tab-attendance-state-list-inof">
+                            <span ng-if="!subitem.isUpcomingState">
+                                <span class="sateStyle">
+                                    <span class="learn-Icon-InProgress" ng-if="subitem.isCurrentState">
+                                        <span class="path1"></span><span class="path2"></span><span
+                                            class="path3"></span>
+                                    </span>
+                                    <span class="learn-Icon-Complete" ng-if="subitem.isPastState">
+                                        <span class="path1"></span><span class="path2"></span>
+                                    </span>
+                                </span>
+                            </span>
+                        <!--
+                        标题黑色：class="schedule-list-title c#222"
+                        标题灰色：class="schedule-list-title"
+                        -->
+                        <p class="schedule-list-title c#222">{{subitem.name}}</p>
+                        <div>{{subitem.starttime | timeProcessing }} - {{subitem.endtime | timeProcessing }} | {{subitem.location}}</div>
+                    </div>
+
+                </ion-item>
+            </div>
+        </div>
+
+    </ion-content>
+
+</ion-view>

@@ -1,0 +1,36 @@
+﻿<ion-view view-title="" class="checkoutPage" acc-header-shrink default-class="bar-transparent" shrink-class="bar-profile" title-template="header" offset="{{offsetHeader}}">
+    <ion-content scroll="true" has-header="false" has-bouncing="true" class="no-header">
+        <div class="profile-wrapper">
+            <div class="profile-inner with-identifier">
+                <i class="ion ion-ios-arrow-back back-button-checkbox" ng-click="closeAttendanceCheckIn()"></i>
+                <div class="identifier rounded icon profile-inner-image">
+                    <div class="fake-img" acn-image-display-div data-ref="{{participantActionEid}}"></div>
+                </div>
+                <h4 class="pro-name">
+                    {{participantActionFullName}}
+                </h4>
+                <div class="view-profile">VIEW PROFILE</div>
+            </div>
+        </div>
+
+        <div class="check-info-box-wrapper">
+            <div class="item-check-day">
+                <div class="scheduleDetail-date">
+                    <div>DAY</div>
+                    <div>{{_dayTime}}</div>
+                </div>
+            </div>
+            <p class="check-info-box-inof">{{_date}} | <span class="check-info-box-inof-state">In Progress</span></p>
+
+            <div ng-repeat="item in activityList" class="activity-detail-check">
+                <i ng-class="item.ActivityIcon" ng-style="item.ActivityIconColor" class="activity-detail-icon"></i>
+                <span>{{item.ActivityTime}}</span>
+            </div>
+
+            <button class="button check-button-common check-in-now-button" ng-if="!isAfterCheckIn" ng-click="checkInAction(participantActionEid)" ng-disabled="isImpersonate">
+                <i class="ion learn-Icon-ParticipantsInRoom"></i>
+                CHECK IN NOW
+            </button>
+        </div>
+    </ion-content>
+</ion-view>

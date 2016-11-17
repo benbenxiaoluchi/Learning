@@ -1,0 +1,42 @@
+﻿<ion-modal-view class="forLearningsDetails" view-title="Learning" acc-modal-priority="10">
+    <!--for title-->
+   
+    <ion-header-bar class="bar navPrimary" align-title="center">
+        <div class="buttons">
+            <button menu-toggle="left" class="button button-icon icon acc-angle-left" ng-click="closeModal('learning')"></button>
+        </div>
+        <h3 class="title">Details</h3>
+    </ion-header-bar>
+    
+    <ion-content class=" white has-acc-header" locking="true" has-subheader="true" has-bouncing="false" delegate-handle="learningDetail">
+        <ion-item class="list acc-thing  noborders">
+            <!--For learning title and details-->
+            <ion-item class="item item-body ">
+
+                <h2 class="title">{{selectedItem.Title}}</h2>
+                <p class="ellipsis">{{selectedItem.CourseType}} | {{selectedItem.CourseDuration}}h</p>
+            </ion-item>
+            <!--for skills user'll improve-->
+            <ion-item class="item item-body improving" ng-show="selectedItem.MatchingSkills.length > 0">
+                <h3>Skills You Will Improve</h3>
+                <div class="fortags">
+                    <span class="tags" ng-repeat="skill in selectedItem.MatchingSkills | limitTo:4">{{skill}}</span>
+                </div>
+
+                <div class="pull-right" ng-show="selectedItem.MatchingSkills.length > 4" ng-click="openModal('skillsImprove')">See All</div>
+            </ion-item>
+
+            <!--For learning description-->
+            <ion-item class="item item-body noborders noPaddingTop">
+                <h3>Description</h3>
+                <p ng-show="selectedItem.Description == ''">No description available.</p>
+                <p ng-show="selectedItem.Description != ''" ng-bind-html="selectedItem.Description"></p>
+            </ion-item>
+
+            <!--For registrer button-->
+            <ion-item class="noborders">
+                <a class="button button-dark button-block" ng-click="abreWindow(constants.recommendations.type.learning)" add-action-plan="{{selectedItem}}" data-type="{{constants.actionPlan.type.learning}}">REGISTER</a>
+            </ion-item>
+        </ion-item>
+    </ion-content>
+</ion-modal-view>

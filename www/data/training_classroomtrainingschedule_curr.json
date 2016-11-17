@@ -1,0 +1,29 @@
+[
+    {
+        "category": null,
+        "categoryOrder": 0,
+        "categoryLiteral": null,
+        "subCategory": null,
+        "activityID": 1131221,
+        "activityType": null,
+        "activityCode": null,
+        "activityName": "Corporate Function Manager Core School",
+        "activityDesc": null,
+        "duration": 0.0,
+        "courseDetailsURL": null,
+        "status": null,
+        "dueDt": null,
+        "startDt": "8/1/2015 1:00:00 PM",
+        "endDt": "8/3/2015 5:00:00 PM",
+        "registrationDate": null,
+        "attemptStartDate": null,
+        "completionDate": null,
+        "cancellationDate": null,
+        "categoryDate": null,
+        "LaunchMethod": null,
+        "isMobileFriendly": 0,
+        "SourceName": null,
+        "RegID": 0,
+        "PlayabilityValue": 0
+    }
+]

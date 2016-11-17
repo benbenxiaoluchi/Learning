@@ -1,0 +1,56 @@
+[
+    {
+        "count": 0,
+        "label": "Deployed to Entity",
+        "pplLikeMeDemogCat": "ph",
+        "pplLikeMeDemogFK": "",
+        "sortOrder": 0,
+        "demog": "ph2",
+        "pplLikeMeDemogName": ""
+    },
+    {
+        "count": 0,
+        "label": "Career Level Group",
+        "pplLikeMeDemogCat": "org",
+        "pplLikeMeDemogFK": "",
+        "sortOrder": 0,
+        "demog": "CareerLevelGroup",
+        "pplLikeMeDemogName": ""
+    },
+    {
+        "count": 0,
+        "label": "Career Track",
+        "pplLikeMeDemogCat": "org",
+        "pplLikeMeDemogFK": "",
+        "sortOrder": 0,
+        "demog": "CareerTrack",
+        "pplLikeMeDemogName": ""
+    },
+    {
+        "count": 0,
+        "label": "Country",
+        "pplLikeMeDemogCat": "org",
+        "pplLikeMeDemogFK": "",
+        "sortOrder": 0,
+        "demog": "Country",
+        "pplLikeMeDemogName": ""
+    },
+    {
+        "count": 0,
+        "label": "Geographic Unit",
+        "pplLikeMeDemogCat": "org",
+        "pplLikeMeDemogFK": "",
+        "sortOrder": 0,
+        "demog": "GeographicUnit",
+        "pplLikeMeDemogName": ""
+    },
+    {
+        "count": 0,
+        "label": "Talent Segment",
+        "pplLikeMeDemogCat": "org",
+        "pplLikeMeDemogFK": "",
+        "sortOrder": 0,
+        "demog": "TalentSegment",
+        "pplLikeMeDemogName": ""
+    }
+]

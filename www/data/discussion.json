@@ -1,0 +1,606 @@
+﻿{
+  "topics": [
+    {
+      "categoryTxt": "LGBT Country News"
+    },
+    {
+      "categoryTxt": "Leadership Ideas"
+    }
+  ],
+  "pagingToken": 5,
+  "newsfeedName": "Global LGBT",
+  "newsfeedType": "Circle",
+  "pollInterval": null,
+  "Threads": [
+    {
+      "eventID": 17114065,
+      "parentEventID": 17114065,
+      "threadEventID": 17114065,
+      "eventUTCDatetime": "2015-06-24T18:33:18.983",
+      "typeEventID": 1,
+      "ownerPeopleKey": 467367,
+      "mediaType": null,
+      "mediaImage": null,
+      "mediaLink": null,
+      "mediaTitle": null,
+      "mediaDescription": null,
+      "isClosed": 0,
+      "leadinSubjectID": 467367,
+      "leadinPredicateID": 4,
+      "leadinObjectID": 0,
+      "leadinObjectTypeID": 3,
+      "leadinSubjectTxt": "Fernando Avila Pacheco",
+      "leadinSubjectCard": "Fernando Avila Pacheco|Sr Cons - SD, Malaga, Spain",
+      "leadinSubjectEID": "f.avila.pacheco",
+      "leadinPredicateTxt": "liked a post",
+      "leadinObjectTxt": "",
+      "leadinObjectEID": null,
+      "leadinObjectURL": null,
+      "ownerTxt": "Fernando Avila Pacheco",
+      "ownerCard": "Fernando Avila Pacheco|Sr Cons - SD, Malaga, Spain",
+      "enterpriseID": "f.avila.pacheco",
+      "likeCount": 1,
+      "userLikeThis": 17114219,
+      "commentCount": 0,
+      "shareCount": 0,
+      "userShareThis": 0,
+      "bodyMarkup": "<div class='feed-item-summary'>Creating post  <a data-eid='angel.sanchez.enano' href='/Experience.aspx?accountname=angel.sanchez.enano' class='feed-person-item link'>@Angel Sánchez Enano</a> <a href='javascript:void(0);' class='hashtag link'>#lgbt</a> <a href='javascript:void(0);' class='hashtag link'>#hardwork</a> <a href='javascript:void(0);' class='hashtag link'>#LGBTAwards</a></div>",
+      "deviceOrigin": "",
+      "isFollowingEvent": 0,
+      "isMarkedAsFavorite": 0,
+      "originGroupID": 0,
+      "originName": "Public Stream",
+      "originURL": "https://people.accenture.com",
+      "editCount": 0,
+      "hashTags": [
+        {
+          "objectID": 11027,
+          "objectTypeID": 3,
+          "displayTxt": "#HARDWORK",
+          "enterpriseID": null
+        },
+        {
+          "objectID": 14305,
+          "objectTypeID": 3,
+          "displayTxt": "#LGBT",
+          "enterpriseID": null
+        },
+        {
+          "objectID": 335289,
+          "objectTypeID": 3,
+          "displayTxt": "#LGBTAwards",
+          "enterpriseID": null
+        }
+      ],
+      "groupTags": [],
+      "peopleTags": [],
+      "Comments": []
+    },
+    {
+      "eventID": 16578614,
+      "parentEventID": 16578614,
+      "threadEventID": 16578614,
+      "eventUTCDatetime": "2015-02-27T17:18:19.127",
+      "typeEventID": 1,
+      "ownerPeopleKey": 168302,
+      "mediaType": 1,
+      "mediaImage": "https://collab-ts.accenture.com/files/defaultMedia/defaultMedia.jpg",
+      "mediaLink": "http://yagg.com/2015/01/01/les-50-personnalites-qui-ont-marque-2014-et-quil-faudra-suivre-en-2015/",
+      "mediaTitle": "Les 50 personnalités qui ont marqué 2014 (et qu&rsquo;il faudra suivre en 2015) | Yagg",
+      "mediaDescription": "Politiques, artistes, militant.e.s... Yagg dresse la liste (non exhaustive) de celles et ceux qui ont marqué l'actualité en 2014.",
+      "isClosed": 0,
+      "leadinSubjectID": 1020748,
+      "leadinPredicateID": 7,
+      "leadinObjectID": 298753,
+      "leadinObjectTypeID": 3,
+      "leadinSubjectTxt": "Dominika Filinska",
+      "leadinSubjectCard": "Dominika Filinska|, Warsaw, Poland",
+      "leadinSubjectEID": "dominika.a.filinska",
+      "leadinPredicateTxt": "tagged the thread with",
+      "leadinObjectTxt": "#LGBTNews",
+      "leadinObjectEID": null,
+      "leadinObjectURL": null,
+      "ownerTxt": "Jean-Marie Boutin",
+      "ownerCard": "Jean-Marie Boutin|Communications Senior Manager, Paris, France",
+      "enterpriseID": "jean-marie.boutin",
+      "likeCount": 13,
+      "userLikeThis": 0,
+      "commentCount": 1,
+      "shareCount": 0,
+      "userShareThis": 0,
+      "bodyMarkup": "<div class='feed-item-summary'>Très honoré d'avoir été nommé par le media YAGG dans les 50 personnalités LGBT qui ont marqué 2014. Cela récompense notre action en matière d'inclusion et de diversité <a href=\"javascript:void(0);\" class=\"hashtag link\">#LGBT</a>. <a class=\"link\" href=\"http://yagg.com/2015/01/01/les-50-personnalites-qui-ont-marque-2014-et-quil-faudra-suivre-en-2015/\" target=\"_blank\">http://yagg.com/2015/01/01/les-50-personnalites-qui-ont-marque-2014-et-quil-faudra-suivre-en-2015/</a> <a data-eid=\"christian.h.nibourel\" href=\"https://peopleux-perf.ciotest.accenture.com/Collaboration.aspx?accountname=christian.h.nibourel\" class=\"feed-person-item link\">@Christian Nibourel</a> <a data-eid=\"khalid.lahraoui\" href=\"https://peopleux-perf.ciotest.accenture.com/Collaboration.aspx?accountname=khalid.lahraoui\" class=\"feed-person-item link\">@Khalid Lahraoui</a> <a data-eid=\"anne-sophie.beraud\" href=\"https://peopleux-perf.ciotest.accenture.com/Collaboration.aspx?accountname=anne-sophie.beraud\" class=\"feed-person-item link\">@Anne-Sophie Beraud</a> <a data-eid=\"stephanie.andrieu\" href=\"https://peopleux-perf.ciotest.accenture.com/Collaboration.aspx?accountname=stephanie.andrieu\" class=\"feed-person-item link\">@Stéphanie Andrieu</a> <a data-eid=\"manon.fouriscot\" href=\"https://peopleux-perf.ciotest.accenture.com/Collaboration.aspx?accountname=manon.fouriscot\" class=\"feed-person-item link\">@Manon Fouriscot</a> <a href=\"javascript:void(0);\" class=\"hashtag link\">#Frenchstory</a> et toi <a data-eid=\"nicolas.mourot\" href=\"https://peopleux-perf.ciotest.accenture.com/Collaboration.aspx?accountname=nicolas.mourot\" class=\"feed-person-item link\">@Nicolas Mourot</a> <a data-eid=\"jean.luc.couasnon\" href=\"https://peopleux-perf.ciotest.accenture.com/Collaboration.aspx?accountname=jean.luc.couasnon\" class=\"feed-person-item link\">@Jean Luc Couasnon</a> c'est quoi ta <a href=\"javascript:void(0);\" class=\"hashtag link\">#Frenchstory</a> ? </div>",
+      "deviceOrigin": "",
+      "isFollowingEvent": 0,
+      "isMarkedAsFavorite": 0,
+      "originGroupID": 0,
+      "originName": "Public Stream",
+      "originURL": "https://people.accenture.com",
+      "editCount": 0,
+      "hashTags": [
+        {
+          "objectID": 14305,
+          "objectTypeID": 3,
+          "displayTxt": "#LGBT",
+          "enterpriseID": null
+        },
+        {
+          "objectID": 294762,
+          "objectTypeID": 3,
+          "displayTxt": "#Frenchstory",
+          "enterpriseID": null
+        },
+        {
+          "objectID": 298753,
+          "objectTypeID": 3,
+          "displayTxt": "#LGBTNews",
+          "enterpriseID": null
+        },
+        {
+          "objectID": 335289,
+          "objectTypeID": 3,
+          "displayTxt": "#LGBTAwards",
+          "enterpriseID": null
+        }
+      ],
+      "groupTags": [
+        {
+          "objectID": 30241135,
+          "objectTypeID": 2,
+          "displayTxt": "LGBT Allies Global Network",
+          "enterpriseID": null
+        }
+      ],
+      "peopleTags": [
+        {
+          "objectID": 4483,
+          "objectTypeID": 1,
+          "displayTxt": "Anne-Sophie Beraud",
+          "enterpriseID": "anne-sophie.beraud"
+        },
+        {
+          "objectID": 9778,
+          "objectTypeID": 1,
+          "displayTxt": "Christian Nibourel",
+          "enterpriseID": "christian.h.nibourel"
+        },
+        {
+          "objectID": 24914,
+          "objectTypeID": 1,
+          "displayTxt": "Jean Luc Couasnon",
+          "enterpriseID": "jean.luc.couasnon"
+        },
+        {
+          "objectID": 31586,
+          "objectTypeID": 1,
+          "displayTxt": "Khalid Lahraoui",
+          "enterpriseID": "khalid.lahraoui"
+        },
+        {
+          "objectID": 647600,
+          "objectTypeID": 1,
+          "displayTxt": "Nicolas Mourot",
+          "enterpriseID": "nicolas.mourot"
+        },
+        {
+          "objectID": 663057,
+          "objectTypeID": 1,
+          "displayTxt": "Stéphanie Andrieu",
+          "enterpriseID": "stephanie.andrieu"
+        },
+        {
+          "objectID": 1006763,
+          "objectTypeID": 1,
+          "displayTxt": "Manon Fouriscot",
+          "enterpriseID": "manon.fouriscot"
+        }
+      ],
+      "Comments": [
+        {
+          "eventID": 16693658,
+          "parentEventID": 16578614,
+          "eventUTCDatetime": "2015-03-06T07:57:13.277",
+          "typeEventID": 2,
+          "ownerPeopleKey": 65635,
+          "mediaType": null,
+          "mediaImage": null,
+          "mediaLink": null,
+          "mediaTitle": null,
+          "mediaDescription": null,
+          "ownerTxt": "Charlotte Delaronde",
+          "ownerCard": "Charlotte Delaronde|Marketing Senior Manager, Paris, France",
+          "enterpriseID": "charlotte.delaronde",
+          "likeCount": 0,
+          "userLikeThis": 0,
+          "bodyMarkup": "<div class='feed-item-summary'>Bravo Jean-Marie !  </div>",
+          "rownumber": 1,
+          "editCount": 0,
+          "isAnswer": 0
+        }
+      ]
+    },
+    {
+      "eventID": 16869561,
+      "parentEventID": 16869561,
+      "threadEventID": 16869561,
+      "eventUTCDatetime": "2015-03-18T12:41:54.573",
+      "typeEventID": 1,
+      "ownerPeopleKey": 1020748,
+      "mediaType": 1,
+      "mediaImage": "https://collab-ts.accenture.com/files/defaultMedia/defaultMediaPeople.jpg",
+      "mediaLink": "https://peopleux-perf.ciotest.accenture.com/stream/activity.aspx?eventid=15727086&guid=EF5D094E-08FB-48FF-B3B1-627DB7891B83",
+      "mediaTitle": "Accenture People",
+      "mediaDescription": "Accenture People is all about keeping you connected to your colleges within Accenture.",
+      "isClosed": 0,
+      "leadinSubjectID": 1020748,
+      "leadinPredicateID": 7,
+      "leadinObjectID": 300807,
+      "leadinObjectTypeID": 3,
+      "leadinSubjectTxt": "Dominika Filinska",
+      "leadinSubjectCard": "Dominika Filinska|, Warsaw, Poland",
+      "leadinSubjectEID": "dominika.a.filinska",
+      "leadinPredicateTxt": "tagged the thread with",
+      "leadinObjectTxt": "#LGBTEvents",
+      "leadinObjectEID": null,
+      "leadinObjectURL": null,
+      "ownerTxt": "Dominika Filinska",
+      "ownerCard": "Dominika Filinska|, Warsaw, Poland",
+      "enterpriseID": "dominika.a.filinska",
+      "likeCount": 0,
+      "userLikeThis": 0,
+      "commentCount": 0,
+      "shareCount": 0,
+      "userShareThis": 0,
+      "bodyMarkup": "<div class='feed-item-summary'>The Quezon City Pride Council Award / Pride Event; Philippines - December<br />“Accenture respects all people regardless sexual orientation, gender identity and expression, pushing for equal rights for LGBT persons”<br /> </div>",
+      "deviceOrigin": "",
+      "isFollowingEvent": 0,
+      "isMarkedAsFavorite": 0,
+      "originGroupID": 30241135,
+      "originName": "LGBT Allies Global Network",
+      "originURL": "https://circles.cioperf.accenture.com/A75E8128-0531-4783-9691-679EEF3D71DD",
+      "editCount": 0,
+      "hashTags": [
+        {
+          "objectID": 300807,
+          "objectTypeID": 3,
+          "displayTxt": "#LGBTEvents",
+          "enterpriseID": null
+        },
+        {
+          "objectID": 335289,
+          "objectTypeID": 3,
+          "displayTxt": "#LGBTAwards",
+          "enterpriseID": null
+        }
+      ],
+      "groupTags": [
+        {
+          "objectID": 30241135,
+          "objectTypeID": 2,
+          "displayTxt": "LGBT Allies Global Network",
+          "enterpriseID": null
+        }
+      ],
+      "peopleTags": [],
+      "Comments": []
+    },
+    {
+      "eventID": 16113308,
+      "parentEventID": 16113308,
+      "threadEventID": 16113308,
+      "eventUTCDatetime": "2015-01-16T01:01:46.06",
+      "typeEventID": 17,
+      "ownerPeopleKey": 208908,
+      "mediaType": null,
+      "mediaImage": null,
+      "mediaLink": null,
+      "mediaTitle": null,
+      "mediaDescription": null,
+      "isClosed": 0,
+      "leadinSubjectID": 1020748,
+      "leadinPredicateID": 7,
+      "leadinObjectID": 300807,
+      "leadinObjectTypeID": 3,
+      "leadinSubjectTxt": "Dominika Filinska",
+      "leadinSubjectCard": "Dominika Filinska|, Warsaw, Poland",
+      "leadinSubjectEID": "dominika.a.filinska",
+      "leadinPredicateTxt": "tagged the thread with",
+      "leadinObjectTxt": "#LGBTEvents",
+      "leadinObjectEID": null,
+      "leadinObjectURL": null,
+      "ownerTxt": "Andrew Wilson",
+      "ownerCard": "Andrew Wilson|SMD - Chief Information Officer, Miami, USA",
+      "enterpriseID": "andrew.x.wilson",
+      "likeCount": 27,
+      "userLikeThis": 0,
+      "commentCount": 11,
+      "shareCount": 6,
+      "userShareThis": 0,
+      "bodyMarkup": "shared a link. <div class='feed-item-summary'>I'm really proud to announce that Accenture’s policies and practices to promote LGBT equality in the workplace have been recognized in the UK by Stonewall through its Star Performers and Top Global Employers recognitions. As a Star Performer, we are recognized as a top-performing company, consistently delivering exemplary practices to support LGBT staff and as a Top Global Employer realizing these best practices worldwide.   <a class='link' href='http://www.stonewall.org.uk/media/current_releases/10273.asp' target='_blank'>(link)</a> <a href='https://circles.cioperf.accenture.com/EF5D094E-08FB-48FF-B3B1-627DB7891B83' class='feed-comm-item link'>@[Global LGBT]</a>  <a href='javascript:void(0);' class='hashtag link'>#LGBT</a> </div> <div class='previewareaContainer'> <div id='previewarea'> <div class='previewimage '> <img src='/misc/googlecharthandler.ashx?url=http://www.stonewall.org.uk/images/2009site/header/text_size_medium.gif'/></div> <div class='previewtxt'> <a class='previewtitle' data-link='http://www.stonewall.org.uk/media/current_releases/10273.asp'>Media</a><span class='previewURI'>http://www.stonewall.org.uk</span><span class='previewdesc'></span></div></div></div>",
+      "deviceOrigin": "",
+      "isFollowingEvent": 0,
+      "isMarkedAsFavorite": 0,
+      "originGroupID": 0,
+      "originName": "Public Stream",
+      "originURL": "https://people.accenture.com",
+      "editCount": 0,
+      "hashTags": [
+        {
+          "objectID": 14305,
+          "objectTypeID": 3,
+          "displayTxt": "#LGBT",
+          "enterpriseID": null
+        },
+        {
+          "objectID": 300807,
+          "objectTypeID": 3,
+          "displayTxt": "#LGBTEvents",
+          "enterpriseID": null
+        },
+        {
+          "objectID": 319368,
+          "objectTypeID": 3,
+          "displayTxt": "#WEF15",
+          "enterpriseID": null
+        },
+        {
+          "objectID": 335289,
+          "objectTypeID": 3,
+          "displayTxt": "#LGBTAwards",
+          "enterpriseID": null
+        }
+      ],
+      "groupTags": [
+        {
+          "objectID": 28239421,
+          "objectTypeID": 2,
+          "displayTxt": "Source to Pay Community Home Site",
+          "enterpriseID": null
+        },
+        {
+          "objectID": 29326145,
+          "objectTypeID": 2,
+          "displayTxt": "Global LGBT",
+          "enterpriseID": null
+        },
+        {
+          "objectID": 29398461,
+          "objectTypeID": 2,
+          "displayTxt": "Supplier Inclusion & Diversity",
+          "enterpriseID": null
+        },
+        {
+          "objectID": 30336034,
+          "objectTypeID": 2,
+          "displayTxt": "Debbie's Network",
+          "enterpriseID": null
+        }
+      ],
+      "peopleTags": [
+        {
+          "objectID": -83,
+          "objectTypeID": 1,
+          "displayTxt": "Global Inclusion & Diversity",
+          "enterpriseID": "InclusionDiversity"
+        },
+        {
+          "objectID": 527195,
+          "objectTypeID": 1,
+          "displayTxt": "JT Tubil",
+          "enterpriseID": "jeanette.a.tubil"
+        }
+      ],
+      "Comments": [
+        {
+          "eventID": 16533497,
+          "parentEventID": 16113308,
+          "eventUTCDatetime": "2015-02-25T08:45:11.61",
+          "typeEventID": 2,
+          "ownerPeopleKey": 520777,
+          "mediaType": null,
+          "mediaImage": null,
+          "mediaLink": null,
+          "mediaTitle": null,
+          "mediaDescription": null,
+          "ownerTxt": "Agnes Marquez",
+          "ownerCard": "Agnes Marquez|Business Operations Senior Manager, ManilaCity, Philippines",
+          "enterpriseID": "agnes.a.marquez",
+          "likeCount": 0,
+          "userLikeThis": 0,
+          "bodyMarkup": "<div class='feed-item-summary'>Sharing with the PH FLAG lead <a data-eid=\"jeanette.a.tubil\" href=\"https://peopleux-perf.ciotest.accenture.com/Experience.aspx?accountname=jeanette.a.tubil\" class=\"feed-person-item link\">@JT Tubil</a></div>",
+          "rownumber": 2,
+          "editCount": 0,
+          "isAnswer": 0
+        },
+        {
+          "eventID": 16562738,
+          "parentEventID": 16113308,
+          "eventUTCDatetime": "2015-02-26T20:46:46.29",
+          "typeEventID": 2,
+          "ownerPeopleKey": 527195,
+          "mediaType": null,
+          "mediaImage": null,
+          "mediaLink": null,
+          "mediaTitle": null,
+          "mediaDescription": null,
+          "ownerTxt": "JT Tubil",
+          "ownerCard": "JT Tubil|Quality Auditing Associate Manager, ManilaCity, Philippines",
+          "enterpriseID": "jeanette.a.tubil",
+          "likeCount": 0,
+          "userLikeThis": 0,
+          "bodyMarkup": "<div class='feed-item-summary'>Thanks Agnes!!!<br />This is awesome!!!  </div>",
+          "rownumber": 1,
+          "editCount": 0,
+          "isAnswer": 0
+        }
+      ]
+    },
+    {
+      "eventID": 16795586,
+      "parentEventID": 16795586,
+      "threadEventID": 16795586,
+      "eventUTCDatetime": "2015-03-12T17:21:16.427",
+      "typeEventID": 1,
+      "ownerPeopleKey": -83,
+      "mediaType": null,
+      "mediaImage": null,
+      "mediaLink": null,
+      "mediaTitle": null,
+      "mediaDescription": null,
+      "isClosed": 0,
+      "leadinSubjectID": 1020748,
+      "leadinPredicateID": 7,
+      "leadinObjectID": 298753,
+      "leadinObjectTypeID": 3,
+      "leadinSubjectTxt": "Dominika Filinska",
+      "leadinSubjectCard": "Dominika Filinska|, Warsaw, Poland",
+      "leadinSubjectEID": "dominika.a.filinska",
+      "leadinPredicateTxt": "tagged the thread with",
+      "leadinObjectTxt": "#LGBTNews",
+      "leadinObjectEID": null,
+      "leadinObjectURL": null,
+      "ownerTxt": "Global Inclusion & Diversity",
+      "ownerCard": "Global Inclusion & Diversity|",
+      "enterpriseID": "InclusionDiversity",
+      "likeCount": 20,
+      "userLikeThis": 0,
+      "commentCount": 6,
+      "shareCount": 0,
+      "userShareThis": 0,
+      "bodyMarkup": "<div class='feed-item-summary'>Exciting news... Accenture Ireland has won \"Employer of the Year” at the GALA LGBT Awards -- the first time that Accenture Ireland has won or been nominated. Congratulations to all! <a href=\"javascript:void(0);\" class=\"hashtag link\">#awards</a> <a href=\"javascript:void(0);\" class=\"hashtag link\">#LGBT</a> </div>",
+      "deviceOrigin": "",
+      "isFollowingEvent": 0,
+      "isMarkedAsFavorite": 0,
+      "originGroupID": 0,
+      "originName": "Public Stream",
+      "originURL": "https://people.accenture.com",
+      "editCount": 0,
+      "hashTags": [
+        {
+          "objectID": 3931,
+          "objectTypeID": 3,
+          "displayTxt": "#awards",
+          "enterpriseID": null
+        },
+        {
+          "objectID": 14305,
+          "objectTypeID": 3,
+          "displayTxt": "#LGBT",
+          "enterpriseID": null
+        },
+        {
+          "objectID": 298753,
+          "objectTypeID": 3,
+          "displayTxt": "#LGBTNews",
+          "enterpriseID": null
+        },
+        {
+          "objectID": 315269,
+          "objectTypeID": 3,
+          "displayTxt": "#I&DLeads",
+          "enterpriseID": null
+        },
+        {
+          "objectID": 335289,
+          "objectTypeID": 3,
+          "displayTxt": "#LGBTAwards",
+          "enterpriseID": null
+        }
+      ],
+      "groupTags": [
+        {
+          "objectID": 29326145,
+          "objectTypeID": 2,
+          "displayTxt": "Global LGBT",
+          "enterpriseID": null
+        },
+        {
+          "objectID": 30085719,
+          "objectTypeID": 2,
+          "displayTxt": "Inclusion and Diversity Leads Global Network",
+          "enterpriseID": null
+        },
+        {
+          "objectID": 30123986,
+          "objectTypeID": 2,
+          "displayTxt": "I&D leads Circle",
+          "enterpriseID": null
+        },
+        {
+          "objectID": 30241135,
+          "objectTypeID": 2,
+          "displayTxt": "LGBT Allies Global Network",
+          "enterpriseID": null
+        }
+      ],
+      "peopleTags": [
+        {
+          "objectID": 41666,
+          "objectTypeID": 1,
+          "displayTxt": "Monica Donlon",
+          "enterpriseID": "monica.donlon"
+        },
+        {
+          "objectID": 65327,
+          "objectTypeID": 1,
+          "displayTxt": "cecile Rochet",
+          "enterpriseID": "cecile.rochet"
+        },
+        {
+          "objectID": 1020748,
+          "objectTypeID": 1,
+          "displayTxt": "Dominika Filinska",
+          "enterpriseID": "dominika.a.filinska"
+        }
+      ],
+      "Comments": [
+        {
+          "eventID": 16854059,
+          "parentEventID": 16795586,
+          "eventUTCDatetime": "2015-03-17T15:07:12.387",
+          "typeEventID": 2,
+          "ownerPeopleKey": 632660,
+          "mediaType": null,
+          "mediaImage": null,
+          "mediaLink": null,
+          "mediaTitle": null,
+          "mediaDescription": null,
+          "ownerTxt": "Karthik Natarajan",
+          "ownerCard": "Karthik Natarajan|Software Engineering Sr. Analyst, Philadelph, USA",
+          "enterpriseID": "karthik.a.natarajan",
+          "likeCount": 0,
+          "userLikeThis": 0,
+          "bodyMarkup": "<div class='feed-item-summary'>Congratulations!  </div>",
+          "rownumber": 2,
+          "editCount": 0,
+          "isAnswer": 0
+        },
+        {
+          "eventID": 16856681,
+          "parentEventID": 16795586,
+          "eventUTCDatetime": "2015-03-17T17:29:00.743",
+          "typeEventID": 2,
+          "ownerPeopleKey": 667665,
+          "mediaType": null,
+          "mediaImage": null,
+          "mediaLink": null,
+          "mediaTitle": null,
+          "mediaDescription": null,
+          "ownerTxt": "Jagadeshwarreddy Dereddy",
+          "ownerCard": "Jagadeshwarreddy Dereddy|Software Engineering Analyst, Philadelph, USA",
+          "enterpriseID": "jagadeesh.dereddy",
+          "likeCount": 0,
+          "userLikeThis": 0,
+          "bodyMarkup": "<div class='feed-item-summary'>Congratulations  </div>",
+          "rownumber": 1,
+          "editCount": 0,
+          "isAnswer": 0
+        }
+      ]
+    }
+  ],
+  "profile": {
+    "enterpriseID": "f.avila.pacheco",
+    "peopleKey": 467367,
+    "displayTxt": "Fernando Avila Pacheco"
+  }
+}

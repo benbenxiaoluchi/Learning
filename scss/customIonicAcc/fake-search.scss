@@ -1,0 +1,12 @@
+// search
+.fake-search {
+    width: calc(100% - 20px);
+    z-index: 9;
+    margin: 10px;
+    position: relative;
+    i {
+      font-size:$font-size-base * 2;
+      margin:10px 10px 0;
+      float:right;
+    }
+}

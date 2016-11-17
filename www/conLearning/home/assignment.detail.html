@@ -1,0 +1,42 @@
+﻿<ion-modal-view class="forPositionDetails" view-title="Learning" acc-modal-priority="10">
+
+    <!--For title-->
+    <ion-header-bar class="bar navPrimary" align-title="center">
+        <div class="buttons">
+            <button menu-toggle="left" class="button button-icon icon acc-angle-left" ng-click="closeModal('assignment')"></button>
+        </div>
+        <h3 class="title">Details</h3>
+    </ion-header-bar>
+
+    <ion-content class=" white has-acc-header has-header" locking="true" has-subheader="true" has-bouncing="false" delegate-handle="assignmentDetail">
+        <ion-item class="list acc-thing  noborders">
+            <!--For assignment title and details-->
+            <ion-item class="item-body item-icon-left noborders line-bottom with-identifier summary-card-header">
+                <div class="identifier rounded icon">
+                    <i class="identifier-icon acc-job"></i>
+                </div>
+                <h2>{{selectedAssignmentItem.AssignmentTitle}}</h2>
+                <p>{{selectedAssignmentItem.TalentSegment}}</p>
+
+            </ion-item>
+            <!--for icons form mkp-->
+            <ion-item class="summary-card-item item-body noborders withIcons">
+                <p><i class="acc-star"></i>{{selectedAssignmentItem.Specialty}}</p>
+                <p><i class="acc-hierarchy"></i>{{selectedAssignmentItem.ResourcePool}}</p>
+                <p><i class="acc-map-marker2"></i>{{selectedAssignmentItem.Location}}</p>
+
+            </ion-item>            
+
+        </ion-item>
+        <!--For description-->
+        <ion-item class="item item-body noborders noPaddingTop">
+            <h3>Description</h3>
+            <p ng-bind-html="selectedAssignmentItem.Description" class="wrap"></p>
+        </ion-item>
+        
+        <!--For add to plan button-->
+        <ion-item class="noborders">
+            <a class="button button-dark button-block" ng-click="applyItem('assignment')" add-action-plan="{{selectedAssignmentItem}}" data-type="{{constants.actionPlan.type.assignment}}">APPLY</a>
+        </ion-item>
+    </ion-content>
+</ion-modal-view>

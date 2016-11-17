@@ -1,0 +1,95 @@
+.message-page-title {
+    position: relative;
+    padding: 0 20px;
+    line-height: 46px;
+    font-size: 20px;
+    color: #222;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.message-page-title .learn-Icon-Close {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 20px;
+    color: #ccc;
+}
+
+.message-page-info {
+    position: relative;
+    margin-top: 20px;
+    padding-left: 50px;
+}
+
+.message-page-info-img {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ccc;
+}
+
+.message-page-info-right {
+    padding: 10px;
+    width: 64%;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #f2f2f2;
+}
+
+.message-page-info-msg {
+    font-size: 16px;
+    color: #333;
+    line-height: 20px;
+}
+
+.message-page-info-time {
+    margin-top: 10px;
+    font-style: italic;
+    font-size: 14px;
+    color: #666;
+}
+
+.message-page-footer {
+    padding: 8px 10px;
+    background-color: #dee1e5;
+    height:auto;
+}
+
+.message-page-footer-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    border: 1px solid #cccccc;
+    border-radius: 4px;;
+    overflow: hidden;
+}
+
+.message-page-warp .message-page-footer-input,
+.message-page-warp .message-page-footer-btn {
+    height: 35px;
+    line-height: 35px;
+    display: inline-block;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.message-page-footer-input {
+    min-width: 76%;
+    flex: 1;
+    border: 0 none;
+    text-indent: 2em;
+}
+
+.message-page-footer-btn {
+    width: 23%;
+    background-color: #7fbcff;
+    color: #fff;
+    font-size: 14px;
+    text-transform: uppercase;
+    border: 0 none;
+}

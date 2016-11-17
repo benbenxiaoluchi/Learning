@@ -1,0 +1,65 @@
+﻿<ion-view view-title="" class="checkoutPage" acc-header-shrink default-class="bar-transparent" shrink-class="bar-profile" title-template="header" offset="{{offsetHeader}}">
+    <ion-content scroll="true" has-header="false" has-bouncing="true" class="no-header">
+        <div class="profile-wrapper">
+            <div class="profile-inner with-identifier">
+                <i class="ion ion-ios-arrow-back back-button-checkbox" ng-click="closeDetailPage()"></i>
+                <div class="identifier rounded icon profile-inner-image">
+                    <div class="fake-img" acn-image-display-div data-ref="{{participantActionEid}}"></div>
+                </div>
+                <h4 class="pro-name">
+                    {{participantActionFullName}}
+                </h4>
+                <div class="view-profile">VIEW PROFILE</div>
+            </div>
+        </div>
+
+        <div class="check-info-box-wrapper">
+            <div class="item-check-day">
+                <div class="scheduleDetail-date">
+                    <div>DAY</div>
+                    <div>{{_dayTime}}</div>
+                </div>
+            </div>
+            <p class="check-info-box-inof">{{_date}} | {{_startTime}} - {{_endTime}} | {{_location}} | <span class="check-info-box-inof-state">{{_sessionState}}</span></p>
+            <h2 class="check-info-box-title">{{_sessionName}}</h2>
+
+            <div ng-repeat="item in activityList" class="activity-detail-check">
+                <i ng-class="item.ActivityIcon" ng-style="item.ActivityIconColor" class="activity-detail-icon"></i>
+                <span>{{item.ActivityTime}}</span>
+            </div>
+
+            <div ng-if="showCommentContent">{{$parent.$parent.$parent.$parent.participantActionComment}}</div>
+
+            <button class="check-button-common check-in-now-button" ng-if="showCheckInButton&&!showCheckOutDetail" ng-click="checkInAction(participantActionEid)">
+                <i class="ion learn-Icon-ParticipantsInRoom"></i>
+                CHECK IN NOW
+            </button>
+
+            <button class="check-button-common checkout-now-button" ng-if="!showCheckInButton&&!showCheckOutDetail" ng-click="checkOutAction()">
+                <i class="ion learn-Icon-ParticipantsOutofRoom"></i>
+                CHECK OUT NOW
+            </button>
+
+            <!--<div class="checkout-conform-wrapper" ng-if="showCheckOutDetail">
+                <div class="approximate-title">How long participant was in the room?</div>
+                <div class="check-slider-box">
+                    <div class="check-percent">{{percent.value}}%</div>
+                    <div class="check-slider-wrapper">
+                        <rzslider rz-slider-model="percent.value" rz-slider-options="percent.options" class="percent-slider"></rzslider>
+                    </div>
+                </div>
+
+                <div class="text-area-box">
+                    <span class="text-area-title-reasons">Reasons/Comments</span>
+                    <textarea class="text-area-check" rows="5" placeholder="Early Check-out" ng-model="$parent.$parent.$parent.$parent.participantActionComment"></textarea>
+                </div>
+
+                <div class="check-button-group">
+                    <button class="button1">CANCEL</button>
+                    <button class="button2" ng-click="checkOutConfirm(participantActionEid)">CONFIRM</button>
+                </div>
+            </div>-->
+
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,49 @@
+﻿{
+    "TotalCount": 9,
+    "Size": 10,
+    "PeopleKey": 324562,
+    "OpportunityList": [
+        {
+            "PositionId": "51103_AB-ACM-IN-BPO",
+            "PositionTitle": "collection 1",
+            "RoleDesc": "Collections Support Associate",
+            "Locations": [
+                "Noida"
+            ],
+            "Workforce": "Client Delivery & Operations",
+            "CapabSpecialty": "",
+            "TalentSegment": "Business Process Specialization",
+            "IsApply": 0,
+            "InternalReferURL": null,
+            "Score": 65.73848
+        },
+        {
+            "PositionId": "50809_AB-ACM-IN-BPO",
+            "PositionTitle": "collection 2",
+            "RoleDesc": "Collections Support Associate",
+            "Locations": [
+                "Noida"
+            ],
+            "Workforce": "Client Delivery & Operations",
+            "CapabSpecialty": "",
+            "TalentSegment": "Business Process Specialization",
+            "IsApply":0,
+            "InternalReferURL": null,
+            "Score": 65.73848
+        },
+        {
+            "PositionId": "50809_AB-ACM-IN-BPO1",
+            "PositionTitle": "collection 3",
+            "RoleDesc": "Collections Support Associate",
+            "Locations": [
+                "Noida"
+            ],
+            "Workforce": "Client Delivery & Operations",
+            "CapabSpecialty": "",
+            "TalentSegment": "Business Process Specialization",
+            "IsApply":0,
+            "InternalReferURL": null,
+            "Score": 65.73848
+        }
+    ]
+}

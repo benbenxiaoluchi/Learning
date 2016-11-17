@@ -1,0 +1,38 @@
+﻿{
+    "TotalCount": 4,
+    "PeopleKey": 571643,
+    "Size": 4,
+    "CommunityList": [
+        {
+            "ID": "12345",
+            "Title": "Community 1",
+            "URL": "http://www.google.com",
+            "Description": "Community description"
+        },
+        {
+            "ID": "12346",
+            "Title": "Community 2",
+            "URL": "http://www.google.com",
+            "Description": "Community description"
+        },
+        {
+            "ID": "12347",
+            "Title": "Community 3",
+            "URL": "http://www.google.com",
+            "Description": "Community description"
+        },
+        {
+            "ID": "12348",
+            "Title": "Community 4",
+            "URL": "http://www.google.com",
+            "Description": "Community description"
+        },
+        {
+            "ID": "12349",
+            "Title": "Community 5",
+            "URL": "http://www.google.com",
+            "Description": "Community description"
+        }
+
+    ]
+}

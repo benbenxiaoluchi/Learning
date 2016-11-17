@@ -1,0 +1,23 @@
+.forSearch{
+	
+
+	.item-avatar, .item-avatar-left{
+		min-height:72px;
+		border-bottom:1px solid $light-gray;
+		
+		.item-content{
+			min-height:0;
+			line-height:25px;
+			padding-left:50px;
+
+			img{
+				height:25px;
+				width:25px;
+
+			}
+		}
+	}
+	
+
+
+}

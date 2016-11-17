@@ -1,0 +1,110 @@
+
+.acc-tabs {
+    display: flex;
+    position: relative;
+	-webkit-transition: -webkit-transform 0.3s; /* For Safari 3.1 to 6.0 */
+    background-color:$dark-gray;
+    text-align:center;
+
+    // The shape between content and tabs
+    &:after{
+        display:none;
+        border-color:transparent transparent #fff transparent;
+    }
+	
+    a {
+        display: inline-block;
+        width: 60px;
+        font-size: 2em;
+        color: rgba(255, 255, 255, 0.3);
+    	margin-bottom:-5px;
+        text-decoration:none;
+        text-transform:capitalize;
+        
+        -webkit-transform: translate3d(0,0,0);
+        transform:translate3d(0,0,0);
+
+        -webkit-transition:all ease-in-out 0.5s;
+        transition:all ease-in-out 0.5s;
+        line-height:1em;
+        color: $light-gray;
+        opacity:0.7;
+        padding:10px 10px 15px;
+        min-width:100px;
+        text-align: center;
+        
+
+        .badge{
+            font-size:$font-size-base - 2;
+            padding:0 5px;
+            text-align:center;
+            top:5px;
+            border:1px solid $dark;
+            position:absolute;
+        }
+
+        p{
+            display:block;
+            font-size:$font-size-base;
+            margin-bottom:0;
+            white-space:nowrap;
+        }
+
+        i{
+            margin-top:5px;
+            margin-bottom:5px;
+            display:block;
+            width:100%;
+        }
+
+        &.active{
+            color: #fff;
+            border-bottom:none;
+            background: #000;
+            transition: 0.5s background ease-in-out;
+            -webkit-transition: 0.5s background ease-in-out;
+            opacity:1;
+
+            &:after{
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 0 1.4em 1.4em 1.4em;
+                border-color: transparent transparent #fff transparent;
+                position: absolute;
+                content: "";
+                display: block;
+                bottom: -20px;
+                left: 50%;
+                margin-left: -32px;
+            }
+        }   
+        
+    }
+}
+
+.acc-tabs-content{
+
+    &.ng-enter {
+        transition: 0.8s all ease-in-out 0.1s;
+        -webkit-transition: 0.8s all ease-in-out 0.1s;
+        opacity: 0;
+        transform: translateX(-80px);
+        -webkit-transform: translateX(-80px);
+
+        &.ng-enter-active {
+            opacity: 1;
+            transform: translateX(0);
+            -webkit-transform: translateX(0);
+        }
+    }
+    
+    > .list{
+        padding-top:1px;
+        background:$lighter-gray;  
+        padding-bottom:30px;
+        min-height:30vh;   
+    }
+}
+
+

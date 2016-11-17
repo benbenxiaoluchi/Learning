@@ -1,0 +1,13 @@
+﻿<div class="rating no-picture">
+    <!-- <i ng-class="{'ion-ios-star':stars>=1, 'ion-ios-star-outline': stars<1}"></i>
+    <i ng-class="{'ion-ios-star':stars>=2, 'ion-ios-star-outline': stars<2}"></i>
+    <i ng-class="{'ion-ios-star':stars>=3, 'ion-ios-star-outline': stars<3}"></i>
+    <i ng-class="{'ion-ios-star':stars>=4, 'ion-ios-star-outline': stars<4}"></i>
+    <i ng-class="{'ion-ios-star':stars>=5, 'ion-ios-star-outline': stars<5}"></i> -->
+    <i class="acc-star p0" ng-class="{'acc-star':stars>=1, 'empty': stars<1}"></i>
+    <i class="acc-star p1" ng-class="{'acc-star':stars>=2, 'empty': stars<2}"></i>
+    <i class="acc-star p2" ng-class="{'acc-star':stars>=3, 'empty': stars<3}"></i>
+    <i class="acc-star p3" ng-class="{'acc-star':stars>=4, 'empty': stars<4}"></i>
+    <i class="acc-star p4" ng-class="{'acc-star':stars>=5, 'empty': stars<5}"></i>
+    <span class="result" ng-if="counter!=null">&nbsp;{{counter}}</span>
+</div>

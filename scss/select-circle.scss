@@ -1,0 +1,106 @@
+.select-circle-wrap .select-circle-title {
+    position: relative;
+    height: 50px;
+    line-height: 50px;
+    background-color: #000;
+}
+
+.select-circle-wrap .ion-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.select-circle-wrap .ion-close::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+}
+
+
+.select-circle-content {
+    top: 50px;
+}
+
+.select-circle-content .col {
+    padding: 10px;
+    
+}
+
+.select-circle-content .activity-head-list-tittle {
+    padding: 0;
+    color: #000;
+}
+
+.select-circle-table-title {
+    padding: 0;
+}
+
+.select-circle-table-title .col {
+    font-size: 14px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.select-circle-table-title .col.col-50 {
+    text-align: left;
+}
+
+.select-circle-table-sub-tittle {
+    font-size: 14px;
+    color: #666;
+}
+
+.select-circle-table-item-tittle {
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+.learn-checkbox .learn-checkbox-style {
+    font-size: 20px;
+    color: #ccc;
+}
+
+.learn-checkbox input[type = "checkbox"] {
+    display: none;
+}
+
+.learn-checkbox input[type = "checkbox"]:checked + .learn-checkbox-style {
+    color: #47a518;
+}
+
+.learn-radio .learn-radio-style {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #68bde3;
+    display: inline-block;
+}
+
+.learn-radio input[type = "radio"] {
+    display: none;
+}
+
+.learn-radio input[type = "radio"]:checked + .learn-radio-style {
+    padding: 5px;
+    background-color: #666;
+    background-clip: content-box;
+}
+
+.select-circle-content .df {
+    display: flex;
+}
+
+.select-circle-content .learn-checkbox {
+    margin: auto;
+}
+
+.select-circle-content .learn-radio {
+    margin: auto;
+}
+

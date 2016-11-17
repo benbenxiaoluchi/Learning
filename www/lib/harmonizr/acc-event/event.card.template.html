@@ -1,0 +1,18 @@
+﻿<ion-item class="item-body item-icon-left noborders with-identifier" on-tap="tap()">
+    <div class="identifier rounded icon">
+        <img ng-if="item.feature.community!=null" ng-src="{{item.feature.community}}" class="identifier-img" />
+    </div>
+    <h2>{{item.qualifier}}</h2>
+    <p>{{item.contextual}}</p>
+</ion-item>
+<social-actions show-like="true" action-like="addLikes()" ng-attr-like-number="{{item.social.like.length}}" ng-attr-is-like-active="{{isLikeActive}}"
+                show-comment="true" action-comment="showComments()" ng-attr-comment-number="{{item.social.comments.length}}"
+                show-share="true"
+                show-options="true" action-options="showActions()">
+</social-actions>
+<ion-item class="bottom-actions noborders button-bar item-divider" ng-if="showButtons">
+    <a class="button" ng-if="showJoin" ng-click="joinEvent()">Join</a>
+    <a class="button" ng-if="showLeave" ng-click="leaveEvent()">Leave</a>
+    <a class="button" ng-if="showFollow" ng-click="followBlog()">Follow</a>
+    <a class="button" ng-if="showUnfollow" ng-click="unfollowBlog()">Unfollow</a>
+</ion-item>

@@ -1,0 +1,217 @@
+
+
+body, .ionic-body {
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    -webkit-overflow-scrolling: touch;
+}
+
+ion-content.black {
+    background-color: #000 !important;
+}
+
+ion-content.white {
+    background-color: #fff !important;
+}
+
+ion-content{
+    background-color:$light-gray;
+
+}
+
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, i, u, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, fieldset, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    font-family: $font-family-light-sans-serif;
+    //font-size: $font-size-base;
+    -webkit-overflow-scrolling: touch;
+}
+
+
+
+h1, h2, h3, h4, h5, h6{
+    margin: 0;
+    color: $dark;
+    &.title{
+        font-family: $font-family-sans-serif;
+    }
+}
+
+.bar .title {
+    font-family: $font-family-sans-serif;
+}
+
+h1 {
+    font-size: $h1-font-size;
+}
+
+h2 {
+    font-size: $h2-font-size;
+}
+
+h3 {
+    font-size: $h3-font-size;
+}
+
+h4 {
+    font-size: $h4-font-size;
+}
+
+h5 {
+    font-size: $h5-font-size;
+}
+
+.noborders{
+    border:none !important;
+}
+.nomargins {
+    margin: 0px !important;
+}
+
+.noMarginLeft {
+    margin-left: 0px !important;
+}
+
+.noMarginRight {
+    margin-right: 0px !important;
+}
+
+.noMarginTop {
+    margin-top: 0px !important;
+}
+
+.noMarginBottom {
+    margin-bottom: 0px !important;
+}
+
+.nopaddings {
+    padding: 0px !important;
+}
+
+.noPaddingLeft {
+    padding-left: 0 !important;
+}
+
+.noPaddingRight {
+    padding-right: 0 !important;
+}
+
+.noPaddingTop {
+    padding-top: 0 !important;
+}
+
+.noPaddingBottom {
+    padding-bottom: 0 !important;
+}
+
+
+.nominheight{
+    min-height:0 !important;
+}
+
+.ellipsis {
+    white-space: nowrap;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.list-inset {
+    &.borders {
+        overflow: inherit;
+    }
+}
+
+.static {
+    position: static !important;
+}
+
+.line-top {
+    border-top: 4px solid #ddd;
+}
+
+.content > .list {
+    padding: 1px;
+}
+
+.ion-list > .list {
+    padding-top: 2px;
+}
+
+.noBorderTop {
+    border-top: none;
+}
+
+.noBorderBottom {
+    border-bottom: none;
+}
+
+.noBorderRight {
+    border-right: none;
+}
+
+a {
+    color: $primary-color;
+}
+
+.light-bgr{
+    background-color: #f0f0f0;
+}
+
+.bar {
+    border: none !important;
+}
+
+
+
+
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+// for perspective animation
+
+/*** Removing the bar border */
+
+
+ion-content {
+    background: #fff;
+    //padding: 10px;
+
+    &.gray {
+        background: $lighter-gray;
+    }
+}
+
+
+
+
+
+.overlapping-list {
+    margin-top: -65px;
+    display: block;
+}
+
+.forHeaderSearch {
+    padding-left: 30px;
+}
+
+// for refreshing
+.scroll-refresher .ionic-refresher-content {
+    color: #fff;
+
+    .icon {
+        font-size: 25px;
+    }
+
+    .text-pulling {
+        font-size: $font-family-base;
+    }
+}
+
+
+
+

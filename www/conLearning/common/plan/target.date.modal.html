@@ -1,0 +1,16 @@
+﻿<ion-modal-view view-title="SELECT DATE">
+
+    <ion-header-bar class="bar navPrimary" align-title="center">
+        <div class="buttons">
+            <button menu-toggle="left" class="button button-icon icon acc-angle-left" ng-click="closeModal('targetDate')"></button>
+        </div>
+        <h3 class="title">Select Target Date</h3>
+    </ion-header-bar>
+
+    <ion-content class="has-acc-header" has-bouncing="true" has-header="true">
+        <ion-item class="item-body noPaddingTop noborders">
+            <div pickadate ng-model="selectedActionItem.tempTargetDate" min-date="minDate"></div>            
+        </ion-item>
+    </ion-content>
+
+</ion-modal-view>

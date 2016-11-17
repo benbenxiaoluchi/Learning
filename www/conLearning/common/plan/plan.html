@@ -1,0 +1,59 @@
+﻿<ion-view view-title="" class="forPlan">
+    <!--Title nav-bar with backbutton-->
+    <ion-nav-bar class="bar navPrimary" align-title="center">
+        <ion-nav-title><h3 class="title">Action Plan</h3></ion-nav-title>
+        <ion-nav-buttons side="left">
+            <button menu-toggle="left" class="button button-icon button-clear acc-menu"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <ion-content locking="true" has-bouncing="true" class=" has-header has-acc-header light-bgr" delegate-handle="actionPlanPage" remove-action-plan>
+
+        <!--for no results-->
+        <ion-item class="item-body" ng-show="finishLoad && userModel.actionPlan.length == 0">
+            <p class="text-center">Add learning items to the Action Plan from the <a ng-click="navigateToState('app.home', null, true)">Recommendations page</a> </p>
+        </ion-item>
+       
+        <ion-list class="forActionPlan  content" delegate-handle="actionPlan">
+
+            <div class="list card acc-thing" ng-repeat="action in userModel.actionPlan" id="actionPlanItem_{{action.ActionPlanId}}" on-touch="selectAction(action)">
+                <ion-item class="item-body item-icon-left noborders with-identifier">
+
+                    <!-- left icon for items that are not a pymk -->
+                    <div class="identifier rounded icon" ng-show="action.ObjectTypeCodeNbr != constants.actionPlan.type.pymk">
+                        <!-- completed icon -->
+                        <div ng-show="action.StatusCodeNbr == constants.actionPlan.status.completed">
+                            <span class="identifier-badge accepted">
+                                <i class="acc-check"></i>
+                            </span>
+                        </div>
+                        <i class="identifier-icon" ng-class="{'acc-group-o':action.ObjectTypeCodeNbr == constants.actionPlan.type.community, 'acc-book':action.ObjectTypeCodeNbr == constants.actionPlan.type.learning || action.ObjectTypeCodeNbr == constants.actionPlan.type.board, 'acc-job': action.ObjectTypeCodeNbr == constants.actionPlan.type.position || action.ObjectTypeCodeNbr == constants.actionPlan.type.assignment}"></i>
+                    </div>
+                     
+                    <!-- people photo -->
+                    <div class="identifier rounded icon" ng-show="action.ObjectTypeCodeNbr == constants.actionPlan.type.pymk">
+                        <!-- completed icon -->
+                        <div ng-show="action.StatusCodeNbr == constants.actionPlan.status.completed">
+                            <span class="identifier-badge accepted">
+                                <i class="acc-check"></i>
+                            </span>
+                        </div>
+                        <img acn-image-display data-ref="{{action.ObjectId}}" class="identifier-img" />
+                    </div>
+
+                    <h2 ng-click="openDetail()">{{action.ObjectNameTxt}}</h2>
+                    <div class="row noPaddingLeft">
+                        <div class="col col-75 noPaddingLeft">
+                            <p class="plan ellipsis"><span ng-show="action.TargetDate != '' && action.StatusCodeNbr == constants.actionPlan.status.notStarted">Due Date: {{formatDate(action.TargetDate, true)}}</span><span ng-show="action.StatusCodeNbr == constants.actionPlan.status.completed">Completed On: {{formatDate(action.CompletionDate, true)}}</span></p>
+                        </div>
+                        <div class="col" ng-click="showActionSheet()">
+                            <i class="acc-menu-circle-vertical pull-right"></i>
+                        </div>
+                    </div>
+                </ion-item>
+            </div>
+
+        </ion-list>
+
+    </ion-content>
+</ion-view>

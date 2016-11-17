@@ -1,0 +1,66 @@
+﻿﻿<!--<ion-content scroll="false" ng-show="noMeterialDataShow" class="white" has-bouncing="false" has-subheader="true">
+    <p class="noDataShowText">Course materials not defined.</p>
+</ion-content>-->
+<!--<div class="bar"></div>-->
+<ion-view hide-nav-bar="true" class="tab-priorities-wrap" ng-init="receiveDataFromMainpage()">
+    <ion-content drag-content="false">
+        <div>
+            <div ng-click="closeMaterialsModal()" style="float:right;padding:20px;">
+                <i class="icon ion-close" style="font-size: 20px; color: #aaa"></i>
+            </div>
+            <!-- calender display style, using class not work, copy style here. By Booker 10/10 -->
+            <ion-item class="item scheduleDetail-date-wrap">
+                <div class="scheduleDetail-date">
+                    <div>DAY</div>
+                    <div>{{_dayTime}}</div> <!-- parameter -->
+                </div>
+            </ion-item>
+
+            <div class="tab-priorities-tittle-wrap">
+                <p>{{_date}} | {{_startTime | timeProcessing}} - {{_endTime | timeProcessing}} | {{_location}} | {{_sessionState}}</p>
+                <h2>{{_sessionName}}</h2>
+            </div>
+        </div>
+
+            <div class="bar-dark materials-wrapper">
+                <div class="materials-tabs">
+                    <div ng-class="_pickrule&&_isToday? materialsTabCss[0] + ' materials-tab': materialsTabCss[0] + ' materials-tab-commonUser'">
+                        <!-- since we dont know what hell the Overview is, disable it now.  ng-click="chooseScheduleTab(0) -->
+                        OVERVIEW
+                    </div>
+                    <div ng-class="_pickrule&&_isToday? materialsTabCss[1] + ' materials-tab': materialsTabCss[1] + ' materials-tab-commonUser'" ng-click="chooseScheduleTab(1)">
+                        MATERIALS
+                    </div>
+                    <div class="materials-tab" ng-if="_pickrule&&_isToday" ng-class="materialsTabCss[2]" ng-click="chooseScheduleTab(2)">
+                        CHECK-IN/OUT
+                    </div>
+                </div>
+            </div>
+
+        <ion-item class="item item-no-data" ng-if="noMeterialDataShow">
+            <p class="noDataShowText">Course materials not defined.</p>
+        </ion-item>
+
+        <!--<div class="acc-thing list noborder nopaddings nomargins nominheight" ng-show="!noMeterialDataShow" ng-repeat="item in meterials">-->
+        <!--<ion-item class="item body">-->
+        <!--<a href="{{item.link}}" onclick="window.open(this.href, '_system', 'location=yes'); return false;">-->
+        <!--<h2>{{item.file}}</h2>-->
+        <!--</a>-->
+        <!--</ion-item>-->
+        <!---->
+        <!--</div>-->
+
+        <div class="list nopaddings nomargins tab-priorities-list" ng-repeat="item in meterials">
+            <ion-item ng-click= "materialDownload(item.link)"
+                      class="item item-icon-left item-icon-right">
+                <div class="icon">
+                    <div class="tab-priorities-list-logo">
+                        {{item.type}}
+                    </div>
+                </div>
+                <h2 class="tab-priorities-list-title">{{item.file}}</h2>
+                <i ng-if="item.role == 1" class="icon acc-user2"></i>
+            </ion-item>
+        </div>
+    </ion-content>
+</ion-view>

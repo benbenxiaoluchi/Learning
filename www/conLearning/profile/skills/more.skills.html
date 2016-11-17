@@ -1,0 +1,96 @@
+﻿<ion-modal-view class="forMoreSkills" view-title="Skills" acc-modal-priority="9">
+    <ion-header-bar class="bar bar-header navPrimary border-bottom" align-title="center">
+        <div class="buttons ">
+            <button class="button button-icon icon acc-angle-left" ng-click="closeModal('moreSkills')"></button>
+        </div>
+        <h2 class="title">{{moreSkillsTitle}}</h2>
+    </ion-header-bar>
+
+    <ion-content class="has-acc-header light-bgr" ng-class="{backgroundBlue:typePage == 'blue'}"  locking="true" has-subheader="true" has-bouncing="false" delegate-handle="moreSkills">
+
+        <!--RECOMMENDED SKILLS-->
+        <ion-list class="forSkills acc-thing" ng-show="moreSkillsType === constants.skills.type.recommended">
+            <ion-item class="item-body" ng-class="{skillList:typePage == 'blue', 'disabled':!skill.IsActive}" ng-click="openModal('skills', $event)" ng-repeat="skill in skillsModel.recommendedSkills.list | filter: { IsFollow: false }" id="MoreSkillId_{{typePage}}_{{skill.SkillId}}" on-touch="selectSkill(skill)">
+                <h2 class="title" ng-show="!skill.IsActive">{{constants.skills.disabledText}}</h2>
+                <h2 class="title" ng-show="skill.IsActive" ng-bind="skill.SkillName"></h2>
+                <!--For rating-->
+                <p class="rating no-picture">
+                    <i class="acc-star p0" ng-class="{'user': (skill.UserProficiency>=1), 'required': (skill.ProficiencyRole>=1 && skill.UserProficiency<1)}"></i>
+                    <i class="acc-star p1" ng-class="{'user': (skill.UserProficiency>=2), 'required': (skill.ProficiencyRole>=2 && skill.UserProficiency<2)}"></i>
+                    <i class="acc-star p2" ng-class="{'user': (skill.UserProficiency>=3), 'required': (skill.ProficiencyRole>=3 && skill.UserProficiency<3)}"></i>
+                    <i class="acc-star p3" ng-class="{'user': (skill.UserProficiency>=4), 'required': (skill.ProficiencyRole>=4 && skill.UserProficiency<4)}"></i>
+                    <i class="acc-star p4" ng-class="{'user': (skill.UserProficiency>=5), 'required': (skill.ProficiencyRole>=5 && skill.UserProficiency<5)}"></i>
+                </p>
+
+                <button class="skillAction followAction button button-clear item-divider animated bounceIn" ng-click="toggleTempFollow(skill,true)">
+                    FOLLOW
+                </button>
+                <i class="skillAction icon acc-check animated bounceIn hide" ng-click="toggleTempFollow(skill,false)"></i>
+            </ion-item>
+        </ion-list>
+
+        <!--FUTURE SKILLS-->
+        <ion-list class="forSkills acc-thing" ng-show="moreSkillsType === constants.skills.type.future">
+            <ion-item class="item-body" ng-class="{skillList:typePage == 'blue', 'disabled':!skill.IsActive}" ng-click="openModal('skills', $event)" ng-repeat="skill in skillsModel.futureSkills.list | filter: { IsFollow: false }" id="MoreSkillId_{{typePage}}_{{skill.SkillId}}" on-touch="selectSkill(skill)">
+                <h2 class="title" ng-show="!skill.IsActive">{{constants.skills.disabledText}}</h2>
+                <h2 class="title" ng-show="skill.IsActive" ng-bind="skill.SkillName"></h2>
+                <!--For rating-->
+                <p class="rating no-picture">
+                    <i class="acc-star p0" ng-class="{'user': (skill.UserProficiency>=1), 'required': (skill.ProficiencyRole>=1 && skill.UserProficiency<1)}"></i>
+                    <i class="acc-star p1" ng-class="{'user': (skill.UserProficiency>=2), 'required': (skill.ProficiencyRole>=2 && skill.UserProficiency<2)}"></i>
+                    <i class="acc-star p2" ng-class="{'user': (skill.UserProficiency>=3), 'required': (skill.ProficiencyRole>=3 && skill.UserProficiency<3)}"></i>
+                    <i class="acc-star p3" ng-class="{'user': (skill.UserProficiency>=4), 'required': (skill.ProficiencyRole>=4 && skill.UserProficiency<4)}"></i>
+                    <i class="acc-star p4" ng-class="{'user': (skill.UserProficiency>=5), 'required': (skill.ProficiencyRole>=5 && skill.UserProficiency<5)}"></i>
+                </p>
+
+                <button class="skillAction followAction button button-clear item-divider animated bounceIn" ng-click="toggleTempFollow(skill,true)">
+                    FOLLOW
+                </button>
+                <i class="skillAction icon acc-check animated bounceIn hide" ng-click="toggleTempFollow(skill,false)"></i>
+            </ion-item>
+        </ion-list>
+
+        <!--BUSINESS PRIORITY SKILLS-->
+        <ion-list class="forSkills acc-thing" ng-show="moreSkillsType === constants.skills.type.businessPriority">
+            <ion-item class="item-body" ng-class="{skillList:typePage == 'blue', 'disabled':!skill.IsActive}" ng-click="openModal('skills', $event)" ng-repeat="skill in skillsModel.businessSkills.list | filter: { IsFollow: false }" id="MoreSkillId_{{typePage}}_{{skill.SkillId}}" on-touch="selectSkill(skill)">
+                <h2 class="title" ng-show="!skill.IsActive">{{constants.skills.disabledText}}</h2>
+                <h2 class="title" ng-show="skill.IsActive" ng-bind="skill.SkillName"></h2>
+                <!--For rating-->
+                <p class="rating no-picture">
+                    <i class="acc-star p0" ng-class="{'user': (skill.UserProficiency>=1), 'required': (skill.ProficiencyRole>=1 && skill.UserProficiency<1)}"></i>
+                    <i class="acc-star p1" ng-class="{'user': (skill.UserProficiency>=2), 'required': (skill.ProficiencyRole>=2 && skill.UserProficiency<2)}"></i>
+                    <i class="acc-star p2" ng-class="{'user': (skill.UserProficiency>=3), 'required': (skill.ProficiencyRole>=3 && skill.UserProficiency<3)}"></i>
+                    <i class="acc-star p3" ng-class="{'user': (skill.UserProficiency>=4), 'required': (skill.ProficiencyRole>=4 && skill.UserProficiency<4)}"></i>
+                    <i class="acc-star p4" ng-class="{'user': (skill.UserProficiency>=5), 'required': (skill.ProficiencyRole>=5 && skill.UserProficiency<5)}"></i>
+                </p>
+
+                <button class="skillAction followAction button button-clear item-divider animated bounceIn" ng-click="toggleTempFollow(skill,true)">
+                    FOLLOW
+                </button>
+                <i class="skillAction icon acc-check animated bounceIn hide" ng-click="toggleTempFollow(skill,false)"></i>
+            </ion-item>
+        </ion-list>
+
+        <!--SPECIALTY SKILLS-->
+        <ion-list class="forSkills acc-thing" ng-show="moreSkillsType === constants.skills.type.specialty">
+            <ion-item class="item-body" ng-class="{skillList:typePage == 'blue', 'disabled':!skill.IsActive}" ng-click="openModal('skills', $event)" ng-repeat="skill in skillsModel.specialtySkills.list | filter: { IsFollow: false }" id="MoreSkillId_{{typePage}}_{{skill.SkillId}}" on-touch="selectSkill(skill)">
+                <h2 class="title" ng-show="!skill.IsActive">{{constants.skills.disabledText}}</h2>
+                <h2 class="title" ng-show="skill.IsActive" ng-bind="skill.SkillName"></h2>
+                <!--For rating-->
+                <p class="rating no-picture">
+                    <i class="acc-star p0" ng-class="{'user': (skill.UserProficiency>=1), 'required': (skill.ProficiencyRole>=1 && skill.UserProficiency<1)}"></i>
+                    <i class="acc-star p1" ng-class="{'user': (skill.UserProficiency>=2), 'required': (skill.ProficiencyRole>=2 && skill.UserProficiency<2)}"></i>
+                    <i class="acc-star p2" ng-class="{'user': (skill.UserProficiency>=3), 'required': (skill.ProficiencyRole>=3 && skill.UserProficiency<3)}"></i>
+                    <i class="acc-star p3" ng-class="{'user': (skill.UserProficiency>=4), 'required': (skill.ProficiencyRole>=4 && skill.UserProficiency<4)}"></i>
+                    <i class="acc-star p4" ng-class="{'user': (skill.UserProficiency>=5), 'required': (skill.ProficiencyRole>=5 && skill.UserProficiency<5)}"></i>
+                </p>
+
+                <button class="skillAction followAction button button-clear item-divider animated bounceIn" ng-click="toggleTempFollow(skill,true)">
+                    FOLLOW
+                </button>
+                <i class="skillAction icon acc-check animated bounceIn hide" ng-click="toggleTempFollow(skill,false)"></i>
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+</ion-modal-view>

@@ -1,0 +1,44 @@
+/** For Rotis Sans Serif **/
+
+@font-face
+{
+    font-family: 'RotisSansSerif55';
+    src: url("../fonts/rotis/regular/rotsan.eot");
+    src: local(':P'), url("../fonts/rotis/regular/rotsan.woff") format("woff"), url("../fonts/rotis/regular/rotsan.svg#RotisSemiSerif55") format("svg"), url("../fonts/rotis/regular/rotsan.ttf") format("truetype"), url("../fonts/rotis/regular/rotsan.otf") format("otf");
+    font-weight: normal;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased !important;
+}
+
+
+@font-face
+{
+    font-family: "RotisSansSerif55Bold";
+    src: url("../fonts/rotis/bold/rotsanb.eot");
+    src: local(':P'), url("../fonts/rotis/bold/rotsanb.woff") format("woff"), url("../fonts/rotis/bold/rotsanb.svg#RotisBold") format("svg"), url("../fonts/rotis/bold/rotsanb.ttf") format("truetype"), url("../fonts/rotis/bold/rotsanb.otf") format("otf");
+    font-weight: bold;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased !important;
+}
+
+@font-face
+{
+    font-family: "RotisSansSerif55ExtraBold";
+    src: url("../fonts/rotis/extraBold/rotsanxb.eot");
+    src: local(':P'), url("../fonts/rotis/extraBold/rotsanxb.woff") format("woff"), url("../fonts/rotis/extraBold/rotsanxb.svg#RotisSemiSerif55") format("svg"), url("../fonts/rotis/extraBold/rotsanxb.ttf") format("truetype"), url("../fonts/rotis/RotisSansSerif55/rotsan.otf") format("otf");
+    font-weight: bolder;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased !important;
+}
+
+@font-face
+{
+    font-family: "RotisSansSerif55Light";
+    src: url("../fonts/rotis/light/rotsanl.eot");
+    src: local(':P'), url("../fonts/rotis/light/rotsanl.woff") format("woff"), url("../fonts/rotis/light/rotsanl.svg#rotis_semisans_light_45") format("svg"), url("../fonts/rotis/light/rotsanl.ttf") format("truetype"), url("../fonts/rotis/light/rotsanl.otf") format("otf");
+    font-weight: light;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased !important;
+}
+
+

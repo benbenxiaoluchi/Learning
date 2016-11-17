@@ -1,0 +1,220 @@
+{
+    "?xml": {
+        "@version": "1.0",
+        "@encoding": "utf-8"
+    },
+    "activity": {
+        "day": [
+            {
+                "@count": "1",
+                "event": [
+                    {
+                        "@id": "1",
+                        "name": "Registration",
+                        "starttime": "07:30",
+                        "endtime": "08:00",
+                        "location": "-",
+                        "description": ""
+                    },
+                    {
+                        "@id": "2",
+                        "name": "Welcome by Jay & Deb",
+                        "starttime": "08:00",
+                        "endtime": "08:30",
+                        "location": "-",
+                        "description": ""
+                    },
+                    {
+                        "@id": "3",
+                        "name": "Greeting by Shelly Swanback",
+                        "starttime": "08:30",
+                        "endtime": "08:45",
+                        "location": "-",
+                        "description": ""
+                    },
+                    {
+                        "@id": "4",
+                        "name": "Keynote Speaker: Peter Diamandis",
+                        "starttime": "08:45",
+                        "endtime": "09:45",
+                        "location": "-",
+                        "description": ""
+                    },
+                    {
+                        "@id": "5",
+                        "name": "Break",
+                        "starttime": "09:45",
+                        "endtime": "10:00",
+                        "location": "-",
+                        "description": ""
+                    },
+                    {
+                        "@id": "6",
+                        "name": "MD/Sr Manager, Manager, and Consultant/Analyst Breakouts",
+                        "starttime": "10:00",
+                        "endtime": "12:00",
+                        "location": "-",
+                        "description": ""
+                    },
+                    {
+                        "@id": "7",
+                        "name": "Lunch",
+                        "starttime": "12:00",
+                        "endtime": "13:00",
+                        "location": "-",
+                        "description": ""
+                    },
+                    {
+                        "@id": "8",
+                        "name": "Digi Talks - 3 Topics",
+                        "starttime": "13:00",
+                        "endtime": "13:30",
+                        "location": "-",
+                        "description": ""
+                    },
+                    {
+                        "@id": "9",
+                        "name": "MD/Sr Manager, Manager, and Consultant/Analyst Breakouts",
+                        "starttime": "13:30",
+                        "endtime": "15:30",
+                        "location": "-",
+                        "description": ""
+                    },
+                    {
+                        "@id": "10",
+                        "name": "Break",
+                        "starttime": "15:30",
+                        "endtime": "15:45",
+                        "location": "-",
+                        "description": ""
+                    },
+                    {
+                        "@id": "11",
+                        "name": "Digi Talks - 4 topics",
+                        "starttime": "15:45",
+                        "endtime": "16:15",
+                        "location": "-",
+                        "description": ""
+                    },
+                    {
+                        "@id": "12",
+                        "name": "MD/Sr Manager, Manager, and Consultant/Analyst Breakouts",
+                        "starttime": "16:15",
+                        "endtime": "18:15",
+                        "location": "-",
+                        "description": ""
+                    }
+                ]
+            },
+            {
+                "@count": "2",
+                "event": [
+                    {
+                        "@id": "1",
+                        "name": "Welcome: Deb",
+                        "starttime": "08:00",
+                        "endtime": "08:15",
+                        "location": "-",
+                        "description": ""
+                    },
+                    {
+                        "@id": "2",
+                        "name": "Plenary Talk on Living Services",
+                        "starttime": "08:15",
+                        "endtime": "09:15",
+                        "location": "-",
+                        "description": ""
+                    },
+                    {
+                        "@id": "3",
+                        "name": "Digital Innovations in Delivery: Jack Ramsay",
+                        "starttime": "09:15",
+                        "endtime": "09:30",
+                        "location": "-",
+                        "description": ""
+                    },
+                    {
+                        "@id": "4",
+                        "name": "MD Q & A",
+                        "starttime": "09:30",
+                        "endtime": "10:00",
+                        "location": "-",
+                        "description": ""
+                    },
+                    {
+                        "@id": "5",
+                        "name": "Break",
+                        "starttime": "10:00",
+                        "endtime": "10:15",
+                        "location": "-",
+                        "description": ""
+                    },
+                    {
+                        "@id": "6",
+                        "name": "MD/Sr Manager, Manager, and Consultant/Analyst Breakouts",
+                        "starttime": "10:15",
+                        "endtime": "12:10",
+                        "location": "-",
+                        "description": ""
+                    },
+                    {
+                        "@id": "7",
+                        "name": "Lunch",
+                        "starttime": "12:15",
+                        "endtime": "13:15",
+                        "location": "-",
+                        "description": ""
+                    },
+                    {
+                        "@id": "8",
+                        "name": "Digi Talks - 3 topics",
+                        "starttime": "13:15",
+                        "endtime": "13:45",
+                        "location": "-",
+                        "description": ""
+                    },
+                    {
+                        "@id": "9",
+                        "name": "Breakout Sessions by Platform: hybris, IBM/Oracle, XM, ECM, FED, Marketing Platforms",
+                        "starttime": "13:45",
+                        "endtime": "14:45",
+                        "location": "-",
+                        "description": ""
+                    },
+                    {
+                        "@id": "10",
+                        "name": "Break",
+                        "starttime": "14:45",
+                        "endtime": "15:00",
+                        "location": "-",
+                        "description": ""
+                    },
+                    {
+                        "@id": "11",
+                        "name": "Digi Talks - 3 topics",
+                        "starttime": "15:00",
+                        "endtime": "15:30",
+                        "location": "-",
+                        "description": ""
+                    },
+                    {
+                        "@id": "12",
+                        "name": "Awards & Recognition",
+                        "starttime": "15:30",
+                        "endtime": "15:50",
+                        "location": "-",
+                        "description": ""
+                    },
+                    {
+                        "@id": "13",
+                        "name": "Plenary: Recap of Take-aways, Closing",
+                        "starttime": "15:50",
+                        "endtime": "16:00",
+                        "location": "-",
+                        "description": ""
+                    }
+                ]
+            }
+        ]
+    }
+}

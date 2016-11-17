@@ -1,0 +1,151 @@
+﻿.bar {
+    border: none;
+    border-color: transparent;
+    
+    & .back-button {
+        .back-button-title {
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 4px;
+        }
+        
+        min-width: 40px;
+        
+    }
+    
+    &.bar-transparent {
+        background: none rgba(0, 0, 0, 0) !important;
+        color: #fff;
+        transition: 0.5s all ease-in-out;
+        -webkit-transition: 0.5s all ease-in-out;
+        
+        * {
+            color: #fff;
+            transition: 0.5s all linear;
+            -webkit-transition: 0.5s all linear;
+        }
+        > .button {
+            &.button-icon {
+                padding-left: 0;
+                padding-right: 0;
+                color: #fff;
+                margin: 0 5px;
+                
+            }
+        }
+    }
+    
+    &.bar-primary {
+        background: $primary-color;
+        
+        & *, .button {
+            color: $light;
+        }
+        
+        &.item-input-inset {
+            .item-input-wrapper {
+                &, * {
+                    
+                    color: $dark !important;
+                    
+                }
+            }
+        }
+    }
+    &.bar-stable {
+        background: $lighter-gray;
+        & *,
+        .button {
+            color: $dark-gray;
+        }
+    }
+    
+    & .button.button-icon .icon:before,
+    & .button.button-icon:before,
+    & .button.button-icon.icon-left:before,
+    & .button.button-icon.icon-right:before,
+    & .button.back-button .icon:before {
+        font-size: $font-size-base * 1.5 !important;
+        line-height: $font-size-base * 1.5 !important;
+        vertical-align: middle !important;
+    }
+    
+    .button {
+        text-transform: capitalize !important;
+    }
+}
+
+// for fake-status-bar
+.fake-statusbar {
+    height: 20px;
+    max-height: 20px;
+    font-size: 12px;
+    box-sizing: border-box;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    color: #fff;
+    
+    // we don't need to have this
+    .platform-android & {
+        display: none;
+    }
+    
+}
+
+.bar-header {
+    .platform-ios & {
+        height: 50px;
+        background-color: #b90b62;
+        background-image: none;
+    }
+    
+    .button {
+        min-width: 40px;
+    }
+    
+    img {
+        width: 30px;
+        height: 30px;
+        border-radius: 30px;
+        margin: 10px auto;
+        display: block;
+    }
+    
+    .title {
+        color: $light;
+    }
+}
+
+.bar-header > * {
+    .platform-ios & {
+        //margin-top: 20px !important;
+    }
+}
+
+.has-acc-header {
+    .platform-ios & {
+        top: 64px;
+    }
+}
+
+.back-button {
+    min-width: 40px;
+    
+    * {
+        line-height: 20px;
+        height: 20px;
+    }
+    .back-text {
+        font-size: $font-size-base * 1.2;
+        float: left;
+        margin-left: 10px;
+    }
+    i {
+        font-size: $font-size-base * 1.5;
+        float: left;
+    }
+}
+

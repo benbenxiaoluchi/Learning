@@ -1,0 +1,32 @@
+﻿<ion-modal-view class="forSkillsDetails" view-title="" acc-modal-priority="10">
+    <ion-header-bar class="bar navPrimary" align-title="center">
+        <div class="buttons">
+            <button menu-toggle="left" class="button button-icon icon acc-angle-left" ng-click="closeModal('community')"></button>
+        </div>
+        <h3 class="title">Details</h3>
+    </ion-header-bar>
+
+    <ion-content class=" white has-acc-header" locking="true" has-subheader="true" has-bouncing="false" delegate-handle="communityDetail">
+        <ion-item class="list acc-thing  noborders">
+            <ion-item class="item-body item-icon-left with-identifier">
+                <div class="identifier rounded icon">
+                    <i class="identifier-icon acc-group-o"></i>
+                </div>
+                <h2 class="title">{{selectedItem.Title}}</h2>
+
+            </ion-item>
+            <ion-item class="item-body noborders" ng-class="{'long-animated fadeOutLeft': animateProficiencyDescription}">
+                <h3>Description</h3>
+                <p ng-bind-html="selectedItem.Description">
+                </p>
+            </ion-item>
+            <ion-item class="noborders">
+                <a class="button button-dark button-block" ng-click="abreWindow(constants.recommendations.type.community)" add-action-plan="{{selectedItem}}" data-type="{{constants.actionPlan.type.community}}">
+                    JOIN
+                </a>
+
+            </ion-item>
+
+        </ion-item>
+    </ion-content>
+</ion-modal-view>

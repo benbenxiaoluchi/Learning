@@ -1,0 +1,29 @@
+<ion-view style="width: 100%; min-height: 100%; background: #f0f0f0;">
+    <ion-nav-bar class="bar-dark">
+        <ion-nav-buttons side="left">
+            <button class="button button-icon icon acc-menu" menu-toggle="left"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="feedback-content">
+
+        <!-- For admin's upcoming sessions -->
+        <ion-list class="content" style="padding-top:20px;display:block;">
+            <h1 style="text-align:center;">upcoming sessions({{upcomingCount}})</h1>
+
+            <div class="list card acc-thing"
+                 style="box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);"
+                 ng-repeat="list in upcomingSessionsList">
+                <ion-item class="item item-text-wrap" ng-click="navigateTraining({{list}})">
+                    <img ng-src="img/{{list.imgName}}.jpg" class="img-responsive events-img">
+                    <h2>
+                        <!--<i ng-class="list.userType"></i>-->
+                        {{ list.activityName }}
+                    </h2>
+                    <p> {{ list.PATH }} | {{ list.startDate }} </p>
+                </ion-item>
+            </div>
+        </ion-list>
+        <!-- For admin's upcoming sessions -->
+
+    </ion-content>
+</ion-view>

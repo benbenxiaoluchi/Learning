@@ -1,0 +1,33 @@
+<ion-view cache-view="false" hide-nav-bar="true" class="sendToList-wrap">
+    <div class="bar bar-header bar-clear">
+        <h1 class="title">All Participants</h1>
+        <div class="buttons">
+            <div ng-click="closeAllParticipantsList()">Done</div>
+        </div>
+    </div>
+    <ion-content class="has-header">
+        <label class="item item-input">
+            <input class="sendToList-search" type="search" placeholder="Search(Require 3 chars at least)" ng-model="people.toSearch" ng-keyup="filterParticipantsPicker(people.toSearch)" ng-trim="true">
+        </label>
+        <ion-list>
+            <div class="acc-thing list noborder nopaddings nomargins nominheight" ng-repeat="item in allParticipantsList">
+                <ion-item class="item-body item-icon-left item-icon-right with-identifier sendToList-list-item"
+                          ng-if="item.isMatched"
+                          ng-class="{'disabled':item.isGrouped}"
+                          ng-click="pickParticipant($index)">
+                    <div class="identifier rounded icon">
+                        <div class="fake-img" acn-image-display-div data-ref="{{item.EnterpriseID}}"></div>
+                    </div>
+                    <!--<img ng-src="data:image/jpeg;base64,{{item.imgUrl}}">-->
+                    <h2>
+                        {{item.fullName}}
+                    </h2>
+                    <!--<i class="icon ion-android-done-all"></i>-->
+                     <!--change the icon color-->
+                    <i ng-class="item.isPicked || item.isGrouped ? 'icon ion-android-done active': 'icon ion-android-done'"></i>
+                </ion-item>
+
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

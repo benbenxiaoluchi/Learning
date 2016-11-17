@@ -1,0 +1,57 @@
+.sendToList-wrap .bar {
+    height: 60px;
+    border-bottom: 1px solid #000;
+    background-color: #fff;
+}
+
+.sendToList-wrap .bar .title {
+    padding-left: 10px;
+    height: 60px;
+    line-height: 60px;
+    color: #222;
+    font-size: 20px;
+    text-align: left;
+}
+
+.sendToList-wrap .bar .buttons {
+    right: 20px;
+    font-size: 18px;
+    color: #007aff;
+    line-height: 46px;
+}
+
+.sendToList-wrap .has-header {
+    top: 60px;
+}
+
+.sendToList-wrap .item-input {
+    border: 7px #dfdfdf solid;
+    height: 50px;
+    text-align: center;
+}
+
+.sendToList-wrap input.sendToList-search {
+    font-size: 16px;
+    text-align: center;
+    color: #666;
+}
+
+.sendToList-wrap .fake-img {
+    top: 50%;
+    left: 10px;
+    margin-top: -5px;
+    width: 40px;
+    height: 40px;
+}
+
+.sendToList-wrap .item.sendToList-list-item {
+    min-height: 0;
+}
+
+.sendToList-wrap .sendToList-list-item h2 {
+    font-size: 20px;
+}
+
+.sendToList-wrap .ion-android-done.active::before {
+    color: #47a518;
+}

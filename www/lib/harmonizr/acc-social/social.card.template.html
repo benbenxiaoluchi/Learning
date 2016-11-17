@@ -1,0 +1,60 @@
+﻿<ion-item class="share-owner item-body" ng-click="navigate()">
+    <strong>{{article.leadinSubjectTxt.split('|')[0]}} </strong><span>{{article.leadinPredicateTxt}} </span><span ng-if="article.leadinPredicateID==6 || article.leadinPredicateID==7">{{article.leadinObjectTxt}}</span>
+</ion-item>
+
+<ion-item class="item-body item-icon-left noborders with-identifier" ng-click="navigate()">
+    <div class="identifier rounded icon" ng-click="profile($event, article.enterpriseID, article.leadinSubjectID)">
+        <div class="fake-img" acn-image-display-div data-ref="{{article.enterpriseID}}"></div>
+    </div>
+    <h2>{{article.ownerTxt}}</h2>
+    <p class="ellipsis" acc-time-ago date="{{article.eventUTCDatetime}}"></p>
+</ion-item>
+<div class="forShareContent" ng-click="navigate()">
+    <ion-item class="shareContent" ng-if="article.bodyMarkupTrusted!=''">
+        <div ng-bind-html="article.bodyMarkupTrusted" compile-template></div>
+    </ion-item>
+    <ion-item ng-if="article.mediaType == 1" class="shareContent">
+
+        <div class="card list">
+            <ion-item class="item-image">
+                <img ng-src="{{article.mediaImage}}" />
+            </ion-item>
+            <ion-item class="item-body">
+                <h2 ng-bind="article.mediaTitle"></h2>
+                <p ng-bind="article.mediaDescription"></p>
+            </ion-item>
+
+        </div>
+    </ion-item>
+    <ion-item ng-if="article.mediaType == 2" class="shareContent item-image nopaddings">
+        <img ng-src="{{article.mediaImage}}" />
+    </ion-item>
+    <ion-item ng-if="article.mediaType == 3" class="shareContent">
+        <div class="card list">
+            <ion-item class="item-image">
+                <img ng-src="{{article.mediaImage}}" />
+            </ion-item>
+            <ion-item class="item-body">
+                <h2 ng-bind="article.mediaTitle"></h2>
+                <p ng-bind="article.mediaDescription"></p>
+            </ion-item>
+        </div>
+    </ion-item>
+</div>
+<social-actions show-like="true" action-like="like()" ng-attr-like-number="{{article.likeCount}}" ng-attr-is-like-active="{{article.userLikeThis>0}}"
+                show-comment="true" action-comment="comment()" ng-attr-comment-number="{{article.commentCount}}"
+                show-share="true" action-share="share()" ng-attr-share-number="{{article.shareCount}}" ng-attr-is-share-active="{{article.userShareThis>0}}"
+                show-options="false">
+</social-actions>
+<ion-item class="nopaddings nomargins noborders forComments" ng-if="showComments=='true'">
+    <ion-list>
+        <ion-item class="comment-item item-avatar-left" ng-repeat="comment in article.Comments">
+            <div class="fake-img" acn-image-display-div data-ref="{{comment.enterpriseID}}"></div>
+
+            <h2>{{comment.displayTxt.split('|')[0]}} </h2>
+            <span class="date" acc-time-ago date="{{comment.eventDt}}"></span>
+
+            <p ng-bind-html="comment.bodyMarkupTrusted"></p>
+        </ion-item>
+    </ion-list>
+</ion-item>

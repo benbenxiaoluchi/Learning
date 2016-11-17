@@ -1,0 +1,21 @@
+﻿<div class="checkIn-popup-wrap" style="text-align: left">
+    <div class="checkIn-popup-close-btn learn-Icon-Close" ng-click="closeAttendancePopup()"></div>
+    <div class="attendance-wrapper">
+        <div class="approximate-title">How long participant was in the room?</div>
+        <div class="check-slider-box">
+            <div class="check-slider-wrapper">
+                <rzslider rz-slider-model="percent.value" rz-slider-options="percent.options" class="percent-slider"></rzslider>
+            </div>
+        </div>
+
+        <div class="text-area-box">
+            <span class="text-area-title-reasons">Reasons/Comments</span>
+            <textarea class="text-area-check" rows="5" placeholder="Early Check-out" ng-model="participantActionComment"></textarea>
+        </div>
+
+        <div class="check-button-group">
+            <button class="button1" style="margin-right: 8%" ng-click="closeAttendancePopup()">CANCEL</button>
+            <button class="button2" ng-click="attendanceConfirm(participantActionEid)">CONFIRM</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+﻿/**
+ * Custom styles for Lists
+ * --------------------------------------------------
+ */
+
+.list {
+    & & .item-divider {
+        background-color: transparent !important;
+        font-weight: bold;
+    }
+
+    &:last-child{
+    	padding:0;
+    }
+}
+
+

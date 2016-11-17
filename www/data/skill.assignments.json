@@ -1,0 +1,32 @@
+﻿{
+   "AssignmentList":[
+      {
+         "Id":1727217,
+         "AssignmentTitle":"Internal and DCN Scheduling",
+         "Location":"Guangzhou",
+         "Specialty":"Test Automation",
+         "TalentSegment":"Software Engineering",
+         "ResourcePool":"Accenture Technology"
+      },
+      {
+         "Id":1727218,
+         "AssignmentTitle":"Internal and DCN Scheduling",
+         "Location":"Guangzhou",
+         "Specialty":"Test Automation",
+         "TalentSegment":"Software Engineering",
+         "ResourcePool":"Accenture Technology"
+      },
+      {
+         "Id":1727219,
+         "AssignmentTitle":"Internal and DCN Scheduling 2",
+         "Location":"Guangzhou",
+         "Specialty":"Test Automation",
+         "TalentSegment":"Software Engineering",
+         "ResourcePool":"Accenture Technology"
+      }
+   ],
+   "TotalCount":2,
+   "PeopleKey":571643,
+   "From":0,
+   "Size":2
+}

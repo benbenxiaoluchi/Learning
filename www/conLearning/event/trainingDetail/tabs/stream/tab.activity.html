@@ -1,0 +1,96 @@
+﻿<ion-view view-title="" acc-header-shrink
+          default-class="bar-transparent"
+          shrink-class="bar-dark"
+          title-template-html="event.header.html"
+          offset="155" class="activity-page-wrap">
+    <ion-nav-bar class="bar-transparent" align-title="left">
+        <ion-nav-buttons side="left">
+            <button menu-toggle="left" class="button button-icon learn-Icon-HamburgerMenu" ng-show="!trainingItem.fromAdmin"></button>
+            <i ng-click="$ionicGoBack()" class="acc-angle-left" ng-show="trainingItem.fromAdmin"></i>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+            <i ng-click="viewNotifications()" ng-class="{true: 'ion-ios-bell activeity-head-bell-style', false: 'ion-ios-bell activeity-head-bell-NoUnRead-style'}[unReadIcon]" title="{{unreadCount}}"></i>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content locking="true" scroll-event-interval="5" has-header="false" has-bouncing="true"
+                 class="no-header" ng-class="{'people-bgr': !showCircleList}">
+        <ion-list ng-class="{'activity-head-wrap': !showCircleList}">
+            <ion-item-divider class="app-name">
+                <div class="activity-head-tittle" ng-if="!showCircleList">
+                    {{trainingItem.currentTrainingTitle}}
+                </div>
+                <div class="activity-head-sub-tittle" ng-if="!showCircleList">
+                    {{trainingItem.currentTrainingDate}} | {{trainingItem.PATH}}
+                </div>
+                <div class="activity-head-bottom" ng-if="!showCircleList">
+                    <div class="activity-head-bottom-left" ng-click="openNewArticle()">
+                        <i class="learn-Icon-Pencil"></i>
+                        <p class="activity-head-bottom-message">
+                            What’s on your mind…
+                        </p>
+                    </div>
+                    <div class="activity-head-bottom-right">
+                        <i class="learn-Icon-Camera" ng-click="openNewArticle()"></i>
+                        <i class="learn-Icon-ActivitySettings" ng-click="openSelectCircle()"></i>
+                    </div>
+                </div>
+            </ion-item-divider>
+        </ion-list>
+
+        <ion-list class="stream-tab">
+            <div ng-if="circleId!='' && !showCircleList">
+                <ion-list class="light-bgr content">
+
+                    <div class="list card acc-thing" ng-if="!showCircleList">
+                        <ion-item class="item-body noborders" ng-click="navigateToMaterials(1,'Oct 17, 2016','08:00','12:00','School Opening','Plenary Room','Competed',0)">
+                            <div class="scheduleDetail-date">
+                                <div>DAY</div>
+                                <div>{{fakeItem.id}}</div>
+                            </div>
+                            <p>{{fakeItem.starttime}} - {{fakeItem.endtime}} | {{fakeItem.location}}</p>
+                            <h2>{{fakeItem.name}}</h2>
+                        </ion-item>
+                        <ion-item class="socialActions">
+                            <div class="row">
+                                <div class="col-25">
+                                    <button class="button button-full">
+                                        <i class="learn-Icon-Share"></i>
+                                    </button>
+                                </div>
+                                <div class="col-25"></div>
+                                <div class="col-25"></div>
+                                <div class="col-25">
+                                    <button class="button button-full text-right">
+                                        <i class="acc-menu-circle-vertical"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </ion-item>
+                    </div>
+                    <div class="list acc-thing stream-item" ng-repeat="item in stream"
+                         style="border-radius: 3px;margin: 20px 10px;background-color:#fff">
+                        <acc-social item="item" can-navigate="true" class="animated fadeIn"></acc-social>
+                    </div>
+                </ion-list>
+                <ion-item class="item-body item-divider noborders">
+                    <button class="button button-block button-dark" ng-if="!isLoading && existMoreData"
+                            ng-click="loadStream()">Load More...
+                    </button>
+                </ion-item>
+                <div class="partial-spinner" ng-if="isLoading">
+                    <ion-spinner></ion-spinner>
+                </div>
+            </div>
+
+            <ion-item class="item item-no-data" ng-if="!circleId">
+                <p class="noDataShowText">A Circle has not been enabled for this Event.</p>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+    <button class="button float-btn nomargins noborders button-dark animated an2 bounceIn"  ng-if="showPost" ng-click="openNewArticle()">
+        <i class="ion-ios-compose-outline"></i>POST
+    </button>
+</ion-view>
+<script type="text/ng-template" id="event.header.html">
+    <h1 class='title'>DESIGN THINKING</h1>
+</script>

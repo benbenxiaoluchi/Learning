@@ -1,0 +1,28 @@
+﻿<ion-item class="item-image" on-tap="tap()" ng-if="item.metadata.isOnline && item.metadata.isPresentation == false">
+    <video webkit-playsinline muted width="100%" height="" preload="auto" ng-attr-poster="{{item.data.video.poster}}" on-tap="tap()">
+        <source ng-src="{{item.data.video.source}}" type="video/mp4">
+    </video>
+</ion-item>
+
+<ion-item class="item-body item-icon-left noborders" ng-class="{'with-identifier': item.metadata.isInMyPlan || item.metadata.isRecommended || item.metadata.isMandatory}" on-tap="tap()">
+    <div class="identifier rounded icon" ng-if="item.metadata.isInMyPlan || item.metadata.isRecommended || item.metadata.isMandatory">
+        <i class="identifier-icon" ng-class="{'acc-certification': item.metadata.isInMyPlan, 'acc-group-o': item.metadata.isRecommended, 'acc-user3-o': item.metadata.isMandatory}"></i>
+    </div>
+    <h2>{{item.data.title}}</h2>
+    <p>{{((item.data.date)?item.data.date:'') + ' | ' + ((item.data.author)?item.data.author:'')}}</p>
+</ion-item>
+
+<ion-item ng-show="item.metadata.isCompleted">
+    <p class="complexion">
+        <i class="acc-check">
+        </i>
+        Completed
+    </p>
+</ion-item>
+
+<social-actions show-like="true" action-like="addLikes()" ng-attr-like-number="{{item.data.social.likes}}" ng-attr-is-like-active="{{item.data.social.active}}"
+                show-comment="true" action-comment="showComments()" ng-attr-comment-number="{{item.data.social.comments.length}}"
+                show-share="true"
+                show-options="true">
+</social-actions>
+

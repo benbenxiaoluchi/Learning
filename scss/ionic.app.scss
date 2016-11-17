@@ -1,0 +1,127 @@
+/*
+To customize the look and feel of Ionic, you can override the variables 
+in ionic's _variables.scss file.                         
+                 
+For example, you might change some of the default colors:      
+              
+$light:                                #fff !default;        
+$stable:                            #f8f8f8 !default;
+$positive:                             #387ef5 !default;   
+$calm:                               #11c1f3 !default;   
+$balanced:                          #33cd5f !default;  
+$energized:                      #ffc900 !default; 
+$assertive:                        #ef473a !default;    
+$royal:                              #886aea !default;   
+$dark:                                   #444 !default;                    
+*/
+// Customizing all variables coming from our Accenture Framework         
+@import "customIonicAcc/customVariables";
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic      
+@import "../www/lib/ionic/scss/ionic.scss";
+
+// Include specific color-scheme as primary
+@import "color.scss";
+
+// Include all styles coming from Accenture 
+@import "customIonicAcc/animations",
+"../www/lib/animate/animations.css",
+"customIonicAcc/app-headers",
+"customIonicAcc/calendar",
+"customIonicAcc/slider",
+"customIonicAcc/fake-search",
+"customIonicAcc/ion-content",
+"customIonicAcc/action-sheet",
+"customIonicAcc/animations",
+"customIonicAcc/corporateFonts",
+"customIonicAcc/intro",
+"customIonicAcc/general",
+"customIonicAcc/timeline",
+"customIonicAcc/acc-icons",
+    //"customIonicAcc/acc-icons-status-animations",
+"customIonicAcc/tab-slide-box",
+"customIonicAcc/forms",
+"customIonicAcc/cards",
+"customIonicAcc/bar",
+"customIonicAcc/items",
+"customIonicAcc/list",
+"customIonicAcc/loading",
+"customIonicAcc/modal",
+"customIonicAcc/fake-header",
+"customIonicAcc/fake-splash",
+"customIonicAcc/errors",
+"customIonicAcc/search",
+"customIonicAcc/list-divider",
+"customIonicAcc/chat",
+"customIonicAcc/datepicker",
+"customIonicAcc/menu",
+"customIonicAcc/tabs",
+"customIonicAcc/people-grid",
+"customIonicAcc/acc-tabs";
+
+// All styles used for this app 
+@import "specific-app.scss";
+
+//styles used in events.html
+@import "events.scss";
+
+//styles used in tab.priorities.html
+@import "tab.priorities";
+
+//tab.participants.html
+@import "tab.participants";
+
+//tab.activity.html
+@import "tab.activity";
+
+//tpopup-template
+@import "popup-temp";
+
+//sessionParticipant.html
+@import "sessionParticipant";
+@import "tabs.schedule.attendanceCheckIn";
+
+//learn-icon
+@import "learn-icon";
+
+//newPersonalisedMessage.html
+@import "newPersonalisedMessage";
+
+//sendToList.html
+@import "sendToList";
+
+//sendToList.html
+@import "notificationsList";
+
+//myTraining.html
+@import "myTraining";
+
+//messagePage.html
+@import "messagePage";
+
+//select-circle.html
+@import "select-circle";
+
+//ongoingEvents.html
+@import "ongoingEvents";
+
+//tab.eventDetails.html
+@import "tab.eventDetails";
+
+//attendance
+@import "attendance";
+
+//impersonatesearch.html
+@import "impersonatesearch";
+
+//tab.venue.html
+@import "tab.venue";
+
+//learningcenter.html
+@import "learningcenter";
+
+//menu.html
+@import "menu";

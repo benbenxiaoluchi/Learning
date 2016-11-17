@@ -1,0 +1,124 @@
+.newPersonalisedMessage-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 20px;
+    color: #222;
+    font-size: 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #000;
+}
+
+.newPersonalisedMessage-wrap .bar-header {
+    height: 65px;
+    line-height: 65px;
+}
+
+.newPersonalisedMessage-wrap .bar-header .acc-close {
+    color: #ccc;
+    font-size: 20px;
+}
+
+.newPersonalisedMessage-title + .buttons {
+    position: absolute;
+    top: 24px;
+    right: 20px;
+}
+
+.newPersonalisedMessage-wrap .bar-subheader {
+    top: 65px;
+    height: 50px;
+}
+
+.newPersonalisedMessage-wrap h2.newPersonalisedMessage-subtitle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 20px;
+    padding-right: 50px;
+    line-height: 50px;
+    font-size: 14px;
+    color: #999;
+    overflow: hidden;
+}
+
+.newPersonalisedMessage-subtitle + .buttons {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+.newPersonalisedMessage-wrap .bar-subheader .acc-plus-light {
+    color: #999;
+    font-size: 20px;
+}
+
+.newPersonalisedMessage-wrap .item {
+    padding: 23px;
+    border-color: #ccc;
+    font-size: 16px;
+    color: #222;
+    font-family: 'Rotssa';
+}
+
+.newPersonalisedMessage-wrap .has-subheader {
+    top: 114px;
+    background-color: #f2f2f2;
+}
+
+.newPersonalisedMessage-textarea {
+    padding: 20px;
+    width: 100%;
+    min-height: 200px;
+    font-size: 16px;
+    color: #222;
+}
+
+.newPersonalisedMessage-textarea-btn {
+    margin: 20px;
+    line-height: 40px;
+    color: #fff;
+    background-color: #007aff;
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 2px;
+}
+
+.sessionParticipant-btn-bg1 {
+    background-color: #666;
+}
+
+.sessionParticipant-btn-bg2 {
+    background-color: #47a518;
+}
+
+.newPersonalisedMessage-item-wrap {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.newPersonalisedMessage-item-btn {
+    display: inline-block;
+    width: 46%;
+    line-height: 40px;
+    background-color: #007aff;
+    color: #fff;
+    border-radius: 2px;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+
+
+.inActive-btn{
+    background-color: #666;
+}

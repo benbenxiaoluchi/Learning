@@ -1,0 +1,38 @@
+﻿[
+    {
+        "SkillId": "70001952",
+        "SkillName": "User experience Design",
+        "IsFollow": true,
+        "ProficiencyRole": 2,
+        "UserProficiency": 1,
+        "SkillDescription": "I'm able to complete level P0 lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dictum fermentum quam, quis euismod augue rhoncus non. Sed ornare eu est vel finibus. Donec lacinia mi molestie posuere faucibus. Nam porta enim viverra, vulputate felis a, rutrum orci. Curabitur risus lorem, accumsan nec posuere at, sagittis nec mauris. Morbi egestas orci magna, ac vestibulum sem mollis nec. Maecenas eleifend lorem a nisi finibus, hendrerit sagittis turpis gravida. Ut vulputate vel leo nec interdum.",
+        "Proficiencynm": "No Proficiency",
+        "Proficiencyscalated": 1,
+        "Proficiencyscalenm": "Standard",
+        "GapProficiency": 0,
+        "Personassessmentid": 1610907,
+        "Assessmentstatusnm": "Final",
+        "RoleCd": null,
+        "LearningActivities": [ ],
+        "SkillType": 1,
+        "IsActive": true
+    },
+    {
+        "SkillId": "70001952",
+        "SkillName": "User experience Design",
+        "IsFollow": true,
+        "ProficiencyRole": 2,
+        "UserProficiency": 1,
+        "SkillDescription": "I'm able to complete level P0 lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dictum fermentum quam, quis euismod augue rhoncus non. Sed ornare eu est vel finibus. Donec lacinia mi molestie posuere faucibus. Nam porta enim viverra, vulputate felis a, rutrum orci. Curabitur risus lorem, accumsan nec posuere at, sagittis nec mauris. Morbi egestas orci magna, ac vestibulum sem mollis nec. Maecenas eleifend lorem a nisi finibus, hendrerit sagittis turpis gravida. Ut vulputate vel leo nec interdum.",
+        "Proficiencynm": "No Proficiency",
+        "Proficiencyscalated": 1,
+        "Proficiencyscalenm": "Standard",
+        "GapProficiency": 0,
+        "Personassessmentid": 1610907,
+        "Assessmentstatusnm": "Final",
+        "RoleCd": null,
+        "LearningActivities": [],
+        "SkillType": 1,
+        "IsActive":false
+    }
+]

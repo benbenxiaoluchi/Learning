@@ -1,0 +1,47 @@
+[
+    {
+        "count": 129,
+        "label": "Total",
+        "pplLikeMeDemogCat": "all",
+        "pplLikeMeDemogFK": "all",
+        "sortOrder": 1,
+        "demog": "",
+        "pplLikeMeDemogName": ""
+    },
+    {
+        "count": 1,
+        "label": "from Accenture Technology",
+        "pplLikeMeDemogCat": "ph",
+        "pplLikeMeDemogFK": "Accenture Technology",
+        "sortOrder": 2,
+        "demog": "",
+        "pplLikeMeDemogName": ""
+    },
+    {
+        "count": 26,
+        "label": "from Client Delivery & Operations",
+        "pplLikeMeDemogCat": "org",
+        "pplLikeMeDemogFK": "21203",
+        "sortOrder": 3,
+        "demog": "",
+        "pplLikeMeDemogName": ""
+    },
+    {
+        "count": 3,
+        "label": "from level 10                                      ",
+        "pplLikeMeDemogCat": "org",
+        "pplLikeMeDemogFK": "18607",
+        "sortOrder": 4,
+        "demog": "",
+        "pplLikeMeDemogName": ""
+    },
+    {
+        "count": 0,
+        "label": "from Dalian         ",
+        "pplLikeMeDemogCat": "city",
+        "pplLikeMeDemogFK": "363",
+        "sortOrder": 6,
+        "demog": "",
+        "pplLikeMeDemogName": ""
+    }
+]

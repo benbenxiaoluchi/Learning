@@ -1,0 +1,248 @@
+.tab-attendance-head {
+    position: relative;
+    padding: 0;
+    height: 50px;
+    line-height: 50px;
+    
+    h1 {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        color: #fff;
+        font-size: 18px;
+        text-align: center;
+        line-height: 50px;
+        font-weight: normal;
+    }
+    
+    .acc-angle-left {
+        position: absolute;
+        left: 20px;
+        top: 15px;
+        font-size: 18px;
+        color: #fff;
+        z-index: 99;
+    }
+    
+}
+
+.tab-attendance-head.bgc000 {
+    background-color: #000;
+}
+
+.tab-attendance-head.bgcb90b62 {
+    background-color: #b90b62;
+}
+
+.tab-attendance-date-info-wrap {
+    padding: 0 15px;
+    margin: 15px 0 0;
+    white-space: normal;
+    line-height: 16px;
+    span {
+        font-size: 14px;
+        color: #666;
+    }
+}
+
+.tab-attendance-date-icon-warp {
+    margin: 15px 0 0;
+    padding: 0 15px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #efefef;
+}
+
+.schedule-status span {
+    font-size: 14px;
+    color: #666;
+    line-height: 40px;
+    
+    &:nth-of-type(2n) {
+        margin-left: 5px;
+        margin-right: 10px;
+    }
+}
+
+.tab-attendance-day-wrap {
+    position: relative;
+    padding: 0 15px;
+    overflow: hidden;
+    
+    .ion-ios-arrow-right {
+        position: absolute;
+        right: 15px;
+        top: 10px;
+        font-size: 22px;
+        color: #666;
+        &::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            bottom: -5px;
+            left: -10px;
+            right: -10px;
+        }
+    }
+}
+
+.scheduleDetail-date-wrap {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.learn-Icon-ParticipantsInRoom.log-in {
+    color: #47a518;
+}
+
+.learn-Icon-ParticipantsOutofRoom.log-out {
+    color: #fcb049;
+}
+
+.tab-attendance-state-list-wrap {
+    padding: 0 0 0 15px;
+    margin: 0;
+    border: 0 none;
+}
+
+.tab-attendance-state-list-inof {
+    padding: 10px 0;
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
+    
+    .sateStyle {
+        margin-top: 4px;
+        margin-right: 10px;
+        float: left;
+    }
+    
+    .schedule-list-title {
+        color: #666;
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: normal;
+        
+        &.c#222 {
+            color: #222;
+        }
+    }
+}
+
+.previous-activity-wrap {
+    display: flex;
+    height: 40px;
+    line-height: 40px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.previous-activity-btn {
+    margin: auto;
+    padding: 6px 20px;
+    border-radius: 40px;
+    display: inline-block;
+    line-height: 1;
+    text-transform: uppercase;
+    color: #999;
+    background-color: #f8f8f8;
+}
+
+.attendance-main-wrap .header-item.title,
+.attendance-main-wrap .right-buttons button {
+    color: #222;
+}
+
+.learn-Icon-ParticipantsInRoom.cfff {
+    color: #fff;
+}
+
+.attendance-checkinslider-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 16px;
+    color: #666;
+}
+
+.attendance-checkinslider-close::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+}
+
+.attendance-checkinslider-info {
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ccc;
+}
+
+.button.attendance-checkinslider-btn {
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+.attendance-checkindetail-wrap .attendance-wrapper{
+    padding: 20px 10%;
+}
+
+.attendance-checkindetail-wrap {
+    padding-top: 20px;
+}
+
+.attendance-checkindetail-title {
+    color: #666;
+    font-size: 14px;
+}
+
+.attendance-checkindetail-subtitle {
+    margin: 10px 0 15px;
+    font-size: 14px;
+    color: #222;
+}
+
+.attendance-wrapper {
+    text-align: left;
+}
+
+.attendance-checkindetail-wrap .check-slider-box {
+    margin-top: 10px;
+}
+
+.attendance-checkindetail-wrap .check-percent {
+    width: 22%;
+    font-size: 18px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.attendance-checkindetail-wrap .check-slider-wrapper{
+    width: 70%;
+    display: inline-block;
+}
+
+.attendance-checkindetail-wrap .text-area-title-reasons {
+    color: #666;
+}
+
+.attendance-checkindetail-wrap  .text-area-check {
+    max-height: 80px;
+}
+
+.attendance-checkindetail-wrap .rzslider {
+    margin: 0;
+}
+
+.attendance-checkindetail-wrap .button.button-dark.button-block {
+    height: 40px;
+    line-height: 40px;
+    border-radius: 2px;
+}
+
+.attendance-checkindetail-wrap .attendance-checkinslider-close {
+    top: -5px;
+}

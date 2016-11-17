@@ -1,0 +1,34 @@
+{
+  "ReturnCode": 0,
+  "ReturnMessage": "Success",
+  "Content": [
+    {
+      "circleID": "9c483707-79c1-4094-bb68-b71f08bf86c8",
+      "circleName": "Learning Events App Discussion",
+      "circleType": "Course",
+      "defaultCircle": 0,
+      "PreferredCircle": 1
+    },
+    {
+      "circleID": "79dbd409-5edc-46a9-8e92-0006751722fe",
+      "circleName": "Learning Events",
+      "circleType": "UserDefault",
+      "defaultCircle": 1,
+      "PreferredCircle": 1
+    },
+    {
+      "circleID": "f3d0880f-1d25-4edf-afe9-e466b13e8991",
+      "circleName": "Chicago All-Office Meeting",
+      "circleType": "Activity",
+      "defaultCircle": 0,
+      "PreferredCircle": 1
+    },
+    {
+      "circleID": "bb54f376-e933-45be-93a2-03fc8f953e84",
+      "circleName": "Project Atlas",
+      "circleType": "Activity",
+      "defaultCircle": 0,
+      "PreferredCircle": 1
+    }
+  ]
+}

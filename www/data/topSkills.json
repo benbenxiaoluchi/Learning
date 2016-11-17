@@ -1,0 +1,79 @@
+﻿{
+    "FollowSkillList": [
+
+    ],
+    "RecSkillList": [
+        {
+            "SkillId": "80010963",
+            "SkillName": "Programming/ software development",
+            "UserProficiency": "0",
+            "ProficiencyRole": "3",
+            "Proficiencynm": "P2 - Proficient",
+            "GapProficiency": 3,
+            "RoleCd": null,
+            "JobId": null,
+            "IsFollow": false,
+            "SkillType": 0,
+            "SkillDescription": "",
+            "IsActive": true
+        },
+        {
+            "SkillId": "80000033",
+            "SkillName": "Accenture Delivery Methods (ADM)",
+            "UserProficiency": "0",
+            "ProficiencyRole": "2",
+            "Proficiencynm": "P1 - Novice",
+            "GapProficiency": 2,
+            "RoleCd": null,
+            "JobId": null,
+            "IsFollow": false,
+            "SkillType": 0,
+            "SkillDescription": "",
+            "IsActive": true
+        },
+        {
+            "SkillId": "80000282",
+            "SkillName": "Application Design - Custom",
+            "UserProficiency": "0",
+            "ProficiencyRole": "2",
+            "Proficiencynm": "P1 - Novice",
+            "GapProficiency": 2,
+            "RoleCd": null,
+            "JobId": null,
+            "IsFollow": false,
+            "SkillType": 0,
+            "SkillDescription": "",
+            "IsActive": true
+        },
+        {
+            "SkillId": "80000283",
+            "SkillName": "Application Design - Packaged",
+            "UserProficiency": "0",
+            "ProficiencyRole": "2",
+            "Proficiencynm": "P1 - Novice",
+            "GapProficiency": 2,
+            "RoleCd": null,
+            "JobId": null,
+            "IsFollow": false,
+            "SkillType": 0,
+            "SkillDescription": "",
+            "IsActive": true
+        },
+        {
+            "SkillId": "80010964",
+            "SkillName": "Application Development - Packaged",
+            "UserProficiency": "0",
+            "ProficiencyRole": "2",
+            "Proficiencynm": "P1 - Novice",
+            "GapProficiency": 2,
+            "RoleCd": null,
+            "JobId": null,
+            "IsFollow": false,
+            "SkillType": 0,
+            "SkillDescription": "",
+            "IsActive": true
+        }
+    ],
+    "PeopleKey": 571643,
+    "TotalCount": 5
+}

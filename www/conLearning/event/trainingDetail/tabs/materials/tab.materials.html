@@ -1,0 +1,27 @@
+﻿<ion-view view-title="SESSION MATERIALS" hide-nav-bar="true" class="tab-priorities-wrap" >
+    <ion-header-bar no-tap-scroll="true" class="tab-attendance-head"
+                    ng-class="{true: 'bgc000', false: 'bgcb90b62'}[adminFlage]"
+                    align-title="center">
+        <i ng-click="closeMaterials()" class="acc-angle-left"></i>
+        <h1>
+            SESSION MATERIALS
+        </h1>
+    </ion-header-bar>
+    <ion-content drag-content="false">
+        <div class="item item-no-data" ng-if="noMeterialDataShow">
+            <p class="noDataShowText">Course materials not defined.</p>
+        </div>
+        <div class="list nopaddings nomargins tab-priorities-list" ng-repeat="item in meterials">
+            <ion-item ng-click= "materialDownload(item.link)"
+                      class="item item-icon-left item-icon-right">
+                <div class="icon">
+                    <div class="tab-priorities-list-logo">
+                        {{item.type}}
+                    </div>
+                </div>
+                <h2 class="tab-priorities-list-title">{{item.file}}</h2>
+                <!--<i ng-if="item.role == 1" class="icon acc-user2"></i>-->
+            </ion-item>
+        </div>
+    </ion-content>
+</ion-view>

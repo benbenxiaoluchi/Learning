@@ -1,0 +1,29 @@
+// For fake header
+
+.fake-header{
+	box-shadow:0px 25px 20px rgba(255,255,255,0.8);
+    z-index:3;
+	margin-top:-19px !important;	
+	
+	 
+	.platform-android &{
+	    margin-top:-40px !important;	
+	} 
+
+
+	.menu-open &{
+		left:274px;
+		box-shadow:none;
+	    transition-delay: 0s;
+		transition-duration: 0.01s;
+		transition-property: all;
+		transition-timing-function: ease;
+	}
+
+	.animated{
+	    animation-delay:0.2s;
+	    -webkit-animation-delay: 0.2s;
+	}
+	
+	
+} 

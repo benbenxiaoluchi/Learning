@@ -1,0 +1,29 @@
+[
+    {
+        "category": null,
+        "categoryOrder": 0,
+        "categoryLiteral": null,
+        "subCategory": null,
+        "activityID": 1131222,
+        "activityType": null,
+        "activityCode": null,
+        "activityName": "UX Spain 2015",
+        "activityDesc": null,
+        "duration": 0.0,
+        "courseDetailsURL": null,
+        "status": null,
+        "dueDt": null,
+        "startDt": "4/20/2015 1:00:00 PM",
+        "endDt": "4/27/2015 3:00:00 PM",
+        "registrationDate": null,
+        "attemptStartDate": null,
+        "completionDate": null,
+        "cancellationDate": null,
+        "categoryDate": null,
+        "LaunchMethod": null,
+        "isMobileFriendly": 0,
+        "SourceName": null,
+        "RegID": 0,
+        "PlayabilityValue": 0
+    }
+]

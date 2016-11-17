@@ -1,0 +1,45 @@
+<ion-modal-view view-title="PeoplePickerModal" acc-modal-priority="99" class="peoplePickerModal">
+    <ion-header-bar id="search-box" class="bar-dark item-input-inset">
+        <button class="button button-light button-clear search-icon" ng-click="closePeoplePicker()">
+            <i class="acc-angle-down"></i>
+        </button>
+        <div class="item-input-wrapper">
+            <i class="icon acc-search placeholder-icon"></i>
+            <input type="search" placeholder="Start typing user name..." ng-model="peoplePicker.search" ng-keyup="getSuggestions()" ng-trim="true">
+            <i class="icon acc-cross placeholder-icon" ng-click="peoplePicker.search=''"></i>
+        </div>
+    </ion-header-bar>
+    <ion-content class="has-acc-header radar-bgr" has-bouncing="true" has-subheader="true">
+        <ion-list class="content">
+            <ion-item class="item-divider list-divider noborders" ng-if="peoplePicker.search=='' && peoplePicker.selected.length>0">
+                Selected
+            </ion-item>
+            <div class="acc-thing" ng-repeat="item in peoplePicker.selected" ng-if="peoplePicker.search=='' && peoplePicker.selected.length>0">
+                <ion-item class="item-body item-icon-left item-icon-right with-identifier" ng-click="setItemPeoplePicker(item)">
+                    <div class="identifier rounded icon">
+                        <div class="fake-img" acn-image-display-div data-ref="{{item.EnterpriseId}}"></div>
+                    </div>
+                    <h2>{{item.PersonalDisplayName}}</h2>
+                    <p class="ellipsis">{{item.Role}}</p>
+                    <i class="icon acc-check"></i>
+                </ion-item>
+            </div>
+            <div ng-if="peoplePicker.search!=''" class="acc-thing" ng-repeat="item in peoplePicker.all">
+                <ion-item class="item-body item-icon-left item-icon-right with-identifier" ng-click="setItemPeoplePicker(item)">
+                    <div class="identifier rounded icon">
+                        <div class="fake-img" acn-image-display-div data-ref="{{item.EnterpriseId}}"></div>
+                    </div>
+                    <h2>{{item.PersonalDisplayName}}</h2>
+                    <p class="ellipsis">{{item.Role}}</p>
+                    <i ng-class="item.isSelected ? 'icon acc-check' : 'icon acc-plus'"></i>
+                </ion-item>
+            </div>
+            <div ng-if="(peoplePicker.search.length>2) && (!peoplePicker.loading) && (peoplePicker.all.length==0)">
+                 <ion-item class="item-body">
+                     No results found for {{peoplePicker.search}}
+                 </ion-item>
+               
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-modal-view>

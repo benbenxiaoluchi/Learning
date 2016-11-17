@@ -1,0 +1,131 @@
+﻿<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <title>Learn</title>
+
+    <!-- compiled css output -->
+    <!--<link href="css/ionic.app.css" rel="stylesheet">-->
+    <link href="css/ionic.app.min.css" rel="stylesheet">
+
+    <!-- tabSlideBox -->
+    <link rel="stylesheet" href="lib/tabSlideBox/tabSlideBox.css">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="lib/ionicons/css/ionicons.min.css">
+
+    <!-- pickdate -->
+    <link rel="stylesheet" href="lib/angular-pickdate/angular-pickadate.css">
+
+
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/angular-resource/angular-resource.js"></script>
+
+    <!-- jquery -->
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+
+    <!-- Allow XHRs via https only -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: *; script-src 'unsafe-inline' 'unsafe-eval' *; style-src 'unsafe-inline' *">
+
+    <!-- tab component -->
+    <script src="lib/tabSlideBox/tabSlideBox.js"></script>
+    <script src="lib/moment/min/moment.min.js"></script>
+
+    <!--Harmonizr-->
+    <script src="lib/harmonizr/harmonizr.js"></script>
+    <script src="lib/harmonizr/components/harmonizr.components.js"></script>
+    <script src="lib/harmonizr/acc-social/harmonizr.acc-social.js"></script>
+
+    <!-- pickdate -->
+    <script src="lib/datePicker/js/angular-pickadate.js"></script>
+
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- Security Module -->
+    <script src="lib/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="lib/angular-css-injector.min.js"></script>
+    <script src="lib/rebar-mobile-eso/rebar-mobile-eso.js"></script>    
+
+    <script src="lib/crypto-js/crypto-js.js"></script>
+    <script src="lib/crypto-js/sha256.js"></script>
+
+    <script src="lib/ionic-timepicker/dist/ionic-timepicker.bundle.min.js"></script>
+    <!-- angular-slider -->
+    <link href="lib/angular-slider/rzslider.css" rel="stylesheet" />
+    <script src="lib/angular-slider/rzslider.js"></script>
+
+    <!--timepicker-->
+    <script src="lib/ionic-timepicker/dist/ionic-timepicker.bundle.min.js"></script>
+
+    <!--datepicker-->
+    <script src="lib/ionic-datepicker/dist/ionic-datepicker.bundle.min.js"></script>
+
+    <!-- your app's js -->
+    <script src="conLearning/environment.js"></script>
+    <script src="conLearning/app.js"></script>
+    <script src="conLearning/tools.js"></script>
+    <script src="conLearning/common/app.constants.js"></script>
+
+    <!-- Controllers -->
+    <script src="conLearning/common/base.controller.js"></script>
+    <script src="conLearning/home/home.controller.js"></script>
+    <script src="conLearning/profile/profile.controller.js"></script>
+    <script src="conLearning/profile/recommendations/skills.controller.js"></script>
+    <script src="conLearning/common/feedback/feedback.controller.js"></script>
+    <script src="conLearning/common/plan/plan.controller.js"></script>
+    <script src="conLearning/event/list/events.controller.js"></script>
+    <script src="conLearning/event/trainingDetail/trainingDetailController.js"></script>
+    <script src="conLearning/event/trainingDetail/tabs/stream/new-post.controller.js"></script>
+    <script src="conLearning/event/trainingDetail/tabs/stream/stream-detail.controller.js"></script>
+    <script src="conLearning/event/trainingDetail/tabs/stream/discussions-detail.controller.js"></script>
+    <script src="conLearning/event/trainingDetail/tabs/stream/tab.activity.controller.js"></script>
+    <script src="conLearning/event/trainingDetail/tabs/presenters/tab.faculty.controller.js"></script>
+    <script src="conLearning/event/trainingDetail/tabs/materials/tab.materials.controller.js"></script>
+    <script src="conLearning/event/upcomingSessions/upcomingSessions.controller.js"></script>
+    <script src="conLearning/event/personalisedMessage/newPersonalisedMessage.controller.js"></script>
+    <script src="conLearning/event/personalisedMessage/sendToList.controller.js"></script>
+    <script src="conLearning/event/myTraining/myTraining.controller.js"></script>
+    <script src="conLearning/event/ongoingEvents/ongoingEvents.controller.js"></script>
+    <script src="conLearning/event/impersonate/impersonateController.js"></script>
+    <script src="conLearning/common/menu/menuController.js"></script>
+    <script src="conLearning/event/learningCenter/learningCenter.controller.js"></script>
+
+    <!-- Services -->
+    <script src="conLearning/common/services/messages.service.js"></script>
+    <script src="conLearning/common/services/methods.service.js"></script>
+    <script src="conLearning/common/services/profile.service.js"></script>
+    <script src="conLearning/common/services/auth.service.js"></script>
+    <script src="conLearning/common/services/cache.service.js"></script>
+    <script src="conLearning/common/services/eso-automation.service.js"></script>
+    <script src="conLearning/common/services/acl_auth.service.js"></script>
+    <script src="conLearning/common/services/recommendations.service.js"></script>
+    <script src="conLearning/common/services/crittercism.service.js"></script>
+    <script src="conLearning/common/services/training.service.js"></script>
+    <script src="conLearning/common/services/menu.service.js"></script>
+    <script src="conLearning/common/services/security.service.js"></script>
+    <script src="conLearning/common/services/stream.service.js"></script>
+    <script src="conLearning/common/services/impersonate.service.js"></script>
+    <script src="conLearning/common/services/item.Path.service.js"></script>
+    <script src="conLearning/common/services/personalisedMessage.factory.js"></script>
+    <script src="conLearning/common/services/personalisedMessage.service.js"></script>
+    <!-- Directives -->
+    <script src="conLearning/common/directives/common.directives.js"></script>
+    <script src="conLearning/common/directives/eso-login.directives.js"></script>
+
+
+    <script src="conLearning/tempEso/loginController.js"></script>
+
+</head>
+<body ng-app="starter" autoplay ng-controller="baseController">
+    <!--<div class="fake-statusbar"></div>-->
+    <ion-nav-view></ion-nav-view>
+</body>
+
+</html>

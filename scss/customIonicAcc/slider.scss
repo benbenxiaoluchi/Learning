@@ -1,0 +1,75 @@
+.box{
+	text-align:center;
+	padding-bottom:20px;
+
+}
+
+.slider-pager{
+		position:absolute;
+		display:block;
+		bottom:0;
+		height:20px;
+		color:$primary-color;
+}
+.slider-pager-page{
+	*, .icon{color:$primary-color;}	
+}
+
+
+//presentation-slider
+.presentation-slider{
+	.box{
+		text-align:center;
+		padding-bottom:20px;
+	}	
+	.slider-pager{
+		position:absolute;
+		display:block;
+		bottom:0;
+		height:20px;
+		color:$primary-color;
+	}
+	.slider-pager-page{
+		*, .icon{color:$primary-color;}	
+	}
+}
+
+// For people sliders
+.people-slider{
+	.slider-slide{
+		padding:0 0px 20px;
+		
+	}
+	
+
+	.inCommon{
+		margin:-10px 0 !important;
+		color:$accOrange !important;
+	}
+
+
+}
+.people-slider2{
+	min-height:0;
+	background:transparent;
+	padding:0 0 30px;
+	border:0;
+
+	.box{
+		display:inline-block;
+		padding: 0;
+		width:85%;
+		vertical-align:middle;
+    	//Top / bottom / middle / none / inherit
+
+		.card{
+			margin-left:0;
+			.inCommon{
+				margin:-10px 0 !important;
+				color:$accOrange !important;
+			}
+		}
+
+	}
+
+}

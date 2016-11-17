@@ -1,0 +1,27 @@
+﻿<ion-modal-view view-title="AttendanceDetail" class="checkIn-popup-wrap">
+    <ion-content class="attendance-checkindetail-wrap">
+        <div class="learn-Icon-Close attendance-checkinslider-close" ng-click="closeAttendanceDetail()"></div>
+        <i class="learn-Icon-ParticipantsInRoom"></i>
+        <div class="attendance-checkindetail-title">Manage Attendance details of</div>
+        <div class="attendance-checkindetail-subtitle">{{fullName}}</div>
+        <hr />
+        <div class="attendance-wrapper">
+            <div class="approximate-title">How long participant was in the room?</div>
+            <div class="check-slider-box">
+                <div class="check-percent">{{percent.value}}%</div>
+                <div class="check-slider-wrapper">
+                    <rzslider rz-slider-model="percent.value" rz-slider-options="percent.options" class="percent-slider"></rzslider>
+                </div>
+            </div>
+
+            <div class="text-area-box">
+                <span class="text-area-title-reasons">Reasons/Comments</span>
+                <textarea class="text-area-check" placeholder="Early Check-out" ng-model="participantActionComment"></textarea>
+            </div>
+
+            <div class="check-button-group">
+                <button class="button button-dark button-block" ng-click="attendanceConfirm(participantActionEid)" ng-disabled="isImpersonate">CONFIRM ATTENDANCE ADJUSTMENT</button>
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

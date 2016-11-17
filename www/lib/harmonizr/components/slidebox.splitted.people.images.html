@@ -1,0 +1,11 @@
+﻿<ion-slide-box on-slide-changed="slideHasChanged($index)" ng-attr-show-pager="{{showPager}}">
+    <ion-slide ng-repeat="mySlide in splittedList track by $index">
+        <div class="row" ng-repeat="row in mySlide track by $index">
+            <a class="{{colSize}} people" ng-click="clicked(item)" ng-repeat="item in row track by $index">
+                <span class="badge animated rubberBand" ng-if="item.tasks>0">{{item.tasks}}</span>
+                <img ng-src="{{item.pictureUrl}}" />
+                <p>{{item.alias}}</p>
+            </a>
+        </div>
+    </ion-slide>
+</ion-slide-box>

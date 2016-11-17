@@ -1,0 +1,15 @@
+﻿{
+    "OpportunitySkills": [ { "SkillDescription": "Skill1" }, { "SkillDescription": "Skill2" }, { "SkillDescription": "Skill3" }, { "SkillDescription": "Skill4" }, { "SkillDescription": "Skill5" } ],
+    "OpportunityDescription": "Curabitur risus lorem, accumsan nec posuere at, sagittis nec mauris.<ul><li>uno</li><li><b>dos</b></li></ul>",
+    "PositionId": "00219773_CWS-9002",
+    "PositionTitle": "ANDROID Software Engineering Team Lead (Madrid)",
+    "RoleDesc": "Software Engineering Consultant",
+    "Locations": [
+        "Madrid"
+    ],
+    "Workforce": "Solutions",
+    "CapabSpecialty": "Mobility Services / Mobile SW Svcs for Dev & Platf",
+    "TalentSegment": "Software Engineering",
+    "IsApply": 0,
+    "InternalReferURL": "https://sites.accenture.com/publishing/Openpositions/Taleo/Pages/default.aspx?job=00219773"
+}

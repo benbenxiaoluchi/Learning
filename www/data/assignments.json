@@ -1,0 +1,48 @@
+﻿{
+  "AssignmentList": [
+    {
+      "Id": 1744112,
+      "AssignmentTitle": "WEB API Developer",      
+      "Location": "Pretoria",
+      "Specialty": "Microsoft Web Development",
+      "TalentSegment": "Software Engineering",
+      "ResourcePool": "Accenture Technology"
+    },
+    {
+      "Id": 1721791,
+      "AssignmentTitle": "SharePoint Support Role",
+      "Location": "Monterrey",
+      "Specialty": "Microsoft Web Development",
+      "TalentSegment": "Software Engineering",
+      "ResourcePool": "Accenture Technology"
+    },
+    {
+      "Id": 1721792,
+      "AssignmentTitle": "SharePoint Support Role Copy 01",
+      "Location": "Monterrey",
+      "Specialty": "Microsoft Web Development",
+      "TalentSegment": "Software Engineering",
+      "ResourcePool": "Accenture Technology"
+    },
+    {
+      "Id": 1728394,
+      "AssignmentTitle": "Software Developer",
+      "Location": "Pretoria",
+      "Specialty": ".NET Framework",
+      "TalentSegment": "Software Engineering",
+      "ResourcePool": "Accenture Technology"
+    },
+    {
+      "Id": 1728395,
+      "AssignmentTitle": "Software Developer Copy 01",
+      "Location": "Pretoria",
+      "Specialty": ".NET Framework",
+      "TalentSegment": "Software Engineering",
+      "ResourcePool": "Accenture Technology"
+    }
+  ],
+  "TotalCount": 5,
+  "PeopleKey": 571643,
+  "From": 0,
+  "Size": 5
+}

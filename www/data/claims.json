@@ -1,0 +1,14 @@
+﻿[
+  {
+    "Name": "https://federation-sts.accenture.com/schemas/claims/1/peoplekey",
+    "Value": "205337"
+  },
+  {
+    "Name": "https://federation-sts.accenture.com/schemas/claims/1/enterpriseid",
+    "Value": "diego.lopez.simarro"
+  },
+  {
+    "Name": "https://federation-sts.accenture.com/schemas/claims/1/emailaddress",
+    "Value": "diego.lopez.simarro@accenture.com"
+  }
+]

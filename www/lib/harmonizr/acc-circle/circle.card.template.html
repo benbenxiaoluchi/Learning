@@ -1,0 +1,9 @@
+﻿<ion-item class="item-body item-icon-left noborders" on-tap="tap()">
+    <h2>{{circle.qualifier}}</h2>
+    <p>{{circle.contextual}}</p>
+</ion-item>
+<social-actions show-like="true" action-like="addLikes()" ng-attr-like-number="{{circle.social.like.length}}" ng-attr-is-like-active="{{isLikeActive}}"
+                show-comment="true" action-comment="showComments()" ng-attr-comment-number="{{circle.social.comments.length}}"
+                show-share="true"
+                show-options="true">
+</social-actions>

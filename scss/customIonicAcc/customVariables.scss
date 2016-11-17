@@ -1,0 +1,155 @@
+﻿
+/** 
+
+WCAG 2.0 Level AA compliant colours for normal white text (4.5:1 ratio required for anything below 18pt)
+
+**/
+
+$accViolet: #993399;
+$accCranberryRed: #aa1133;
+$accForestGreen: #337722;
+$accDeepGreen: #224433;
+$accInkBlue: #003344;
+$accGrayBlue: #557799;
+$accVioletBlue: #002266;
+$accDeepViolet: #336699;
+$accRedViolet: #551155;
+$accBrickRed: #992222;
+$accOxbloodRed: #660000;
+$accExpresso: #4e2600;
+$accOliveGreen: #445511;
+$accPeriwinkleBlue: #5278B1;
+$accSkyBlue: #0172a6;
+$accDustyLavendar: #776788;
+$accAquamarine: #01856F;
+$accTaupe: #767659;
+$accDarkOrange: #c13b0f;
+$accTangerine: #9c4d2c;
+$accSage: #4c7a6a;
+$accAzalia: #f50035;
+$accCamel: #7d6d59;
+
+/** 
+
+WCAG 2.0 Level AA compliant colours for large white text (3:1 ratio required for 18pt or 14pt bold, or larger) 
+
+**/
+
+$accWarmRed: #ff0000;
+$accKellygreen: #00A100;
+$accEmeraldGreen: #339933;
+$accSeaGreen: #008899;
+
+/*** Review this color **/
+
+$accOrange: #ff9900;
+
+/*** / Review this color with D.A. **/
+
+
+
+$dark-gray: #333333;
+$light-gray: #cccccc;
+$lighter-gray: #f0f0f0;
+$light: #fff;
+
+
+// Colors 
+// -------------------------------
+
+$light:                           $light !default;
+$stable:                          $lighter-gray !default;
+$positive:                        $accDeepViolet !default;
+$calm:                            $lighter-gray !default;
+$balanced:                        $accAquamarine !default;
+$energized:                       $accOrange !default;
+$assertive:                       $accWarmRed !default;
+$royal:                           $accDustyLavendar !default;
+$dark:                            $dark-gray !default;
+
+
+// Base
+// -------------------------------
+
+$font-family-sans-serif:          'RotisSansSerif55' !default;
+$font-family-light-sans-serif:    Arial, "Helvetica Neue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica,  "Lucida Grande", sans-serif !default;
+
+
+$font-size-base:                  12px !default;
+$font-size-large:                 14px !default;
+$qualifier-font-size:			  21px !default;
+
+$base-color:                      $dark-gray !default;
+
+$tabs-text-font-size-side-icon:   $font-size-large !default;
+$tabs-text-font-size:             $font-size-base !default;
+
+// Items 
+// -------------------------------
+$item-font-size:                  12px !default;
+$item-padding:                    15px !default;
+$item-avatar-border-radius:       40px !default;
+$item-divider-bg:                 $lighter-gray !default;
+$item-divider-color:              $dark-gray !default;
+
+// Checkboxes
+// -------------------------------
+$checkbox-check-width:            3px !default;
+
+// Loading
+// -------------------------------
+
+$loading-text-color:              #333 !default;
+//$loading-bg-color:                rgba(0,0,0,0.7) !default;
+//$loading-padding:                 20px !default;
+//$loading-border-radius:           5px !default;
+$loading-font-size:               40px !default;
+
+// Badges
+// -------------------------------
+
+$badge-font-size:                 12px !default;
+
+// Coming from our framework
+// -------------------------------
+// This is for different colors
+
+$dark-gray: #333333;
+$light-gray: #cccccc;
+$lighter-gray: #f0f0f0;
+$gray: #666;
+$gray2: #999;
+$green: green;
+
+$selected: #fffcd4;
+
+$body-font-size: $font-size-base;
+$h1-font-size: $font-size-base * 2.5;
+$h2-font-size: $h1-font-size - 2px;
+$h3-font-size: $h2-font-size - 2px;
+$h4-font-size: $h3-font-size - 4px;
+$h5-font-size: $h4-font-size - 2px;
+
+
+// For acc-thing 
+$acc-thing-item-left-gap: 85px;
+$acc-thing-identifier-width: 56px;
+$acc-thing-identifier-badge-width: 20px;
+
+
+// ------------------------------------------------------
+// Different application colors
+// !! Coming from latest Harmonize Toolkit by 25 May
+// ------------------------------------------------------
+$deal-color: $accInkBlue;
+$me-color: #333300;
+$skill-color: #3399cc;
+$learning-color: $accAquamarine;
+$help-color: #00a100;
+$job-color: #ff7a00;
+$expense-color: #008899;
+$asset-color: #999977;
+$time-color: #666;
+
+
+					 

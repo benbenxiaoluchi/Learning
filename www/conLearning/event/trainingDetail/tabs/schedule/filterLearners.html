@@ -1,0 +1,31 @@
+﻿<ion-view view-title="FilterLearners"  class="filterLearners">
+    <ion-header-bar id="filter-learners" class="bar bar-header item-input-inset" ng-style="filterLearnerTitleColor">
+        <i ng-class="filterLearnerTitleIcon" class="title-icon"></i>
+        <span class="light title-content">{{filterLearnerTitle}}</span>
+        <i class="ion-ios-chatbubble-outline push-notification"></i>
+        <div ng-click="closeFilterLearners()" class="close-button">
+            <i class="icon ion-close close-icon"></i>
+        </div>
+    </ion-header-bar>
+    <ion-content class="white has-acc-header" has-bouncing="false" has-subheader="true">
+        <ion-list>
+            <div class="acc-thing list noborder nopaddings nomargins nominheight" ng-repeat="item in FilterLearners">
+                <ion-item class="item-body item-icon-left item-icon-right with-identifier" ng-click="showParticipantAction(item.EnterpriseID,item.fullName)">
+                    <div class="identifier rounded icon">
+                        <div class="fake-img" acn-image-display-div data-ref="{{item.EnterpriseID}}"></div>
+                    </div>
+                    <img ng-src="data:image/jpeg;base64,{{item.imgUrl}}">
+                    <h2>
+                        {{item.fullName}}
+                        <i class="ion-edit edit-icon"></i>
+                    </h2>
+                    <p>{{item.attendanceDetail}}</p>
+
+                    <ion-option-button class="button" ng-style="item.checkinColor" ng-hide="ImpersonateStatus" ng-click="CheckIn(item.EnterpriseID,'',$index, item.checkinDisabled);$event.stopPropagation()" ng-if="item.attendanceStatus==0||item.attendanceStatus==-1">
+                        <i class="icon learn-Icon-ParticipantsInRoom icon-checkin"></i>
+                    </ion-option-button>
+                </ion-item>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

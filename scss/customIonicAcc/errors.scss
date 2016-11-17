@@ -1,0 +1,26 @@
+.errorPage{
+
+	background:url(../img/404bgr.png) no-repeat;
+	background-size:cover;
+
+	ion-content{
+	
+	background:transparent;
+		
+
+		.item{
+			background:transparent;
+			border:none;
+
+			h1{
+				color:$accDeepViolet;
+			}
+
+			&.item-image{
+				padding:0 20px;
+			}
+		}
+
+	}
+	
+}

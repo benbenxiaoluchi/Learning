@@ -1,0 +1,27 @@
+<ion-modal-view view-title="Message" class="message-page-warp">
+    <ion-header-bar no-tap-scroll="true" class="message-page-title" align-title="left">
+        Message
+        <i class="learn-Icon-Close" ng-click="closeMessagePage()"></i>
+    </ion-header-bar>
+    <ion-content start-y="100000000">
+        <ion-list>
+            <div ng-repeat="item in message | orderBy: 'timeStramp' " class="message-page-info">
+                <div class="message-page-info-img" acn-image-display-div data-ref="{{item.senderID}}"></div>
+                <div class="message-page-info-right">
+                    <p class="message-page-info-msg">
+                        {{item.notificationsInf}}
+                    </p>
+                    <i class="message-page-info-time">
+                        {{item.sendDate}}
+                    </i>
+                </div>
+            </div>
+        </ion-list>
+    </ion-content>
+    <ion-footer-bar class="message-page-footer">
+        <div class="message-page-footer-item">
+            <input class="message-page-footer-input" ng-model="inputData"/>
+            <button ng-click="" class="message-page-footer-btn">SEND</button>
+        </div>
+    </ion-footer-bar>
+</ion-modal-view>

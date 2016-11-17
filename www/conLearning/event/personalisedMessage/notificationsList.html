@@ -1,0 +1,39 @@
+﻿<ion-modal-view view-title="NotificationsList" class="sendToList-wrap">
+    <div class="sendToList-head-title">
+        Notification
+        <i class=" icon acc-angle-right" ng-click="hideNotification()">
+        </i>
+    </div>
+    <ion-content class="sendToList-list-wrap" has-bouncing="true" has-header="false">
+        <div class="sendToList-message-wrap small" ng-repeat="itemUnRead in notificationsListUnRead | orderBy: 'sendDate':true">
+            <div class="sendToList-message-title" ng-click="toMessagePage(itemUnRead.senderID)">
+                <div class="sendToList-message-title-left">
+                    {{itemUnRead.sender}} has sent you a message
+                </div>
+                <div class="sendToList-message-title-right">
+                    <!--
+                实心圆：esendToList-message-title-flg flg
+                空心圆：esendToList-message-title-flg
+                -->
+                    <span class="esendToList-message-title-flg flg"></span>
+                    {{itemUnRead.messageTime}}
+                </div>
+            </div>
+        </div>
+        <div class="sendToList-message-wrap small" ng-repeat="itemReaded in notificationsListReaded | orderBy: 'sendDate':true">
+            <div class="sendToList-message-title">
+                <div class="sendToList-message-title-left" ng-click="toMessagePage(itemReaded.senderID)">
+                    {{itemReaded.sender}} has sent you a message
+                </div>
+                <div class="sendToList-message-title-right">
+                    <!--
+                实心圆：esendToList-message-title-flg flg
+                空心圆：esendToList-message-title-flg
+                -->
+                    <span class="esendToList-message-title-flg"></span>
+                    {{itemReaded.messageTime}}
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

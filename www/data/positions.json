@@ -1,0 +1,77 @@
+﻿{
+    "TotalCount": 9,
+    "Size": 10,
+    "PeopleKey": 571643,
+    "OpportunityList": [
+        {
+            "PositionId": "00219773_CWS-9002",
+            "PositionTitle": "ANDROID Software Engineering Team Lead (Madrid)",
+            "RoleDesc": "Software Engineering Consultant",
+            "Locations": [
+                "Madrid"
+            ],            
+            "Workforce": "Solutions",
+            "CapabSpecialty": "Mobility Services / Mobile SW Svcs for Dev & Platf",            
+            "TalentSegment": "Software Engineering",
+            "IsApply": 0,
+            "InternalReferURL": "https://sites.accenture.com/publishing/Openpositions/Taleo/Pages/default.aspx?job=00219773",
+            "Score": 13
+        },
+        {
+            "PositionId": "00219763_CWS-9002",
+            "PositionTitle": "IOS Software Engineering Team Lead (Madrid)",
+            "RoleDesc": "Software Engineering Team Lead",
+            "Locations": [
+                "Madrid"
+            ],
+            "Workforce": "Solutions",
+            "CapabSpecialty": "Platform Architectures / Phone & Tablet-based Platforms",
+            "TalentSegment": "Software Engineering",
+            "IsApply": 0,
+            "InternalReferURL": "https://sites.accenture.com/publishing/Openpositions/Taleo/Pages/default.aspx?job=00219763",
+            "Score": 13
+        },
+        {
+            "PositionId": "00219432_CWS-9002",
+            "PositionTitle": "BIG DATA Software Engineering Team  Lead (Madrid)",
+            "RoleDesc": "Software Engineering Consultant",
+            "Locations": [
+                "Madrid"
+            ],
+            "Workforce": "Solutions",
+            "CapabSpecialty": "Execution Architectures / Execution Architectures",
+            "TalentSegment": "Software Engineering",
+            "IsApply": 0,
+            "InternalReferURL": "https://sites.accenture.com/publishing/Openpositions/Taleo/Pages/default.aspx?job=00219432",
+            "Score": 13
+        },
+        {
+            "PositionId": "00222478_CWS-9002",
+            "PositionTitle": "QLIKVIEW Software Engineering Team  Lead (Madrid)",
+            "RoleDesc": "Software Engineering Consultant",
+            "Locations": [
+                "Madrid"
+            ],
+            "Workforce": "Solutions",
+            "CapabSpecialty": "Data Architectures / Data Architectures",
+            "TalentSegment": "Software Engineering",
+            "IsApply": 0,
+            "InternalReferURL": "https://sites.accenture.com/publishing/Openpositions/Taleo/Pages/default.aspx?job=00222478",
+            "Score": 13
+        },
+        {
+            "PositionId": "00238094_CWS-9002",
+            "PositionTitle": "IOS Software Engineering AGP Team Lead (Malaga)",
+            "RoleDesc": "Software Engineering Team Lead",
+            "Locations": [
+                "Malaga"
+            ],
+            "Workforce": "Solutions",
+            "CapabSpecialty": "Mobility Services / Mobile Software Svcs for Apps",
+            "TalentSegment": "Software Engineering",
+            "IsApply": 0,
+            "InternalReferURL": "https://sites.accenture.com/publishing/Openpositions/Taleo/Pages/default.aspx?job=00238094",
+            "Score": 10.5
+        }
+    ]
+}

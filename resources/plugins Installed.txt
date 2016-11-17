@@ -1,0 +1,10 @@
+cordova plugin add https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git
+cordova plugin add org.apache.cordova.inappbrowser
+cordova plugin add org.apache.cordova.console
+cordova plugin add org.apache.cordova.device
+cordova plugin add org.apache.cordova.dialogs
+cordova plugin add org.apache.cordova.splashscreen
+cordova plugin add org.apache.cordova.statusbar
+cordova plugin add com.ionic.keyboard
+cordova -d plugin add https://github.com/crittercism/PhoneGap.git --variable IOS_APP_ID="5645bf83d224ac0a00ed4300"
+cordova -d plugin add https://github.com/crittercism/PhoneGap.git --variable ANDROID_APP_ID="5645bf988d4d8c0a00d08208"

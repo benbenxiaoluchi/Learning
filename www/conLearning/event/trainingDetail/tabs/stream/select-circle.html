@@ -1,0 +1,52 @@
+<ion-modal-view class="select-circle-wrap">
+    <ion-header-bar class="select-circle-title">
+        <i class="icon ion-close" ng-click="hideSelectCircle()"></i>
+    </ion-header-bar>
+    <ion-content class="select-circle-content" has-bouncing="false" has-subheader="true">
+        <ion-list class="content">
+            <div class="activity-head-list-wrap">
+                <div class="activity-head-list-tittle">
+                    customize your activity
+                    <i class="ion-help-circled"></i>
+                </div>
+                <div class="row select-circle-table-title">
+                    <div class="col col-50">
+                        SOCIAL CHANNELS
+                    </div>
+                    <div class="col">
+                        IN VIEW
+                    </div>
+                    <div class="col">
+                        POST TO
+                    </div>
+                </div>
+                <div class="row" ng-repeat="item in Circles track by $index">
+                    <div class="col col-50">
+                        <div class="select-circle-table-sub-tittle">
+                            Accenture Circle
+                        </div>
+                        <div class="select-circle-table-item-tittle">
+                            {{ item.circleName }}
+                        </div>
+                    </div>
+                    <div class="col df">
+                        <label class="learn-checkbox">
+                            <input type="checkbox" ng-model="item.isViewCircle"/>
+                            <span class="learn-checkbox-style acc-tick"></span>
+                        </label>
+                    </div>
+                    <div class="col df">
+                        <label class="learn-radio">
+                            <input type="radio" name="test" ng-value="true" ng-model="item.isPostCircle"
+                                   ng-change="updatePostCircle(item)"/>
+                            <span class="learn-radio-style"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="activity-head-list-bottom">
+                    <button class="activity-head-list-bottom-btn" ng-click="circleListTrigger()">done</button>
+                </div>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-modal-view>

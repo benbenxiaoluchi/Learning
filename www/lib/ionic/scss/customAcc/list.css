@@ -1,0 +1,9 @@
+﻿/**
+ * Custom styles for Lists
+ * --------------------------------------------------
+ */
+.list .list .item-divider {
+  background-color: transparent !important;
+  font-weight: bold; }
+
+/*# sourceMappingURL=list.css.map */

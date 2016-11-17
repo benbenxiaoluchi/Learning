@@ -1,0 +1,23 @@
+.impersonatesearch-search-item {
+    padding: 15px;
+    height: 70px;
+    background-color: #f2f2f2;
+    border-bottom: 1px solid #ccc;
+}
+
+input.impersonatesearch-search-input {
+    padding-left: 1em;
+    width: 80%;
+    height: 40px;
+    display: inline-block;
+    border-radius: 2px;
+    box-shadow:  0 0 3px #bfbfbf;
+    color: #000;
+}
+
+.impersonatesearch-search-item .ion-ios-search-strong{
+    margin-left: 5px;
+    font-size: 30px;
+    color: #000;
+    vertical-align: middle;
+}

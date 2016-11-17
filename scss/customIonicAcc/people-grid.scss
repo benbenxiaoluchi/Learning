@@ -1,0 +1,97 @@
+// people grid
+.people-grid{
+  display:flex;
+  flex-flow:row wrap;
+  .user {
+      display: inline-block;
+      padding: 10px 0.7em;
+      width: 33%;
+      align-self: flex-start;
+      vertical-align:top;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      h5{
+        font-size:$font-size-base * 1.2;
+        text-align:center;
+        display:block;
+        width:100%;
+        text-overflow:ellipsis;
+      overflow:hidden;
+      white-space:nowrap;
+    }
+
+    img{
+      width:80%;
+      display:block;
+      border-radius:100%;
+      margin:0 auto 10px;
+    }
+
+    p{
+      font-size:$font-size-base - 2;
+      line-height:$font-size-base;
+      text-overflow:ellipsis;
+      text-align:center;
+      overflow:hidden;
+      white-space:nowrap;
+      margin-top:5px;
+    }
+
+    .badge{
+      color:$light;
+      display:block;
+      position:relative;
+      width:25px;
+      height:25px;
+      padding:0;
+      line-height:23px;
+      z-index:9;
+      background:$primary-color;
+      margin-left:70%;
+      border-radius:25px;
+      border:1px solid $light;
+      margin-bottom:-25px;
+    }
+    &:nth-child(0){
+      -webkit-animation-delay:0.5s;
+      animation-delay:0.5s;
+    }
+    &:nth-child(1){
+      -webkit-animation-delay:1s;
+      animation-delay:1s;
+    }
+    &:nth-child(2){
+      -webkit-animation-delay:1.2s;
+      animation-delay:1.2s;
+    }
+    &:nth-child(3){
+      -webkit-animation-delay:1.4s;
+      animation-delay:1.4s;
+    }
+    &:nth-child(4){
+      -webkit-animation-delay:1.6s;
+      animation-delay:1.6s;
+    }
+    &:nth-child(5){
+      -webkit-animation-delay:1.8s;
+      animation-delay:1.8s;
+    }
+    &:nth-child(6){
+      -webkit-animation-delay:2s;
+      animation-delay:2s;
+    }
+    &:nth-child(7){
+      -webkit-animation-delay:2.2s;
+      animation-delay:2.2s;
+    }
+    &:nth-child(8){
+      -webkit-animation-delay:2.3s;
+      animation-delay:2.3s;
+    }
+    &:nth-child(9){
+      -webkit-animation-delay:2.4s;
+      animation-delay:2.4s;
+    }
+  }
+}

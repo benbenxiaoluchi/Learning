@@ -1,0 +1,9 @@
+﻿<ion-item class="item-body item-icon-left noborders" on-tap="tap()">
+    <h2>{{item.data.title}}</h2>
+    <p>{{item.data.percent}}% Completed | {{item.data.author}}</p>
+</ion-item>
+<social-actions show-like="true" action-like="addLikes()" ng-attr-like-number="{{item.data.social.likes}}" ng-attr-is-like-active="{{item.data.social.active}}"
+                show-comment="true" action-comment="showComments()" ng-attr-comment-number="{{item.data.social.comments.length}}"
+                show-share="true"
+                show-options="true">
+</social-actions>

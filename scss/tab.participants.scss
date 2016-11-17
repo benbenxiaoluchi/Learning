@@ -1,0 +1,67 @@
+.participants-list-img {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.participants-list-item {
+    position: relative;
+    padding-left: 70px;
+    padding-right: 40px;
+}
+
+.participants-wrapper {
+    min-height: 44px;
+}
+
+.participants-list-item-title {
+    font-size: 18px;
+    color: #333;
+}
+
+.participants-list-item h2.participants-list-item-title {
+    padding-top: 0;
+    font-size: 24px;
+    color: #222222;
+}
+
+.participants-list-item h2.participants-list-item-title + span {
+    font-size: 14px;
+    color: #666666;
+}
+
+.participants-list-item .acc-angle-right {
+    position: absolute;
+    top: calc(50% - 10px);
+    right: 20px;
+    font-size: 20px;
+    color: #989ca3;
+}
+
+// Participants appearance
+.forParticipants {
+    .fake-input {
+        padding: 10px;
+        .input-comment {
+            background: #fff;
+            border: 1px solid $light-gray;
+            line-height: 20px;
+            padding: 10px;
+            font-style: italic;
+
+            span {  color: $gray;  }
+            .icons {
+                float: right;
+                font-size: $font-size-base * 1.8;
+                color: $gray;
+
+                i {
+
+                }
+            }
+        }
+    }
+}

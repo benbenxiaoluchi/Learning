@@ -1,0 +1,19 @@
+﻿<div>
+
+    <div class="acc-tabs">
+
+        <ion-scroll direction="x" class="tsb-hscroll" scrollbar-x="false" scrollbar-y="false" has-bouncing="true" delegate-handle="scroll-acc-tab-static-scroll">
+            <a ng-repeat="tab in tabs | orderBy: 'tabID'" ng-show="tab.isTabVisible" ng-class="{'active': $index==currentTab}" ng-click="selectTab($index, tab.text)">
+                <i ng-class="tab.icon"></i>
+                <div class="animated rubberBand badge badge-assertive">{{tab.badge}}</div>
+                <p>{{tab.text}}</p>
+            </a>
+        </ion-scroll>
+
+    </div>
+
+    <ion-list ng-show="currentTab==$index" class="acc-tabs-content" ng-class="customizeClass" ng-repeat="tab in tabs">
+        <ng-include src="tab.template"></ng-include>
+    </ion-list>
+
+</div>

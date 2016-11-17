@@ -1,0 +1,48 @@
+
+ion-content{
+	
+	&.image-bgr{
+		//background-image:url('../img/madrid_aire.jpg');
+		background-size:100% 70vh !important;
+	    background-repeat: no-repeat !important;
+	  	background-position:top !important; 
+	  	transition: background-image 0.3s linear !important;
+	}
+
+
+	
+	.light-bgr{
+		background:$lighter-gray;
+		display:block;
+		padding-top:1px;
+		min-height:30vh;
+	}
+
+	&.primary-bgr{
+		background:$primary-color;
+		background: $primary-color; /* Old browsers */
+		background: -moz-linear-gradient(top,  $primary-color 0%, darken($primary-color, 10%) 47%, #f0f0f0 62%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$primary-color), color-stop(47%,darken($primary-color, 10%)), color-stop(62%,#f0f0f0)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  $primary-color 0%,darken($primary-color, 10%) 47%,#f0f0f0 62%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  $primary-color 0%,darken($primary-color, 10%) 47%,#f0f0f0 62%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  $primary-color 0%,darken($primary-color, 10%) 47%,#f0f0f0 62%); /* IE10+ */
+		background: linear-gradient(to bottom,  $primary-color 0%,darken($primary-color, 10%) 47%,#f0f0f0 62%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$primary-color', endColorstr='#f0f0f0',GradientType=0 ); /* IE6-9 */
+	}
+	
+	// content needs to have .has-acc-header class
+	&.has-acc-header,
+		.ion-content.has-acc-header{
+		.platform-ios &{
+		  top:64px;
+		  &.has-subheader{
+		    top:104px !important;
+		  }
+		}
+	}
+
+	&.no-header{
+		top:0 !important;
+	}
+
+}
