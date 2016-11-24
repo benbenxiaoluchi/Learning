@@ -97,6 +97,9 @@ app.constant('connectedLearning.constants', {
         setAssignmentDetail: '__setAssignmentDetail__',
         finishLoadingAdminTraining: '__finishLoadingAdminTraining__',
         finishLoadingSurveyToFaculty:'__finishLoadingSurveyToFaculty__',
+    },
+    circle: {
+        overallCircleID: '9c483707-79c1-4094-bb68-b71f08bf86c8'
     }
 });
 //#endregion
@@ -176,6 +179,7 @@ app.provider('environmentData', ['connectedLearning.constants.environments', fun
                         getProfileDetails: '/collabhub.accenture.com/json/People',
                         getProfileImage: '/collabhub.accenture.com/People/ProfilePicture',
                         getSingleFacility: 'data/learningEvents/facilities_list.json',
+                        getFacilityList: 'data/learningEvents/facilities_list.json',
                         getAcitivityAndParticipants: '/Activity/getActivityAndUserDetails?ActivityID={ActivityID}&RecordCount={RecordCount}&ReturnSetFlag={ReturnSetFlag}',
                         getScheduleAndMaterials: '/Activity/getScheduleAndMaterials?ActivityID={ActivityID}',
                         getWhitelist: '/getACLWhitelistUser?enterpriseID={enterpriseID}',
@@ -206,6 +210,7 @@ app.provider('environmentData', ['connectedLearning.constants.environments', fun
                         getVenue: 'data/learningEvents/venue_AllOngoingEvents.json',
                         getSurveyForSession:'data/learningEvents/training_getsurveyforsession.json',
                         getSurveyForFaculty:'data/learningEvents/training_getsurveyforfaculty.json',
+                        getActivityEventInfo:'data/learningEvents/getactivityeventinfo.json'
                     },
                     menu: {
                         getFullName: 'data/learningEvents/training_getpeopledata.json',
@@ -380,7 +385,7 @@ app.provider('environmentData', ['connectedLearning.constants.environments', fun
             }
         }
     };
-
+    //DEV Env
     var config_DEV = {
         clientId: 'f45302e0-3ac5-4ebe-b6fa-261b946928d4',
         environment: 'DEV',
@@ -402,10 +407,6 @@ app.provider('environmentData', ['connectedLearning.constants.environments', fun
                         getClaims: 'https://connectedlearningapp.ciodev.accenture.com/api/user/claims',
                         getProfile: 'https://connectedlearningapp.ciodev.accenture.com/api/user/{0}/profile?enterpriseid={1}',
                         getAvatar: 'https://connectedlearningapp.ciodev.accenture.com/api/user/{0}/picture'
-                        //getAvatar: 'data/avatar.json'
-                        //getUserSettings: 'data/userSettings.json',
-                        //getClaims: 'data/claims.json',
-                        //getProfile: 'data/profile.json',
                     },
                     skills: {
                         getUserSkills: 'https://connectedlearningapp.ciodev.accenture.com/api/user/{0}/myskills',
@@ -417,7 +418,6 @@ app.provider('environmentData', ['connectedLearning.constants.environments', fun
                         getBusinessPrioritySkills: 'https://connectedlearningapp.ciodev.accenture.com/api/user/{0}/bpskills?dte={1}',
                         getSpecialtySkills: 'https://connectedlearningapp.ciodev.accenture.com/api/user/{0}/specializationskills?size={1}',
                         getTopSkills: 'https://connectedlearningapp.ciodev.accenture.com/api/user/{0}/topskills?roleid={1}&careerlevelcd={2}'
-                        //getTopSkills: 'data/topSkills.json'
                     },
                     recommendations:
                     {
@@ -426,10 +426,6 @@ app.provider('environmentData', ['connectedLearning.constants.environments', fun
                         getRecommendedPYMK: 'https://connectedlearningapp.ciodev.accenture.com/api/user/{0}/recommendedpeople?careerLevelCd={1}&size={2}&killCache={3}',
                         getSkillRecommendedLearnings: 'https://connectedlearningapp.ciodev.accenture.com/api/user/{0}/skilldetail/{1}/learnings?title={2}&careerLevelCd={3}&userProficiency={4}&size={5}&killCache={6}',
                         getLearningDetail: 'https://connectedlearningapp.ciodev.accenture.com/api/user/{0}/learningdetail/{1}?killCache=true'
-                        //getRecommendedLearnings: 'data/items.recommended.learnings.json',
-                        //getRecommendedCommunities: 'data/items.recommended.communities.json',
-                        //getRecommendedPYMK: 'data/items.recommended.pymk.json',
-                        //getLearningDetail: 'data/learningDetails.json'
                     }
                 }
             },
@@ -443,7 +439,8 @@ app.provider('environmentData', ['connectedLearning.constants.environments', fun
                     myExpenses: 'https://mylbuild-pews.accenture.com/aclapi',
 
                     apis: {
-                        getSingleFacility: 'https://mylbuild-pews.accenture.com/aclapi/Facility/getFacilityInfo?ActivityID={0}&FacilityID={1}'
+                        getSingleFacility: 'https://mylbuild-pews.accenture.com/aclapi/Facility/getFacilityInfo?ActivityID={0}&FacilityID={1}',
+                        getFacilityList: 'https://mylrelease-pews.accenture.com/aclapi/Facility/getFacilityList'
                     },
                     training: {
                         getTraining: 'https://mylbuild-pews.accenture.com/aclapi/Activity/getClassroomTrainingSchedule',
@@ -481,7 +478,8 @@ app.provider('environmentData', ['connectedLearning.constants.environments', fun
                         getUpcomingSessions:'https://webservice.accenture.com/1720_myLearning/Dev/Activity/getAdminRLCSessionDetails?StartDate={0}&EndDate={1}&AuthorIDType={2}&FacilityID={3}&TabCategory={4}&api_key={5}&sig={6}',
                         modifyDefaultCircle: 'https://webservice.accenture.com/1720_myLearning/Dev/AttendanceManagement/ModifyDefaultCircle?api_key={0}&sig={1}',
                         searchPeople: 'https://webservice.accenture.com/1720_myLAPI/Dev/Activity/getRosterDetails?ActivityID={0}&RecordCount={1}&ReturnSetFlag={2}&SearchStr={3}&DemogCategory={4}&DemogKey={5}&api_key={6}&sig={7}',
-                        getPeopleOnSite: 'https://webservice.accenture.com/1720_myLAPI/Dev/Facility/getPeopleOnSite?ActivityID={0}&SearchStr={1}&RecordCount={2}&DemogCategory={3}&DemogKey={4}&api_key={5}&sig={6}'
+                        getPeopleOnSite: 'https://webservice.accenture.com/1720_myLAPI/Dev/Facility/getPeopleOnSite?ActivityID={0}&SearchStr={1}&RecordCount={2}&DemogCategory={3}&DemogKey={4}&api_key={5}&sig={6}',
+                        getActivityEventInfo: 'https://mylbuild-pews.accenture.com/ACLAPI/Activity/getActivityEventInfo'
                     },
                     menu: {
                         getFullName: 'https://mylbuild-pews.accenture.com/aclapi/other/getPeopleData?eid={0}',
@@ -568,6 +566,179 @@ app.provider('environmentData', ['connectedLearning.constants.environments', fun
             }
         }
     };
+    //UAT Env
+    var config_STAGE = {
+        clientId: 'f45302e0-3ac5-4ebe-b6fa-261b946928d4',
+        environment: 'STAGE',
+        peopleUrl: 'https://peopleux-perf.ciotest.accenture.com/Experience.aspx?accountname=',
+        acmURL: 'https://careersmarketplace.ciostage.accenture.com/Home/Position/',
+        mySchedulingURL: 'https://mysched.ciostage.accenture.com/me/?path=assignment&id=',
+        faq: 'https://kx.accenture.com/repositories/contributionform.aspx?path=c34/2/11&mode=read',
+        services: {
+            conlearningService: {
+                serviceName: 'connectedlearningService',
+                identifier: 'https://connectedlearningapp.ciostage.accenture.com/api',
+                url: {
+                    user: {
+                        getUserSettings: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/userSettings',
+                        setHaveSeenTutorial: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/tutorial',
+                        setHaveSeenRecommededSkills: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/recommendedSkills',
+                        sendFeedback: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/sendFeedback',
+                        getClaims: 'https://connectedlearningapp.ciostage.accenture.com/api/user/claims',
+                        getProfile: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/profile?enterpriseid={1}',
+                        getAvatar: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/picture'
+                    },
+                    skills: {
+                        getUserSkills: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/myskills',
+                        getRecommendedSkills: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/skillsrecommended?roleId={1}&careerLevelCd={2}&size={3}',
+                        getFollowSkills: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/skillsfollowed?roleId={1}&careerLevelCd={2}',
+                        followUnfollowSkill: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/follow?skillId={1}&isFollow={2}&skillType={3}',
+                        getSkillDescription: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/skilldetail/{1}/description',
+                        getUserDTE: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/dte?enterpriseid={1}',
+                        getBusinessPrioritySkills: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/bpskills?dte={1}',
+                        getSpecialtySkills: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/specializationskills?size={1}',
+                        getTopSkills: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/topskills?roleid={1}&careerlevelcd={2}'
+                    },
+                    recommendations:
+                    {
+                        getRecommendedLearnings: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/recommendedlearnings?size={1}&killCache={2}',
+                        getRecommendedCommunities: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/recommendedcommunities?skills={1}&size={2}&killCache={3}',
+                        getRecommendedPYMK: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/recommendedpeople?careerLevelCd={1}&size={2}&killCache={3}',
+                        getSkillRecommendedLearnings: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/skilldetail/{1}/learnings?title={2}&careerLevelCd={3}&userProficiency={4}&size={5}&killCache={6}',
+                        getLearningDetail: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/learningdetail/{1}?killCache=true'
+                    }
+                }
+            },
+           myLearningService: {
+                serviceName: 'myLearningService',
+                identifier: 'https://pews-pi.accenture.com/mylapi/',
+                apiKey: 'rzbbpxmbvrxwjvrk69xn6kjk',
+                secretKey: 'dhPg8wbbAW5cfecBfRbtJg5R',
+                appName: 'myLearningService',
+                url: {
+                    myExpenses: 'https://mylbuild-pews.accenture.com/aclapi',
+
+                    apis: {
+                        getSingleFacility: 'https://webservice.accenture.com/1720_myLAPI/SB/Facility/getFacilityInfo?ActivityID={0}&FacilityID={1}&api_key={2}&sig={3}',
+                        getFacilityList: 'https://pews-pi.accenture.com/aclapi/Facility/getFacilityList?api_key={0}&sig={1}'
+                    },
+                    training: {
+                        getTraining: 'https://webservice.accenture.com/1720_myLAPI/SB/Activity/getClassroomTrainingSchedule?api_key={0}&sig={1}',
+                        getTrainingDesc: 'https://webservice.accenture.com/1720_myLAPI/SB/Activity/getCourseObjectives?ActivityID={0}&api_key={1}&sig={2}',
+                        getTrainingDetails: 'https://webservice.accenture.com/1720_myLAPI/SB/Activity/getActivityAndUserDetails?ActivityID={0}&RecordCount={1}&ReturnSetFlag={2}&api_key={3}&sig={4}',
+                        getCourseCode: 'https://webservice.accenture.com/1720_myLAPI/SB/activity/getScheduleAndMaterials?ActivityID={0}&api_key={1}&sig={2}',
+                        getCourseSchedule:'https://webservice.accenture.com/1720_myLAPI/SB/Activity/getScheduleDetails?ActivityID={0}&api_key={1}&sig={2}',
+                        getCourseMeterial: 'https://webservice.accenture.com/1720_myLAPI/SB/Activity/getMaterialsDetails?ActivityID={0}&api_key={1}&sig={2}',
+                        getPeopleLikeMe: 'https://webservice.accenture.com/1720_myLAPI/SB/Activity/getPeopleLikeMe?PeopleKey={0}&ActivityID={1}&Source={2}&api_key={3}&sig={4}',
+                  
+                        getDemographicType: 'https://webservice.accenture.com/1720_myLAPI/SB/Activity/GetSupportedDemogs?source={0}&api_key={1}&sig={2}',
+                        getDemographics: 'https://webservice.accenture.com/1720_myLAPI/SB/Activity/GetPeopleByDemog?ActivityID={0}&Source={1}&DemogTypeLabel={2}&api_key={3}&sig={4}',
+                        getSurveyForSession: 'https://webservice.accenture.com/1720_myLAPI/SB/Activity/SurveyForSession?ActivityID={0}&api_key={1}&sig={2}',
+                        getSurveyForFaculty: 'https://webservice.accenture.com/1720_myLAPI/SB/Activity/SurveyForFaculty?ActivityID={0}&api_key={1}&sig={2}',
+                        getActivityTabs:'https://webservice.accenture.com/1720_myLAPI/SB/Activity/getActivityTabs?ActivityID={0}&api_key={1}&sig={2}',
+
+
+                        getRollCall: 'https://webservice.accenture.com/1720_myLearning/SB/AttendanceManagement/rollCall?AuthorID={0}&AuthorIDType={1}&ActivityID={2}&StatusTS={3}&api_key={4}&sig={5}',
+                        getLearnerByStatus: 'https://webservice.accenture.com/1720_myLearning/SB/AttendanceManagement/LearnerByStatus?AuthorID={0}&AuthorIDType={1}&ActivityID={2}&AttendanceStatus={3}&StatusTS={4}&api_key={5}&sig={6}',
+                        getAttendanceInfo: 'https://webservice.accenture.com/1720_myLearning/SB/AttendanceManagement/AttendanceInfo?AuthorID={0}&AuthorIDType={1}&LearnerID={2}&ActivityID={3}&StatusTS={4}&api_key={5}&sig={6}',
+                        postCheckIn: 'https://webservice.accenture.com/1720_myLearning/SB/AttendanceManagement/checkIn?api_key={0}&sig={1}',
+                        postCheckOut: 'https://webservice.accenture.com/1720_myLearning/SB/AttendanceManagement/checkOut?api_key={0}&sig={1}',
+                        postAttendanceInfo: 'https://webservice.accenture.com/1720_myLearning/SB/AttendanceManagement/AttendanceInfo?api_key={0}&sig={1}',
+                        getCircles: 'https://webservice.accenture.com/1720_myLearning/SB/AttendanceManagement/getCircles?AuthorID={0}&AuthorIDType={1}&ActivityID={2}&api_key={3}&sig={4}',
+                        getVenue:'https://webservice.accenture.com/1720_myLearning/SB/Activity/getCurrentRLCSessionSchedule?facilityID={0}&api_key={1}&sig={2}',
+                        getUpcomingSessions:'https://webservice.accenture.com/1720_myLearning/SB/Activity/getAdminRLCSessionDetails?StartDate={0}&EndDate={1}&AuthorIDType={2}&FacilityID={3}&TabCategory={4}&api_key={5}&sig={6}',
+                        modifyDefaultCircle: 'https://webservice.accenture.com/1720_myLearning/SB/AttendanceManagement/ModifyDefaultCircle?api_key={0}&sig={1}',
+                        searchPeople: 'https://webservice.accenture.com/1720_myLAPI/SB/Activity/getRosterDetails?ActivityID={0}&RecordCount={1}&ReturnSetFlag={2}&SearchStr={3}&DemogCategory={4}&DemogKey={5}&api_key={6}&sig={7}',
+                        getPeopleOnSite: 'https://webservice.accenture.com/1720_myLAPI/SB/Facility/getPeopleOnSite?ActivityID={0}&SearchStr={1}&RecordCount={2}&DemogCategory={3}&DemogKey={4}&api_key={5}&sig={6}',
+                        getActivityEventInfo: 'https://webservice.accenture.com/1720_myLearning/Perf/Activity/getActivityEventInfo?api_key={1}&sig={2}'
+                    },
+                    menu: {
+                        getFullName: 'https://webservice.accenture.com/1720_myLAPI/SB/other/getPeopleData?eid={0}&api_key={1}&sig={2}',
+                        getProfilePicture: 'https://webservice.accenture.com/1720_myLAPI/SB/other/getProfilePicture?eid={0}&api_key={1}&sig={2}',
+                        getProfileInfo: 'https://webservice.accenture.com/1720_myLAPI/SB/other/getPeopleData?eid={0}&api_key={1}&sig={2}'
+                    },
+                    impersonation: {
+                        getACLWhitelistUser: 'https://webservice.accenture.com/1720_myLAPI/SB/User/getACLWhitelistUser?enterpriseID={0}&api_key={1}&sig={2}',
+                        getManageModePermission: 'https://webservice.accenture.com/1720_myLAPI/SB/User/getACLManageModePermission?enterpriseID={0}&impersonateKey={1}&api_key={2}&sig={3}',
+                        getSampleSessions: 'https://webservice.accenture.com/1720_myLAPI/SB/login/getSampleSessions?CourseCode={0}&api_key={1}&sig={2}'
+                    },
+                    weather: {
+                        getCurrentObservation: 'https://query.yahooapis.com/v1/public/yql?q={0}&format=json'
+                    },
+                    personalisedMessage: {
+                        getPersonalisedMessage: 'https://webservice.accenture.com/1720_myLearning/SB/AttendanceManagement/PersonalisedMessage?AuthorID={0}&ActivityID={1}&api_key={2}&sig={3}',
+                        postPersonalisedMessage: 'https://webservice.accenture.com/1720_myLearning/SB/AttendanceManagement/PersonalisedMessage?api_key={0}&sig={1}',
+                        putPersonalisedMessage:'https://webservice.accenture.com/1720_myLearning/SB/AttendanceManagement/PersonalisedMessage?api_key={0}&sig={1}'
+                    }
+                }
+            },
+            careerPlanningService: {
+                serviceName: 'careerPlanningService',
+                identifier: 'https://careerplanning.ciostage.accenture.com/webapi/api/external-service/',
+                url: {
+                    careerBoard: {
+                        getFutureSkills: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/futureskills?roleId={1}&careerLevelCd={2}&size={3}'
+                    }
+                }
+            },
+            actionPlanService: {
+                serviceName: 'actionPlanService',
+                identifier: 'https://actionplanservice.ciostage.accenture.com/',
+                url: {
+                    actionPlan: {
+                        getActionPlan: 'https://actionplanservice.ciostage.accenture.com/external-service/GetActionPlan',
+                        addActionPlanItem: 'https://actionplanservice.ciostage.accenture.com/external-service/InsertActionPlan(sourceappCode={0})',
+                        removeActionPlanItem: 'https://actionplanservice.ciostage.accenture.com/external-service/DeleteActionPlan(actionPlanId={0})',
+                        updateTargetDateActionPlanItem: 'https://actionplanservice.ciostage.accenture.com/external-service/UpdateActionPlanTargetDate(sourceappCode={0},actionPlanId={1},targetDate={2})',
+                        updateStatusActionPlanItem: 'https://actionplanservice.ciostage.accenture.com/external-service/UpdateActionPlanStatus(sourceappCode={0},actionPlanId={1},status={2})'
+                    }
+                }
+            },
+            mySchedulingService: {
+                serviceName: 'mySchedulingService',
+                identifier: 'https://myschedsvc.ciostage.accenture.com',
+                url: {
+                    assignments: {
+                        getMySchedulingAssignments: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/recommendedassignments?enterpriseId={1}&size={2}&skills={3}&careerLevelCd={4}&killCache={5}',
+                        getAssignmentDetail: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/assignmentdetail?assignmentid={1}&killcache=true'
+
+                    }
+                }
+            },
+            acmService: {
+                serviceName: 'acmService',
+                identifier: 'https://careersmarketplace.ciostage.accenture.com/webapi/api/external-service/',
+                url: {
+                    positions: {
+                        getACMPositions: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/recommendedopportunities?skills={1}&careerLevelCd={2}&size={3}&killCache={4}',
+                        getPositionDetails: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/opportunitydetail?positionId={1}&killCache=true'
+                    }
+                }
+            },
+            circleService: {
+                serviceName: 'circleService',
+                identifier: 'urn:federation:collabstreammobile:service',
+                circleId: '79dbd409-5edc-46a9-8e92-0006751722fe',
+                circleGUID: '881985c9-ba27-4ff8-acaa-3953f7b8184c',
+                url: {
+                    stream: {
+                        getStream: 'https://collab-ts.cioperf.accenture.com/m/api/v2/Stream/{0}?threadCount={1}&pagingToken={2}',
+                        getStreamDetail: 'https://collab-ts.cioperf.accenture.com/m/api/Stream/thread/{0}',
+                        like: 'https://collab-ts.cioperf.accenture.com/m/api/Stream/like/{0}',
+                        share: 'https://collab-ts.cioperf.accenture.com/m/api/Stream/shares/{0}',
+                        comment: 'https://collab-ts.cioperf.accenture.com/m/api/Stream/comments/{0}',
+                        post: 'https://collab-ts.cioperf.accenture.com/m/api/v2/Stream/{0}/event',
+                        upload: 'https://collab-ts.cioperf.accenture.com/m/api/Stream/upload/file?extension=.jpg',
+                        getSuggestions: 'https://collab-ts.cioperf.accenture.com/m/api/Stream/search',
+                        getDiscussionStreamSecured: 'https://collab-ts.cioperf.accenture.com/m/api/v2/Stream/{0}?threadCount={1}&pagingToken={2}&searchTxt={3}',
+                        follow: 'https://collab-ts.cioperf.accenture.com/m/api/Stream/follow/{0} ',
+                        getfollowstatus: 'https://collab-ts.cioperf.accenture.com/m/v2/api/Stream/tag?o=true&tag={0}'
+                    }
+                }
+            }
+        }
+    };
+    //APT Env
     var config_PERF = {
         clientId: 'f45302e0-3ac5-4ebe-b6fa-261b946928d4',
         environment: 'PERF',
@@ -658,98 +829,7 @@ app.provider('environmentData', ['connectedLearning.constants.environments', fun
             }
         }
     };
-    var config_STAGE = {
-        clientId: 'f45302e0-3ac5-4ebe-b6fa-261b946928d4',
-        environment: 'STAGE',
-        peopleUrl: 'https://peopleux-perf.ciotest.accenture.com/Experience.aspx?accountname=',
-        acmURL: 'https://careersmarketplace.ciostage.accenture.com/Home/Position/',
-        mySchedulingURL: 'https://mysched.ciostage.accenture.com/me/?path=assignment&id=',
-        faq: 'https://kx.accenture.com/repositories/contributionform.aspx?path=c34/2/11&mode=read',
-        services: {
-            conlearningService: {
-                serviceName: 'connectedlearningService',
-                identifier: 'https://connectedlearningapp.ciostage.accenture.com/api',
-                url: {
-                    user: {
-                        getUserSettings: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/userSettings',
-                        setHaveSeenTutorial: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/tutorial',
-                        setHaveSeenRecommededSkills: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/recommendedSkills',
-                        sendFeedback: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/sendFeedback',
-                        //getClaims: 'data/claims.json',
-                        getClaims: 'https://connectedlearningapp.ciostage.accenture.com/api/user/claims',
-                        getProfile: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/profile?enterpriseid={1}',
-                        getAvatar: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/picture'
-                    },
-                    skills: {
-                        getUserSkills: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/myskills',
-                        getRecommendedSkills: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/skillsrecommended?roleId={1}&careerLevelCd={2}&size={3}',
-                        getFollowSkills: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/skillsfollowed?roleId={1}&careerLevelCd={2}',
-                        followUnfollowSkill: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/follow?skillId={1}&isFollow={2}&skillType={3}',
-                        getSkillDescription: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/skilldetail/{1}/description',
-                        getUserDTE: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/dte?enterpriseid={1}',
-                        getBusinessPrioritySkills: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/bpskills?dte={1}',
-                        getSpecialtySkills: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/specializationskills?size={1}',
-                        getTopSkills: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/topskills?roleid={1}&careerlevelcd={2}'
-                    },
-                    recommendations:
-                    {
-                        getRecommendedLearnings: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/recommendedlearnings?size={1}&killCache={2}',
-                        getRecommendedCommunities: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/recommendedcommunities?skills={1}&size={2}&killCache={3}',
-                        getRecommendedPYMK: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/recommendedpeople?careerLevelCd={1}&size={2}&killCache={3}',
-                        getSkillRecommendedLearnings: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/skilldetail/{1}/learnings?title={2}&careerLevelCd={3}&userProficiency={4}&size={5}&killCache={6}',
-                        getLearningDetail: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/learningdetail/{1}?killCache=true'
-                    }
-                }
-            },
-            myLearningService: {
-                serviceName: 'myLearningService',
-                identifier: 'https://pews-pi.accenture.com/mylapi/'
-            },
-            careerPlanningService: {
-                serviceName: 'careerPlanningService',
-                identifier: 'https://careerplanning.ciostage.accenture.com/webapi/api/external-service/',
-                url: {
-                    careerBoard: {
-                        getFutureSkills: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/futureskills?roleId={1}&careerLevelCd={2}&size={3}'
-                    }
-                }
-            },
-            actionPlanService: {
-                serviceName: 'actionPlanService',
-                identifier: 'https://actionplanservice.ciostage.accenture.com/',
-                url: {
-                    actionPlan: {
-                        getActionPlan: 'https://actionplanservice.ciostage.accenture.com/external-service/GetActionPlan',
-                        addActionPlanItem: 'https://actionplanservice.ciostage.accenture.com/external-service/InsertActionPlan(sourceappCode={0})',
-                        removeActionPlanItem: 'https://actionplanservice.ciostage.accenture.com/external-service/DeleteActionPlan(actionPlanId={0})',
-                        updateTargetDateActionPlanItem: 'https://actionplanservice.ciostage.accenture.com/external-service/UpdateActionPlanTargetDate(sourceappCode={0},actionPlanId={1},targetDate={2})',
-                        updateStatusActionPlanItem: 'https://actionplanservice.ciostage.accenture.com/external-service/UpdateActionPlanStatus(sourceappCode={0},actionPlanId={1},status={2})'
-                    }
-                }
-            },
-            mySchedulingService: {
-                serviceName: 'mySchedulingService',
-                identifier: 'https://myschedsvc.ciostage.accenture.com',
-                url: {
-                    assignments: {
-                        getMySchedulingAssignments: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/recommendedassignments?enterpriseId={1}&size={2}&skills={3}&careerLevelCd={4}&killCache={5}',
-                        getAssignmentDetail: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/assignmentdetail?assignmentid={1}&killcache=true'
 
-                    }
-                }
-            },
-            acmService: {
-                serviceName: 'acmService',
-                identifier: 'https://careersmarketplace.ciostage.accenture.com/webapi/api/external-service/',
-                url: {
-                    positions: {
-                        getACMPositions: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/recommendedopportunities?skills={1}&careerLevelCd={2}&size={3}&killCache={4}',
-                        getPositionDetails: 'https://connectedlearningapp.ciostage.accenture.com/api/user/{0}/opportunitydetail?positionId={1}&killCache=true'
-                    }
-                }
-            }
-        }
-    };
     var config_PROD = {
         clientId: '3becaaac-7e22-4e31-81b9-ab16a5796069',
         environment: 'PROD',

@@ -3,14 +3,14 @@
  */
 'use strict';
 
-controllers.controller('ongoingEventsController',['$scope', '$rootScope', '$ionicScrollDelegate', 'trainingService', 'itemPathService','$stateParams',
-    function ($scope, $rootScope, $ionicScrollDelegate, trainingService, itemPathService, $stateParams) {
+controllers.controller('ongoingEventsController',['$scope', '$rootScope', '$ionicScrollDelegate', 'trainingService', 'itemPathService','$stateParams','$ionicLoading',
+    function ($scope, $rootScope, $ionicScrollDelegate, trainingService, itemPathService, $stateParams,$ionicLoading) {
 
         $scope.allSessionsIcon = [];
         $scope.allSessionsShow = [];
         $scope.SessionsList = [];
         $scope.noSessionsList = false;
-        $scope.NoData = "You have no ongoing training.";
+        $scope.NoData = "There's no course at this facility in this week.";
         $scope.FailedToGetData = "";
 
         function pushItem(item,cityList) {
@@ -40,6 +40,7 @@ controllers.controller('ongoingEventsController',['$scope', '$rootScope', '$ioni
             return cityList;
         }
 
+        $ionicLoading.show();
         trainingService.getVenue($stateParams.facilityID || 1).then(
             function (data) {
                 $scope.FailedToGetData = "";
@@ -61,6 +62,7 @@ controllers.controller('ongoingEventsController',['$scope', '$rootScope', '$ioni
                     }
                 }
                 // $scope.finishGetVenueList = true;
+                $ionicLoading.hide();
             },
 
             function (data,status) {
@@ -71,6 +73,7 @@ controllers.controller('ongoingEventsController',['$scope', '$rootScope', '$ioni
                 $scope.FailedToGetData = "Error";
                 // $scope.finishGetVenueList = true;
                 $rootScope.showSplash = false;
+                $ionicLoading.hide();
             }
         );
 
@@ -90,7 +93,7 @@ controllers.controller('ongoingEventsController',['$scope', '$rootScope', '$ioni
         // $scope.allSessionsShow = [];
         // $scope.SessionsList = [];
         // $scope.noSessionsList = false;
-        // $scope.NoData = "Sorry,no ongoing training at the venue next week.";
+        // $scope.NoData = "There's no course at this facility in this week.";
         // $scope.FailedToGetData = "";
         //
         // function getFacilityCityList(gets) {

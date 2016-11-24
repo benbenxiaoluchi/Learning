@@ -26,9 +26,19 @@
         <!--when SendTo is not empty will show the second NewMessage Page(30/39) -->
         <div id="newMessageFromEIDSlide" >
                 <textarea ng-model="message.body" placeholder="Type your message" class="newPersonalisedMessage-textarea"></textarea>
+            <!--<div class="newPersonalisedMessage-item-wrap">-->
+                <!--<div class="newPersonalisedMessage-item-btn {{scheduleStyle}}" ng-click="clickSchedule()">SCHEDULE FOR LATER</div>-->
+                <!--<div class="newPersonalisedMessage-item-btn {{nowStyle}}" ng-click="clickNow()">SEND NOW</div>-->
+            <!--</div>-->
             <div class="newPersonalisedMessage-item-wrap">
-                <div class="newPersonalisedMessage-item-btn {{scheduleStyle}}" ng-click="clickSchedule()">SCHEDULE FOR LATER</div>
-                <div class="newPersonalisedMessage-item-btn {{nowStyle}}" ng-click="clickNow()">SEND NOW</div>
+                <label>Message Type: </label>
+                <div ng-click="showSendOption()">
+                    <span class="list-top-banner-inner">{{sendOption}}</span>
+                    <i class="icon ion-chevron-down"></i>
+                </div>
+            </div>
+            <div ng-if="!showSchedulePlugin">
+                <div class="newPersonalisedMessage-textarea-btn" ng-click="clickNow()">SEND THIS MESSAGE NOW</div>
             </div>
             <div ng-if="showSchedulePlugin">
                 <label class="item item-input item-icon-right" ng-click="openDatePlugin()">
@@ -45,7 +55,7 @@
                     <span class="item-note" placeholder="HH:MM">{{scheduleTime}}</span>
                     <i class="icon acc-alarm-clock" style="padding-right: 5px"></i>
                 </label>
-                <div class="newPersonalisedMessage-textarea-btn" ng-click="clickToSendMessage('schedule')">CONFIRM</div>
+                <div class="newPersonalisedMessage-textarea-btn" ng-click="clickToSendMessage('schedule')">SAVE AND SEND THIS MESSAGE LATER</div>
             </div>
 
         </div>

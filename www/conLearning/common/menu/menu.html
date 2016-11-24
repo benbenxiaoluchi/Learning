@@ -16,52 +16,41 @@
             
             <ion-list>
                 <ion-item nav-clear class="menu-list-item" menu-close
-                          ng-click="navigateToState('app.trainingDetailTabs.activityTab', {selectedTraining: null,fromMyTraining: null,fromEventUpdate:true}, false, true)">
+                          ng-click="navigateToState('app.trainingDetailTabs.activityTab', {selectedTraining: null,fromMyTraining: null}, true, true)">
                     Event Updates
                 </ion-item>
                 <ion-item nav-clear class="menu-list-item" menu-close
                           ng-click="navigateToState('app.myTraining', null, true)">My Training
                 </ion-item>
                 <!--<ion-item nav-clear class=menu-list-item menu-close ng-click="navigateToState('app.ongoingEventsThisVenue', null, true)">All Ongoing Events</ion-item>-->
-                <ion-item nav-clear class="menu-list-item bdbn">
-                    <div ng-click="collapseCenters()">
+                <ion-item nav-clear class="menu-list-item bdbn" ng-click="collapseCenters()">
+                    <div>
                         Regional Learning Centers
                         <i ng-class="showCentersInMenu?'ion-ios-arrow-up':'ion-ios-arrow-down'"
                            class="menu-list-item-arr"></i>
                     </div>
                 </ion-item>
-                <ion-item nav-clear menu-close ng-show="showCentersInMenu" class="menu-list-item-sub"
-                          href="#/app/learningCenter?city=St. Charles">St.Charles Learning Center
+                <ion-item ng-repeat="facility in facilityInformation" nav-clear menu-close ng-show="showCentersInMenu" class="menu-list-item-sub"
+                          href="#/app/learningCenter?city={{facility.city}}">
+                    {{facility.country || facility.city}} Learning Center
                 </ion-item>
-                <ion-item nav-clear menu-close ng-show="showCentersInMenu" class="menu-list-item-sub"
-                          href="#/app/learningCenter?city=Bengaluru">India Learning Center
-                </ion-item>
-                <ion-item nav-clear menu-close ng-show="showCentersInMenu" class="menu-list-item-sub"
-                          href="#/app/learningCenter?city=Kuala Lumpur">Malaysia Learning Center
-                </ion-item>
-                <ion-item nav-clear menu-close ng-show="showCentersInMenu" class="menu-list-item-sub"
-                          href="#/app/learningCenter?city=Madrid">Spain Learning Center
-                </ion-item>
-                <ion-item nav-clear menu-close ng-show="showCentersInMenu" class="menu-list-item-sub"
-                          href="#/app/learningCenter?city=London">UK Learning Center
-                </ion-item>
-                <ion-item nav-clear class="menu-list-item bdt bdbn" ng-if="adminFlage">
-                    <div ng-click="collapseAdministration()">
+                <ion-item nav-clear class="menu-list-item bdt bdbn" ng-if="adminFlage&&!ImpersonateStatus" ng-click="collapseAdministration()">
+                    <div>
                         Administration
                         <i ng-class="showAdminContent?'ion-ios-arrow-up':'ion-ios-arrow-down'"
                            class="menu-list-item-arr"></i>
                     </div>
                 </ion-item>
-                <ion-item nav-clear menu-close ng-show="showAdminContent"
+                <ion-item nav-clear menu-close ng-show="showAdminContent&&!ImpersonateStatus"
                           class="menu-list-item-sub2"
-                          ng-click="navigateToState('app.events', null, true)">ILC Sessions
+                          ng-click="navigateToState('app.events', null, true)">RLC Sessions
                 </ion-item>
-                <ion-item nav-clear menu-close ng-show="showAdminContent"
+                <ion-item nav-clear menu-close ng-show="showAdminContent&&!ImpersonateStatus"
                           class="menu-list-item-sub2"
                           ng-click="clickImpersonation()">
-                    {{ImpersonateStatus== true ? "End Impersonation" : "Impersonate a Learner"}}
+                    Impersonate a Learner
                 </ion-item>
-                <ion-item nav-clear menu-close ng-show="showAdminContent"
+                <ion-item nav-clear menu-close ng-show="showAdminContent&&!ImpersonateStatus"
                           class="menu-list-item-sub2 bdb"
                           ng-click="downReport()">Reports
                 </ion-item>
@@ -70,7 +59,10 @@
                 <ion-item nav-clear class="menu-list-item" menu-close
                           ng-click="navigateToState('app.feedbackSurvey', null, true)">Give us your feedback
                 </ion-item>
-                <ion-item nav-clear class="menu-list-item" menu-close ng-click="showAbout()">About</ion-item>
+                <ion-item nav-clear class="menu-list-item" menu-close ng-click="clickImpersonation()" ng-show="ImpersonateStatus">
+                    End Impersonation
+                </ion-item>
+                <ion-item nav-clear class="menu-list-item" menu-close ng-click="navigateToCopyRights()">About - Copyrights</ion-item>
 
                 <!--<ion-item nav-clear menu-close ng-click="navigateToState('app.home', null, true)">RECOMMENDATIONS</ion-item>-->
                 <!--<ion-item nav-clear menu-close ng-click="navigateToState('app.skills', null, true)">SKILLS I'M FOLLOWING</ion-item>-->
@@ -127,7 +119,8 @@
         --></ion-content>
         <ion-footer-bar align-title="left" class="bar-clear"  style="z-index:9999">
             <a menu-close ng-click="navigateProfile(peoplekey,loginUserID)">
-                <img acn-image-display data-ref="{{profileImage}}" />
+                <img ng-src="data:image/jpeg;base64,{{ profileImage }}" />
+                <!--<img acn-image-display data-ref="{{profileImage}}" />-->
                 <h1 class="title">{{fullName}}</h1>
             </a>
         </ion-footer-bar>

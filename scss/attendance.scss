@@ -16,24 +16,46 @@
         line-height: 50px;
         font-weight: normal;
     }
-    
+    p {
+        position: absolute;
+        top: 15px;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        color: #fff;
+        font-size: 14px;
+        text-align: center;
+        line-height: 50px;
+        font-weight: normal;
+    }
     .acc-angle-left {
         position: absolute;
-        left: 20px;
-        top: 15px;
+        left: 5px;
+        top: 0;
+        padding: 15px;
         font-size: 18px;
         color: #fff;
         z-index: 99;
     }
-    
+    .ion-ios-bell {
+        position: absolute;
+        top: 4px;
+        right: 8px
+    }
+    button {
+        color: #fff;
+    }
 }
-
+.bgctransparent {
+    background-color: transparent;
+    background-size: 0;
+}
 .tab-attendance-head.bgc000 {
-    background-color: #000;
+    background-color: #000 !important;
 }
 
 .tab-attendance-head.bgcb90b62 {
-    background-color: #b90b62;
+    background-color: #b90b62 !important;
 }
 
 .tab-attendance-date-info-wrap {
@@ -186,7 +208,7 @@
     border-radius: 2px;
 }
 
-.attendance-checkindetail-wrap .attendance-wrapper{
+.attendance-checkindetail-wrap .attendance-wrapper {
     padding: 20px 10%;
 }
 
@@ -220,7 +242,7 @@
     vertical-align: middle;
 }
 
-.attendance-checkindetail-wrap .check-slider-wrapper{
+.attendance-checkindetail-wrap .check-slider-wrapper {
     width: 70%;
     display: inline-block;
 }
@@ -229,7 +251,7 @@
     color: #666;
 }
 
-.attendance-checkindetail-wrap  .text-area-check {
+.attendance-checkindetail-wrap .text-area-check {
     max-height: 80px;
 }
 
@@ -245,4 +267,52 @@
 
 .attendance-checkindetail-wrap .attendance-checkinslider-close {
     top: -5px;
+}
+
+.attendance-date-btn {
+    width: 60%;
+    height: 30px;
+    border: 1px solid #0d95d3;
+    background-color: transparent;
+    border-radius: 2px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.tab-attendance-day-wrap.dif-sp {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.schedule-list-title2 {
+    font-size: 12px;
+    color: #999;
+}
+
+.pdl22 {
+    padding-left: 22px;
+}
+
+.tab-attendance-date-info-wrap.dibonline {
+    padding: 0;
+    display: inline-block;
+}
+
+.tab-attendance-day-wrap.dibonline {
+    display: inline-block;
+}
+
+.tab-attendance-day-wrap.dibonline .scheduleDetail-date {
+    margin-right: 0;
+}
+.calendar-style {
+    width: 20px;
+    height: 20px;
+}
+.acc-write-document {
+    padding: 24px;
+    top: 0 !important;
+    right: 0 !important;
 }

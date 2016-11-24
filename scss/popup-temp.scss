@@ -40,6 +40,15 @@
     font-size: 16px;
 }
 
+.learn-Icon-ParticipantsInRoom.attendance-titleicon {
+    font-family: Ionicons !important;
+    background-color: #999;
+}
+
+.learn-Icon-ParticipantsInRoom.attendance-titleicon:before {
+    content: '\f39d';
+}
+
 .checkIn-popup-wrap h6 {
     color: #999;
     font-size: 14px;

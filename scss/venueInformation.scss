@@ -1,0 +1,48 @@
+.facilityVenueMap-wrap .item-image .facilityVenueMap-wrap-img-map {
+    width: 100vw;
+    height: auto;
+}
+
+.facilityVenueMap-wrap .scroll-content.ionic-scroll,
+.venueInformation-wrap .scroll-content.ionic-scroll {
+    top: 50px;
+}
+
+.venueInformation-wrap .card.acc-thing {
+    padding: 15px;
+}
+
+.venueInformation-wrap .weather .w_bigtext_current_temp {
+    line-height: normal;
+}
+
+.venueInformation-wrap .col.w_small.ng-binding {
+    text-align: center;
+}
+
+.venueInformation-wrap .col.w_small.ng-binding img {
+    width: 100%;
+}
+
+.facilityVenueWeather-bigimg {
+    margin-top: -20px;
+}
+
+.locaWeather-title {
+    padding: 0 20px;
+    height: 50px;
+    line-height: 50px;
+    background-color: #fff;
+    font-size: 14px;
+    color: #999;
+    text-transform: uppercase;
+}
+
+.weather-table-wrap tr td:first-of-type {
+    padding-left: 20px;
+    width: 40%;
+}
+
+.weather-table-wrap tr td [class*=weather-Weather-] {
+    font-size: 28px;
+}

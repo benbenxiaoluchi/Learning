@@ -32,139 +32,268 @@ $icomoon-font-path: "../fonts/learn-icon" !default;
 .learn-Icon-Activity:before {
     content: "\e900";
 }
-
 .learn-Icon-ActivitySettings:before {
     content: "\e901";
 }
-
 .learn-Icon-ActivitySettingsHelp:before {
     content: "\e902";
 }
-
 .learn-Icon-AddToCalendar:before {
     content: "\e903";
 }
-
 .learn-Icon-Camera:before {
     content: "\e904";
 }
-
 .learn-Icon-Close:before {
     content: "\e905";
 }
-
 .learn-Icon-Comment:before {
     content: "\e906";
 }
-
 .learn-Icon-Faculty:before {
     content: "\e907";
 }
-
 .learn-Icon-GetAround:before {
     content: "\e908";
 }
-
 .learn-Icon-HamburgerMenu:before {
     content: "\e909";
 }
-
 .learn-Icon-Like:before {
     content: "\e90a";
 }
-
 .learn-Icon-Message:before {
     content: "\e90b";
 }
-
 .learn-Icon-MoreAction:before {
     content: "\e90c";
 }
-
 .learn-Icon-NotificationBell:before {
     content: "\e90d";
 }
-
 .learn-Icon-Participants:before {
     content: "\e90e";
 }
-
 .learn-Icon-ParticipantsAll:before {
     content: "\e90f";
 }
-
 .learn-Icon-ParticipantsInRoom:before, .learn-Icon-ParticipantsNoAction:before {
     content: "\e910";
 }
-
 .learn-Icon-ParticipantsOutofRoom:before {
     content: "\e911";
 }
-
 .learn-Icon-Pencil:before {
     content: "\e912";
 }
-
 .learn-Icon-Schedule:before {
     content: "\e913";
 }
-
 .learn-Icon-Share:before {
     content: "\e914";
 }
-
 .learn-Icon-AddedToCalendar:before {
     content: "\e915";
 }
-
 .learn-Icon-AddToCalendar2:before {
     content: "\e916";
 }
-
 .learn-Icon-Complete .path1:before {
     content: "\e917";
     color: rgb(102, 102, 102);
 }
-
 .learn-Icon-Complete .path2:before {
     content: "\e918";
     margin-left: -1em;
     color: rgb(255, 255, 255);
 }
-
 .learn-Icon-Feedback:before {
     content: "\e919";
 }
-
 .learn-Icon-InProgress .path1:before {
-    content: "\e91a";
+    content: "\e91e";
     color: rgb(14, 159, 73);
 }
-
 .learn-Icon-InProgress .path2:before {
-    content: "\e91b";
+    content: "\e938";
     margin-left: -1em;
     color: rgb(255, 255, 255);
 }
-
 .learn-Icon-InProgress .path3:before {
-    content: "\e91c";
+    content: "\e939";
     margin-left: -1em;
     color: rgb(255, 255, 255);
 }
-
 .learn-Icon-MessageGroup:before {
-    content: "\e91d";
-}
-
-.learn-Icon-MessageIndividual:before {
-    content: "\e91e";
-}
-
-.learn-Icon-PickDateCalendar:before {
     content: "\e91f";
 }
-
+.learn-Icon-MessageIndividual:before {
+    content: "\e936";
+}
+.learn-Icon-PickDateCalendar:before {
+    content: "\e937";
+}
 .learn-Icon-PickTime:before {
     content: "\e920";
 }
+.learn-Icon-FileDefault .path1:before {
+    content: "\e93a";
+    color: rgb(255, 255, 255);
+}
+.learn-Icon-FileDefault .path2:before {
+    content: "\e93b";
+    margin-left: -1em;
+    color: rgb(153, 153, 153);
+}
+.learn-Icon-FileDefault .path3:before {
+    content: "\e93c";
+    margin-left: -1em;
+    color: rgb(204, 204, 204);
+}
+.learn-Icon-FileDefault .path4:before {
+    content: "\e93d";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+}
+.learn-Icon-FileDefault .path5:before {
+    content: "\e93e";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+}
+.learn-Icon-FileDefault .path6:before {
+    content: "\e93f";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+}
+.learn-Icon-FileMedia .path1:before {
+    content: "\e940";
+    color: rgb(255, 255, 255);
+}
+.learn-Icon-FileMedia .path2:before {
+    content: "\e941";
+    margin-left: -1em;
+    color: rgb(153, 153, 153);
+}
+.learn-Icon-FileMedia .path3:before {
+    content: "\e942";
+    margin-left: -1em;
+    color: rgb(0, 130, 173);
+}
+.learn-Icon-FileMedia .path4:before {
+    content: "\e943";
+    margin-left: -1em;
+    color: rgb(0, 130, 173);
+}
+.learn-Icon-FileDOC .path1:before {
+    content: "\e921";
+    color: rgb(255, 255, 255);
+}
+.learn-Icon-FileDOC .path2:before {
+    content: "\e922";
+    margin-left: -1em;
+    color: rgb(153, 153, 153);
+}
+.learn-Icon-FileDOC .path3:before {
+    content: "\e923";
+    margin-left: -1em;
+    color: rgb(12, 186, 237);
+}
+.learn-Icon-FileDOC .path4:before {
+    content: "\e924";
+    margin-left: -1em;
+    color: rgb(12, 186, 237);
+}
+.learn-Icon-FileDOC .path5:before {
+    content: "\e925";
+    margin-left: -1em;
+    color: rgb(12, 186, 237);
+}
+.learn-Icon-FileDOC .path6:before {
+    content: "\e926";
+    margin-left: -1em;
+    color: rgb(12, 186, 237);
+}
+.learn-Icon-FileDOC .path7:before {
+    content: "\e927";
+    margin-left: -1em;
+    color: rgb(12, 186, 237);
+}
+.learn-Icon-FileImage .path1:before {
+    content: "\e928";
+    color: rgb(255, 255, 255);
+}
+.learn-Icon-FileImage .path2:before {
+    content: "\e929";
+    margin-left: -1em;
+    color: rgb(153, 153, 153);
+}
+.learn-Icon-FileImage .path3:before {
+    content: "\e92a";
+    margin-left: -1em;
+    color: rgb(251, 179, 21);
+}
+.learn-Icon-FileImage .path4:before {
+    content: "\e92b";
+    margin-left: -1em;
+    color: rgb(251, 179, 21);
+}
+.learn-Icon-FilePDF .path1:before {
+    content: "\e92c";
+    color: rgb(255, 255, 255);
+}
+.learn-Icon-FilePDF .path2:before {
+    content: "\e92d";
+    margin-left: -1em;
+    color: rgb(153, 153, 153);
+}
+.learn-Icon-FilePDF .path3:before {
+    content: "\e92e";
+    margin-left: -1em;
+    color: rgb(236, 31, 36);
+}
+.learn-Icon-FilePPT .path1:before {
+    content: "\e92f";
+    color: rgb(255, 255, 255);
+}
+.learn-Icon-FilePPT .path2:before {
+    content: "\e930";
+    margin-left: -1em;
+    color: rgb(153, 153, 153);
+}
+.learn-Icon-FilePPT .path3:before {
+    content: "\e931";
+    margin-left: -1em;
+    color: rgb(243, 122, 32);
+}
+.learn-Icon-FilePPT .path4:before {
+    content: "\e932";
+    margin-left: -1em;
+    color: rgb(243, 122, 32);
+}
+.learn-Icon-FileXLS .path1:before {
+    content: "\e933";
+    color: rgb(255, 255, 255);
+}
+.learn-Icon-FileXLS .path2:before {
+    content: "\e934";
+    margin-left: -1em;
+    color: rgb(153, 153, 153);
+}
+.learn-Icon-FileXLS .path3:before {
+    content: "\e935";
+    margin-left: -1em;
+    color: rgb(141, 198, 63);
+}
+.learn-Icon-EventDetails:before {
+    content: "\e91d";
+}
+.learn-Icon-Feedback2:before {
+    content: "\e91a";
+}
+.learn-Icon-InnerMeTray:before {
+    content: "\e91b";
+}
+.learn-Icon-ManageAttendance:before {
+    content: "\e91c";
+}
+

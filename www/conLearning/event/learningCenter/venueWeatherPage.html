@@ -1,0 +1,82 @@
+﻿<ion-modal-view view-title="FacilityVenueWeather" class="facilityVenueWeather-wap" hide-nav-bar="true">
+    <ion-header-bar no-tap-scroll="true" class="tab-attendance-head" ng-class="{true: 'bgc000', false: 'bgcb90b62'}[trainingItem.fromAdmin]">
+        <i ng-click="hideVenueOptions()" class="acc-angle-left"></i>
+        <h1>
+            WEATHER
+        </h1>
+    </ion-header-bar>
+
+    <ion-content class="" has-bouncing="false" has-header="true">
+        <div class="yahoo-title">
+            yahoo weather widget
+        </div>
+        <ion-item class="weather-item-wrap" ng-show="weatherCard">
+            <!--Temperature & big Icon-->
+            <!--<div class="row">
+                <div class="col w_bigtext_current_temp">{{weather[0].results.channel.item.condition.temp}}</div>
+                <div class="col w_small_for_degreeF" style="{{ fontSizeF }}" ng-click="getFahrenheit()">Fº</div>
+                <div class="col w_small_for_degree"> |</div>
+                <div class="col w_small_for_degreeC" style="{{ fontSizeC }}" ng-click="getCentigrade()">Cº</div>
+                <div class="col">
+                    <img class="facilityVenueWeather-bigimg" src="img/weather/{{weather[0].results.channel.item.condition.code}}.png" />
+                </div>
+            </div>-->
+
+            <!-- List for future weather -->
+            <table class="weather-table-wrap">
+                <tr class="">
+                    <td>DATE</td>
+                    <td>MAX</td>
+                    <td>MIN</td>
+                    <td></td>
+                </tr>
+                <tr class="">
+                    <td>{{weather[0].results.channel.item.forecast[0].date | weatherDateProcessing}}</td>
+                    <td>{{weather[0].results.channel.item.forecast[0].high}}</td>
+                    <td>{{weather[0].results.channel.item.forecast[0].low}}</td>
+                    <td>
+                        <span class="weather-Weather-02"></span>
+                    </td>
+                </tr>
+                <tr class="">
+                    <td>{{weather[0].results.channel.item.forecast[1].date | weatherDateProcessing}}</td>
+                    <td>{{weather[0].results.channel.item.forecast[1].high}}</td>
+                    <td>{{weather[0].results.channel.item.forecast[1].low}}</td>
+                    <td>
+                        <span class="weather-Weather-03"></span>
+                    </td>
+                </tr>
+                <tr class="">
+                    <td>{{weather[0].results.channel.item.forecast[2].date | weatherDateProcessing}}</td>
+                    <td>{{weather[0].results.channel.item.forecast[2].high}}</td>
+                    <td>{{weather[0].results.channel.item.forecast[2].low}}</td>
+                    <td>
+                        <span class="weather-Weather-04"></span>
+                    </td>
+                </tr>
+                <tr class="">
+                    <td>{{weather[0].results.channel.item.forecast[3].date | weatherDateProcessing}}</td>
+                    <td>{{weather[0].results.channel.item.forecast[3].high}}</td>
+                    <td>{{weather[0].results.channel.item.forecast[3].low}}</td>
+                    <td>
+                        <span class="weather-Weather-05"></span>
+                    </td>
+                </tr>
+                <tr class="">
+                    <td>{{weather[0].results.channel.item.forecast[4].date | weatherDateProcessing}}</td>
+                    <td>{{weather[0].results.channel.item.forecast[4].high}}</td>
+                    <td>{{weather[0].results.channel.item.forecast[4].low}}</td>
+                    <td>
+                        <span class="weather-Weather-06"></span>
+                    </td>
+                </tr>
+            </table>
+            <!--<ion-item class="item item-text-wrap">
+            <a>
+                <h2>Weather in {{singleFacility[0].city}}</h2>
+            </a>
+            <p> {{weather[0].results.channel.item.condition.text}} </p>
+        </ion-item>-->
+        </ion-item>
+    </ion-content>
+</ion-modal-view>

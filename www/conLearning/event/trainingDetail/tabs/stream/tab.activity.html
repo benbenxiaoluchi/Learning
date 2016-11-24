@@ -1,54 +1,86 @@
-﻿<ion-view view-title="" acc-header-shrink
-          default-class="bar-transparent"
-          shrink-class="bar-dark"
-          title-template-html="event.header.html"
-          offset="155" class="activity-page-wrap">
-    <ion-nav-bar class="bar-transparent" align-title="left">
-        <ion-nav-buttons side="left">
-            <button menu-toggle="left" class="button button-icon learn-Icon-HamburgerMenu" ng-show="!trainingItem.fromAdmin"></button>
-            <i ng-click="$ionicGoBack()" class="acc-angle-left" ng-show="trainingItem.fromAdmin"></i>
-        </ion-nav-buttons>
-        <ion-nav-buttons side="right">
-            <i ng-click="viewNotifications()" ng-class="{true: 'ion-ios-bell activeity-head-bell-style', false: 'ion-ios-bell activeity-head-bell-NoUnRead-style'}[unReadIcon]" title="{{unreadCount}}"></i>
-        </ion-nav-buttons>
-    </ion-nav-bar>
+﻿<ion-view view-title="" hide-nav-bar="true" class="activity-page-wrap">
+    <!--<ion-nav-bar class="bar-transparent">-->
+        <!--<ion-nav-buttons side="left">-->
+            <!--<button menu-toggle="left" class="button button-icon learn-Icon-HamburgerMenu"-->
+                    <!--ng-if="!trainingItem.fromAdmin"></button>-->
+            <!--<i ng-click="navigateToState('app.events', null)" class="acc-angle-left" ng-if="trainingItem.fromAdmin"></i>-->
+        <!--</ion-nav-buttons>-->
+        <!--<ion-nav-buttons side="right">-->
+            <!--<i ng-click="viewNotifications()"-->
+               <!--ng-class="{true: 'ion-ios-bell activeity-head-bell-style', false: 'ion-ios-bell activeity-head-bell-NoUnRead-style'}[unReadIcon]"-->
+               <!--title="{{unreadCount}}"></i>-->
+        <!--</ion-nav-buttons>-->
+    <!--</ion-nav-bar>-->
+
     <ion-content locking="true" scroll-event-interval="5" has-header="false" has-bouncing="true"
-                 class="no-header" ng-class="{'people-bgr': !showCircleList}">
+                 class="no-header activity-page-content-bg" ng-class="{'people-bgr': !showCircleList}">
         <ion-list ng-class="{'activity-head-wrap': !showCircleList}">
             <ion-item-divider class="app-name">
-                <div class="activity-head-tittle" ng-if="!showCircleList">
-                    {{trainingItem.currentTrainingTitle}}
+                <ion-header-bar no-tap-scroll="true" class="tab-attendance-head bgctransparent"
+
+                                align-title="center">
+                    <i ng-click="backToEvents()" class="acc-angle-left" ng-if="trainingItem.fromAdmin"></i>
+                    <button menu-toggle="left" class="button button-icon learn-Icon-HamburgerMenu"
+                            ng-if="!trainingItem.fromAdmin"></button>
+                    <h1>
+                    </h1>
+                    <i ng-click="viewNotifications()" ng-if="!trainingItem.fromAdmin"
+                       ng-class="{true: 'ion-ios-bell activeity-head-bell-style', false: 'ion-ios-bell activeity-head-bell-NoUnRead-style'}[unReadIcon]"
+                       title="{{unreadCount}}"></i>
+                </ion-header-bar>
+                <!--
+                <div class="activity-page-navbar">
+                    <button menu-toggle="left" class="button button-icon learn-Icon-HamburgerMenu"
+                            ng-if="!trainingItem.fromAdmin"></button>
+                    <i ng-click="backToEvents()" class="acc-angle-left" ng-if="trainingItem.fromAdmin"></i>
+                    <i ng-click="viewNotifications()"
+                       ng-class="{true: 'ion-ios-bell activeity-head-bell-style', false: 'ion-ios-bell activeity-head-bell-NoUnRead-style'}[unReadIcon]"
+                       title="{{unreadCount}}" ng-if="!trainingItem.fromAdmin"></i>
                 </div>
-                <div class="activity-head-sub-tittle" ng-if="!showCircleList">
-                    {{trainingItem.currentTrainingDate}} | {{trainingItem.PATH}}
+                -->
+                <img ng-src="img/{{trainingItem.imgName}}" class="activity-page-headimg"/>
+                <div class="activity-head-tittle-wrap" ng-if="isContentDisabled">
+                    <div class="activity-head-tittle" ng-if="!showCircleList">
+                        INDIA LEARNING CENTER
+                    </div>
+                    <div class="activity-head-sub-tittle" ng-if="!showCircleList">
+                        No ongoing events for you...
+                    </div>
                 </div>
-                <div class="activity-head-bottom" ng-if="!showCircleList">
+                <div class="activity-head-tittle-wrap" ng-if="!isContentDisabled">
+                    <div class="activity-head-tittle" ng-if="!showCircleList">
+                        {{trainingItem.currentTrainingTitle}}
+                    </div>
+                    <div class="activity-head-sub-tittle" ng-if="!showCircleList">
+                        {{trainingItem.currentTrainingDate}} | {{trainingItem.city}}
+                    </div>
+                </div>
+                <div class="activity-head-bottom" ng-if="!showCircleList&&!isContentDisabled">
                     <div class="activity-head-bottom-left" ng-click="openNewArticle()">
                         <i class="learn-Icon-Pencil"></i>
                         <p class="activity-head-bottom-message">
                             What’s on your mind…
                         </p>
+                        <i class="learn-Icon-Camera" ng-click="openNewArticle()"></i>
                     </div>
                     <div class="activity-head-bottom-right">
-                        <i class="learn-Icon-Camera" ng-click="openNewArticle()"></i>
                         <i class="learn-Icon-ActivitySettings" ng-click="openSelectCircle()"></i>
                     </div>
                 </div>
             </ion-item-divider>
         </ion-list>
 
-        <ion-list class="stream-tab">
-            <div ng-if="circleId!='' && !showCircleList">
+        <ion-list class="stream-tab" ng-if="!isContentDisabled">
+            <div>
                 <ion-list class="light-bgr content">
-
                     <div class="list card acc-thing" ng-if="!showCircleList">
-                        <ion-item class="item-body noborders" ng-click="navigateToMaterials(1,'Oct 17, 2016','08:00','12:00','School Opening','Plenary Room','Competed',0)">
+                        <ion-item class="item-body noborders">
                             <div class="scheduleDetail-date">
                                 <div>DAY</div>
-                                <div>{{fakeItem.id}}</div>
+                                <div>{{trainingItem.SessionDay}}</div>
                             </div>
-                            <p>{{fakeItem.starttime}} - {{fakeItem.endtime}} | {{fakeItem.location}}</p>
-                            <h2>{{fakeItem.name}}</h2>
+                            <p>{{trainingItem.SessionStartTime}} - {{trainingItem.SessionEndTime}} | {{trainingItem.SessionLocation}}</p>
+                            <h2>{{trainingItem.SessionName}}</h2>
                         </ion-item>
                         <ion-item class="socialActions">
                             <div class="row">
@@ -82,12 +114,13 @@
                 </div>
             </div>
 
-            <ion-item class="item item-no-data" ng-if="!circleId">
-                <p class="noDataShowText">A Circle has not been enabled for this Event.</p>
-            </ion-item>
+            <!--<ion-item class="item item-no-data" ng-if="!circleId">-->
+                <!--<p class="noDataShowText">A Circle has not been enabled for this Event.</p>-->
+            <!--</ion-item>-->
         </ion-list>
     </ion-content>
-    <button class="button float-btn nomargins noborders button-dark animated an2 bounceIn"  ng-if="showPost" ng-click="openNewArticle()">
+    <button class="button float-btn nomargins noborders button-dark animated an2 bounceIn" ng-if="showPost"
+            ng-click="openNewArticle()">
         <i class="ion-ios-compose-outline"></i>POST
     </button>
 </ion-view>

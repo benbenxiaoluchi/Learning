@@ -4,15 +4,13 @@ controllers.controller('profileController', ['$timeout', '$scope', '$ionicHistor
     function ($timeout, $scope, $ionicHistory, $ionicModal, $rootScope, profileService, $ionicLoading, $cordovaToast, $window, constants, $stateParams, authService, environmentData, methods, crittercismService, streamService, menuService, localStorageService, $sce) {
 
         $scope.peopleKey = $stateParams.peopleKey;
-        $scope.enterpriseId = $stateParams.enterpriseId
+        $scope.enterpriseId = $stateParams.enterpriseId;
 
         $scope.getUserProfileInfo = function () {
 
             $scope.profilebase64 = undefined;
 
-            $ionicLoading.show({
-                templateUrl: 'popup.html', noBackdrop: true, hideOnStateChange: true, duration: 15000
-            });
+            $ionicLoading.show();
 
             $scope.profileInfo = {};
             $scope.professionalbio = '';
@@ -48,7 +46,7 @@ controllers.controller('profileController', ['$timeout', '$scope', '$ionicHistor
             });
 
             //Get profile image
-            cached = localStorageService.get("ACLMOBILE_IMAGE_" + $stateParams.enterpriseId);
+            var cached = localStorageService.get("ACLMOBILE_IMAGE_" + $stateParams.enterpriseId);
             if (cached == null || cached == "") {
                 menuService.getProfileImageModel($stateParams.enterpriseId).then(function (data) {
                     $scope.imgReady = true;
@@ -120,7 +118,7 @@ controllers.controller('profileController', ['$timeout', '$scope', '$ionicHistor
             var out = JSON.stringify(data["CupsProfile"][0]);
             out = out.replace('sps-jobtitle', 'spsjobtitle');
             $scope.profileInfo = JSON.parse(out);
-        }
+        };
         /// <summary>
         /// Controller that manages functionality related to profile and skills
         /// </summary>

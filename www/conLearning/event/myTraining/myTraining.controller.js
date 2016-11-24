@@ -1,7 +1,7 @@
 ﻿'use strict';
 controllers.controller('myTrainingController',
-    ['$scope', '$rootScope', 'trainingService', 'authService', '$ionicLoading', 'itemPathService', 'connectedLearning.messages','connectedLearning.constants', 'environmentData',
-function ($scope, $rootScope, trainingService, authService, $ionicLoading, itemPathService, messagesService, constants, environmentData) {
+    ['$scope', '$rootScope', 'trainingService', 'authService', '$ionicLoading', 'itemPathService', 'connectedLearning.messages','connectedLearning.constants', 'environmentData', 'getFacilityInfoService',
+function ($scope, $rootScope, trainingService, authService, $ionicLoading, itemPathService, messagesService, constants, environmentData, getFacilityInfoService) {
     $scope.CurrentTrainingList = [];
     $scope.UpcomingTrainingList = [];
     $scope.PastTrainingList = [];
@@ -40,12 +40,7 @@ function ($scope, $rootScope, trainingService, authService, $ionicLoading, itemP
                                 $scope.PastTrainingList.push(itemPathService.myTrainingFilter(item));
                             }
                         }
-
-                        if (item.PATH != 'RLC - St. Charles Q Center' && item.PATH != 'RLC - Kuala Lumpur Sheraton Imperial' && item.PATH != 'RLC - Madrid NH Collection Eurobuilding' && item.PATH != 'RLC - Bengaluru Marriott Hotel' && item.PATH != 'RLC - London Wokefield Park') {
-                            item.imgName = 'DefaultVenue';
-                        } else {
-                            item.imgName = item.PATH;
-                        }
+                        item.imgName = getFacilityInfoService.filterCenterImage(item.facilityID);
                     });
                 }
 

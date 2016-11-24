@@ -13,7 +13,6 @@ factories.factory('personalisedMessageData', function () {
         messageBody: '',           // keep typed message
         flag: '',                  // display the group list or not in newMessage page
         MessageInfo: [],
-        unreadCount: null,
         backViewFlag: null,        // mark if click close button
         _dayTime: ''                // keep the dayCount in Attendance so after close newMessage still know the day
     };

@@ -48,7 +48,7 @@
 </social-actions>
 <ion-item class="nopaddings nomargins noborders forComments" ng-if="showComments=='true'">
     <ion-list>
-        <ion-item class="comment-item item-avatar-left" ng-repeat="comment in article.Comments">
+        <ion-item class="comment-item item-avatar-left comment-content" ng-repeat="comment in article.Comments">
             <div class="fake-img" acn-image-display-div data-ref="{{comment.enterpriseID}}"></div>
 
             <h2>{{comment.displayTxt.split('|')[0]}} </h2>

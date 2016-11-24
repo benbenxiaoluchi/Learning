@@ -10,9 +10,9 @@
     <ion-content has-bouncing="false">
         <div class="venue-banner" ng-style="centerImg">
             <div class="venue-center">
-                <p>{{whichFacility.country}} Learning Center</p>
-                <p>{{whichFacility.add1 || "1405 North Fifth Avenue"}}</p>
-                <p>{{whichFacility.city}},{{whichFacility.state}} {{whichFacility.zip}}</p>
+                <p>{{whichFacility.country || whichFacility.city}} Learning Center</p>
+                <p>{{whichFacility.add1}} {{whichFacility.add2}}</p>
+                <p>{{whichFacility.city}}</p>
             </div>
         </div>
         <ion-item class="item" ng-repeat="option in venueOptions" ng-click="facilityVenueOptions($index)">

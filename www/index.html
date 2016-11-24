@@ -5,7 +5,6 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <title>Learn</title>
-
     <!-- compiled css output -->
     <!--<link href="css/ionic.app.css" rel="stylesheet">-->
     <link href="css/ionic.app.min.css" rel="stylesheet">
@@ -96,6 +95,7 @@
     <script src="conLearning/event/impersonate/impersonateController.js"></script>
     <script src="conLearning/common/menu/menuController.js"></script>
     <script src="conLearning/event/learningCenter/learningCenter.controller.js"></script>
+    <script src="conLearning/event/trainingDetail/tabs/participants/tab.participants.controller.js"></script>
 
     <!-- Services -->
     <script src="conLearning/common/services/messages.service.js"></script>
@@ -124,6 +124,29 @@
 
 </head>
 <body ng-app="starter" autoplay ng-controller="baseController">
+<svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <symbol id="svg-Icon-AddedToCalendar" viewBox="0 0 32 32">
+            <title>Icon-AddedToCalendar</title>
+            <path class="path1" fill="#234433" d="M2.856 31.997c-0.007 0-0.016 0-0.024 0-1.564 0-2.832-1.268-2.832-2.832 0-0.011 0-0.021 0-0.032v-17.135h31.998v17.138c0 0.010 0 0.021 0 0.032 0 1.563-1.267 2.83-2.83 2.83-0.009 0-0.017-0-0.025-0zM0 10.854v-5.147c-0-0.009-0-0.019-0-0.029 0-1.561 1.266-2.827 2.827-2.827 0.010 0 0.020 0 0.030 0h4.566v2.286h1.147v-4.569c-0.001-0.010-0.001-0.022-0.001-0.035 0-0.296 0.24-0.536 0.536-0.536 0.011 0 0.022 0 0.033 0.001 0.009-0.001 0.021-0.001 0.033-0.001 0.3 0 0.542 0.243 0.542 0.542 0 0.010-0 0.020-0.001 0.030l0 2.283h11.422v2.286h1.149v-4.569c0-0.315 0.256-0.571 0.571-0.571s0.571 0.256 0.571 0.571v2.285h5.712c0.008-0 0.018-0 0.027-0 1.561 0 2.827 1.266 2.827 2.827 0 0.010-0 0.020-0 0.030v5.145z"></path>
+            <path class="path2" fill="none" stroke="#fff" stroke-width="1.5999" stroke-miterlimit="4" stroke-linecap="butt" stroke-linejoin="miter" d="M11.999 20.7l2.784 2.784 6.4-6.4"></path>
+        </symbol>
+        <symbol id="svg-Icon-AddToCalendar2" viewBox="0 0 32 32">
+            <title>Icon-AddToCalendar2</title>
+            <path class="path1" fill="#999" d="M0 12v17.142c-0 0.009-0 0.019-0 0.029 0 1.562 1.266 2.829 2.829 2.829 0.010 0 0.020-0 0.030-0h26.283c0.009 0 0.019 0 0.029 0 1.562 0 2.829-1.267 2.829-2.829 0-0.010-0-0.020-0-0.030v-17.141z"></path>
+            <path class="path2" fill="#999" d="M29.142 2.858h-5.714v-2.286c0-0.315-0.256-0.571-0.571-0.571s-0.571 0.256-0.571 0.571v4.571h-1.142v-2.285h-11.43v-2.286c0-0.315-0.256-0.571-0.571-0.571s-0.571 0.256-0.571 0.571v4.571h-1.142v-2.285h-4.571c-0.009-0-0.019-0-0.029-0-1.562 0-2.829 1.266-2.829 2.829 0 0.010 0 0.019 0 0.029v5.143h32v-5.144c0-0.008 0-0.018 0-0.027 0-1.562-1.267-2.829-2.829-2.829-0.010 0-0.020 0-0.030 0z"></path>
+            <path class="path3" fill="none" stroke="#fff" stroke-width="1.6" stroke-miterlimit="4" stroke-linecap="butt" stroke-linejoin="miter" d="M15.727 15.997v9.051"></path>
+            <path class="path4" fill="none" stroke="#fff" stroke-width="1.6" stroke-miterlimit="4" stroke-linecap="butt" stroke-linejoin="miter" d="M11.2 20.524h9.051"></path>
+        </symbol>
+        <symbol id="svg-Icon-EventDetails" viewBox="0 0 36 32">
+            <title>Icon-EventDetails</title>
+            <path class="path1" fill="inherit" stroke="#999" stroke-width="1.152" stroke-miterlimit="4" stroke-linecap="butt" stroke-linejoin="miter" d="M22.998 25.946c-0.136-0.002-0.261-0.043-0.366-0.113l-3.685-2.238c-0.097-0.053-0.213-0.084-0.335-0.084s-0.238 0.031-0.339 0.086l-3.684 2.233c-0.087 0.070-0.198 0.112-0.319 0.112-0.15 0-0.285-0.065-0.379-0.168-0.065-0.098-0.104-0.217-0.104-0.345 0-0.056 0.007-0.111 0.021-0.162l0.977-4.184c0.005-0.035 0.009-0.074 0.009-0.115 0-0.203-0.078-0.387-0.205-0.526l-3.212-2.815c-0.279-0.256-0.256-0.475-0.224-0.559 0.079-0.198 0.268-0.335 0.49-0.335 0.004 0 0.009 0 0.013 0l4.303-0.372c0.232-0.046 0.423-0.193 0.528-0.393l1.679-3.972c0.045-0.224 0.24-0.391 0.475-0.391s0.43 0.167 0.474 0.388l1.677 3.971c0.107 0.204 0.3 0.352 0.529 0.396l4.307 0.364c0.004-0 0.008-0 0.013-0 0.222 0 0.412 0.137 0.489 0.332 0.010 0.040 0.016 0.082 0.016 0.125 0 0.183-0.094 0.343-0.236 0.436l-3.274 2.826c-0.13 0.127-0.21 0.303-0.21 0.499 0 0.050 0.005 0.099 0.015 0.146l0.977 4.186c0.019 0.052 0.029 0.112 0.029 0.175 0 0.124-0.042 0.239-0.113 0.329-0.065 0.102-0.179 0.17-0.309 0.17-0.009 0-0.018-0-0.027-0.001z"></path>
+            <path class="path2" fill="#inherit" d="M11.442 2.324h12.16v1.252h1.43v-3.576h-1.434v0.896h-12.16c-0.382 0.028-0.684 0.331-0.712 0.711 0.026 0.387 0.331 0.692 0.713 0.718z"></path>
+            <path class="path3" fill="#inherit" d="M32.896 0.896h-6.080c-0.384 0.026-0.689 0.331-0.715 0.713 0.026 0.387 0.331 0.692 0.713 0.718l6.082 0c1.082 0.010 1.956 0.884 1.966 1.965v3.573h-33.432v-3.575c0.010-1.082 0.885-1.957 1.966-1.966h4.649v1.252h1.427v-3.576h-1.427v0.896h-4.648c-0.001 0-0.002 0-0.003 0-1.875 0-3.395 1.52-3.395 3.395v24.312c0 0.001 0 0.002 0 0.003 0 1.875 1.52 3.395 3.395 3.395 0.001 0 0.002 0 0.003 0h29.499c0.001 0 0.002 0 0.003 0 1.875 0 3.395-1.52 3.395-3.395 0-0.001 0-0.002 0-0.003v-24.312c-0.128-1.822-1.575-3.268-3.386-3.394zM34.862 28.605c-0.011 1.081-0.885 1.955-1.965 1.965h-29.5c-1.082-0.010-1.956-0.884-1.966-1.965v-19.488h33.608v19.485z"></path>
+        </symbol>
+    </defs>
+</svg>
+
     <!--<div class="fake-statusbar"></div>-->
     <ion-nav-view></ion-nav-view>
 </body>

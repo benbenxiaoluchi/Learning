@@ -1,24 +1,50 @@
+//.activity-page-wrap .people-bgr .app-name {
+//    position: relative;
+//    height: 250px;
+//    padding-top: 0;
+//    background: url(../img/event2.png);
+//    background-repeat: no-repeat;
+//    background-size: 100% 250px;
+//}
+
+.activity-page-headimg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 250px;
+    z-index: 1;
+    filter: brightness(.5);
+}
+
+.activity-page-content-bg,
+.activity-page-wrap .people-bgr .app-name {
+    background-color: #f2f2f2;
+}
+
 .activity-page-wrap .people-bgr .app-name {
     position: relative;
-    height: 250px;
-    padding-top: 0;
-    background: url(../img/event2.png);
-    background-repeat: no-repeat;
-    background-size: 100% 250px;
+    height: 320px;
+}
+
+.activity-head-tittle-wrap {
+    position: absolute;
+    bottom: 85px;
+    width: 100%;
+    z-index: 2;
 }
 
 .activity-head-tittle {
-    padding-top: 95px;
     text-transform: uppercase;
     color: #fff;
     text-align: center;
     font-size: 26px;
+    line-height: 26px;
     text-shadow: 1px 3px 6px #000;
-    
 }
 
 .activity-head-sub-tittle {
-    margin-top: 20px;
+    margin-top: 10px;
     font-size: 14px;
     text-align: center;
     color: #fff;
@@ -26,36 +52,39 @@
 
 .activity-head-bottom {
     display: flex;
+    align-items: center;
     flex-flow: row nowrap;
     justify-content: space-between;
     position: absolute;
     bottom: 0;
     padding: 0 10px;
     width: 100%;
-    height: 50px;
-    background-color: rgba(0, 0, 0, .5);
+    height: 70px;
+    background-color: #f2f2f2;
     text-align: left;
-    color: rgba(255, 255, 255, .4);
+    color: #999;
 }
 
 .activity-head-bottom [class^='ion-']::before,
-.activity-head-bottom [class^='learn-']::before
-{
+.activity-head-bottom [class^='learn-']::before {
     display: inline-block;
     width: 40px;
-    height: 100%;
-    line-height: 50px;
     font-size: 20px;
     text-align: center;
     vertical-align: middle;
     
 }
 
+.activity-head-bottom .learn-Icon-Pencil {
+    color: #cccccc;
+}
+
 .activity-head-bottom-message {
     flex: 1;
     margin: 0;
+    padding-left: 4px;
     height: 100%;
-    line-height: 50px;
+    line-height: 40px;
     white-space: nowrap;
     display: inline-block;
     overflow: hidden;
@@ -65,7 +94,14 @@
 .activity-head-bottom-left {
     display: flex;
     flex: 1;
+    align-items: center;
+    padding-left: 4px;
+    height: 40px;
+    line-height: 40px;
     overflow: hidden;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 0 3px #bfbfbf;
 }
 
 .activity-head-list-wrap {
@@ -164,7 +200,7 @@ li.activity-head-list-active::before {
 }
 
 .bar-transparent i.activeity-head-bell-style,
-.bar-transparent i.activeity-head-bell-NoUnRead-style{
+.bar-transparent i.activeity-head-bell-NoUnRead-style {
     position: relative;
     color: transparent;
 }
@@ -256,6 +292,47 @@ li.activity-head-list-active::before {
 .activity-page-wrap .item {
     padding: 15px;
 }
+
 .activity-page-wrap .list:last-child.card {
     border-radius: 2px;
+}
+
+.activity-page-navbar {
+    position: absolute;
+    z-index: 3;
+    width: 100%;
+}
+
+.activity-page-navbar button::before {
+    font-size: 16px;
+    color: #fff;
+}
+
+.activity-page-navbar button {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50px;
+    display: inline-block;
+}
+
+.activity-page-navbar i {
+    position: absolute;
+    top: 4px;
+    right: 0;
+}
+
+.icon.svg-Icon-EventDetail {
+    display: flex;
+}
+
+.svg-Icon-EventDetails::before {
+    content: '';
+    margin: auto;
+    width: 20px;
+    height: 20px;
+    background-image: url('../img/svg/Icon-EventDetails.svg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: inline-block;
 }

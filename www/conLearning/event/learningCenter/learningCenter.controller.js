@@ -9,7 +9,7 @@ controllers.controller('learningCenterCtrl',['$scope', '$rootScope', '$statePara
         var indexOfCenter = null;
         var centerFacilityID = null;
         $scope.whichFacility = null;
-        $scope.venueOptions = ["LOCATION MAP","FLOOR MAPS","WEATHER","ALL COURSES AT THIS FACILITY"];
+        $scope.venueOptions = ["LOCATION MAP","FLOOR MAPS","WEATHER","ALL COURSES AT THIS FACILITY","ADDITIONAL INFORMATION"];
         var centerImage = [];
         var defaultCenterInfo = {
             "facilityID": "Default",
@@ -43,8 +43,6 @@ controllers.controller('learningCenterCtrl',['$scope', '$rootScope', '$statePara
         // Get weather info in venue page
         function getWeatherInfo(loc, degree) {
             $scope.weather = [];
-            // $ionicLoading.show({ templateUrl: 'popup.html', noBackdrop: true, hideOnStateChange: true });
-
             var searchCondition = "select item from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + loc + "') and u='" + degree + "'";
             trainingService.getWeatherInfo(searchCondition).then(
                 function (weatherdata) {
@@ -53,13 +51,13 @@ controllers.controller('learningCenterCtrl',['$scope', '$rootScope', '$statePara
                     });
 
                     $scope.weatherCard = true;
-                    // $ionicLoading.hide();
+                    $ionicLoading.hide();
                 },
                 function (weatherdata, status) {
+                    $ionicLoading.hide();
                     var msg = 'System fails to load data.';
                     console.log(msg);
                     $scope.showToast(msg, 'short', 'bottom');
-                    // $ionicLoading.hide();
                     $scope.$broadcast('scroll.infiniteScrollComplete');
                 }
             );
@@ -80,10 +78,13 @@ controllers.controller('learningCenterCtrl',['$scope', '$rootScope', '$statePara
                     $ionicLoading.hide();
                 }
             );
+        }
+
+        function getRegion() {
+            $ionicLoading.show();
             trainingService.getRegion().then(
                 function (result) {
-                    var resultArray = [];
-                    resultArray = result.split(';');
+                    var resultArray = result.split(';');
                     if (resultArray[resultArray.length - 1] == 'China') {
                         $scope.googleMapVisible = false;
                     } else {
@@ -95,10 +96,10 @@ controllers.controller('learningCenterCtrl',['$scope', '$rootScope', '$statePara
                     } else {
                         getCentigrade();
                     }
-
                     console.log('GPS country: ' + resultArray[resultArray.length - 1]);
                 },
                 function (result, status) {
+                    $ionicLoading.hide();
                     var msg = 'System fails to load data.';
                     console.log(msg);
                     $scope.showToast(msg, 'short', 'bottom');
@@ -127,8 +128,12 @@ controllers.controller('learningCenterCtrl',['$scope', '$rootScope', '$statePara
                 indexOfCenter = 4;
                 getSingleFacility(' ', 4790);
                 centerFacilityID = 4790;
-            } else {
+            } else if ($stateParams.city == 'Dublin') {
                 indexOfCenter = 5;
+                getSingleFacility(' ', 6176);
+                centerFacilityID = 6176;
+            } else {
+                indexOfCenter = 6;
                 // getSingleFacility('', );
             }
             $scope.centerImg = centerImage[indexOfCenter];
@@ -136,18 +141,22 @@ controllers.controller('learningCenterCtrl',['$scope', '$rootScope', '$statePara
 
 
         var venueMap = function () {
-            getCenter();
+            getRegion();
+            //$ionicLoading.hide();
             $ionicModal.fromTemplateUrl('conLearning/event/learningCenter/facilityVenueMap.html', {
                 scope: $scope,
                 animation: 'slide-in-right'
             }).then(function (modal) {
                 $scope.facilityVenueOptions_modal = modal;
                 modal.show();
+                $ionicLoading.hide();
+            }, function () {
+                $ionicLoading.hide();
             });
         };
 
         var venueWeather = function () {
-            getCenter();
+            getRegion();
             $ionicModal.fromTemplateUrl('conLearning/event/learningCenter/facilityVenueWeather.html', {
                 scope: $scope,
                 animation: 'slide-in-right'
@@ -158,8 +167,9 @@ controllers.controller('learningCenterCtrl',['$scope', '$rootScope', '$statePara
         };
 
         $scope.getLearningCenter = function () {
-            centerImage = getFacilityInfoService.getCenterImageList();
+            centerImage = getFacilityInfoService.getCenterImageList().centerImages;
             getCenter();
+            //getRegion()
         };
 
         $scope.facilityVenueOptions = function (index) {
@@ -172,6 +182,7 @@ controllers.controller('learningCenterCtrl',['$scope', '$rootScope', '$statePara
                          break;
                 case 3 : $scope.navigateToOnGoingEvent(centerFacilityID);
                          break;
+                case 4 : ;
             }
         };
 

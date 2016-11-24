@@ -1,62 +1,64 @@
-<ion-view view-title="EVENT DETAILS" ng-init="initEventDetail()" class="tab-eventDetails-wrap" hide-nav-bar="{{fromAdmin}}">
+<ion-view view-title="EVENT DETAILS" ng-init="initEventDetail()" class="tab-eventDetails-wrap"
+          hide-nav-bar="true">
+    <!--<ion-nav-bar class="bar-positive background-isBlack" ng-if="!trainingItem.fromAdmin">-->
+        <!--<ion-nav-buttons side="left">-->
+            <!--<button menu-toggle="left" class="button button-icon learn-Icon-HamburgerMenu"></button>-->
+        <!--</ion-nav-buttons>-->
 
-    <!--<ion-nav-bar class="bar-positive background-isBlack" align-title="center">
-        <ion-nav-buttons side="left">
-            <button menu-toggle="left" class="button button-icon learn-Icon-HamburgerMenu" ng-if="!fromAdmin"></button>
-            <i ng-click="navigateToState('app.events', null)" class="acc-angle-left" ng-if="fromAdmin"></i>
-        </ion-nav-buttons>
+        <!--<ion-nav-buttons side="right">-->
+            <!--<i ng-click="viewNotifications()"-->
+               <!--ng-class="{true: 'ion-ios-bell activeity-head-bell-style', false: 'ion-ios-bell activeity-head-bell-NoUnRead-style'}[unReadIcon]"-->
+               <!--title="{{unreadCount}}"></i>-->
+        <!--</ion-nav-buttons>-->
 
-        <ion-nav-buttons side="right">
-            <i ng-click="viewNotifications()" ng-class="{true: 'ion-ios-bell activeity-head-bell-style', false: 'ion-ios-bell activeity-head-bell-NoUnRead-style'}[unReadIcon]" title="{{unreadCount}}"></i>
-        </ion-nav-buttons>
-
-    </ion-nav-bar>-->
-    <ion-nav-bar class="bar-positive background-isBlack" align-title="center" ng-show="!fromAdmin">
-        <ion-nav-buttons side="left">
-            <button menu-toggle="left" class="button button-icon learn-Icon-HamburgerMenu"></button>
-        </ion-nav-buttons>
-
-        <ion-nav-buttons side="right">
-            <i ng-click="viewNotifications()" ng-class="{true: 'ion-ios-bell activeity-head-bell-style', false: 'ion-ios-bell activeity-head-bell-NoUnRead-style'}[unReadIcon]" title="{{unreadCount}}"></i>
-        </ion-nav-buttons>
-
-    </ion-nav-bar>
+    <!--</ion-nav-bar>-->
     <ion-header-bar no-tap-scroll="true" class="tab-attendance-head"
-                    ng-class="{true: 'bgc000', false: 'bgcb90b62'}[adminFlage]"
-                    align-title="center" ng-if="fromAdmin">
-        <i ng-click="$ionicGoBack()" class="acc-angle-left"></i>
+                    ng-class="{true: 'bgc000', false: 'bgcb90b62'}[trainingItem.fromAdmin]"
+                    align-title="center">
+        <i ng-click="backToEvents()" class="acc-angle-left" ng-if="trainingItem.fromAdmin"></i>
+        <button menu-toggle="left" class="button button-icon learn-Icon-HamburgerMenu"
+                ng-if="!trainingItem.fromAdmin"></button>
         <h1>
             EVENT DETAILS
         </h1>
+        <i ng-click="viewNotifications()" ng-if="!trainingItem.fromAdmin"
+           ng-class="{true: 'ion-ios-bell activeity-head-bell-style', false: 'ion-ios-bell activeity-head-bell-NoUnRead-style'}[unReadIcon]"
+           title="{{unreadCount}}"></i>
     </ion-header-bar>
 
 
     <ion-content class="has-header">
         <ion-scroll>
             <div class="tab-eventDetails-head">
-                    <h3>{{currentTrainingTitle}}</h3>
-                    <p bind-html-compile="description"></p>
+                <h3>{{trainingItem.currentTrainingTitle}}</h3>
+                <p bind-html-compile="description"></p>
             </div>
         </ion-scroll>
 
-        <ion-item class="item-icon-right tab-eventDetails-list-item mgt20" ng-click="navigateToState('app.schedules',null)">
-            SCHEDULES
+        <ion-item class="item-icon-right tab-eventDetails-list-item mgt20"
+                  ng-click="navigateToState('app.schedules',null)">
+            SCHEDULE
             <i class="ion-ios-arrow-right"></i>
         </ion-item>
-        <ion-item disable-Feedback class="item-icon-right tab-eventDetails-list-item" ng-if="pickRule == 0 && isPastSession && !fromAdmin"
-            ng-click="navigateFeedback(currentTrainingId,$event)">
+        <ion-item class="item-icon-right tab-eventDetails-list-item"
+                  ng-if="trainingItem.pickRule == 0 && trainingItem.isPastSession && !trainingItem.fromAdmin && !ImpersonateStatus"
+                  ng-click="navigateFeedback(trainingItem.currentTrainingId,$event)">
             COURSE EVALUATION
             <i class="ion-ios-arrow-right"></i>
         </ion-item>
-        <ion-item class="item-icon-right tab-eventDetails-list-item" ng-click="navigateToState('app.materials',{activityID:currentTrainingId}, false)">
+        <ion-item class="item-icon-right tab-eventDetails-list-item"
+                  ng-click="navigateToState('app.materials',{activityID: trainingItem.currentTrainingId}, false)">
             SESSION MATERIALS
             <i class="ion-ios-arrow-right"></i>
         </ion-item>
-        <ion-item class="item-icon-right tab-eventDetails-list-item" ng-if="pickRule == 1 || fromAdmin" ng-click="navigateToState('app.attendance',null)">
+        <ion-item class="item-icon-right tab-eventDetails-list-item"
+                  ng-if="trainingItem.pickRule == 1 || trainingItem.fromAdmin"
+                  ng-click="navigateToState('app.attendance',null)">
             ATTENDANCE
             <i class="ion-ios-arrow-right"></i>
         </ion-item>
-        <ion-item class="item-icon-right tab-eventDetails-list-item" ng-click="navigateToState('app.faculties',{activityId:currentTrainingId},false)" >
+        <ion-item class="item-icon-right tab-eventDetails-list-item"
+                  ng-click="navigateToState('app.faculties',{activityId: trainingItem.currentTrainingId },false)">
             PRESENTERS
             <i class="ion-ios-arrow-right"></i>
         </ion-item>

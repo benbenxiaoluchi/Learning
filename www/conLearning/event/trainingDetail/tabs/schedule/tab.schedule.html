@@ -1,7 +1,7 @@
 ﻿<ion-view view-title="SCHEDULE" hide-nav-bar="true" ng-init="initSchedulesPage()" class="tab-attendance-wrap">
 
     <ion-header-bar no-tap-scroll="true" class="tab-attendance-head"
-                    ng-class="{true: 'bgc000', false: 'bgcb90b62'}[adminFlage]"
+                    ng-class="{true: 'bgc000', false: 'bgcb90b62'}[trainingItem.fromAdmin]"
                     align-title="center">
         <i ng-click="$ionicGoBack()" class="acc-angle-left"></i>
         <h1>
@@ -11,7 +11,7 @@
 
     <ion-content has-bouncing="true" delegate-handle="scheduleScroll" class="scheduleDetail-wrapper">
 
-        <ion-refresher ng-disabled="!isCurrent"
+        <ion-refresher ng-disabled="!trainingItem.isCurrent"
                        pulling-text=""
                        pulling-icon=""
                        on-refresh="loadingSchedule()">
@@ -30,19 +30,27 @@
         >
             <div ng-if="Schedule.length > 0">
                 <ion-item class="item item-icon-right scheduleDetail-date-wrap">
-                    <div class="tab-attendance-day-wrap">
+                    <div class="tab-attendance-day-wrap dibonline">
                         <div class="scheduleDetail-date">
                             <div>DAY</div>
                             <div>{{$index+1}}</div>
                         </div>
-                        <i class="icon"
-                           ng-class="{true: 'ion-ios-arrow-right', false: 'learn-Icon-AddToCalendar'}[haveEvent[$index]]"
-                           ng-if="!fromAdmin && !item.eventState.isPastState" ng-disabled="ImpersonateStatus" ng-disabled="haveEvent[$index]"
-                           ng-click="haveEvent[$index] || addToCalendar( item['@count'],item.event[0].starttime,item.event[0].endtime, item.event[0].name, item.event[0].location,subHour,$index ,0 )"></i>
                     </div>
-                    <div class="tab-attendance-date-info-wrap">
+                    <div class="tab-attendance-date-info-wrap dibonline">
                         <span>{{item['@count']}}</span>
                     </div>
+                    <svg class="icon svg-Icon-AddedToCalendar calendar-style"
+                         ng-if="haveEvent[$index] && !trainingItem.fromAdmin && !item.eventState.isPastState">
+                        <use xlink:href="#svg-Icon-AddedToCalendar"></use>
+                    </svg>
+
+                    <svg class="icon svg-Icon-AddToCalendar2 calendar-style"
+                         ng-if="!haveEvent[$index] && !trainingItem.fromAdmin && !item.eventState.isPastState"
+                         ng-disabled="ImpersonateStatus"
+                         ng-click="ImpersonateStatus || addToCalendar( item['@count'],item.event[0].starttime,item.event[0].endtime, item.event[0].name, item.event[0].location,subHour,$index ,0 )"
+                    >
+                        <use xlink:href="#svg-Icon-AddToCalendar2"></use>
+                    </svg>
                 </ion-item>
             </div>
             <div ng-if="item.event.length > 0">
@@ -67,7 +75,10 @@
                         标题灰色：class="schedule-list-title"
                         -->
                         <p class="schedule-list-title c#222">{{subitem.name}}</p>
-                        <div>{{subitem.starttime | timeProcessing }} - {{subitem.endtime | timeProcessing }} | {{subitem.location}}</div>
+                        <div class="schedule-list-title2" ng-class="{true:'pdl22'}[!subitem.isUpcomingState]">
+                            {{subitem.starttime | timeProcessing }} - {{subitem.endtime |
+                            timeProcessing }} | {{subitem.location}}
+                        </div>
                     </div>
 
                 </ion-item>

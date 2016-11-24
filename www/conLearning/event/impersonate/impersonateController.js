@@ -110,13 +110,13 @@ controllers.controller('impersonateController',
             };
 
             // impersonate select user and view the trainig details
-            $scope.impersonate = function (impersonationEid, impersonationPeopleKey, impactivityID) {
+            $scope.impersonate = function (impersonationEid, impersonationPeopleKey, impactivityID, impersonationUserType) {
                 $rootScope.impersonationEID = impersonationEid;
                 $rootScope.impersonationPeopleKey = impersonationPeopleKey;
                 $rootScope.impersonationActivityID = impactivityID;
+                $rootScope.impersonationUserType = impersonationUserType;
 
                 $ionicLoading.show();
-                $rootScope.ImpersonateStatus = true; //"End Impersonation";
 
                 //Get impersonation token
                 authService.callService({
@@ -128,10 +128,15 @@ controllers.controller('impersonateController',
                     }
                 }).then(
                     function (data) {
-                        $rootScope.impersonationToken = data.token;
-                        console.log('impersonationToken:' + $rootScope.impersonationToken);
+                        if (typeof data !== 'undefined' && !angular.equals({}, data)){
+                            $rootScope.ImpersonateStatus = true; //"End Impersonation";
+                            $rootScope.impersonationToken = data.token;
+                            console.log('impersonationToken:' + $rootScope.impersonationToken);
 
-                        $scope.navigateToState('app.trainingDetailTabs.activityTab', { }, true);
+                            $scope.navigateToState('app.trainingDetailTabs.activityTab', { selectedTraining: null, fromMyTraining: null }, true, true);
+                        } else{
+                            $scope.showToast('Impersonate failed, please try again.', 'short', 'bottom');
+                        }
                     },
                     function (data, status) {
                         var msg = 'System fails to load data.';

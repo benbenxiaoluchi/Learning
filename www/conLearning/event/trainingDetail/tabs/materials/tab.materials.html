@@ -1,6 +1,6 @@
 ﻿<ion-view view-title="SESSION MATERIALS" hide-nav-bar="true" class="tab-priorities-wrap" >
     <ion-header-bar no-tap-scroll="true" class="tab-attendance-head"
-                    ng-class="{true: 'bgc000', false: 'bgcb90b62'}[adminFlage]"
+                    ng-class="{true: 'bgc000', false: 'bgcb90b62'}[trainingItem.fromAdmin]"
                     align-title="center">
         <i ng-click="closeMaterials()" class="acc-angle-left"></i>
         <h1>
@@ -15,9 +15,12 @@
             <ion-item ng-click= "materialDownload(item.link)"
                       class="item item-icon-left item-icon-right">
                 <div class="icon">
-                    <div class="tab-priorities-list-logo">
-                        {{item.type}}
-                    </div>
+                    <!--<div class="tab-priorities-list-logo">-->
+                        <!--{{item.type}}-->
+                    <!--</div>-->
+                <span ng-class=item.fileTypeIcon>
+                <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span>
+                </span>
                 </div>
                 <h2 class="tab-priorities-list-title">{{item.file}}</h2>
                 <!--<i ng-if="item.role == 1" class="icon acc-user2"></i>-->

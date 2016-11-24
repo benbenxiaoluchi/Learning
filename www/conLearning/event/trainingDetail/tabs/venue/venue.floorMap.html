@@ -1,13 +1,15 @@
-<ion-header-bar no-tap-scroll="true" class="tab-attendance-head"
-                ng-class="{true: 'bgc000', false: 'bgcb90b62'}[adminFlage]"
-                align-title="center">
-    <i ng-click="$ionicGoBack()" class="acc-angle-left"></i>
-    <h1>
-        FLOOR MAP
-    </h1>
-</ion-header-bar>
 <ion-view view-title="FLOOR MAP" hide-nav-bar="true" class="participants-list-page-wrap">
-    <ion-content>
+    <ion-header-bar no-tap-scroll="true" class="tab-attendance-head"
+                    ng-class="{true: 'bgc000', false: 'bgcb90b62'}[trainingItem.fromAdmin]"
+                    align-title="center">
+        <i ng-click="$ionicGoBack()" class="acc-angle-left"></i>
+        <h1>
+            FLOOR MAP
+        </h1>
+    </ion-header-bar>
+    <ion-content has-header="true">
+        <div onclick="window.open('https://techops.accenture.com/share/RLC/ILC/FloorMaps/RLC_India_Floor_13.pdf' , '_system', 'location=yes')">
+            Sample Floor Map
+        </div>
     </ion-content>
-
 </ion-view>

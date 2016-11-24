@@ -4,6 +4,49 @@ controllers.controller('materialsCtrl',
     ['$scope', '$rootScope', 'trainingService', '$timeout', '$ionicHistory', '$ionicLoading', '$stateParams', 'connectedLearning.methods' , '$filter',
         function ($scope, $rootScope, trainingService, $timeout, $ionicHistory, $ionicLoading, $stateParams, methods ,  $filter) {
             //Inner Function
+            function parseTypeToIconStyle (type){
+                // var fileTypes = ['PDF', 'DOCX', 'DOC','XLSX','XLS','PPT','PPTX','JPG','BMP','JPEG','GIF','PNG'];
+                var typeclass = '';
+                switch (type){
+                    case 'PDF':
+                        typeclass =  'learn-Icon-FilePDF';
+                        break;
+                    case 'DOC':
+                    case 'DOCX':
+                    case 'TXT':
+                    case 'RTF':
+                        typeclass = 'learn-Icon-FileDOC';
+                        break;
+                    case 'XLS':
+                    case 'XLSX':
+                        typeclass = 'learn-Icon-FileXLS';
+                        break;
+                    case 'PPT':
+                    case 'PPTX':
+                        typeclass = 'learn-Icon-FilePPT';
+                        break;
+                    case 'JPG':
+                    case 'BMP':
+                    case 'JPEG':
+                    case 'PNG':
+                    case 'GIF':
+                        typeclass = 'learn-Icon-FileImage';
+                        break;
+                    case 'MP3':
+                    case 'WAV':
+                    case 'WMA':
+                    case 'AVI':
+                    case 'MP4':
+                    case 'WMV':
+                    case 'MKV':
+                    case 'FLV':
+                        typeclass = 'learn-Icon-FileMedia';
+                        break;
+                    default:
+                        typeclass = 'learn-Icon-FileDefault';
+                }
+                return typeclass;
+            }
             $scope.getMaterial = function (activityID) {
                 $ionicLoading.show();
 
@@ -22,6 +65,9 @@ controllers.controller('materialsCtrl',
                             //         }
                             //     });
                             // }
+                            angular.forEach($scope.meterials, function(m){
+                                m.fileTypeIcon = parseTypeToIconStyle(m.type);
+                            })
                         }
                         if (typeof $scope.meterials === 'undefined' || !$scope.meterials.length || !$scope.meterials[0]) {
                             $scope.noMeterialDataShow = true;
@@ -31,6 +77,7 @@ controllers.controller('materialsCtrl',
                         }
                     },
                     function (data, status) {
+                        console.log('when getMaterils api issue this will trigger');
                         console.log('failed to get materials from server, activityID is ', activityID, 'returnstatus :', status);
                         $ionicLoading.hide();
                     }

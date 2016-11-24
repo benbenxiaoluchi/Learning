@@ -55,7 +55,7 @@ controllers.controller('facultiesController',
 
             $scope.getSurveyForFaculty = function (activityId) {
                 $scope.finishLoadingSurveyToFaculty = false;
-                if ($scope.$parent.$parent.$parent.fromAdmin || $scope.$parent.$parent.$parent.pickRule == 1 || !$scope.$parent.$parent.$parent.isPastSession) {
+                if ($rootScope.trainingItem.fromAdmin || $rootScope.trainingItem.pickRule == 1 || !$rootScope.trainingItem.isPastSession || $rootScope.ImpersonateStatus) {
                     console.log("User as faculty/admin cannot give a survey, user cannot give survey for not past session");
                 } else {
 

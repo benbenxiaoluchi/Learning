@@ -1,20 +1,15 @@
 <!--<ion-view view-title="" ng-init="getUserProfileInfo()" class="forProfile" header-shrink="-44" header-shrink-classes="bar-transparent,bar-profile" header-shrink-title-template="<img src='img/img_{{userData.peopleKey}}.jpg' />">-->
 
-<ion-view ng-init="getUserProfileInfo()"
-          acc-header-shrink
-          default-class="bar-transparent"
-          shrink-class="bar-dark"
-          title-template-html="profile.header.html"
-          offset="200" hide-nav-bar="true">
+<ion-view ng-init="getUserProfileInfo()" hide-nav-bar="true" class="userprofile-wrap">
 
-    <ion-header-bar no-tap-scroll="true" class="tab-attendance-head" ng-class="{true: 'bgc000', false: 'bgcb90b62'}[adminFlage]" align-title="center">
+    <ion-header-bar no-tap-scroll="true" class="tab-attendance-head" ng-class="{true: 'bgc000', false: 'bgcb90b62'}[trainingItem.fromAdmin]">
         <i ng-click="$ionicGoBack()" class="acc-angle-left"></i>
         <h1>
             USER PROFILE
         </h1>
     </ion-header-bar>
 
-    <ion-content scroll="true" delegate-handle="myScroll" has-header="true" has-bouncing="true" class="image-bgr no-header" >
+    <ion-content scroll="true" delegate-handle="myScroll" has-header="true" has-bouncing="true">
         <ion-list>
     
         <ion-item-divider class="profile-picture">
@@ -26,7 +21,7 @@
 
                 <div class="actions">
                     <div class="button-bar">
-                        <a class="button button-clear button-dark text-left" ng-disabled="ImpersonateStatus" ng-click="showAlert()">
+                        <a class="button button-clear button-dark text-left" ng-disabled="ImpersonateStatus" ng-click="showAlert(workemail)">
                             <i class="acc-chat"></i>
                         </a>
                         <a class="button button-clear button-dark text-left" ng-disabled="ImpersonateStatus" href="mailto:{{workemail}}?subject={{title}}">
@@ -36,7 +31,7 @@
                             <!--<i class="ion-person-add"></i>-->
                         <!--</a>-->
                         <a class="button button-clear button-dark text-left" ng-disabled="ImpersonateStatus" ng-click="followPeople(eidUseToFollow)">
-                            <i class="ion-eye" style="font-size: 24px" ng-style="FollowIcon"></i>
+                            <i class="ion-eye" ng-style="FollowIcon"></i>
                         </a>
                     </div>
                 </div>

@@ -78,6 +78,60 @@
     
 }
 
+.schedule-wrapper-eventslist {
+    height: 62px;
+    width: 100%;
+    background-color: #f0f0f0;
+    //margin-top: 50px;
+    padding: 0;
+    float: left;
+    z-index: 100001;
+}
+
+.schedule-wrapper-eventslist .schedule-tabs,
+.materials-wrapper .materials-tabs,
+.sessionParticipant-tab-wrap .sessionParticipant-tabs {
+    height: 30px;
+    width: 77.3333333%;
+    margin: 15px auto;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.schedule-wrapper-eventslist .schedule-tabs .schedule-tab,
+.materials-wrapper .materials-tabs .materials-tab,
+.sessionParticipant-tab-wrap .sessionParticipant-tabs .sessionParticipant-tab {
+    position: relative;
+    text-align: center;
+    width: 33.33%;
+    height: inherit;
+    line-height: 30px;
+    font-size: 12px;
+    float: left;
+    color: #666;
+}
+
+.schedule-wrapper-eventslist .schedule-tabs .schedule-tab .ion-record,
+.materials-wrapper .materials-tabs .materials-tab .ion-record,
+.sessionParticipant-tab-wrap .sessionParticipant-tabs .sessionParticipant-tab .ion-record {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    color: #ec1f24;
+    font-size: 8px;
+}
+
+.schedule-wrapper-eventslist .schedule-tabs .schedule-tab-selected,
+.materials-wrapper .materials-tabs .materials-tab-selected,
+.sessionParticipant-tab-wrap .sessionParticipant-tabs .materials-tab-selected {
+    background-color: #282a2b;
+    color: #fff;
+    box-shadow: 0 0 0 2px #282a2b;
+    border-radius: 1px;
+
+}
+
 .materials-wrapper .materials-tabs .materials-tab-commonUser {
     text-align: center;
     width: 50%;
@@ -278,8 +332,9 @@ h3.schedule-list-title {
 .tabs-background-custom > .tabs {
     background-size: 0 0;
     background: #f0f0f0;
-    
+    box-shadow: 0 -2px 3px #dadada;
 }
+
 
 .tabs-background-custom .tabs .tab-title,
 .tabs-background-custom > .tabs .tab-title {
@@ -510,7 +565,7 @@ p.events-page-dropdown-active::after {
 
 .events-page-dropdown-datepicker-wrap .events-page-dropdown-datepicker::after {
     position: absolute;
-    content: "\e91f";
+    content: "\e937";
     top: 6px;
     right: 8px;
     display: inline-block;

@@ -1,0 +1,169 @@
+.facilityVenueMap-wrap .item-image .facilityVenueMap-wrap-img-map {
+    width: 100vw;
+    height: auto;
+}
+
+.facilityVenueMap-wrap .scroll-content.ionic-scroll,
+.facilityVenueWeather-wap .scroll-content.ionic-scroll {
+    top: 50px;
+}
+
+.facilityVenueWeather-wap .card.acc-thing {
+    padding: 15px;
+}
+
+.facilityVenueWeather-wap .weather .w_bigtext_current_temp {
+    line-height: normal;
+}
+
+.facilityVenueWeather-wap .col.w_small.ng-binding {
+    text-align: center;
+}
+
+.facilityVenueWeather-wap .col.w_small.ng-binding img {
+    width: 100%;
+}
+
+.facilityVenueWeather-bigimg {
+    margin-top: -20px;
+}
+
+.yahoo-title {
+    padding: 0 20px;
+    height: 50px;
+    line-height: 50px;
+    background-color: #fff;
+    font-size: 14px;
+    color: #999;
+    text-transform: uppercase;
+}
+
+.weather-table-wrap {
+    width: 100%;
+    table-layout: fixed;
+    background-color: #daf3fa;
+}
+
+.weather-table-wrap tr {
+    height: 65px;
+    line-height: 65px;
+    border-bottom: 1px solid #ccc;
+}
+
+.weather-table-wrap td {
+    padding: 0 10px;
+    vertical-align: middle;
+}
+
+.weather-table-wrap td img {
+    width: 70%;
+}
+
+.weather-item-wrap {
+    padding: 0;
+    border: 0 none;
+}
+
+.wfacilityVenueWeather-top-wrap {
+    padding: 25px 15px;
+}
+
+.facilityVenueWeather-top-city {
+    font-size: 20px;
+    font-family: 'RotisSansSerif55';
+    color: #222;
+}
+
+.facilityVenueWeather-top-info {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.facilityVenueWeather-top-info-tt {
+    font-size: 14px;
+    color: #666;
+    display: inline-block;
+}
+
+.facilityVenueWeather-top-info-ctrl {
+    display: inline-block;
+}
+
+.facilityVenueWeather-top-info-btn {
+    padding: 0 12px;
+    height: 22px;
+    line-height: 22px;
+    border: 1px solid #cccccc;
+    display: inline-block;
+    font-size: 14px;
+    color: #666;
+    border-radius: 2px;
+}
+
+.facilityVenueWeather-top-info-btn.active {
+    background-color: #282a2b;
+    box-shadow: 0 0 0 2px #282a2b;
+    color: #fff;
+    border: 0 none;
+}
+
+.bdrn {
+    border-right: 0 none;
+}
+
+.bdln {
+    border-left: 0 none;
+}
+
+.facilityVenueWeather-top-big-info {
+    padding: 30px 0 50px;
+    text-align: center;
+}
+
+.facilityVenueWeather-top-big-info i {
+    font-size: 60px;
+    color: #222;
+}
+
+.facilityVenueWeather-top-big-info-img {
+    height: 50px;
+    vertical-align: bottom;
+}
+
+.facilityVenueWeather-top-big-info-img img {
+    width: 100%;
+}
+
+.wfacilityVenueWeather-bottom-wrap {
+    margin: 0 15px;
+    padding: 15px 0;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-left: 0 none;
+    border-right: 0 none;
+}
+
+.facilityVenueWeather-small-item-wrap {
+    text-align: center;
+}
+
+.facilityVenueWeather-small-item-day {
+    font-size: 14px;
+    color: #666;
+    text-transform: uppercase;
+    display: block;
+}
+
+.facilityVenueWeather-small-item-img {
+    margin: 15px 0;
+    display: block;
+    width: 100%;
+}
+
+.facilityVenueWeather-small-item-info {
+    font-size: 14px;
+    color: #222;
+    display: block;
+}

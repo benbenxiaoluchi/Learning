@@ -311,6 +311,7 @@ factories.factory('authHttpInterceptor', ['$rootScope', 'connectedLearning.const
                     /// <doc>myExpenses.factory:httpInterceptorToken#request</doc>
 
                     // application should use JWT for services
+                    console.log('-------------------------> URL = ' + config.url);
 
                     if (config.url.indexOf(services.services.myLearningService.url.myExpenses) === 0) {
                         var jwt = authService.getJWT();

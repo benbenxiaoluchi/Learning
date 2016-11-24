@@ -1,4 +1,4 @@
-<ion-view view-title="IMPERSONATION" ng-controller="impersonateController" class="impersonatesearch-warp">
+<ion-view view-title="IMPERSONATE A LEARNER" ng-controller="impersonateController" class="impersonatesearch-warp">
     <ion-nav-bar class="bar-positive background-isBlack" align-title="center">
         <ion-nav-buttons side="left">
             <button menu-toggle="left" class="button button-icon learn-Icon-HamburgerMenu"></button>
@@ -19,12 +19,12 @@
         <ion-list>
             <div class="acc-thing list noborder nopaddings nomargins nominheight" ng-repeat="item in Venue">
                 <ion-item class="item item-text-wrap participants-list-item"
-                          ng-click="impersonate(item.EnterpriseID,item.PeopleKey,searchText)">
+                          ng-click="impersonate(item.EnterpriseID,item.PeopleKey,searchText, item.isInstructor)">
                     <div class="participants-wrapper">
                         <img  class="participants-list-img"  ng-src="data:image/jpeg;base64,{{item.imgUrl}}">
                         <h2 class="participants-list-item-title">{{item.fullName}}</h2>
-                        <span>{{item.standardjobdescr}}</span>
-                        <span>{{item.type}}</span>
+                        <!--<span>{{item.standardjobdescr}}</span>-->
+                        <span>{{item.CareerLevel}}</span>
                     </div>
                 </ion-item>
             </div>

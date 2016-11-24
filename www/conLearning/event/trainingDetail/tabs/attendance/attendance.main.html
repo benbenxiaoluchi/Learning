@@ -8,7 +8,7 @@
         <div class="title title-center header-item">DAY {{_dayTime}}</div>
         <div class="buttons buttons-right header-item">
             <span class="right-buttons">
-                <button menu-toggle="left" class="learn-Icon-Message side-top-right" ng-click="navigateToPersonalisedMessage(null, '1')"></button>
+                <button menu-toggle="left" class="learn-Icon-Message side-top-right" ng-if="!ImpersonateStatus" ng-click="navigateToPersonalisedMessage(null, '1')"></button>
             </span>
         </div>
     </ion-header-bar>
@@ -54,14 +54,14 @@
                         </p>
                     </ion-option-button>
                     <ion-option-button class="button sessionParticipant-btn-bg1"
-                                       ng-click="showAttendanceDetail(item.EnterpriseID, item.attendanceStatus, item.fullName)"
+                                       ng-click="showAttendanceDetail(item.EnterpriseID, item.attendanceStatus, item.fullName);$event.stopPropagation()"
                                        ng-if="isCurrentState">
                         <i class="ion-android-options"></i>
                         <p class="sessionParticipant-right-btn-title">
                             ATTENDANCE
                         </p>
                     </ion-option-button>
-                    <ion-option-button class="button sessionParticipant-btn-bg1" ng-click="navigateToPersonalisedMessage(item,'0')">
+                    <ion-option-button class="button sessionParticipant-btn-bg1" ng-if="!ImpersonateStatus" ng-click="navigateToPersonalisedMessage(item,'0')">
                         <i class="acc-writing2-o icon-checkin"></i>
                         <p class="sessionParticipant-right-btn-title">
                             MESSAGE

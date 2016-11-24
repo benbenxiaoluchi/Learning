@@ -1,0 +1,95 @@
+﻿<ion-modal-view view-title="venueInformation" class="sendToList-wrap venueInformation-wrap">
+    <div class="tab-attendance-head" no-tap-scroll="true"
+         ng-class="{true: 'bgc000', false: 'bgcb90b62'}[adminFlage]"
+         align-title="center">
+        <h1>
+            VENUE INFORMATION
+        </h1>
+        <i class="acc-angle-left" ng-click="hideVenueOptions()">
+        </i>
+    </div>
+    <ion-content class="" has-bouncing="true" has-header="false">
+        <div class="venue-banner">
+            <div class="venue-center">
+                <p style="white-space: nowrap;">{{whichFacility.country}} Learning Center</p>
+                <p>{{whichFacility.add1 || "1405 North Fifth Avenue"}}</p>
+                <p>{{whichFacility.city}},{{whichFacility.state}} {{whichFacility.zip}}</p>
+            </div>
+            <i class="ion-speakerphone">
+                +91 80 56789374
+            </i>
+        </div>
+        <div ng-if="googleMapVisible" class="">
+            <div class="item-image image-for-ios9">
+                <a ng-href="https://www.google.com/maps/search/{{whichFacility.add1}},{{whichFacility.city}},{{whichFacility.state}}" onclick="window.open(this.href, '_system', 'location=yes'); return false;">
+                    <img ng-src="http://maps.googleapis.com/maps/api/staticmap?size=500x260&key=AIzaSyCc1ZDV6W-V7ZBtkjct_AL9c6qpQl9JGGU&center={{whichFacility.add1}},{{whichFacility.city}},{{whichFacility.state}}&zoom=13&markers=color:blue|label:S|{{whichFacility.add1}},{{whichFacility.city}},{{whichFacility.state}}" />
+                </a>
+            </div>
+        </div>
+        <div ng-if="!googleMapVisible" class="">
+            <div class="item-image image-for-ios9">
+                <img ng-src="http://image.maps.cit.api.here.com/mia/1.6/mapview?app_id=p8tWlT2mQCQ6zjp9O9MR&app_code=UJCQcM0SiMBPbC5VPN2_tA&w=500&h=260&z=9&co={{whichFacility.state}}&ci={{whichFacility.city}}" />
+            </div>
+        </div>
+        <div>
+            <p>
+                Lorem ipsum dolor sit amel, consecletur adipiscing elit. Sed eget sem eu prurs egestas dignissim. Susprndisse postenti. Nunc eu risus in tortor suscipit fringilla. Praesent matesuada vel eros ac eleifend. Morbi non erat ac magna commodo dapibus.
+            </p>
+        </div>
+        <div class="locaWeather-title">
+            LOCAL WEATHER DETAILS
+        </div>
+        <ion-item class="acc-thing card item-body weather" ng-show="weatherCard">
+            <div class="row">
+                <div class="col w_bigtext_current_temp">{{weather[0].results.channel.item.condition.temp}}</div>
+                <div class="col w_small_for_degreeF" style="{{ fontSizeF }}" ng-click="getFahrenheit()">Fº</div>
+                <div class="col w_small_for_degree"> |</div>
+                <div class="col w_small_for_degreeC" style="{{ fontSizeC }}" ng-click="getCentigrade()">Cº</div>
+                <div class="col"><img class="facilityVenueWeather-bigimg" src="img/weather/{{weather[0].results.channel.item.condition.code}}.png" /></div>
+            </div>
+            <div class="row">
+                <div class="col w_small">
+                    <b>Today</b>
+                    <br />{{weather[0].results.channel.item.forecast[0].high}}º
+                    {{weather[0].results.channel.item.forecast[0].low}}º<br />
+                    <img class="w_img_small"
+                         src="img/weather/{{weather[0].results.channel.item.forecast[0].code}}.png" />
+                </div>
+                <div class="col w_small">
+                    <b>{{weather[0].results.channel.item.forecast[1].day}}</b>
+                    <br />{{weather[0].results.channel.item.forecast[1].high}}º
+                    {{weather[0].results.channel.item.forecast[1].low}}º<br />
+                    <img class="w_img_small"
+                         src="img/weather/{{weather[0].results.channel.item.forecast[1].code}}.png" />
+                </div>
+                <div class="col w_small">
+                    <b>{{weather[0].results.channel.item.forecast[2].day}}</b>
+                    <br />{{weather[0].results.channel.item.forecast[2].high}}º
+                    {{weather[0].results.channel.item.forecast[2].low}}º<br />
+                    <img class="w_img_small"
+                         src="img/weather/{{weather[0].results.channel.item.forecast[2].code}}.png" />
+                </div>
+                <div class="col w_small">
+                    <b>{{weather[0].results.channel.item.forecast[3].day}}</b>
+                    <br />{{weather[0].results.channel.item.forecast[3].high}}º
+                    {{weather[0].results.channel.item.forecast[3].low}}º<br />
+                    <img class="w_img_small"
+                         src="img/weather/{{weather[0].results.channel.item.forecast[3].code}}.png" />
+                </div>
+                <div class="col w_small">
+                    <b>{{weather[0].results.channel.item.forecast[4].day}}</b>
+                    <br />{{weather[0].results.channel.item.forecast[4].high}}º
+                    {{weather[0].results.channel.item.forecast[4].low}}º<br />
+                    <img class="w_img_small"
+                         src="img/weather/{{weather[0].results.channel.item.forecast[4].code}}.png" />
+                </div>
+            </div>
+            <ion-item class="item item-text-wrap">
+                <a>
+                    <h2>Weather in {{singleFacility[0].city}}</h2>
+                </a>
+                <p> {{weather[0].results.channel.item.condition.text}} </p>
+            </ion-item>
+        </ion-item>
+    </ion-content>
+</ion-modal-view>

@@ -4,8 +4,8 @@
 'use strict';
 
 controllers.controller('newPersonalisedMessageController',
-    ['$scope', '$rootScope', '$filter', '$timeout', '$ionicPopup', '$ionicLoading', '$stateParams', 'personalisedMessageData', 'connectedLearning.methods', 'personalisedMessageService', 'ionicTimePicker', 'ionicDatePicker', '$filter',"$ionicScrollDelegate",
-        function ($scope, $rootScope, filter, $timeout, $ionicPopup, $ionicLoading, $stateParams, personalisedMessageData, methods, personalisedMessageService, ionicTimePicker, ionicDatePicker, $filter, $ionicScrollDelegate) {
+    ['$scope', '$rootScope', '$filter', '$timeout', '$ionicPopup', '$ionicLoading', '$stateParams', 'personalisedMessageData', 'connectedLearning.methods', 'personalisedMessageService', 'ionicTimePicker', 'ionicDatePicker', '$filter',"$ionicScrollDelegate", '$ionicActionSheet',
+        function ($scope, $rootScope, filter, $timeout, $ionicPopup, $ionicLoading, $stateParams, personalisedMessageData, methods, personalisedMessageService, ionicTimePicker, ionicDatePicker, $filter, $ionicScrollDelegate, $ionicActionSheet) {
 
             $scope.scheduleStyle = 'inActive-btn';
             $scope.nowStyle = '';
@@ -157,6 +157,10 @@ controllers.controller('newPersonalisedMessageController',
                                 $scope.closeNewMessage();
                             }, 2000);
 
+                        }else{
+                            //todo popup an error handle
+                            $ionicLoading.hide();
+                            console.log('api return error: ', data.ReturnCode+ '--' +data.ReturnMessage)
                         }
                     }, function (data) {
                         $ionicLoading.hide();
@@ -304,5 +308,32 @@ controllers.controller('newPersonalisedMessageController',
                     }).join(";") + ';'
             }
             $scope.sentTextLineParse = parseShortToTextLine();
+
+            $scope.sendOption = "Message Now";
+            $scope.showSendOption = function() {
+                $ionicActionSheet.show({
+                    buttons: [
+                        { text: 'Message Now' },
+                        { text: 'Schedule for Later' }
+                    ],
+                    cancelText: 'Cancel',
+                    cancel: function() {
+                        console.log('CANCELLED');
+                    },
+                    buttonClicked: function(index) {
+                        console.log('BUTTON CLICKED', index);
+                        if (index === 0){
+                            $scope.sendOption = "Message Now";
+                            //$scope.clickSchedule();
+                            $scope.showSchedulePlugin = false;
+                        } else if (index === 1){
+                            $scope.sendOption = "Schedule for Later";
+                            //$scope.clickNow();
+                            $scope.showSchedulePlugin = true;
+                        }
+                        return true;
+                    }
+                });
+            };
 
         }]);

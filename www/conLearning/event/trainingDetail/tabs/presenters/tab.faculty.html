@@ -9,11 +9,11 @@
 </ion-content>-->
 <ion-view view-title="PRESENTERS" hide-nav-bar="true">
     <ion-header-bar no-tap-scroll="true" class="tab-attendance-head"
-                    ng-class="{true: 'bgc000', false: 'bgcb90b62'}[adminFlage]"
+                    ng-class="{true: 'bgc000', false: 'bgcb90b62'}[trainingItem.fromAdmin]"
                     align-title="center">
         <i ng-click="$ionicGoBack()" class="acc-angle-left"></i>
         <h1>
-            presenters
+            PRESENTERS
         </h1>
     </ion-header-bar>
 
@@ -31,9 +31,12 @@
             <ion-item class="item-avatar item-icon-right posr" ng-click="navigateProfile(people.PeopleKey, people.EnterpriseID, 0)">
                 <!--<a href="#/sideMenu/userProfile/{{people.EnterpriseID}}">-->
                 <img ng-src="data:image/jpeg;base64,{{ people.imgUrl }}" />
-                <h2>{{people.fullName}}</h2>
+                <h2>
+                    {{people.fullName}}
+                    <i class="acc-write-document posa t10-r10" ng-hide="trainingItem.fromAdmin || trainingItem.pickRule==1 || !trainingItem.isPastSession || ImpersonateStatus" ng-click = "navigateFeedback(people.EnterpriseID, $event);"></i>
+                </h2>
                 <p>{{people.standardjobdescr}}</p>
-                <i class="acc-write-document posa t10-r10"></i>
+
                 <!--<i class="acc-write-document" disable-Feedback ng-hide="$parent.$parent.$parent.fromAdmin || $parent.$parent.$parent.pickRule==1 || !$parent.$parent.$parent.isPastSession" ng-click = "navigateFeedback(people.EnterpriseID, $event);"></i>-->
                 <!--
                 <ion-option-button class="button-dark" ng-hide="ImpersonateStatus"  ng-click="sendChatMsg($index, 1)">

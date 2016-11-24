@@ -52,7 +52,7 @@ app.config(['$httpProvider', function ($httpProvider) {
 
     // Add interceptor for toastr messages
     // $httpProvider.interceptors.push('ErrorInterceptor');
-    $httpProvider.interceptors.push('authHttpInterceptor');
+    // $httpProvider.interceptors.push('authHttpInterceptor');
 }]);
 
 app.config(function (ionicDatePickerProvider) {
@@ -152,20 +152,21 @@ app.run(function ($ionicPlatform, $cordovaPush, $rootScope, $cordovaToast, critt
 
     'use strict';
 
-    function checkConnection() {
-        var networkState = navigator.connection.type;
-        var states = {};
-        states[Connection.UNKNOWN]  = 'Unknown connection';
-        states[Connection.ETHERNET] = 'Ethernet connection';
-        states[Connection.WIFI]     = 'WiFi connection';
-        states[Connection.CELL_2G]  = 'Cell 2G connection';
-        states[Connection.CELL_3G]  = 'Cell 3G connection';
-        states[Connection.CELL_4G]  = 'Cell 4G connection';
-        states[Connection.CELL]     = 'Cell generic connection';
-        states[Connection.NONE]     = 'No network connection';
-        $cordovaToast.show(states[networkState], 'long', 'bottom');
-        $rootScope.$broadcast('networkStateChanged',states[networkState]);
-    }
+    // function checkConnection() {
+    //     //alert('connection');
+    //     var networkState = navigator.connection.type;
+    //     var states = {};
+    //     states[Connection.UNKNOWN]  = 'Unknown connection';
+    //     states[Connection.ETHERNET] = 'Ethernet connection';
+    //     states[Connection.WIFI]     = 'WiFi connection';
+    //     states[Connection.CELL_2G]  = 'Cell 2G connection';
+    //     states[Connection.CELL_3G]  = 'Cell 3G connection';
+    //     states[Connection.CELL_4G]  = 'Cell 4G connection';
+    //     states[Connection.CELL]     = 'Cell generic connection';
+    //     states[Connection.NONE]     = 'No network connection';
+    //     $cordovaToast.show(states[networkState], 'long', 'bottom');
+    //     //$rootScope.$broadcast('networkStateChanged',states[networkState]);    
+    // }
 
     $ionicPlatform.ready(function () {
 
@@ -176,6 +177,8 @@ app.run(function ($ionicPlatform, $cordovaPush, $rootScope, $cordovaToast, critt
         var isAndroid = ionic.Platform.isAndroid();
         var isWindowsPhone = ionic.Platform.isWindowsPhone();
 
+        //check connection
+        //checkConnection();
 
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs
@@ -187,27 +190,7 @@ app.run(function ($ionicPlatform, $cordovaPush, $rootScope, $cordovaToast, critt
             StatusBar.styleDefault(2);
         }
 
-        // Merge code from learning events
-        /*$http.get("http://www.bing.com", {
-            cache: false,
-            headers: {
-                'Authorization': ''
-            }
-        })
-            .success(function (data) {
-            })
-            .error(function (data, status) {
-                $rootScope.errorInfo.status = 'No internet';
-                $rootScope.errorInfo.viewText = 'It seems that you are not connected to Internet. Please check your connection and try again.';
-                $rootScope.showSplash = false;
-
-                $ionicPopup.alert({
-                    title: '<h3>No internet</h3>',
-                    template: 'It seems that you are not connected to Internet. Please check your connection and try again.',
-                    okType: 'button-dark'
-                });
-
-            });*/
+       
 
         $ionicPlatform.on('resume', function () {
             /// <summary>
@@ -234,8 +217,8 @@ app.run(function ($ionicPlatform, $cordovaPush, $rootScope, $cordovaToast, critt
             //window.cordova ? $cordovaPush.setBadgeNumber(users.badge) : '';
         });
 
-        document.addEventListener("online", checkConnection, false);
-        document.addEventListener("offline", checkConnection, false);
+        //document.addEventListener("online", checkConnection, false);
+        //document.addEventListener("offline", checkConnection, false);
 
     });
 });
@@ -495,8 +478,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
             cache: false,
             params: {
                 selectedTraining: null,
-                fromMyTraining: null,
-                fromEventUpdate:null
+                fromMyTraining: null
             },
             views: {
                 'tab-activity': {
@@ -518,6 +500,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
         })
 
         .state('app.trainingDetailTabs.venueTab', {
+            cache: false,
             url: '/venue',
             views: {
                 'tab-venue': {
@@ -546,7 +529,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
             views: {
                 'tab-participants': {
                     templateUrl: 'conLearning/event/trainingDetail/tabs/participants/tab.participants.html',
-                    controller: 'TrainingDetailCtrl'
+                    controller: 'participantsCtrl'
                 }
             }
         })
@@ -557,7 +540,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
             views: {
                 'menuContent': {
                     templateUrl: 'conLearning/event/trainingDetail/tabs/peopleOnSite/tab.peopleOnSite.html',
-                    controller: 'TrainingDetailCtrl'
+                    controller: 'participantsCtrl'
                 }
             }
         })
@@ -572,24 +555,24 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
         })
 
             //these two states have exist at www\conLearning\event\trainingDetail\tabs\stream\stream.module.js
-        // .state('app.article', {
-        //     url: "/article/:articleId/:flag",
-        //     views: {
-        //         'menuContent': {
-        //             templateUrl: "conLearning/event/trainingDetail/tabs/stream/stream-detail.html",
-        //             controller: 'streamDetailController'
-        //         }
-        //     }
-        // })
-        // .state('app.discussion', {
-        //     url: "/discussion/:discussionId/:circleId",
-        //     views: {
-        //         'menuContent': {
-        //             templateUrl: "conLearning/event/trainingDetail/tabs/stream/discussions-detail.html",
-        //             controller: "discussionsDetailController"
-        //         }
-        //     }
-        // })
+        .state('app.article', {
+            url: "/article/:articleId/:flag",
+            views: {
+                'menuContent': {
+                    templateUrl: "conLearning/event/trainingDetail/tabs/stream/stream-detail.html",
+                    controller: 'streamDetailController'
+                }
+            }
+        })
+        .state('app.discussion', {
+            url: "/discussion/:discussionId/:circleId",
+            views: {
+                'menuContent': {
+                    templateUrl: "conLearning/event/trainingDetail/tabs/stream/discussions-detail.html",
+                    controller: "discussionsDetailController"
+                }
+            }
+        })
 
         // Route for Send Inner Message
         .state('app.newPersonalisedMessage',{
@@ -754,6 +737,8 @@ app.config(function ($ionicConfigProvider) {
     $ionicConfigProvider.tabs.position("bottom");
     $ionicConfigProvider.tabs.style("standard");
 
+    $ionicConfigProvider.platform.ios.navBar.alignTitle('center');
+    $ionicConfigProvider.platform.android.navBar.alignTitle('center');
 });
 
 // The new path for angular, fixed the issues with iOS9

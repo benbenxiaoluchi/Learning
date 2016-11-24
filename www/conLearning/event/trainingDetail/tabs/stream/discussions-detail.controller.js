@@ -1,10 +1,9 @@
 ﻿controllers.controller('discussionsDetailController',
-    ['$scope', '$stateParams', 'streamService', '$ionicHistory',
-    function ($scope, $stateParams, streamService, $ionicHistory) {
+    ['$scope', '$stateParams', 'streamService', '$ionicHistory', '$ionicLoading',
+    function ($scope, $stateParams, streamService, $ionicHistory, $ionicLoading) {
         //#region Properties
         $scope.discussions = [];
         $scope.hashtag = $stateParams.discussionId;
-        $scope.loading = false;
         //#endregion
 
         //#region Actions
@@ -13,15 +12,15 @@
         };
 
         $scope.loadStream = function () {
-            $scope.loading = true;
+            $ionicLoading.show();
 
             streamService.getDiscussionStream($stateParams.circleId, 100, 0, '#' + $stateParams.discussionId).then(
                 function (data) {
                     $scope.discussions = data;
-                    $scope.loading = false;
+                    $ionicLoading.hide();
                 },
                 function (error) {
-                    $scope.loading = false;
+                    $ionicLoading.hide();
                     console.log(error);
                 }
             );

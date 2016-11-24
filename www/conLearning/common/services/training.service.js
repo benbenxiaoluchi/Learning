@@ -554,12 +554,19 @@ function ($q, $http, constants, services, methods, $cordovaFile, authService, lo
             var element = angular.element(htmlBody);
             var aTags = element.find('a');
             var Links = [];
+            var fileTypes = ['PDF',
+                             'TXT', 'RTF',
+                             'DOCX', 'DOC', 'XLSX', 'XLS', 'PPT', 'PPTX',
+                             'JPG', 'BMP', 'JPEG', 'GIF', 'PNG',
+                             'MP3', 'WAV', 'WMA',
+                             'AVI', 'MP4', 'WMV', 'MKV', 'FLV'];
             angular.forEach(aTags, function (item, key) {
                 var file = item.innerText;
 
                 var link = item.attributes["href"].nodeValue;
                 //var role = item.attributes["media"].nodeValue; disable the admin for material since api not ready by Booker
                 var fileType =link.substring(link.lastIndexOf('.') + 1).toUpperCase();
+                fileType = (fileTypes.indexOf(fileType) > -1) ? fileType : 'URL';
                 while (link.indexOf('https://') == -1) {
                     link = baseURL + link;
                 }
@@ -930,9 +937,14 @@ function ($q, $http, constants, services, methods, $cordovaFile, authService, lo
                 deferred.reject(error);
             });
             return deferred.promise;
+        },
+        getActivityEventInfo: function (jwt, params) {
+            var baseUrl = services.services.myLearningService.url.training.getActivityEventInfo,
+                url = methods.urlFormat(baseUrl, params.PeopleKey, services.services.myLearningService.apiKey, sha256Encrypt()),
+                authorization = jwt || '';
+            $log.debug("Get Activity Event Info: " + url);
+            return authService.get(url, authorization, 'getActivityEventInfo');
         }
-
-
 
     };
 }

@@ -1,7 +1,7 @@
 ﻿/*global angular, factories */
 
-factories.factory('authService', ['$http', '$q', '$log', '$ionicPlatform', 'tokensEso', 'profileService', 'recommendationsService', 'crittercismService', '$rootScope', 'connectedLearning.methods',
-    function ($http, $q, $log, $ionicPlatform, tokensEso, profileService, recommendationsService, crittercismService, $rootScope, methods) {
+factories.factory('authService', ['$http', '$q', '$log', '$ionicPlatform', 'tokensEso', 'profileService', 'recommendationsService', 'crittercismService', '$rootScope', 'connectedLearning.methods','$cordovaToast',
+    function ($http, $q, $log, $ionicPlatform, tokensEso, profileService, recommendationsService, crittercismService, $rootScope, methods,$cordovaToast) {
 
         'use strict';
 
@@ -26,6 +26,25 @@ factories.factory('authService', ['$http', '$q', '$log', '$ionicPlatform', 'toke
         };
         //#endregion
 
+        //#region Check Network
+        dataFactory.checkConnection = function () {
+            var networkState = navigator.connection.type;
+            var states = {};
+            states[Connection.UNKNOWN]  = 'Unknown connection';
+            states[Connection.ETHERNET] = 'Ethernet connection';
+            states[Connection.WIFI]     = 'WiFi connection';
+            states[Connection.CELL_2G]  = 'Cell 2G connection';
+            states[Connection.CELL_3G]  = 'Cell 3G connection';
+            states[Connection.CELL_4G]  = 'Cell 4G connection';
+            states[Connection.CELL]     = 'Cell generic connection';
+            states[Connection.NONE]     = 'No network connection';
+            
+            $cordovaToast.show(states[networkState], 'long', 'bottom');
+
+            return status[networkState] === 'No network connection' ? false : true;
+        }
+        //endregion
+
         //#region Service Calls
         //
         // Proxy method that gets ESO tokens (logs in as needed) and calls named service...
@@ -35,107 +54,107 @@ factories.factory('authService', ['$http', '$q', '$log', '$ionicPlatform', 'toke
         dataFactory.callService = function (serviceParameters) {
             var deferred = $q.defer();
 
-            dataFactory.getToken(serviceParameters.serviceName).then(function (jwt) {
-                // set jwt in the access token
-                serviceParameters.accessToken = jwt;
-                dataFactory.jwt = jwt;
-                // only in a call that needs mylearning jwt (get recommended items , get learning details and get skills details)
-                //Fix Bug#306423: Bug - [API] - Recommended Learning - No trainings and Learning boards are coming from service
-                if (serviceParameters.action === recommendationsService.getLearningDetails ||
-                    serviceParameters.action === recommendationsService.getRecommendedLearnings ||
-                    serviceParameters.action === profileService.getSkillRecommendedLearnings) {
+                dataFactory.getToken(serviceParameters.serviceName).then(function (jwt) {
+                    // set jwt in the access token
+                    serviceParameters.accessToken = jwt;
+                    dataFactory.jwt = jwt;
+                    // only in a call that needs mylearning jwt (get recommended items , get learning details and get skills details)
                     //Fix Bug#306423: Bug - [API] - Recommended Learning - No trainings and Learning boards are coming from service
-                    dataFactory.getToken('myLearningService').then(function (myLjwt) {
-                        // set jwt in the access token
-                        serviceParameters.myLearningToken = myLjwt;
+                    if (serviceParameters.action === recommendationsService.getLearningDetails ||
+                        serviceParameters.action === recommendationsService.getRecommendedLearnings ||
+                        serviceParameters.action === profileService.getSkillRecommendedLearnings) {
+                        //Fix Bug#306423: Bug - [API] - Recommended Learning - No trainings and Learning boards are coming from service
+                        dataFactory.getToken('myLearningService').then(function (myLjwt) {
+                            // set jwt in the access token
+                            serviceParameters.myLearningToken = myLjwt;
 
+                            dataFactory._serviceFactory(serviceParameters).then(function (data) {
+                                deferred.resolve(data);
+                            }, function (error) {
+                                $log.error(error);
+                                deferred.reject(error);
+                            });
+
+                        }, function (error) {
+                            $log.error(error);
+                            deferred.reject(error);
+                        });
+
+                    }
+                    else if (serviceParameters.action === profileService.getFutureSkills) {
+
+                        dataFactory.getToken('careerPlanningService').then(function (cpjwt) {
+                            // set jwt in the access token
+                            serviceParameters.careerPlanningToken = cpjwt;
+
+                            dataFactory._serviceFactory(serviceParameters).then(function (data) {
+                                deferred.resolve(data);
+                            }, function (error) {
+                                $log.error(error);
+                                deferred.reject(error);
+                            });
+
+                        }, function (error) {
+                            $log.error(error);
+                            deferred.reject(error);
+                        });
+
+                    }
+                    // only in a call that needs my scheduling jwt (get my scheduling assignments)
+                    else if (serviceParameters.action === recommendationsService.getMySchedulingAssignments ||
+                        serviceParameters.action === recommendationsService.getAssignmentDetail) {
+
+                        dataFactory.getToken('mySchedulingService').then(function (mySjwt) {
+                            // set jwt in the access token
+                            serviceParameters.mySchedulingToken = mySjwt;
+
+                            dataFactory._serviceFactory(serviceParameters).then(function (data) {
+                                deferred.resolve(data);
+                            }, function (error) {
+                                $log.error(error);
+                                deferred.reject(error);
+                            });
+
+                        }, function (error) {
+                            $log.error(error);
+                            deferred.reject(error);
+                        });
+
+                    }
+                    // only in a call that needs acm jwt (get positions)
+                    else if (serviceParameters.action === recommendationsService.getPositionDetails ||
+                        serviceParameters.action === recommendationsService.getACMPositions) {
+
+                        dataFactory.getToken('acmService').then(function (acmjwt) {
+                            // set jwt in the access token
+                            serviceParameters.ACMToken = acmjwt;
+
+                            dataFactory._serviceFactory(serviceParameters).then(function (data) {
+                                deferred.resolve(data);
+                            }, function (error) {
+                                $log.error(error);
+                                deferred.reject(error);
+                            });
+
+                        }, function (error) {
+                            $log.error(error);
+                            deferred.reject(error);
+                        });
+
+                    }
+                    else {
                         dataFactory._serviceFactory(serviceParameters).then(function (data) {
                             deferred.resolve(data);
                         }, function (error) {
                             $log.error(error);
                             deferred.reject(error);
                         });
+                    }
 
-                    }, function (error) {
-                        $log.error(error);
-                        deferred.reject(error);
-                    });
-
-                }
-                else if (serviceParameters.action === profileService.getFutureSkills) {
-
-                    dataFactory.getToken('careerPlanningService').then(function (cpjwt) {
-                        // set jwt in the access token
-                        serviceParameters.careerPlanningToken = cpjwt;
-
-                        dataFactory._serviceFactory(serviceParameters).then(function (data) {
-                            deferred.resolve(data);
-                        }, function (error) {
-                            $log.error(error);
-                            deferred.reject(error);
-                        });
-
-                    }, function (error) {
-                        $log.error(error);
-                        deferred.reject(error);
-                    });
-
-                }
-                // only in a call that needs my scheduling jwt (get my scheduling assignments)
-                else if (serviceParameters.action === recommendationsService.getMySchedulingAssignments ||
-                    serviceParameters.action === recommendationsService.getAssignmentDetail) {
-
-                    dataFactory.getToken('mySchedulingService').then(function (mySjwt) {
-                        // set jwt in the access token
-                        serviceParameters.mySchedulingToken = mySjwt;
-
-                        dataFactory._serviceFactory(serviceParameters).then(function (data) {
-                            deferred.resolve(data);
-                        }, function (error) {
-                            $log.error(error);
-                            deferred.reject(error);
-                        });
-
-                    }, function (error) {
-                        $log.error(error);
-                        deferred.reject(error);
-                    });
-
-                }
-                // only in a call that needs acm jwt (get positions)
-                else if (serviceParameters.action === recommendationsService.getPositionDetails ||
-                    serviceParameters.action === recommendationsService.getACMPositions) {
-
-                    dataFactory.getToken('acmService').then(function (acmjwt) {
-                        // set jwt in the access token
-                        serviceParameters.ACMToken = acmjwt;
-
-                        dataFactory._serviceFactory(serviceParameters).then(function (data) {
-                            deferred.resolve(data);
-                        }, function (error) {
-                            $log.error(error);
-                            deferred.reject(error);
-                        });
-
-                    }, function (error) {
-                        $log.error(error);
-                        deferred.reject(error);
-                    });
-
-                }
-                else {
-                    dataFactory._serviceFactory(serviceParameters).then(function (data) {
-                        deferred.resolve(data);
-                    }, function (error) {
-                        $log.error(error);
-                        deferred.reject(error);
-                    });
-                }
-
-            }, function (error) {
-                $log.error(error);
-                deferred.reject(error);
-            });
+                }, function (error) {
+                    $log.error(error);
+                    deferred.reject(error);
+                });
 
             return deferred.promise;
         };
@@ -151,7 +170,19 @@ factories.factory('authService', ['$http', '$q', '$log', '$ionicPlatform', 'toke
             }
             var deferred = $q.defer();
 
-            //$log.debug('Calling service...');
+
+            if(!dataFactory.checkConnection())
+            {
+                $log.debug('Calling service with no connection');
+                var data = {};
+                data.ReturnCode = -300;
+                data.Content = null;
+                deferred.resolve(data)
+            }
+            else //no Connection
+            {
+
+            $log.debug('Calling service...');
             //$log.debug(serviceParameters);
             //
             // Call named service with retry capabilities...
@@ -163,17 +194,17 @@ factories.factory('authService', ['$http', '$q', '$log', '$ionicPlatform', 'toke
                 serviceParameters.params.myLToken = 'Bearer ' + serviceParameters.myLearningToken;
             }
             //  if career planning token is needed, send in parameters
-            if (serviceParameters.careerPlanningToken !== undefined) {
-                serviceParameters.params.cpToken = 'Bearer ' + serviceParameters.careerPlanningToken;
-            }
+            // if (serviceParameters.careerPlanningToken !== undefined) {
+            //     serviceParameters.params.cpToken = 'Bearer ' + serviceParameters.careerPlanningToken;
+            // }
             //  if my scheduling token is needed, send in parameters
-            if (serviceParameters.mySchedulingToken !== undefined) {
-                serviceParameters.params.mySToken = 'Bearer ' + serviceParameters.mySchedulingToken;
-            }
+            // if (serviceParameters.mySchedulingToken !== undefined) {
+            //     serviceParameters.params.mySToken = 'Bearer ' + serviceParameters.mySchedulingToken;
+            // }
             //  if my scheduling token is needed, send in parameters
-            if (serviceParameters.mySchedulingToken !== undefined) {
-                serviceParameters.params.acmToken = 'Bearer ' + serviceParameters.ACMToken;
-            }
+            // if (serviceParameters.mySchedulingToken !== undefined) {
+            //     serviceParameters.params.acmToken = 'Bearer ' + serviceParameters.ACMToken;
+            // }
 
             serviceParameters.action(jwt, serviceParameters.params).then(function (data) {
                 deferred.resolve(data);
@@ -203,6 +234,9 @@ factories.factory('authService', ['$http', '$q', '$log', '$ionicPlatform', 'toke
                     }
                 }
             });
+            
+        }//end of no connection
+
 
             return deferred.promise;
         };

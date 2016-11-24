@@ -1,20 +1,22 @@
-﻿<ion-modal-view view-title="FacilityVenueMap" class="sendToList-wrap">
-    <div class="sendToList-head-title">
-        LOCATION MAP
-        <i class=" icon acc-angle-right" ng-click="hideVenueOptions()">
-        </i>
-    </div>
-    <ion-content class="" has-bouncing="true" has-header="false">      
+﻿<ion-modal-view view-title="FacilityVenueMap" class="facilityVenueMap-wrap" hide-nav-bar="true">
+
+    <ion-header-bar no-tap-scroll="true" class="tab-attendance-head" ng-class="{true: 'bgc000', false: 'bgcb90b62'}[trainingItem.fromAdmin]">
+        <i ng-click="hideVenueOptions()" class="acc-angle-left"></i>
+        <h1>
+            LOCATION MAP
+        </h1>
+    </ion-header-bar>
+    <ion-content class="" has-bouncing="false" has-header="true">
         <div ng-if="googleMapVisible" class="">
             <div class="item-image image-for-ios9">
                 <a ng-href="https://www.google.com/maps/search/{{whichFacility.add1}},{{whichFacility.city}},{{whichFacility.state}}" onclick="window.open(this.href, '_system', 'location=yes'); return false;">
-                    <img ng-src="http://maps.googleapis.com/maps/api/staticmap?size=500x260&key=AIzaSyCc1ZDV6W-V7ZBtkjct_AL9c6qpQl9JGGU&center={{whichFacility.add1}},{{whichFacility.city}},{{whichFacility.state}}&zoom=13&markers=color:blue|label:S|{{whichFacility.add1}},{{whichFacility.city}},{{whichFacility.state}}" />
+                    <img class="facilityVenueMap-wrap-img-map" ng-src="http://maps.googleapis.com/maps/api/staticmap?size=750x1334&key=AIzaSyCc1ZDV6W-V7ZBtkjct_AL9c6qpQl9JGGU&center={{whichFacility.add1}},{{whichFacility.city}},{{whichFacility.state}}&zoom=13&markers=color:blue|label:S|{{whichFacility.add1}},{{whichFacility.city}},{{whichFacility.state}}" />
                 </a>
             </div>        
         </div>     
         <div ng-if="!googleMapVisible" class="">
             <div class="item-image image-for-ios9">
-                <img ng-src="http://image.maps.cit.api.here.com/mia/1.6/mapview?app_id=p8tWlT2mQCQ6zjp9O9MR&app_code=UJCQcM0SiMBPbC5VPN2_tA&w=500&h=260&z=9&co={{whichFacility.state}}&ci={{whichFacility.city}}" />
+                <img class="facilityVenueMap-wrap-img-map" ng-src="http://image.maps.cit.api.here.com/mia/1.6/mapview?app_id=p8tWlT2mQCQ6zjp9O9MR&app_code=UJCQcM0SiMBPbC5VPN2_tA&w=750&h=1334&z=9&co={{whichFacility.state}}&ci={{whichFacility.city}}" />
             </div>
         </div>   
     </ion-content>

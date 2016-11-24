@@ -3,8 +3,8 @@
 'use strict';
 
 factories.factory('menuService',
-    ['$q', '$http', 'connectedLearning.constants', 'environmentData', 'connectedLearning.methods', '$cordovaFile', 'authService', 'localStorageService', '$ionicLoading', 'connectedLearning.constants.environments','securityService',
-function ($q, $http, constants, services, methods, $cordovaFile, authService, localStorageService, $ionicLoading, envs, securityService) {
+    ['$q', '$http', '$log', 'connectedLearning.constants', 'environmentData', 'connectedLearning.methods', '$cordovaFile', 'authService', 'localStorageService', '$ionicLoading', 'connectedLearning.constants.environments','securityService',
+function ($q, $http, $log, constants, services, methods, $cordovaFile, authService, localStorageService, $ionicLoading, envs, securityService) {
     /// <summary>
     /// Service created to manage http calls needed to provide functionality to manage training 
     ///  training with invoinces into the application
@@ -119,6 +119,45 @@ function ($q, $http, constants, services, methods, $cordovaFile, authService, lo
     }
     //#endregion
 
+    var httpService = {
+        fetchData: function (url, method, config, data, refresh) {
+            var deferred = $q.defer();
+            if (method == 'GET') {
+                return httpService.get(url, config, refresh);
+            }
+            else if (method == 'POST') {
+                return httpService.post(url, data, config, refresh);
+            }
+            else {
+                console.error('method error');
+                deferred.reject('method error, please check if method is "GET" or "POST"');
+            }
+            return deferred.promise;
+        },
+        get: function (url, config, refresh) {
+            var deferred = $q.defer();
+            $http.get(url, config).success(function (data) {
+                deferred.resolve(data);
+            }).error(function (data, status, headers, config) {
+                deferred.reject({
+                    data: data, status: status, headers: headers, config: config
+                });
+            });
+            return deferred.promise;
+        },
+        post: function (url, data, config, refresh) {
+            var deferred = $q.defer();
+            $http.post(url, data, config)
+                .success(function (data) {
+                    deferred.resolve(data);
+                })
+                .error(function (data, status, headers, config) {
+                    deferred.reject({ data: data, status: status, headers: headers, config: config });
+                });
+            return deferred.promise;
+        }
+    };
+
     return {
         getProfileImageModel: function (eID) {
             /// <summary>
@@ -217,7 +256,49 @@ function ($q, $http, constants, services, methods, $cordovaFile, authService, lo
             return deferred.promise;
         },
 
+        getFacilityList: function () {
+            var deferred = $q.defer();
+            if (services.environment === envs.MOCK) {
+                var baseUrl = services.services.myLearningService.url.apis.getFacilityList,
+                    wsUrl = methods.urlFormat(baseUrl),
+                    counter = 1;
+                $log.debug("Get Single Facility URL: " + baseUrl);
+
+                doGetQuery(deferred, wsUrl, counter);
+            }
+            else {
+                authService.callService({
+                    serviceName: services.services.myLearningService.serviceName,
+                    action: this.getFacilityListSecured,
+                    params: {}
+                }).then(function (data) {
+                    deferred.resolve(data);
+                }, function (error) {
+                    deferred.reject(error);
+                });
+            }
+            return deferred.promise;
+        },
+
+        getFacilityListSecured: function (jwt) {
+            var baseUrl = services.services.myLearningService.url.apis.getFacilityList,
+                url = methods.urlFormat(baseUrl, services.services.myLearningService.apiKey, sha256Encrypt()),
+                deferred = $q.defer(),
+                authorization = jwt || '';
+            httpService.fetchData(url, 'GET', {
+                cache: false,
+                headers: {
+                    'Authorization': authorization
+                }
+            }).then(function (data) {
+                deferred.resolve(data);
+            }, function (error) {
+                deferred.reject(error);
+            });
+            return deferred.promise;
+        }
+
+
     };
-}
-    ]
+}]
 );

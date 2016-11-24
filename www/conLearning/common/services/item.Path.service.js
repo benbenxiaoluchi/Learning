@@ -95,35 +95,54 @@ factories.factory('itemPathService', ['$filter',
 services.service('getFacilityInfoService',['$ionicLoading', function ($ionicLoading) {
 
     function initCenterImage() {
-        var centerImage = [];
+        var centerImages = [];
         var centerImg = ["RLC - St. Charles Q Center.jpg",
             "RLC - Kuala Lumpur Sheraton Imperial.jpg",
             "RLC - Madrid NH Collection Eurobuilding.jpg",
             "RLC - Bengaluru Marriott Hotel.jpg",
-            "RLC - London Wokefield Park.jpg"
+            "RLC - London Wokefield Park.jpg",
+            "Dublin_Learning_Center.jpg",
+            "DefaultVenue.jpg"
         ];
-
-        var defaultCenterImg = {
-            "background":"url(img/DefaultVenue.jpg)",
-            "background-size": "100% 220px"
-        };
         angular.forEach(centerImg,function (item) {
             var thisUrl = "url(img/" + encodeURI(item) + ")";
             var centerImageTemp = {
                 "background":thisUrl,
                 "background-size": "100% 220px"
             };
-            centerImage.push(centerImageTemp);
+            centerImages.push(centerImageTemp);
         });
-        centerImage.push(defaultCenterImg);
-        return centerImage;
+
+        return {
+            centerImages : centerImages,
+            centerImageList : centerImg
+        };
     }
 
+    function filterCenterImage(facilityId) {
+        var theImg;
+        var CenterImg = initCenterImage().centerImageList;
+        if(facilityId == 1){
+            theImg = CenterImg[0];
+        } else if (facilityId == 737){
+            theImg = CenterImg[1];
+        } else if (facilityId == 2612){
+            theImg = CenterImg[2];
+        } else if (facilityId == 4404){
+            theImg = CenterImg[3];
+        } else if (facilityId == 4790){
+            theImg = CenterImg[4];
+        } else if (facilityId == 6176){
+            theImg = CenterImg[5];
+        } else {
+            theImg = CenterImg[6];
+        }
+        return theImg;
+    }
 
     return {
-        'getCenterImageList' : function () {
-            return initCenterImage();
-        }
+        'getCenterImageList' : initCenterImage,
+        'filterCenterImage' : filterCenterImage
     }
 
 }]);

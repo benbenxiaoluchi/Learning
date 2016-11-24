@@ -1,0 +1,107 @@
+$weather-font-path: "../fonts/weather-icons" !default;
+
+@font-face {
+    font-family: 'WeatherIcons';
+    src:  url('#{$weather-font-path}/WeatherIcons.eot?xq0qez');
+    src:  url('#{$weather-font-path}/WeatherIcons.eot?xq0qez#iefix') format('embedded-opentype'),
+    url('#{$weather-font-path}/WeatherIcons.ttf?xq0qez') format('truetype'),
+    url('#{$weather-font-path}/WeatherIcons.woff?xq0qez') format('woff'),
+    url('#{$weather-font-path}/WeatherIcons.svg?xq0qez#WeatherIcons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="weather-"], [class*=" weather-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'WeatherIcons' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.weather-Weather-01:before {
+    content: "\e900";
+}
+.weather-Weather-02:before {
+    content: "\e901";
+}
+.weather-Weather-03:before {
+    content: "\e902";
+}
+.weather-Weather-04:before {
+    content: "\e903";
+}
+.weather-Weather-05:before {
+    content: "\e904";
+}
+.weather-Weather-06:before {
+    content: "\e905";
+}
+.weather-Weather-07:before {
+    content: "\e906";
+}
+.weather-Weather-08:before {
+    content: "\e907";
+}
+.weather-Weather-09:before {
+    content: "\e908";
+}
+.weather-Weather-10:before {
+    content: "\e909";
+}
+.weather-Weather-11:before {
+    content: "\e90a";
+}
+.weather-Weather-12:before {
+    content: "\e90b";
+}
+.weather-Weather-13:before {
+    content: "\e90c";
+}
+.weather-Weather-14:before {
+    content: "\e90d";
+}
+.weather-Weather-15:before {
+    content: "\e90e";
+}
+.weather-Weather-16:before {
+    content: "\e90f";
+}
+.weather-Weather-17:before {
+    content: "\e910";
+}
+.weather-Weather-18:before {
+    content: "\e911";
+}
+.weather-Weather-19:before {
+    content: "\e912";
+}
+.weather-Weather-20:before {
+    content: "\e913";
+}
+.weather-Weather-21:before {
+    content: "\e914";
+}
+.weather-Weather-22:before {
+    content: "\e915";
+}
+.weather-Weather-23:before {
+    content: "\e916";
+}
+.weather-Weather-24:before {
+    content: "\e917";
+}
+.weather-Weather-25:before {
+    content: "\e918";
+}
+.weather-Weather-26:before {
+    content: "\e919";
+}
+

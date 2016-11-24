@@ -1,20 +1,29 @@
-﻿<ion-view view-title="PARTICIPANTS" class="participants-list-page-wrap" ng-init="initParticipants()" hide-nav-bar="{{fromAdmin}}">
-    <ion-nav-bar class="bar-positive background-isBlack" align-title="center" ng-show="!fromAdmin">
-        <ion-nav-buttons side="left">
-            <button menu-toggle="left" class="button button-icon learn-Icon-HamburgerMenu"></button>
-        </ion-nav-buttons>
+﻿<ion-view view-title="PARTICIPANTS" class="participants-list-page-wrap" ng-init="initParticipants()"
+          hide-nav-bar="true">
+    <!--<ion-nav-bar class="bar-positive background-isBlack" ng-if="!trainingItem.fromAdmin">-->
+    <!--<ion-nav-buttons side="left">-->
+    <!--<button menu-toggle="left" class="button button-icon learn-Icon-HamburgerMenu"></button>-->
+    <!--</ion-nav-buttons>-->
 
-        <ion-nav-buttons side="right">
-            <i ng-click="viewNotifications()" ng-class="{true: 'ion-ios-bell activeity-head-bell-style', false: 'ion-ios-bell activeity-head-bell-NoUnRead-style'}[unReadIcon]" title="{{unreadCount}}"></i>
-        </ion-nav-buttons>
-    </ion-nav-bar>
+    <!--<ion-nav-buttons side="right">-->
+    <!--<i ng-click="viewNotifications()"-->
+    <!--ng-class="{true: 'ion-ios-bell activeity-head-bell-style', false: 'ion-ios-bell activeity-head-bell-NoUnRead-style'}[unReadIcon]"-->
+    <!--title="{{unreadCount}}"></i>-->
+    <!--</ion-nav-buttons>-->
+
+    <!--</ion-nav-bar>-->
     <ion-header-bar no-tap-scroll="true" class="tab-attendance-head"
-                    ng-class="{true: 'bgc000', false: 'bgcb90b62'}[adminFlage]"
-                    align-title="center" ng-if="fromAdmin">
-        <i ng-click="$ionicGoBack()" class="acc-angle-left"></i>
+                    ng-class="{true: 'bgc000', false: 'bgcb90b62'}[trainingItem.fromAdmin]"
+                    align-title="center">
+        <i ng-click="backToEvents()" class="acc-angle-left" ng-if="trainingItem.fromAdmin"></i>
+        <button menu-toggle="left" class="button button-icon learn-Icon-HamburgerMenu"
+                ng-if="!trainingItem.fromAdmin"></button>
         <h1>
             PARTICIPANTS
         </h1>
+        <i ng-click="viewNotifications()" ng-if="!trainingItem.fromAdmin"
+           ng-class="{true: 'ion-ios-bell activeity-head-bell-style', false: 'ion-ios-bell activeity-head-bell-NoUnRead-style'}[unReadIcon]"
+           title="{{unreadCount}}"></i>
     </ion-header-bar>
     <ion-content class="has-header">
         <ion-list class="light-bgr-formainpage content forParticipants background-isWhite">
@@ -38,7 +47,8 @@
                 </ion-item>
             </div>
             <div ng-repeat="item in demographicType">
-                <ion-item class="item-icon-right" ng-show="boolOpenDemographic" ng-click="selectDemographicType(item.label, 1)">
+                <ion-item class="item-icon-right" ng-show="boolOpenDemographic"
+                          ng-click="selectDemographicType(item.label, 1)">
                     <h2>{{item.label}}</h2>
                     <i class="icon ion-chevron-right placeholder-icon"></i>
                 </ion-item>
@@ -53,7 +63,8 @@
                 </ion-item>
             </div>
             <div ng-repeat="item in demographics">
-                <ion-item class="item-icon-right" ng-show="boolOpenDemographics" ng-click="selectDemographics(item.text, item.pplLikeMeDemogCat,item.pplLikeMeDemogFK,1)">
+                <ion-item class="item-icon-right" ng-show="boolOpenDemographics"
+                          ng-click="selectDemographics(item.text, item.pplLikeMeDemogCat,item.pplLikeMeDemogFK,1)">
                     <h2>{{item.text}}</h2>
                     <i class="icon ion-chevron-right placeholder-icon"></i>
                 </ion-item>
@@ -69,7 +80,8 @@
                 </ion-item>
             </div>
             <div id="peoplelikeme" ng-repeat="item in peopleLikeMe">
-                <ion-item class="item-icon-right" ng-show="boolOpenPeopleLikeMe" ng-click="selectPeopleLikeMe(item.text, item.pplLikeMeDemogCat,item.pplLikeMeDemogFK,1)">
+                <ion-item class="item-icon-right" ng-show="boolOpenPeopleLikeMe"
+                          ng-click="selectPeopleLikeMe(item.text, item.pplLikeMeDemogCat,item.pplLikeMeDemogFK,1)">
                     <h2>{{item.text}}</h2>
                     <i class="icon ion-chevron-right placeholder-icon"></i>
                 </ion-item>
@@ -77,7 +89,8 @@
 
 
             <div class="list acc-thing no-margin-bottom" ng-repeat="participant in participants">
-                <ion-item class="item item-text-wrap participants-list-item" ng-click="navigateProfile(participant.PeopleKey,participant.EnterpriseID, 0)">
+                <ion-item class="item item-text-wrap participants-list-item"
+                          ng-click="navigateProfile(participant.PeopleKey,participant.EnterpriseID, 0)">
                     <div class="participants-wrapper">
                         <img class="participants-list-img" ng-src="data:image/jpeg;base64,{{participant.imgUrl}}">
                         <h2 class="participants-list-item-title">{{participant.fullName}}</h2>

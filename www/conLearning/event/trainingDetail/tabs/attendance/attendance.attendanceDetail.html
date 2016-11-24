@@ -1,7 +1,7 @@
 ﻿<ion-modal-view view-title="AttendanceDetail" class="checkIn-popup-wrap">
     <ion-content class="attendance-checkindetail-wrap">
         <div class="learn-Icon-Close attendance-checkinslider-close" ng-click="closeAttendanceDetail()"></div>
-        <i class="learn-Icon-ParticipantsInRoom"></i>
+        <i class="learn-Icon-ParticipantsInRoom attendance-titleicon"></i>
         <div class="attendance-checkindetail-title">Manage Attendance details of</div>
         <div class="attendance-checkindetail-subtitle">{{fullName}}</div>
         <hr />
@@ -16,7 +16,7 @@
 
             <div class="text-area-box">
                 <span class="text-area-title-reasons">Reasons/Comments</span>
-                <textarea class="text-area-check" placeholder="Early Check-out" ng-model="participantActionComment"></textarea>
+                <textarea class="text-area-check" placeholder="Early Check-out" ng-model="$parent.$parent.$parent.participantActionComment"></textarea>
             </div>
 
             <div class="check-button-group">
