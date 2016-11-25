@@ -1,1 +1,1 @@
-﻿var currentEnvironment = 'DEV';
+﻿var currentEnvironment = 'STAGE';

@@ -5,7 +5,8 @@
         <h6>Checking-in</h6>
         <p class="attendance-checkinslider-info">{{fullName}} <span>at</span> {{checkinPopTime}}...</p>
         <button class="button button-dark button-block attendance-checkinslider-btn"
-                ng-click="checkInPopupAction(participantActionEid, checkinIndex)">CONFIRM CHECK IN
+                ng-click="checkInPopupAction(participantActionEid, checkinIndex)" ng-disabled="isImpersonate">
+            CONFIRM CHECK IN
         </button>
     </ion-content>
 </ion-modal-view>

@@ -99,7 +99,14 @@ app.constant('connectedLearning.constants', {
         finishLoadingSurveyToFaculty:'__finishLoadingSurveyToFaculty__',
     },
     circle: {
-        overallCircleID: '9c483707-79c1-4094-bb68-b71f08bf86c8'
+        overallCircle: {
+            circleID: '9c483707-79c1-4094-bb68-b71f08bf86c8',
+            circleName: "Learning Events App Discussion",
+            circleType: "UserDefault",
+            defaultCircle: 1,
+            PreferredCircle: 1,
+            InternalCircleID: 0
+        }
     }
 });
 //#endregion
@@ -650,17 +657,17 @@ app.provider('environmentData', ['connectedLearning.constants.environments', fun
                         modifyDefaultCircle: 'https://webservice.accenture.com/1720_myLearning/SB/AttendanceManagement/ModifyDefaultCircle?api_key={0}&sig={1}',
                         searchPeople: 'https://webservice.accenture.com/1720_myLAPI/SB/Activity/getRosterDetails?ActivityID={0}&RecordCount={1}&ReturnSetFlag={2}&SearchStr={3}&DemogCategory={4}&DemogKey={5}&api_key={6}&sig={7}',
                         getPeopleOnSite: 'https://webservice.accenture.com/1720_myLAPI/SB/Facility/getPeopleOnSite?ActivityID={0}&SearchStr={1}&RecordCount={2}&DemogCategory={3}&DemogKey={4}&api_key={5}&sig={6}',
-                        getActivityEventInfo: 'https://webservice.accenture.com/1720_myLearning/Perf/Activity/getActivityEventInfo?api_key={1}&sig={2}'
+                        getActivityEventInfo: 'https://webservice.accenture.com/1720_myLearning/SB/Activity/getActivityEventInfo?api_key={1}&sig={2}'
                     },
                     menu: {
-                        getFullName: 'https://webservice.accenture.com/1720_myLAPI/SB/other/getPeopleData?eid={0}&api_key={1}&sig={2}',
-                        getProfilePicture: 'https://webservice.accenture.com/1720_myLAPI/SB/other/getProfilePicture?eid={0}&api_key={1}&sig={2}',
-                        getProfileInfo: 'https://webservice.accenture.com/1720_myLAPI/SB/other/getPeopleData?eid={0}&api_key={1}&sig={2}'
+                        getFullName: 'https://webservice.accenture.com/1720_myLAPI/SB/Other/getPeopleData?eid={0}&api_key={1}&sig={2}',
+                        getProfilePicture: 'https://webservice.accenture.com/1720_myLAPI/SB/Other/getProfilePicture?eid={0}&api_key={1}&sig={2}',
+                        getProfileInfo: 'https://webservice.accenture.com/1720_myLAPI/SB/Other/getPeopleData?eid={0}&api_key={1}&sig={2}'
                     },
                     impersonation: {
-                        getACLWhitelistUser: 'https://webservice.accenture.com/1720_myLAPI/SB/User/getACLWhitelistUser?enterpriseID={0}&api_key={1}&sig={2}',
-                        getManageModePermission: 'https://webservice.accenture.com/1720_myLAPI/SB/User/getACLManageModePermission?enterpriseID={0}&impersonateKey={1}&api_key={2}&sig={3}',
-                        getSampleSessions: 'https://webservice.accenture.com/1720_myLAPI/SB/login/getSampleSessions?CourseCode={0}&api_key={1}&sig={2}'
+                        getACLWhitelistUser: 'https://webservice.accenture.com/1720_myLAPI/SB/Login/getACLWhitelistUser?enterpriseID={0}&api_key={1}&sig={2}',
+                        getManageModePermission: 'https://webservice.accenture.com/1720_myLAPI/SB/Login/getACLManageModePermission?enterpriseID={0}&impersonateKey={1}&api_key={2}&sig={3}',
+                        getSampleSessions: 'https://webservice.accenture.com/1720_myLAPI/SB/Activity/GetSampleSessions?CourseCode={0}&api_key={1}&sig={2}'
                     },
                     weather: {
                         getCurrentObservation: 'https://query.yahooapis.com/v1/public/yql?q={0}&format=json'

@@ -159,70 +159,31 @@ function ($q, $http, $log, constants, services, methods, $cordovaFile, authServi
     };
 
     return {
-        getProfileImageModel: function (eID) {
-            /// <summary>
-            /// Get Training
-            /// </summary>
-            /// <returns type="object">Result in a promise object.</returns>
-            /// <doc>myExpenses.services:menuService#getProfileImage</doc>
+        getProfileImageModel: function (jwt, parameters) {
+            if (methods.isEmptyOrNull(parameters.eID)) { parameters.eID = ''; }
             var baseUrl = services.services.myLearningService.url.menu.getProfilePicture,
-                wsUrl = services.environment === envs.STAGE || services.environment === envs.PROD ? methods.urlFormat(baseUrl, eID, services.services.myLearningService.apiKey, sha256Encrypt()) : methods.urlFormat(baseUrl, eID),
-                deferred = $q.defer(),
-                counter = 1;
+                url = methods.urlFormat(baseUrl, parameters.eID, services.services.myLearningService.apiKey, sha256Encrypt()),
+                authorization = jwt || '';
 
-            if (menuModel.length == 0) {
-                doGetQuery(deferred, wsUrl, counter);
-            } else {
-                deferred.resolve(menuModel);
-            }
-
-            return deferred.promise;
+            return authService.get(url, authorization, 'getProfileImageModel');
         },
 
-        getFullNameModel: function (eID) {
-            /// <summary>
-            /// Get activity
-            /// </summary>
-            /// <param name="activityID">Facility is looked up from users' actiivity.</param>
-            /// <param name="RecordCount">1- returns all; positive will returned configured number of records par request for infinite scroll (20 records).</param>
-            /// <param name="ReturnSetFlag">1 - participants.</param>
-            /// <returns type="object">Result in a promise object.</returns>
-            /// <doc>myExpenses.services:menuService#getFullName</doc>
-            
+        getFullNameModel: function (jwt, parameters) {
+            if (methods.isEmptyOrNull(parameters.eID)) { parameters.eID = ''; }
             var baseUrl = services.services.myLearningService.url.menu.getFullName,
-                wsUrl = services.environment === envs.STAGE || services.environment === envs.PROD ? methods.urlFormat(baseUrl, eID, services.services.myLearningService.apiKey, sha256Encrypt()) : methods.urlFormat(baseUrl, eID),
-                deferred = $q.defer(),
-                counter = 1;
-            // alert(activityID);alert(RecordCount);alert(ReturnSetFlag);alert(baseUrl);alert(wsUrl);
-            //alert(wsUrl);
-            if (activityModel.length == 0) {
-                doGetQuery(deferred, wsUrl, counter);
-            } else {
-                deferred.resolve(activityModel);
-            }
-            
-            return deferred.promise;
+                url = methods.urlFormat(baseUrl, parameters.eID, services.services.myLearningService.apiKey, sha256Encrypt()),
+                authorization = jwt || '';
+
+            return authService.get(url, authorization, 'getFullNameModel');
         },
 
-
-        getProfileInfoModel: function (eID) {
-            /// <summary>
-            /// Get user profile information
-            /// </summary>
-            /// <returns type="object">Result in a promise object.</returns>
-            /// <doc>myExpenses.services:menuService#getProfileInfo</doc>
+        getProfileInfoModel: function (jwt, parameters) {
+            if (methods.isEmptyOrNull(parameters.eID)) { parameters.eID = ''; }
             var baseUrl = services.services.myLearningService.url.menu.getProfileInfo,
-                wsUrl = services.environment === envs.STAGE || services.environment === envs.PROD ? methods.urlFormat(baseUrl, eID, services.services.myLearningService.apiKey, sha256Encrypt()) : methods.urlFormat(baseUrl, eID),
-                deferred = $q.defer(),
-                counter = 1;
+                url = methods.urlFormat(baseUrl, parameters.eID, services.services.myLearningService.apiKey, sha256Encrypt()),
+                authorization = jwt || '';
 
-            if (menuModel.length == 0) {
-                doGetQuery(deferred, wsUrl, counter);
-            } else {
-                deferred.resolve(menuModel);
-            }
-
-            return deferred.promise;
+            return authService.get(url, authorization, 'getProfileInfoModel');
         },
 
         getCurrentObservation: function (zip) {

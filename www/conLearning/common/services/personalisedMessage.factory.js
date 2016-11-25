@@ -8,12 +8,13 @@ factories.factory('personalisedMessageData', function () {
         checkInList: null,         // using for group list of sending message
         checkOutList: null,        // using for group list of sending message
         activityID: null,          // param used for post message api
-        groupID: null,              // between newMessage and sendToList for disable grouped eid
+        groupID: null,             // between newMessage and sendToList for disable grouped eid
         sendToGroupSelected: '',   // keep selected group text in send to display
         messageBody: '',           // keep typed message
         flag: '',                  // display the group list or not in newMessage page
-        MessageInfo: [],
+        MessageInfo: [],           // notification message
         backViewFlag: null,        // mark if click close button
-        _dayTime: ''                // keep the dayCount in Attendance so after close newMessage still know the day
+        _dayTime: '',              // keep the dayCount in Attendance so after close newMessage still know the day
+        timeNowForSchedule: ''     // store the timeNow value before calling api service
     };
 });

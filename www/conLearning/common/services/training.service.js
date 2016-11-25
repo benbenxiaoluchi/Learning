@@ -479,40 +479,36 @@ function ($q, $http, constants, services, methods, $cordovaFile, authService, lo
         },
 
         getMaterialDetails: function (CourseCode) {
+            var deferred = $q.defer();
+            authService.callService({
+                serviceName: services.services.myLearningService.serviceName,
+                action: this.getMaterialDetailsSecured,
+                params: { CourseCode: CourseCode}
+            }).then(function (data) {
+                deferred.resolve(data);
+            }, function (error) {
+                deferred.reject(error);
+            });
+            return deferred.promise;
+        },
+
+        getMaterialDetailsSecured: function (jwt, params) {
             var baseUrl = services.services.myLearningService.url.training.getCourseMeterial,
-                wsUrl = services.environment === envs.STAGE || services.environment === envs.PROD ? methods.urlFormat(baseUrl, CourseCode, services.services.myLearningService.apiKey, sha256Encrypt()) : methods.urlFormat(baseUrl, CourseCode),
+                url = methods.urlFormat(baseUrl, params.CourseCode, services.services.myLearningService.apiKey, sha256Encrypt()),
                 deferred = $q.defer(),
-                counter = 1;
-            $log.debug("Get Material Details URL: " + baseUrl);
-
-            doGetQuery(deferred, wsUrl, counter);
+                authorization = jwt || '';
+            httpService.fetchData(url, 'GET', {
+                cache: false,
+                headers: {
+                    'Authorization': authorization
+                }
+            }).then(function (data) {
+                deferred.resolve(data);
+            }, function (error) {
+                deferred.reject(error);
+            });
             return deferred.promise;
         },
-
-        getAttendanceStatus: function (eid, activityId, sessionId) {
-
-            var baseUrl = services.services.myLearningService.url.training.getAttendanceStatus,
-                wsUrl = services.environment === envs.STAGE || services.environment === envs.PROD ? methods.urlFormat(baseUrl, eid, activityId, sessionId, services.services.myLearningService.apiKey, sha256Encrypt()) : methods.urlFormat(baseUrl, eid, activityId, sessionId),
-                deferred = $q.defer(),
-                counter = 1;
-            $log.debug("Get AttendanceStatus (" + activityId + ") URL: " + wsUrl);
-
-            doGetQuery(deferred, wsUrl, counter);
-
-            return deferred.promise;
-        },
-
-        //getRollCall: function (authorId, authorIDType, activityID, statusTS) {
-        //    var baseUrl = services.services.myLearningService.url.training.getRollCall,
-        //        wsUrl = methods.urlFormat(baseUrl, authorId, authorIDType, activityID, statusTS, services.services.myLearningService.apiKey, sha256Encrypt()),
-        //        deferred = $q.defer(),
-        //        counter = 1;
-        //    $log.debug("Get RollCall (" + authorId + "," + authorIDType + "," + activityID + "," + statusTS + ") URL: " + wsUrl);
-
-        //    doGetQuery(deferred, wsUrl, counter);
-
-        //    return deferred.promise;
-        //},
 
         getRollCall: function (authorId, authorIDType, activityID, statusTS) {
             var deferred = $q.defer();
@@ -659,17 +655,6 @@ function ($q, $http, constants, services, methods, $cordovaFile, authService, lo
             return authService.get(url, authorization, 'getCircles');
         },
 
-        //getLearnerByStatus: function (authorId, authorIDType, activityID, attendanceStatus, statusTS) {
-        //    var baseUrl = services.services.myLearningService.url.training.getLearnerByStatus,
-        //        wsUrl = methods.urlFormat(baseUrl, authorId, authorIDType, activityID, attendanceStatus, statusTS, services.services.myLearningService.apiKey, sha256Encrypt()),
-        //        deferred = $q.defer(),
-        //        counter = 1;
-        //    $log.debug("getLearnerByStatus (" + authorId + "," + authorIDType + "," + activityID + "," + attendanceStatus + "," + statusTS + ") URL: " + wsUrl);
-        //    doGetQuery(deferred, wsUrl, counter);
-
-        //    return deferred.promise;
-        //},
-
         getLearnerByStatus: function (authorId, authorIDType, activityID, attendanceStatus, statusTS) {
             var deferred = $q.defer();
             authService.callService({
@@ -702,17 +687,6 @@ function ($q, $http, constants, services, methods, $cordovaFile, authService, lo
             return deferred.promise;
         },
 
-        //getAttendanceInfo: function (authorID, authorIDType, learnerID, activityID, statusTS) {
-        //    var baseUrl = services.services.myLearningService.url.training.getAttendanceInfo,
-        //        wsUrl = methods.urlFormat(baseUrl, learnerId, authorID, sessionId, services.services.myLearningService.apiKey, sha256Encrypt()),
-        //       deferred = $q.defer(),
-        //       counter = 1;
-        //    $log.debug("getAttendanceInfo (" + authorID + "," + authorIDType + "," + learnerID + "," + activityID + "," + statusTS + ") URL: " + wsUrl);
-        //    doGetQuery(deferred, wsUrl, counter);
-
-        //    return deferred.promise;
-        //},
-
         getAttendanceInfo: function (authorId, authorIDType, learnerID, activityID, statusTS) {
             var deferred = $q.defer();
             authService.callService({
@@ -744,27 +718,6 @@ function ($q, $http, constants, services, methods, $cordovaFile, authService, lo
             });
             return deferred.promise;
         },
-
-        //postCheckIn: function (authorID, authorIDType, learnerID, activityID, roomID, statusTS) {
-        //    var baseUrl = services.services.myLearningService.url.training.postCheckIn,
-        //        url = methods.urlFormat(baseUrl, services.services.myLearningService.apiKey, sha256Encrypt()),
-        //        deferred = $q.defer(),
-        //        authorization = jwt || '',
-        //        parameters = { AuthorID: authorID, AuthorIDType: authorIDType, LearnerID: learnerID, ActivityID: activityID, RoomID: roomID, StatusTS: statusTS };
-        //    $log.debug("postCheckIn (" + authorID + "," + authorIDType + "," + learnerID + "," + activityID + "," + roomID + "," + statusTS + ") URL: " + wsUrl);
-        //    doPostQuery(url, parameters, {
-        //        cache: false,
-        //        headers: {
-        //            'Authorization': authorization,
-        //            'Content-Type': 'application/json'
-        //        }
-        //    }).then(function (data) {
-        //        deferred.resolve(data);
-        //    }, function (error) {
-        //        deferred.reject(error);
-        //    });
-        //    return deferred.promise;
-        //},
 
         postCheckIn: function (authorID, authorIDType, learnerID, activityID, roomID, statusTS) {
             var deferred = $q.defer();
@@ -831,26 +784,6 @@ function ($q, $http, constants, services, methods, $cordovaFile, authService, lo
             });
             return deferred.promise;
         },
-
-        //postAttendanceInfo: function (authorID, authorIDType, learnerID, activityID, participation, comments, statusTS) {
-        //    var baseUrl = services.services.myLearningService.url.training.postAttendanceInfo,
-        //        url = methods.urlFormat(baseUrl, services.services.myLearningService.apiKey, sha256Encrypt()),
-        //        deferred = $q.defer(), authorization = jwt || '',
-        //        parameters = { AuthorID: authorID, AuthorIDType: authorIDType, LearnerID: learnerID, ActivityID: activityID, Participation: participation, Comments: comments, StatusTS: statusTS };
-        //    $log.debug("postAttendanceInfo (" + authorID + "," + authorIDType + "," + learnerID + "," + activityID + "," + participation + "," + comments + "," + statusTS + ") URL: " + wsUrl);
-        //    doPostQuery(url, parameters, {
-        //        cache: false,
-        //        headers: {
-        //            'Authorization': authorization,
-        //            'Content-Type': 'application/json'
-        //        }
-        //    }).then(function (data) {
-        //        deferred.resolve(data);
-        //    }, function (error) {
-        //        deferred.reject(error);
-        //    });
-        //    return deferred.promise;
-        //}
 
         postAttendanceInfo: function (authorID, authorIDType, learnerID, activityID, participation, comments, statusTS) {
             var deferred = $q.defer();

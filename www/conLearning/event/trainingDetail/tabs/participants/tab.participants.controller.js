@@ -210,7 +210,14 @@ controllers.controller('participantsCtrl',
 
                             var cached = localStorageService.get("ACLMOBILE_IMAGE_" + eid);
                             if (cached == null || cached == "") {
-                                menuService.getProfileImageModel(eid).then(function (data5) {
+                                authService.callService({
+                                    serviceName: environmentData.services.myLearningService.serviceName,
+                                    action: menuService.getProfileImageModel,
+                                    params: {
+                                        eID: eid
+                                    }
+                                }).then(
+                                    function (data5) {
                                     var url = data5[0].m_Uri;
                                     data3.imgUrl = url;
                                     localStorageService.set("ACLMOBILE_IMAGE_" + eid, url);
@@ -348,7 +355,14 @@ controllers.controller('participantsCtrl',
 
                             var cached = localStorageService.get("ACLMOBILE_IMAGE_" + eid);
                             if (cached == null || cached == "") {
-                                menuService.getProfileImageModel(eid).then(function (imgedata) {
+                                authService.callService({
+                                    serviceName: environmentData.services.myLearningService.serviceName,
+                                    action: menuService.getProfileImageModel,
+                                    params: {
+                                        eID: eid
+                                    }
+                                }).then(
+                                    function (imgedata) {
                                     var url = imgedata[0].m_Uri;
                                     profiledata.imgUrl = url;
                                     localStorageService.set("ACLMOBILE_IMAGE_" + eid, url);
@@ -359,7 +373,14 @@ controllers.controller('participantsCtrl',
                             }
 
                             //Get profile infomationf
-                            menuService.getProfileInfoModel(profiledata.EnterpriseID).then(function (titledata) {
+                            authService.callService({
+                                serviceName: environmentData.services.myLearningService.serviceName,
+                                action: menuService.getProfileInfoModel,
+                                params: {
+                                    eID: eid
+                                }
+                            }).then(
+                                function (titledata) {
                                 profiledata.standardjobdescr = titledata["CupsProfile"][0].standardjobdescr;
                             });
 
@@ -430,7 +451,14 @@ controllers.controller('participantsCtrl',
 
                             var cached = localStorageService.get("ACLMOBILE_IMAGE_" + profiledata.enterpriseID);
                             if (cached == null || cached == "") {
-                                menuService.getProfileImageModel(profiledata.enterpriseID).then(function (imgedata) {
+                                authService.callService({
+                                    serviceName: environmentData.services.myLearningService.serviceName,
+                                    action: menuService.getProfileImageModel,
+                                    params: {
+                                        eID: profiledata.enterpriseID
+                                    }
+                                }).then(
+                                    function (imgedata) {
                                     profiledata.imgUrl = imgedata[0].m_Uri;
                                     localStorageService.set("ACLMOBILE_IMAGE_" + profiledata.enterpriseID, imgedata[0].m_Uri);
                                 });
@@ -440,7 +468,15 @@ controllers.controller('participantsCtrl',
                             }
 
                             //Get profile infomation
-                            menuService.getProfileInfoModel(profiledata.enterpriseID).then(function (titledata) {
+
+                            authService.callService({
+                                serviceName: environmentData.services.myLearningService.serviceName,
+                                action: menuService.getProfileInfoModel,
+                                params: {
+                                    eID: profiledata.enterpriseID
+                                }
+                            }).then(
+                                function (titledata) {
                                 profiledata.standardjobdescr = titledata["CupsProfile"][0].standardjobdescr;
                             });
 
@@ -612,11 +648,25 @@ controllers.controller('participantsCtrl',
                     function (data) {
                         angular.forEach(data, function (item, index, array) {
                             item.fullName = item.lastName + ', ' + item.firstName;
-                            menuService.getProfileImageModel(item.enterpriseID).then(function (result) {
+                            authService.callService({
+                                serviceName: environmentData.services.myLearningService.serviceName,
+                                action: menuService.getProfileImageModel,
+                                params: {
+                                    eID: item.enterpriseID
+                                }
+                            }).then(
+                                function (result) {
                                 item.imgUrl = result[0].m_Uri;
                             });
 
-                            menuService.getProfileInfoModel(item.enterpriseID, true).then(function (levelResult) {
+                            authService.callService({
+                                serviceName: environmentData.services.myLearningService.serviceName,
+                                action: menuService.getProfileInfoModel,
+                                params: {
+                                    eID: item.enterpriseID
+                                }
+                            }).then(
+                                function (levelResult) {
                                 item.standardjobdescr = levelResult["CupsProfile"][0].standardjobdescr;
                             });
 

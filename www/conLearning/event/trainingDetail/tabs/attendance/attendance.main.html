@@ -47,7 +47,7 @@
                     </div>
                     <ion-option-button class="button sessionParticipant-btn-bg2"
                                        ng-click="showCheckInSlider(item.EnterpriseID, item.fullName, $index);$event.stopPropagation()"
-                                       ng-if="(item.attendanceStatus==0||item.attendanceStatus==-1) && isCurrentState">
+                                       ng-if="(item.attendanceStatus==0||item.attendanceStatus==-1) && isCurrentState && !ImpersonateStatus">
                         <i class="icon learn-Icon-ParticipantsInRoom icon-checkin"></i>
                         <p class="sessionParticipant-right-btn-title">
                             CHECK-IN
@@ -55,7 +55,7 @@
                     </ion-option-button>
                     <ion-option-button class="button sessionParticipant-btn-bg1"
                                        ng-click="showAttendanceDetail(item.EnterpriseID, item.attendanceStatus, item.fullName);$event.stopPropagation()"
-                                       ng-if="isCurrentState">
+                                       ng-if="isCurrentState && !ImpersonateStatus">
                         <i class="ion-android-options"></i>
                         <p class="sessionParticipant-right-btn-title">
                             ATTENDANCE

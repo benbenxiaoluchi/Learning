@@ -1,14 +1,12 @@
-﻿<ion-modal-view view-title="FacilityVenueWeather" class="sendToList-wrap facilityVenueWeather-wap">
-    <div class="tab-attendance-head" no-tap-scroll="true"
-         ng-class="{true: 'bgc000', false: 'bgcb90b62'}[trainingItem.fromAdmin]"
-         align-title="center">
+﻿<ion-modal-view view-title="FacilityVenueWeather" class="facilityVenueWeather-wap" hide-nav-bar="true">
+    <ion-header-bar no-tap-scroll="true" class="tab-attendance-head" ng-class="{true: 'bgc000', false: 'bgcb90b62'}[trainingItem.fromAdmin]">
+        <i ng-click="hideVenueOptions()" class="acc-angle-left"></i>
         <h1>
             WEATHER
         </h1>
-        <i class="acc-angle-left" ng-click="hideVenueOptions()">
-        </i>
-    </div>
-    <ion-content class="" has-bouncing="false" has-header="false">
+    </ion-header-bar>
+
+    <ion-content class="" has-bouncing="false" has-header="true">
         <!--<div class="yahoo-title">
             yahoo weather widget
         </div>-->
@@ -16,21 +14,21 @@
             <div class="facilityVenueWeather-top-city">
                 Weather in {{whichFacility.city}}
             </div>
-            <div class="facilityVenueWeather-top-info">
+            <div class="facilityVenueWeather-top-info" ng-if="weatherCard">
                 <div class="facilityVenueWeather-top-info-tt">
                     Currently, {{weather[0].results.channel.item.condition.text}}
                 </div>
                 <div class="facilityVenueWeather-top-info-ctrl">
-                    <div class="facilityVenueWeather-top-info-btn active bdrn" ng-click="getFahrenheit()">Fº</div>
-                    <div class="facilityVenueWeather-top-info-btn bdln" ng-click="getCentigrade()">Cº</div>
+                    <div ng-class="fontSizeF" ng-click="getFahrenheit()">Fº</div>
+                    <div ng-class="fontSizeC" ng-click="getCentigrade()">Cº</div>
                 </div>
             </div>
-            <div class="facilityVenueWeather-top-big-info">
+            <div class="facilityVenueWeather-top-big-info" ng-if="weatherCard">
                 <img class="facilityVenueWeather-top-big-info-img" src="img/weather/{{weather[0].results.channel.item.condition.code}}.png" />
                 <i>{{weather[0].results.channel.item.condition.temp}}º</i>
             </div>
         </div>
-        <ion-item class="wfacilityVenueWeather-bottom-wrap" ng-show="weatherCard">
+        <ion-item class="wfacilityVenueWeather-bottom-wrap" ng-if="weatherCard">
             <!--<div class="row">
                 
                 <div class="col w_small_for_degreeF" style="{{ fontSizeF }}" ng-click="getFahrenheit()">Fº</div>
@@ -49,35 +47,35 @@
                     </div>
                 </div>
                 <div class="col w_small facilityVenueWeather-small-item-wrap">
-                    <b class="facilityVenueWeather-small-item-day">Today</b>
+                    <b class="facilityVenueWeather-small-item-day">{{weather[0].results.channel.item.forecast[1].day}}</b>
                     <img class="w_img_small facilityVenueWeather-small-item-img"
-                         src="img/weather/{{weather[0].results.channel.item.forecast[0].code}}.png"/>
+                         src="img/weather/{{weather[0].results.channel.item.forecast[1].code}}.png"/>
                     <div class="facilityVenueWeather-small-item-info">
-                        {{weather[0].results.channel.item.forecast[0].high}}º | {{weather[0].results.channel.item.forecast[0].low}}º
+                        {{weather[0].results.channel.item.forecast[1].high}}º | {{weather[0].results.channel.item.forecast[1].low}}º
                     </div>
                 </div>
                 <div class="col w_small facilityVenueWeather-small-item-wrap">
-                    <b class="facilityVenueWeather-small-item-day">Today</b>
+                    <b class="facilityVenueWeather-small-item-day">{{weather[0].results.channel.item.forecast[2].day}}</b>
                     <img class="w_img_small facilityVenueWeather-small-item-img"
-                         src="img/weather/{{weather[0].results.channel.item.forecast[0].code}}.png"/>
+                         src="img/weather/{{weather[0].results.channel.item.forecast[2].code}}.png"/>
                     <div class="facilityVenueWeather-small-item-info">
-                        {{weather[0].results.channel.item.forecast[0].high}}º | {{weather[0].results.channel.item.forecast[0].low}}º
+                        {{weather[0].results.channel.item.forecast[2].high}}º | {{weather[0].results.channel.item.forecast[2].low}}º
                     </div>
                 </div>
                 <div class="col w_small facilityVenueWeather-small-item-wrap">
-                    <b class="facilityVenueWeather-small-item-day">Today</b>
+                    <b class="facilityVenueWeather-small-item-day">{{weather[0].results.channel.item.forecast[3].day}}</b>
                     <img class="w_img_small facilityVenueWeather-small-item-img"
-                         src="img/weather/{{weather[0].results.channel.item.forecast[0].code}}.png"/>
+                         src="img/weather/{{weather[0].results.channel.item.forecast[3].code}}.png"/>
                     <div class="facilityVenueWeather-small-item-info">
-                        {{weather[0].results.channel.item.forecast[0].high}}º | {{weather[0].results.channel.item.forecast[0].low}}º
+                        {{weather[0].results.channel.item.forecast[3].high}}º | {{weather[0].results.channel.item.forecast[3].low}}º
                     </div>
                 </div>
                 <div class="col w_small facilityVenueWeather-small-item-wrap">
-                    <b class="facilityVenueWeather-small-item-day">Today</b>
+                    <b class="facilityVenueWeather-small-item-day">{{weather[0].results.channel.item.forecast[4].day}}</b>
                     <img class="w_img_small facilityVenueWeather-small-item-img"
-                         src="img/weather/{{weather[0].results.channel.item.forecast[0].code}}.png"/>
+                         src="img/weather/{{weather[0].results.channel.item.forecast[4].code}}.png"/>
                     <div class="facilityVenueWeather-small-item-info">
-                        {{weather[0].results.channel.item.forecast[0].high}}º | {{weather[0].results.channel.item.forecast[0].low}}º
+                        {{weather[0].results.channel.item.forecast[4].high}}º | {{weather[0].results.channel.item.forecast[4].low}}º
                     </div>
                 </div>
                 <!--<div class="col w_small">

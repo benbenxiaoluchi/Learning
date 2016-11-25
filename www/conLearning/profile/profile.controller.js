@@ -48,7 +48,16 @@ controllers.controller('profileController', ['$timeout', '$scope', '$ionicHistor
             //Get profile image
             var cached = localStorageService.get("ACLMOBILE_IMAGE_" + $stateParams.enterpriseId);
             if (cached == null || cached == "") {
-                menuService.getProfileImageModel($stateParams.enterpriseId).then(function (data) {
+
+                authService.callService({
+                    serviceName: environmentData.services.myLearningService.serviceName,
+                    action: menuService.getProfileImageModel,
+                    params: {
+                        eID: $stateParams.enterpriseId
+                    }
+                }).then(
+
+                    function (data) {
                     $scope.imgReady = true;
 
                     $scope.profilebase64 = data[0].m_Uri;
@@ -74,7 +83,14 @@ controllers.controller('profileController', ['$timeout', '$scope', '$ionicHistor
             //Get profile infomation
             var cachedInfo = localStorageService.get("ACLMOBILE_INFO_" + $stateParams.enterpriseId);
             if (cachedInfo == null || cachedInfo == "") {
-                menuService.getProfileInfoModel($stateParams.enterpriseId, true).then(function (data) {
+                authService.callService({
+                    serviceName: environmentData.services.myLearningService.serviceName,
+                    action: menuService.getProfileInfoModel,
+                    params: {
+                        eID: $stateParams.enterpriseId
+                    }
+                }).then(
+                    function (data) {
                     $scope.infoReady = true;
                     localStorageService.set("ACLMOBILE_INFO_" + $stateParams.enterpriseId, data);
                     parseUserInfo(data);

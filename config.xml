@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.accenture.global.myevents" version="9.6.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.accenture.global.myevents" version="9.7.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Learn</name>
     <description>
     An Ionic Framework and Cordova project.
@@ -79,4 +79,15 @@
     <preference name="xwalkMode" value="embedded" />
     <preference name="xwalkMultipleApk" value="true" />
     <preference name="android-minSdkVersion" value="16" />
+    <Content-Security-Policy>
+        <access launch-external="true" origin="mailto://*" />
+        <access launch-external="true" origin="lync://*" />
+        <access launch-external="true" origin="Callto://*" />
+        <access launch-external="true" origin="tel://*" />
+        <access launch-external="true" origin="sip:*" />
+        <access launch-external="true" origin="sip://*" />
+        <access launch-external="true" origin="im://*" />
+        <access launch-external="true" origin="im:*" />
+    </Content-Security-Policy>
+    <plugin name="com.verso.cordova.clipboard" spec="https://github.com/VersoSolutions/CordovaClipboard" />
 </widget>

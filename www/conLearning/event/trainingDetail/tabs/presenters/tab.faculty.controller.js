@@ -5,9 +5,9 @@
 
 controllers.controller('facultiesController',
     ['$scope', '$rootScope', 'trainingService', '$log', '$ionicLoading', '$cordovaToast', 'localStorageService',
-        'connectedLearning.constants', '$stateParams','menuService','connectedLearning.messages','$ionicHistory',
+        'connectedLearning.constants', '$stateParams','menuService','connectedLearning.messages','$ionicHistory','authService',
         function ($scope, $rootScope, trainingService, $log, $ionicLoading, $cordovaToast, localStorageService,
-                  constants, $stateParams,menuService,messagesService,$ionicHistory) {
+                  constants, $stateParams,menuService,messagesService,$ionicHistory,authService) {
 
             //console.log($stateParams);
             var activityId = 0;
@@ -26,7 +26,14 @@ controllers.controller('facultiesController',
 
                             var cached = localStorageService.get("ACLMOBILE_IMAGE_" + eid);
                             if (cached == null || cached == "") {
-                                menuService.getProfileImageModel(eid).then(function (data2) {
+                                authService.callService({
+                                    serviceName: environmentData.services.myLearningService.serviceName,
+                                    action: menuService.getProfileImageModel,
+                                    params: {
+                                        eID: eid
+                                    }
+                                }).then(
+                                    function (data2) {
                                     var url = data2[0].m_Uri;
                                     data1.imgUrl = url;
                                     localStorageService.set("ACLMOBILE_IMAGE_" + eid, url);

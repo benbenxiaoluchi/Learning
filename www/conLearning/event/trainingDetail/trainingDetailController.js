@@ -13,7 +13,7 @@ controllers.controller('TrainingDetailCtrl',
             $scope.searchInprogress = false;
             $scope.positionPartFlag = 0, $scope.positionFacuFlag = 0, $scope.positionPeopleFlag = 0;
             $scope.faculty = [], $scope.Venue = [], $scope.singleFacility = [], $scope.Schedule = [], $scope.weather = [], $scope.demographicType = [], $scope.demographics = [];
-            $scope.googleMapVisible = false;
+            $scope.googleMapVisible = true;
             $scope.allParAddress = '';
             $scope.qCenterLinkVisible = false;
             $scope.currentTemp = 'C';
@@ -43,32 +43,6 @@ controllers.controller('TrainingDetailCtrl',
                     console.log("getRollCall: " + data);
                 });
             }
-
-            //display the attendance status and time
-            $scope.sessionId = [];
-            $scope.authorId = [];
-            if (environmentData.environment !== envs.PROD && environmentData.environment !== envs.DEV) {
-                trainingService.getAttendanceStatus($scope.eid, $scope.currentTrainingId, $scope.sessionId).then(function (data) {
-                    if (data) {
-                        var attStatus = data.Status[0].AttendanceStatus;
-                        var attDT = data.Status[0].StatusDT;
-                        //$scope.statusData = data.StatusDT;
-                        if (attStatus == 0) {
-                            $scope.currentAttendanceStatus = 'No Action';
-                        } else if (attStatus == 1 || attStatus == 2) {
-                            $scope.currentAttendanceStatus = 'Checked in' + ' since ' + filter('date')(new Date(attDT), 'hh:mma');
-                        } else {
-                            $scope.currentAttendanceStatus = 'Checked out' + ' since ' + filter('date')(new Date(attDT), 'hh:mma');
-                        }
-                    } else {
-                        console.log('Attendance API is down.');
-                    }
-                }, function (data) {
-                    console.log(data);
-                });
-            }
-
-
 
             // $scope.changeSearch = function () {
             //     if (searchText.length < 3) {
@@ -308,7 +282,7 @@ controllers.controller('TrainingDetailCtrl',
             $scope.init = function () {
                 clearData();
                 //$scope.$on('$ionicView.loaded', function (e) {
-                activityId = $rootScope.ImpersonateStatus == true ? $rootScope.impersonationActivityID : $rootScope.trainingItem.currentTrainingId;
+                activityId = $rootScope.trainingItem.currentTrainingId;
                 playabilityValue = $scope.playabilityValue;
                 sendAllParVisible = $scope.sendAllParVisible;
                 loginUserID = $rootScope.ImpersonateStatus == true ? $rootScope.impersonationEID : $rootScope.loginUserID;
@@ -316,6 +290,7 @@ controllers.controller('TrainingDetailCtrl',
                 currentTrainingFromDt = $scope.currentTrainingFromDt;
                 $scope.isAndroidDevice = device.platform === 'Android' ? true : false;
                 if (personalisedMessageData.backViewFlag == true) {
+                    // $scope.initSchedulesPage(); // fix close bug for past training may improve.
                     $scope._dayTime = (!$scope._dayTime) ? personalisedMessageData._dayTime : angular.noop();
                     $scope.isCurrentState = personalisedMessageData.isCurrentState;
                     $scope._date = personalisedMessageData._date;
@@ -568,9 +543,9 @@ controllers.controller('TrainingDetailCtrl',
                                 }
 
                                 if (resultArray[resultArray.length - 1] == 'United States') {
-                                    $scope.getFahrenheit();
+                                    getFahrenheit();
                                 } else {
-                                    $scope.getCentigrade();
+                                    getCentigrade();
                                 }
 
                                 console.log('GPS country: ' + resultArray[resultArray.length - 1]);
@@ -593,17 +568,17 @@ controllers.controller('TrainingDetailCtrl',
                 );
             };
 
-            $scope.getFahrenheit = function () {
-                $scope.fontSizeC = 'font-weight: normal';
-                $scope.fontSizeF = 'font-weight: bold';
-                $scope.getWeatherInfo($scope.singleFacility[0].city, 'f');
-            };
+            //$scope.getFahrenheit = function () {
+            //    $scope.fontSizeC = 'font-weight: normal';
+            //    $scope.fontSizeF = 'font-weight: bold';
+            //    $scope.getWeatherInfo($scope.singleFacility[0].city, 'f');
+            //};
 
-            $scope.getCentigrade = function () {
-                $scope.fontSizeC = 'font-weight: bold';
-                $scope.fontSizeF = 'font-weight: normal';
-                $scope.getWeatherInfo($scope.singleFacility[0].city, 'c');
-            };
+            //$scope.getCentigrade = function () {
+            //    $scope.fontSizeC = 'font-weight: bold';
+            //    $scope.fontSizeF = 'font-weight: normal';
+            //    $scope.getWeatherInfo($scope.singleFacility[0].city, 'c');
+            //};
 
             // Get weather info in venue page
             $scope.getWeatherInfo = function (loc, degree) {
@@ -1309,9 +1284,10 @@ controllers.controller('TrainingDetailCtrl',
                 if ($rootScope.trainingItem.isCurrent) {
                     timeNow = filter('date')(new Date(), 'MM-dd-yyyy HH:mm:ss', 'UTC');
                 } else {
-                    timeNow = filter('date')(new Date($scope.Schedule[0]["@eventDate"]), 'MM-dd-yyyy HH:mm:ss', 'UTC');
+                    timeNow = filter('date')(personalisedMessageData.timeNowForSchedule, 'MM-dd-yyyy HH:mm:ss', 'UTC');
                 }
                 trainingService.getLearnerByStatus(loginUserID, AuthorIDType, activityId, attendanceStatus, timeNow).then(function (data) {
+                    $ionicLoading.hide();
                     if (data.ReturnCode == 0) {
                         angular.forEach(data.Content, function (item) {
                             var checkInTime = '';
@@ -1476,10 +1452,6 @@ controllers.controller('TrainingDetailCtrl',
                                 };
                             }
                         });
-                        $scope.isImpersonate = false;
-                        if ($rootScope.ImpersonateStatus == true) {
-                            $scope.isImpersonate = true;
-                        }
 
                         $ionicModal.fromTemplateUrl('conLearning/event/trainingDetail/tabs/attendance/attendance.checkInDetail.html', {
                             scope: $scope
@@ -1552,10 +1524,6 @@ controllers.controller('TrainingDetailCtrl',
                             }
                         }
                     };
-                    $scope.isImpersonate = false;
-                    if ($rootScope.ImpersonateStatus == true) {
-                        $scope.isImpersonate = true;
-                    }
                     $ionicModal.fromTemplateUrl('conLearning/event/trainingDetail/tabs/attendance/attendance.attendanceDetail.html', {
                         scope: $scope
                     }).then(function (modal) {
@@ -1607,10 +1575,6 @@ controllers.controller('TrainingDetailCtrl',
                     $scope.checkinPopTime = filter('date')(new Date(), 'HH:mm');
                 }, 1000);
                 $scope.checkinIndex = index;
-                $scope.isImpersonate = false;
-                if ($rootScope.ImpersonateStatus == true) {
-                    $scope.isImpersonate = true;
-                }
                 $ionicModal.fromTemplateUrl('conLearning/event/trainingDetail/tabs/attendance/attendance.checkInSlider.html', {
                     scope: $scope
                 }).then(function (modal) {
@@ -1721,6 +1685,8 @@ controllers.controller('TrainingDetailCtrl',
                 $scope._dayTime = dayTime;
                 $scope._date = filter('dateProcessing')(date);
                 $scope.isCurrentState = isCurrentState;
+                if (typeof $scope.Schedule[0] != 'undefined')
+                    personalisedMessageData.timeNowForSchedule = $scope.Schedule[0]["@eventDate"];
 
                 if (!fromMain) {
                     $ionicModal.fromTemplateUrl('conLearning/event/trainingDetail/tabs/attendance/attendance.main.html', {
@@ -1852,9 +1818,9 @@ controllers.controller('TrainingDetailCtrl',
                 personalisedMessageData.checkOutList = _array.filter(function (obj) {
                     return (obj.attendanceStatus == -1 || obj.attendanceStatus == 0)
                 });
-                console.log('10/25 ', personalisedMessageData.allParticipantsList);
-                console.log('10/25 ', personalisedMessageData.checkInList);
-                console.log('10/25 ', personalisedMessageData.checkOutList);
+                console.log('all list ', personalisedMessageData.allParticipantsList);
+                console.log('CheckIn List ', personalisedMessageData.checkInList);
+                console.log('CheckOut List ', personalisedMessageData.checkOutList);
             };
 
 
@@ -1970,7 +1936,9 @@ controllers.controller('TrainingDetailCtrl',
             /* Part : tab.venue */
             var indexOfCenter = null;
             $scope.whichFacility = null;
+            $scope.weather = [];
             var centerImage = [];
+            var centerInfor = null;
             var defaultCenterInfo = {
                 "facilityID": "Default",
                 "name": "Default",
@@ -1986,7 +1954,7 @@ controllers.controller('TrainingDetailCtrl',
                 "fax": "Default",
                 "url": "Default"
             };
-            $scope.venueOptions = [
+            var venueOptionsInit = [
                 "LOCATION MAP",
                 "FLOOR MAPS",
                 "WEATHER",
@@ -1994,25 +1962,25 @@ controllers.controller('TrainingDetailCtrl',
                 "ALL COURSES AT THIS FACILITY",
                 "ADDITIONAL INFORMATION"
             ];
-
+            
             function getFahrenheit() {
-                $scope.fontSizeC = 'font-weight: normal';
-                $scope.fontSizeF = 'font-weight: bold';
+                $scope.fontSizeC = 'facilityVenueWeather-top-info-btn bdrn';
+                $scope.fontSizeF = 'facilityVenueWeather-top-info-btn active bdrn';
                 getWeatherInfo($scope.whichFacility.city, 'f');
             }
 
             function getCentigrade() {
-                $scope.fontSizeC = 'font-weight: bold';
-                $scope.fontSizeF = 'font-weight: normal';
+                $scope.fontSizeC = 'facilityVenueWeather-top-info-btn active bdrn';
+                $scope.fontSizeF = 'facilityVenueWeather-top-info-btn bdln';
                 getWeatherInfo($scope.whichFacility.city, 'c');
             }
 
             // Get weather info in venue page
             function getWeatherInfo(loc, degree) {
-                $scope.weather = [];
                 var searchCondition = "select item from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + loc + "') and u='" + degree + "'";
                 trainingService.getWeatherInfo(searchCondition).then(
                     function (weatherdata) {
+                        $scope.weather = [];
                         angular.forEach(weatherdata, function (item) {
                             $scope.weather.push(item);
                         });
@@ -2079,26 +2047,35 @@ controllers.controller('TrainingDetailCtrl',
                 switch ($rootScope.trainingItem.facilityID) {
                     case 1:
                         indexOfCenter = 0;
+                        centerInfor = "https://techops.accenture.com/share/RLC/St.Charles_Learning_Center_Venue_Information.pdf";
                         break;
                     case 737:
                         indexOfCenter = 1;
+                        centerInfor = "https://techops.accenture.com/share/RLC/Kuala_Lumpur_Learning_Center_Venue_Information.pdf";
                         break;
                     case 2612:
                         indexOfCenter = 2;
+                        centerInfor = "https://techops.accenture.com/share/RLC/Madrid_Learning_Center_Venue_Information.pdf";
                         break;
                     case 4404:
                         indexOfCenter = 3;
+                        centerInfor = "https://techops.accenture.com/share/RLC/India_Learning_Center_Venue_Information.pdf";
                         break;
                     case 4790:
                         indexOfCenter = 4;
+                        centerInfor = "https://techops.accenture.com/share/RLC/London_Learning_Center_Venue_Information.pdf";
                         break;
                     case 6176:
                         indexOfCenter = 5;
+                        centerInfor = "https://techops.accenture.com/share/RLC/Dublin_Learning_Center_Venue_Information.pdf";
                         break;
                     default :
                         indexOfCenter = 6;
+                        centerInfor = null;
+                        venueOptionsInit.pop();
                         break;
                 }
+                $scope.venueOption = venueOptionsInit;
                 $scope.centerImg = centerImage[indexOfCenter];
             }
 
@@ -2119,7 +2096,7 @@ controllers.controller('TrainingDetailCtrl',
 
             var venueWeather = function () {
                 getRegion();
-                $ionicModal.fromTemplateUrl('conLearning/event/learningCenter/venueWeatherPage.html', {
+                $ionicModal.fromTemplateUrl('conLearning/event/learningCenter/facilityVenueWeather.html', {
                     scope: $scope,
                     animation: 'slide-in-right'
                 }).then(function (modal) {
@@ -2131,32 +2108,48 @@ controllers.controller('TrainingDetailCtrl',
             var getLearningCenter = function () {
                 centerImage = getFacilityInfoService.getCenterImageList().centerImages;
                 getCenter();
-                //getRegion()
             };
             // getLearningCenter();
             $scope.hideVenueOptions = function () {
                 $scope.facilityVenueOptions_modal.hide()
             };
 
-            $scope.facilityVenueOptions = function (index) {
-                switch (index) {
-                    case 0 :
+            $scope.getFahrenheit = function () {
+                getFahrenheit();
+            };
+
+            $scope.getCentigrade = function () {
+                getCentigrade();
+            };
+            function downloadAdditionalVenueInfo() {
+                if(centerInfor){
+                    window.open(centerInfor, '_system', 'location=yes');
+                }else {
+                    $cordovaToast.show("No Additional Information of This Center.", 'long', 'bottom');
+                }
+            }
+
+            $scope.facilityVenueOptions = function (option) {
+                switch (option) {
+                    case "LOCATION MAP" :
                         venueMap();
                         break;
-                    case 1 :
+                    case "FLOOR MAPS" :
                         $scope.navigateToState('app.floorMap');
                         break;
-                    case 2 :
+                    case "WEATHER" :
                         venueWeather();
                         break;
-                    case 3 :
+                    case "ALL PEOPLE AT THIS FACILITY" :
                         $scope.navigateToPeopleOnSite();
                         break;
-                    case 4 :
+                    case "ALL COURSES AT THIS FACILITY" :
                         $scope.navigateToOnGoingEvent($rootScope.trainingItem.facilityID);
                         break;
-                    case 5 :
+                    case "ADDITIONAL INFORMATION" :
+                        downloadAdditionalVenueInfo();
                         break;
+                    default:break;
                 }
             };
 

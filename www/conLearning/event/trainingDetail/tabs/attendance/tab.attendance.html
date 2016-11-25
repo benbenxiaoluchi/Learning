@@ -37,14 +37,14 @@
                         </div>
 
                         <button class="attendance-date-btn" ng-show="sumOfLearners != 0"
-                                ng-if="item.eventState.isCurrentState && sumOfInRoom == 0"
+                                ng-if="item.eventState.isCurrentState && sumOfInRoom == 0 && !ImpersonateStatus"
                                 ng-click="checkInAll()">
                             CHECK-IN ALL PARTICIPANTS
                         </button>
                         <button class="attendance-date-btn" ng-show="sumOfLearners != 0"
-                                ng-if="!item.eventState.isCurrentState || sumOfInRoom > 0"
+                                ng-if="!item.eventState.isCurrentState || sumOfInRoom > 0 || ImpersonateStatus"
                                 ng-click="showAttendanceTracking(daycount + 1, item['@count'], false, item.eventState.isCurrentState)">
-                        VIEW ATTENDANCE DETAILS
+                            VIEW ATTENDANCE DETAILS
                         </button>
                     </div>
                     <div class="tab-attendance-date-info-wrap">

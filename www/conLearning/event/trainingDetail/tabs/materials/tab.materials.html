@@ -9,7 +9,7 @@
     </ion-header-bar>
     <ion-content drag-content="false">
         <div class="item item-no-data" ng-if="noMeterialDataShow">
-            <p class="noDataShowText">Course materials not defined.</p>
+            <p class="noDataShowText">No Course Materials.</p>
         </div>
         <div class="list nopaddings nomargins tab-priorities-list" ng-repeat="item in meterials">
             <ion-item ng-click= "materialDownload(item.link)"

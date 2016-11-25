@@ -138,7 +138,7 @@ factories.factory('ErrorInterceptor', ['$q', '$timeout', 'connectedLearning.cons
     }]
 );
 
-app.run(function ($ionicPlatform, $cordovaPush, $rootScope, $cordovaToast, crittercismService, $http, $ionicPopup) {
+app.run(function ($ionicPlatform, $cordovaPush, $rootScope, $cordovaToast, crittercismService, $http, $ionicPopup, $ionicLoading) {
     /// <summary>
     /// Configures ionic platform to be used in connectedLearning application.
     /// </summary>
@@ -152,21 +152,24 @@ app.run(function ($ionicPlatform, $cordovaPush, $rootScope, $cordovaToast, critt
 
     'use strict';
 
-    // function checkConnection() {
-    //     //alert('connection');
-    //     var networkState = navigator.connection.type;
-    //     var states = {};
-    //     states[Connection.UNKNOWN]  = 'Unknown connection';
-    //     states[Connection.ETHERNET] = 'Ethernet connection';
-    //     states[Connection.WIFI]     = 'WiFi connection';
-    //     states[Connection.CELL_2G]  = 'Cell 2G connection';
-    //     states[Connection.CELL_3G]  = 'Cell 3G connection';
-    //     states[Connection.CELL_4G]  = 'Cell 4G connection';
-    //     states[Connection.CELL]     = 'Cell generic connection';
-    //     states[Connection.NONE]     = 'No network connection';
-    //     $cordovaToast.show(states[networkState], 'long', 'bottom');
-    //     //$rootScope.$broadcast('networkStateChanged',states[networkState]);    
-    // }
+    function checkConnection() {
+        var networkState = navigator.connection.type;
+        var states = {};
+        states[Connection.UNKNOWN] = 'Unknown connection';
+        states[Connection.ETHERNET] = 'Ethernet connection';
+        states[Connection.WIFI] = 'WiFi connection';
+        states[Connection.CELL_2G] = 'Cell 2G connection';
+        states[Connection.CELL_3G] = 'Cell 3G connection';
+        states[Connection.CELL_4G] = 'Cell 4G connection';
+        states[Connection.CELL] = 'Cell generic connection';
+        states[Connection.NONE] = 'No network connection';
+        $cordovaToast.show(states[networkState], 'long', 'bottom');
+        $rootScope.$broadcast('networkStateChanged', states[networkState]);
+
+        if (networkState == 'none') {
+            $ionicLoading.hide();
+        }
+    }
 
     $ionicPlatform.ready(function () {
 
@@ -217,8 +220,8 @@ app.run(function ($ionicPlatform, $cordovaPush, $rootScope, $cordovaToast, critt
             //window.cordova ? $cordovaPush.setBadgeNumber(users.badge) : '';
         });
 
-        //document.addEventListener("online", checkConnection, false);
-        //document.addEventListener("offline", checkConnection, false);
+        document.addEventListener("online", checkConnection, false);
+        document.addEventListener("offline", checkConnection, false);
 
     });
 });

@@ -76,9 +76,10 @@ controllers.controller('materialsCtrl',
                             //$scope.noMeterialPlaceHolder = false;
                         }
                     },
-                    function (data, status) {
+                    function (data) {
+                        $scope.noMeterialDataShow = true;
                         console.log('when getMaterils api issue this will trigger');
-                        console.log('failed to get materials from server, activityID is ', activityID, 'returnstatus :', status);
+                        console.log('failed to get materials from server, activityID is ', activityID, 'returnstatus :', data.status);
                         $ionicLoading.hide();
                     }
                 )

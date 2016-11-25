@@ -8,8 +8,17 @@ controllers.controller('learningCenterCtrl',['$scope', '$rootScope', '$statePara
 
         var indexOfCenter = null;
         var centerFacilityID = null;
+        var centerInfo = null;
         $scope.whichFacility = null;
-        $scope.venueOptions = ["LOCATION MAP","FLOOR MAPS","WEATHER","ALL COURSES AT THIS FACILITY","ADDITIONAL INFORMATION"];
+        $scope.googleMapVisible = true;
+        $scope.weather = [];
+        var venueOptionsInit = [
+            "LOCATION MAP",
+            "FLOOR MAPS",
+            "WEATHER",
+            "ALL COURSES AT THIS FACILITY",
+            "ADDITIONAL INFORMATION"
+        ];
         var centerImage = [];
         var defaultCenterInfo = {
             "facilityID": "Default",
@@ -29,27 +38,26 @@ controllers.controller('learningCenterCtrl',['$scope', '$rootScope', '$statePara
 
 
         function getFahrenheit() {
-            $scope.fontSizeC = 'font-weight: normal';
-            $scope.fontSizeF = 'font-weight: bold';
+            $scope.fontSizeC = 'facilityVenueWeather-top-info-btn bdln';
+            $scope.fontSizeF = 'facilityVenueWeather-top-info-btn active bdrn';
             getWeatherInfo($scope.whichFacility.city, 'f');
         }
 
         function getCentigrade() {
-            $scope.fontSizeC = 'font-weight: bold';
-            $scope.fontSizeF = 'font-weight: normal';
+            $scope.fontSizeC = 'facilityVenueWeather-top-info-btn active bdrn';
+            $scope.fontSizeF = 'facilityVenueWeather-top-info-btn bdln';
             getWeatherInfo($scope.whichFacility.city, 'c');
         }
 
         // Get weather info in venue page
         function getWeatherInfo(loc, degree) {
-            $scope.weather = [];
             var searchCondition = "select item from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + loc + "') and u='" + degree + "'";
             trainingService.getWeatherInfo(searchCondition).then(
                 function (weatherdata) {
+                    $scope.weather = [];
                     angular.forEach(weatherdata, function (item) {
                         $scope.weather.push(item);
                     });
-
                     $scope.weatherCard = true;
                     $ionicLoading.hide();
                 },
@@ -112,33 +120,48 @@ controllers.controller('learningCenterCtrl',['$scope', '$rootScope', '$statePara
                 indexOfCenter = 0;
                 getSingleFacility(' ', 1);
                 centerFacilityID = 1;
+                centerInfo = "https://techops.accenture.com/share/RLC/St.Charles_Learning_Center_Venue_Information.pdf";
             } else if ($stateParams.city == 'Kuala Lumpur') {
                 indexOfCenter = 1;
                 getSingleFacility(' ', 737);
                 centerFacilityID = 737;
+                centerInfo = "https://techops.accenture.com/share/RLC/Kuala_Lumpur_Learning_Center_Venue_Information.pdf";
             } else if ($stateParams.city == 'Madrid') {
                 indexOfCenter = 2;
                 getSingleFacility(' ', 2612);
                 centerFacilityID = 2612;
+                centerInfo = "https://techops.accenture.com/share/RLC/Madrid_Learning_Center_Venue_Information.pdf";
             } else if ($stateParams.city == 'Bengaluru') {
                 indexOfCenter = 3;
                 getSingleFacility(' ', 4404);
                 centerFacilityID = 4404;
+                centerInfo = "https://techops.accenture.com/share/RLC/India_Learning_Center_Venue_Information.pdf";
             } else if ($stateParams.city == 'London') {
                 indexOfCenter = 4;
                 getSingleFacility(' ', 4790);
                 centerFacilityID = 4790;
+                centerInfo = "https://techops.accenture.com/share/RLC/London_Learning_Center_Venue_Information.pdf";
             } else if ($stateParams.city == 'Dublin') {
                 indexOfCenter = 5;
                 getSingleFacility(' ', 6176);
                 centerFacilityID = 6176;
+                centerInfo = "https://techops.accenture.com/share/RLC/Dublin_Learning_Center_Venue_Information.pdf";
             } else {
                 indexOfCenter = 6;
-                // getSingleFacility('', );
+                centerInfo = null;
+                venueOptionsInit.pop();
             }
+            $scope.venueOptions = venueOptionsInit;
             $scope.centerImg = centerImage[indexOfCenter];
         }
 
+        function downloadAdditionalVenueInfo() {
+            if(centerInfo){
+                window.open(centerInfo, '_system', 'location=yes');
+            }else {
+                $cordovaToast.show("No Additional Information of This Center.", 'long', 'bottom');
+            }
+        }
 
         var venueMap = function () {
             getRegion();
@@ -169,20 +192,21 @@ controllers.controller('learningCenterCtrl',['$scope', '$rootScope', '$statePara
         $scope.getLearningCenter = function () {
             centerImage = getFacilityInfoService.getCenterImageList().centerImages;
             getCenter();
-            //getRegion()
         };
 
-        $scope.facilityVenueOptions = function (index) {
-            switch (index) {
-                case 0 : venueMap();
+        $scope.facilityVenueOptions = function (option) {
+            switch (option) {
+                case "LOCATION MAP" : venueMap();
                          break;
-                case 1 : $scope.navigateToState('app.floorMap');
+                case "FLOOR MAPS" : $scope.navigateToState('app.floorMap');
                          break;
-                case 2 : venueWeather();
+                case "WEATHER" : venueWeather();
                          break;
-                case 3 : $scope.navigateToOnGoingEvent(centerFacilityID);
+                case "ALL COURSES AT THIS FACILITY" : $scope.navigateToOnGoingEvent(centerFacilityID);
                          break;
-                case 4 : ;
+                case "ADDITIONAL INFORMATION" : downloadAdditionalVenueInfo();
+                         break;
+                default:break;
             }
         };
 
@@ -190,4 +214,11 @@ controllers.controller('learningCenterCtrl',['$scope', '$rootScope', '$statePara
             $scope.facilityVenueOptions_modal.hide()
         };
 
+        $scope.getFahrenheit = function () {
+            getFahrenheit();
+        };
+
+        $scope.getCentigrade = function () {
+            getCentigrade();
+        }
     }]);

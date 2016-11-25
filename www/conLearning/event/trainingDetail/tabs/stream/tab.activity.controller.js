@@ -1,8 +1,8 @@
 ﻿'use strict';
 
 controllers.controller('tabActivityController',
-    ['$scope', '$rootScope', 'trainingService', '$log', '$ionicModal', '$ionicLoading', 'authService', '$cordovaToast', '$cordovaClipboard', '$ionicPopup', 'localStorageService', '$cordovaCalendar', 'streamService', '$ionicScrollDelegate', '$cordovaDevice', 'environmentData', 'connectedLearning.constants.environments', 'aclAuthService', '$filter', '$stateParams', 'menuService', 'itemPathService', 'getFacilityInfoService',
-        function ($scope, $rootScope, trainingService, $log, $ionicModal, $ionicLoading, authService, $cordovaToast, $cordovaClipboard, $ionicPopup, localStorageService, $cordovaCalendar, streamService, $ionicScrollDelegate, device, environmentData, environments, aclAuthService, filter, $stateParams, menuService, itemPathService, getFacilityInfoService) {
+    ['$scope', '$rootScope', 'trainingService', '$log', '$ionicModal', '$ionicLoading', 'authService', '$cordovaToast', '$cordovaClipboard', '$ionicPopup', 'localStorageService', '$cordovaCalendar', 'streamService', '$ionicScrollDelegate', '$cordovaDevice', 'environmentData', 'connectedLearning.constants.environments', 'aclAuthService', '$filter', '$stateParams', 'menuService', 'itemPathService', 'getFacilityInfoService', 'connectedLearning.constants',
+        function ($scope, $rootScope, trainingService, $log, $ionicModal, $ionicLoading, authService, $cordovaToast, $cordovaClipboard, $ionicPopup, localStorageService, $cordovaCalendar, streamService, $ionicScrollDelegate, device, environmentData, environments, aclAuthService, filter, $stateParams, menuService, itemPathService, getFacilityInfoService, constants) {
             var defaultCircle = {};
             var authorIDType;
             var activityID = null;
@@ -10,7 +10,6 @@ controllers.controller('tabActivityController',
             var postCircleID;
 
             $scope.init = function () {
-                $rootScope.isContentDisabled = false;
                 $ionicLoading.show();
                 viewCircleIDList = [];
                 postCircleID = {};
@@ -24,109 +23,110 @@ controllers.controller('tabActivityController',
                 if ($stateParams !== null && typeof $stateParams !== 'undefined' && !angular.equals({}, $stateParams)){
                     if($stateParams.fromMyTraining){
                         //$scope.trainingItem = $stateParams.selectedTraining;
+                        $rootScope.isShowActivityCard = false;
+                        $scope.isShowBackButton = true;
                         getLoginUserInfo();
                         getCircleList();
                         $scope.initNotification();
                     }
                     else if($rootScope.trainingItem && $rootScope.trainingItem.fromAdmin){
+                        $rootScope.isShowActivityCard = false;
+                        $scope.isShowBackButton = true;
                         getLoginUserInfo();
                         getCircleList();
                         $scope.initNotification();
                     }
                     else {
-                        var activityDate = {};
-
-                        var currentEnvironment = window.currentEnvironment;
-                        if (currentEnvironment === environments.DEV) {
-                            authService.callService({
-                                serviceName: environmentData.services.myLearningService.serviceName,
-                                action: trainingService.getActivityEventInfo,
-                                params: {}
-                            }).then(function (data) {
-                                if (typeof data !== 'undefined' && data.ReturnCode === 0 && data.Content !== null && !angular.equals({}, data.Content)) {
-                                    var jwt, claims, dateDuration, imgName;
-
-                                    // get login user information
-                                    jwt = authService.jwt;
-                                    console.log('jwt');
-                                    claims = $scope.getProfileInformation(jwt);
-                                    console.log('claims');
-                                    $scope.getClaim(claims);
-
-                                    dateDuration = itemPathService.myTrainingCardDurationFilter({
-                                        'startDtLOCAL': data.Content.CourseStartDtLocal,
-                                        'endDtLOCAL': data.Content.CourseEndDtLocal
-                                    });
-                                    imgName = getFacilityInfoService.filterCenterImage(data.Content.FacilityID);
-                                    activityDate = {
-                                        "currentTrainingId": data.Content.ActivityID,
-                                        "currentTrainingTitle": data.Content.ActivityName,
-                                        "currentTrainingDate": dateDuration.dateDuration,
-                                        "currentLocation": data.Content.SessionLocation,
-                                        "city": data.Content.CourseLocation,
-                                        "pickRule": data.Content.IsFaculty,
-                                        "facilityID": data.Content.FacilityID,
-                                        "dateDuration": dateDuration.dateDuration,
-                                        "fromAdmin": false,
-                                        "isPastSession": false,
-                                        "isCurrent": true,
-                                        "ScheduleStartDate": data.Content.CourseStartDt,
-                                        "ScheduleStartLocalDate": data.Content.CourseStartDtLocal,
-                                        "ScheduleEndDate": data.Content.CourseEndDt,
-                                        "ScheduleEndLocalDate": data.Content.CourseEndDtLocal,
-                                        "FacilityID": data.Content.FacilityID,
-                                        "SessionDay": data.Content.SessionDay,
-                                        "SessionEventDate": data.Content.SessionEventDate,
-                                        "SessionName": data.Content.SessionName,
-                                        "SessionDescription": data.Content.SessionDescription,
-                                        "SessionLocation": data.Content.SessionLocation,
-                                        "SessionStartTime": data.Content.SessionStartTime,
-                                        "SessionEndTime": data.Content.SessionEndTime,
-                                        "imgName": imgName
-                                    };
-                                    $ionicLoading.hide();
-                                    getLoginUserInfo();
-                                    getCircleList();
-                                    $scope.initNotification();
-                                } else{
-                                    $ionicLoading.hide();
-                                    activityDate = {
-                                        "imgName": "DefaultVenue.jpg"
-                                    };
-                                }
-
-                                $rootScope.trainingItem = activityDate;
-                                $rootScope.activityID = activityDate.currentTrainingId;
-                                if ($rootScope.activityID == null || $rootScope.activityID == '' || typeof $rootScope.activityID == 'undefined') {
-                                    $rootScope.isContentDisabled = true;
-                                } else{
-                                    $rootScope.isContentDisabled = false;
-                                }
-                            }, function (error) {
-                                $rootScope.trainingItem = activityDate;
-                                if ($rootScope.trainingItem == null || typeof $rootScope.trainingItem == 'undefined' || angular.equals({}, $rootScope.trainingItem)) {
-                                    $rootScope.isContentDisabled = true;
-                                }
-
-                                console.log(error);
-                                $scope.showLoading = false;
-                                $ionicLoading.hide();
-                            });
-                        } else{
-                            $ionicLoading.hide();
-                            activityDate = {
-                                "imgName": "DefaultVenue.jpg"
-                            };
-                            $rootScope.trainingItem = activityDate;
-                            $rootScope.activityID = activityDate.currentTrainingId;
-                            if ($rootScope.activityID == null || $rootScope.activityID == '' || typeof $rootScope.activityID == 'undefined') {
-                                $rootScope.isContentDisabled = true;
-                            } else{
-                                $rootScope.isContentDisabled = false;
-                            }
-                        }
+                        $scope.isShowBackButton = false;
+                        getActiveEventInfo();
                     }
                 }
+            };
+
+            var getActiveEventInfo = function () {
+                $rootScope.trainingItem = {};
+                $rootScope.isContentDisabled = true;
+                $rootScope.isShowActivityCard = false;
+                authService.callService({
+                    serviceName: environmentData.services.myLearningService.serviceName,
+                    action: trainingService.getActivityEventInfo,
+                    params: {}
+                }).then(function (data) {
+                    var jwt, claims, dateDuration, imgName;
+
+                    // get login user information
+                    jwt = authService.jwt;
+                    console.log('jwt');
+                    claims = $scope.getProfileInformation(jwt);
+                    console.log('claims');
+                    $scope.getClaim(claims);
+                    if (typeof data !== 'undefined' && data.ReturnCode === 0) {
+                        if (data.Content !== null && !angular.equals({}, data.Content)){
+                            dateDuration = itemPathService.myTrainingCardDurationFilter({
+                                'startDtLOCAL': data.Content.CourseStartDtLocal,
+                                'endDtLOCAL': data.Content.CourseEndDtLocal
+                            });
+                            imgName = getFacilityInfoService.filterCenterImage(data.Content.FacilityID);
+                            $rootScope.trainingItem = {
+                                "currentTrainingId": data.Content.ActivityID,
+                                "currentTrainingTitle": data.Content.ActivityName,
+                                "currentTrainingDate": dateDuration.dateDuration,
+                                "currentLocation": data.Content.SessionLocation,
+                                "city": data.Content.CourseLocation,
+                                "pickRule": data.Content.IsFaculty,
+                                "facilityID": data.Content.FacilityID,
+                                "dateDuration": dateDuration.dateDuration,
+                                "fromAdmin": false,
+                                "isPastSession": false,
+                                "isCurrent": true,
+                                "ScheduleStartDate": data.Content.CourseStartDt,
+                                "ScheduleStartLocalDate": data.Content.CourseStartDtLocal,
+                                "ScheduleEndDate": data.Content.CourseEndDt,
+                                "ScheduleEndLocalDate": data.Content.CourseEndDtLocal,
+                                "FacilityID": data.Content.FacilityID,
+                                "SessionDay": data.Content.SessionDay,
+                                "SessionEventDate": data.Content.SessionEventDate,
+                                "SessionName": data.Content.SessionName,
+                                "SessionDescription": data.Content.SessionDescription,
+                                "SessionLocation": data.Content.SessionLocation,
+                                "SessionStartTime": data.Content.SessionStartTime,
+                                "SessionEndTime": data.Content.SessionEndTime,
+                                "imgName": imgName
+                            };
+
+                            $rootScope.activityID = $rootScope.trainingItem.currentTrainingId;
+                            $rootScope.isContentDisabled = false;
+                            $rootScope.isShowActivityCard = true;
+                        }else{
+                            $rootScope.isContentDisabled = true;
+                            $rootScope.isShowActivityCard = false;
+                            $rootScope.trainingItem = {};
+                            $rootScope.trainingItem.imgName = "DefaultVenue.jpg";
+                            $rootScope.trainingItem.fromAdmin = false;
+                        }
+
+                        $ionicLoading.hide();
+                        getLoginUserInfo();
+                        getCircleList();
+                        $scope.initNotification();
+                    } else{
+                        $rootScope.isContentDisabled = true;
+                        $rootScope.isShowActivityCard = false;
+                        $rootScope.trainingItem = {};
+                        $rootScope.trainingItem.imgName = "DefaultVenue.jpg";
+                        $rootScope.trainingItem.fromAdmin = false;
+                        $ionicLoading.hide();
+                    }
+                }, function (error) {
+                    console.log(error);
+                    $scope.showLoading = false;
+                    $rootScope.isContentDisabled = true;
+                    $rootScope.isShowActivityCard = false;
+                    $rootScope.trainingItem = {};
+                    $rootScope.trainingItem.imgName = "DefaultVenue.jpg";
+                    $rootScope.trainingItem.fromAdmin = false;
+                    $ionicLoading.hide();
+                });
             };
 
             $scope.modifyDefaultCircle = function (circle) {
@@ -155,11 +155,26 @@ controllers.controller('tabActivityController',
             var getLoginUserInfo = function () {
                 if (!$rootScope.fistLoad) {
                     //Get profile image
-                    menuService.getProfileImageModel($rootScope.loginUserID).then(function (data) {
+                    authService.callService({
+                        serviceName: environmentData.services.myLearningService.serviceName,
+                        action: menuService.getProfileImageModel,
+                        params: {
+                            eID: $rootScope.loginUserID
+                        }
+                    }).then(
+
+                        function (data) {
                         $rootScope.profileImage = data[0].m_Uri;
                     });
                     //Get profile infomation
-                    menuService.getProfileInfoModel($rootScope.loginUserID).then(function (data) {
+                    authService.callService({
+                        serviceName: environmentData.services.myLearningService.serviceName,
+                        action: menuService.getProfileInfoModel,
+                        params: {
+                            eID: $rootScope.loginUserID
+                        }
+                    }).then(
+                        function (data) {
                         $scope.profileInfo = data["CupsProfile"][0];
                         if (data["CupsProfile"][0].firstname != '') {
                             $rootScope.fullName = data["CupsProfile"][0].lastname + ', ' + data["CupsProfile"][0].firstname;
@@ -185,7 +200,7 @@ controllers.controller('tabActivityController',
                     action: trainingService.getCircles,
                     params: {authorID: ($rootScope.ImpersonateStatus == true ? $rootScope.impersonationEID : $rootScope.loginUserID), authorIDType: 2, activityID: $rootScope.activityID}
                 }).then(function (data) {
-                    if (typeof data !== 'undefined' && data.ReturnCode === 0 && data.Content !== null && !angular.equals({}, data.Content)) {
+                    if (typeof data !== 'undefined' && data.ReturnCode === 0 && data.Content !== null && data.Content.length !== 0) {
                         $scope.chooseCircleShow = true;
                         $scope.chooseCircleIcon = 'icon ion-chevron-right placeholder-icon';
                         //$scope.Circles = data.Content;
@@ -205,11 +220,22 @@ controllers.controller('tabActivityController',
 
                             $scope.Circles.push(item);
                         });
+
+                        $scope.isAbleToModifyDefaultCircle = true;
                     } else {
-                        if (data !== '' && data.ReturnCode === 0 && data.Content !== '') {
-                            $scope.chooseCircleShow = false;
-                            $rootScope.circleId = data.Content.circleID;
-                        }
+                        $rootScope.circleId = constants.circle.overallCircle.circleID;
+                        var item = {
+                            circleID: constants.circle.overallCircle.circleID,
+                            circleName: constants.circle.overallCircle.circleName,
+                            circleType: constants.circle.overallCircle.circleType,
+                            defaultCircle: constants.circle.overallCircle.defaultCircle,
+                            PreferredCircle: constants.circle.overallCircle.PreferredCircle,
+                            InternalCircleID: constants.circle.overallCircle.InternalCircleID,
+                            isViewCircle: true,
+                            isPostCircle: true
+                        };
+                        $scope.Circles.push(item);
+                        $scope.isAbleToModifyDefaultCircle = false;
                     }
 
                     $scope.stream = [];
@@ -243,21 +269,25 @@ controllers.controller('tabActivityController',
             $scope.circleListTrigger = function () {
                 // $scope.showCircleList = !$scope.showCircleList;
                 // $ionicScrollDelegate.resize();
-                viewCircleIDList = [];
-                postCircleID = {};
-                $scope.hideSelectCircle();
+                if ($scope.isAbleToModifyDefaultCircle){
+                    viewCircleIDList = [];
+                    postCircleID = {};
+                    $scope.hideSelectCircle();
 
-                angular.forEach($scope.Circles, function (item) {
-                    if (item.isViewCircle){
-                        viewCircleIDList.push(item.circleID);
-                    }
+                    angular.forEach($scope.Circles, function (item) {
+                        if (item.isViewCircle){
+                            viewCircleIDList.push(item.circleID);
+                        }
 
-                    if (item.isPostCircle){
-                        postCircleID = item;
-                    }
-                });
+                        if (item.isPostCircle){
+                            postCircleID = item;
+                        }
+                    });
 
-                $scope.modifyDefaultCircle(postCircleID);
+                    $scope.modifyDefaultCircle(postCircleID);
+                } else{
+                    $scope.hideSelectCircle();
+                }
             };
 
             //get Social data
@@ -446,12 +476,16 @@ controllers.controller('tabActivityController',
             };
 
             $scope.updatePostCircle = function (item) {
-                angular.forEach($scope.Circles, function (iterateItem) {
-                    iterateItem.isPostCircle = (item.circleID === iterateItem.circleID);
-                });
+                if ($scope.isAbleToModifyDefaultCircle){
+                    angular.forEach($scope.Circles, function (iterateItem) {
+                        iterateItem.isPostCircle = (item.circleID === iterateItem.circleID);
+                    });
+                }
             };
 
             $scope.$on('$ionicView.enter', function (e) {
                 $scope.init();
             });
+
+            $rootScope.$on('networkStateChanged',$scope.init);
         }]);

@@ -67,7 +67,15 @@ controllers.controller('impersonateController',
 
                             var cached = localStorageService.get("ACLMOBILE_IMAGE_" + eid);
                             if (cached == null || cached == "") {
-                                menuService.getProfileImageModel(eid).then(function (imgedata) {
+
+                                authService.callService({
+                                    serviceName: environmentData.services.myLearningService.serviceName,
+                                    action: menuService.getProfileImageModel,
+                                    params: {
+                                        eID: eid
+                                    }
+                                }).then(
+                                function (imgedata) {
                                     var url = imgedata[0].m_Uri;
                                     profiledata.imgUrl = url;
                                     localStorageService.set("ACLMOBILE_IMAGE_" + eid, url);
