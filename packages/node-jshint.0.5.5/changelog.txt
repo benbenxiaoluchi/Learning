@@ -1,0 +1,38 @@
+
+0.5.5
+ - node-jshint 0.5.5 (commit 99b66f067c95b8d2f83a5789d1498e2a1426aa3d)
+ - minimatch 0.0.5 (commit 74930846c80bbc0413a7aa1d2718248831cbdc27)
+ - node-lru-cache 1.0.5 (commit 23b2079060c3ca17f85968174da5ee0bf636fa8a)
+
+0.5.2
+ - node-jshint 0.5.2 (commit 74922b4bd8a320ad87e6b368249d03a70c50f625)
+
+0.5.1
+ - node-jshint 0.5.1 (commit 9db9c53492f62b550320d88f601e641fadc7abbb)
+
+0.5.0
+ - node-jshint 0.5.0 (commit 4bdc29dfcf1b5024aacb66aef6f37611a5056c1b)
+ - minimatch 0.0.4 (commit 6e8c1c666a08a7d33bbc9c0d4027b213e628ab88)
+ - lru-cache 1.0.4 (commit 83b610b23368e0b5300e0760e84ce7c85bab5fd3)
+ - .jshintingore files now work (just use Unix line endings), thanks to node-jshint 0.5.0 using minimatch module
+
+0.3.1
+ - MIT license
+ - PowerShell module that encapsulates jshint.bat
+ - MSBuild/Visual Studio-compatible reporter, used by default in PS module
+ - node-jshint 0.3.1 (commit 1c5fe7cff2db230493a614a80eb2ea160f02381b)
+ - node.js 0.5.7 (unstable)
+
+0.2.3.2 
+ - fix missing files from jshint (HELP, LICENSE)
+ - fix problem when running with current directory different than the one with node.exe
+ - readme update
+
+0.2.3.1
+ - node.js 0.5.4
+
+0.2.3
+ - node-jshint 0.2.3 (commit 29cbfe3993e1f4de30310f2f09e5015b203b3692)
+ - node-argsparser 0.0.6 (commit 23c19b19551d3ca619abaa3b1c191c0f33806cf1)
+ - JSHint 2011-04-06
+ - node.js 0.5.2
